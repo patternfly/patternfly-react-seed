@@ -7,3 +7,5 @@ Patternfly Seed is an open source build scaffolding utility for web apps.
 `yarn`
 
 `yarn build`
+
+`yarn start`
