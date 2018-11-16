@@ -4,17 +4,20 @@
   "description": "An open source build scaffolding utility for web apps.",
   "main": "index.js",
   "repository": "https://github.com/seanforyou23/patternfly-seed.git",
-  "author": "Michael Spaxman <seanforyou23@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --hot --color --progress --info=true"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "babel-loader": "^8.0.4",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
-  }
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {}
 }

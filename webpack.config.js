@@ -13,6 +13,14 @@ module.exports = {
     path: distDir,
     filename: '[name].bundle.js'
   },
+  devServer: {
+    contentBase: distDir,
+    historyApiFallback: true,
+    compress: true,
+    clientLogLevel: 'info',
+    host: 'localhost',
+    port: 9001
+  },
   module: {
     rules: [
       {

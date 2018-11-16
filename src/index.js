@@ -1,2 +1,7 @@
-import './app/app';
-console.log('index.js');
+import { greeting } from './app/app';
+
+const transpiled = () => {
+  console.log(greeting());
+};
+
+transpiled();

@@ -1,1 +1,1 @@
-console.log('app.js');
+export const greeting = () => 'hello app.js';
