@@ -1,22 +1,5 @@
-import React from 'react';
-import { Progress } from '@patternfly/react-core';
-import { Button } from '@patternfly/react-core';
-import { greeting } from './app/app';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-const transpiled = () => {
-  console.log(greeting());
-};
-
-transpiled();
-
-export class ProgressMeter extends React.Component {
-
-  render() {
-    return (
-      <div>
-        <Progress value={33} title="test" />
-        <Button variant="primary">Button</Button>
-      </div>
-    );
-  }
-}
+ReactDOM.render(<App />, document.getElementById("root"));
