@@ -1,8 +1,12 @@
+:root {
+  --myApp-global--spacer--md: 30px;
+}
+
 .app-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: var(--myApp-global--spacer--md);
 }
 
 .notification-container {

@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot --color --progress --info=true --config config/webpack.config.js"
+    "start": "webpack-dev-server --hot --color --progress --info=true"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
