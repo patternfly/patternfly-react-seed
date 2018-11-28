@@ -16,6 +16,9 @@ Run a full build
 Run the test suite
 `yarn test`
 
+Run the linter
+`yarn lint`
+
 Launch a tool to inspect the bundle size
 `yarn bundle-profile:analyze`
 
