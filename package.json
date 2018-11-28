@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot --color --progress --info=true"
+    "start": "webpack-dev-server --hot --color --progress --info=true",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -16,10 +17,12 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "@patternfly/react-core": "^1.35.0",
+    "@types/jest": "^23.3.9",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "style-loader": "^0.23.1",
