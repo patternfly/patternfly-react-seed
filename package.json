@@ -9,7 +9,9 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server --hot --color --progress --info=true",
-    "test": "jest"
+    "test": "jest",
+    "build:bundle-profile": "webpack --profile --json > stats.json",
+    "bundle-profile:analyze": "yarn build:bundle-profile && webpack-bundle-analyzer ./stats.json"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -27,6 +29,7 @@
     "react-dom": "^16.6.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.25.1",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   }
