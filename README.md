@@ -1,6 +1,6 @@
 # Patternfly Seed
 
-Patternfly Seed is an open source build scaffolding utility for web apps.
+Patternfly Seed is an open source build scaffolding utility for web apps. The primary purpose of this project is to give developers a jump start when creating new projects that will use patternfly. A secondary purpose of this project is to serve as a reference for how to configure various aspects of an application that will use patternfly.
 
 ## Development Scripts
 
@@ -18,3 +18,14 @@ Run the test suite
 
 Launch a tool to inspect the bundle size
 `yarn bundle-profile:analyze`
+
+## Configurations
+* [Babel Config](./babel.config.js)
+* [Webpack Config](./webpack.config.js)
+* [Jest Config](./jest.config.js)
+
+## Code Quality Tools
+* For accessibility compliance, we use [react-axe](https://github.com/dequelabs/react-axe)
+* To keep our bundle size in check, we use [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
+* To keep our code formatting in check, we use [prettier](https://github.com/prettier/prettier)
+* To keep our code logic and test coverage in check, we use [jest](https://github.com/facebook/jest)
