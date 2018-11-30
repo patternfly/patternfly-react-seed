@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, Button } from '@patternfly/react-core';
 import './app.css';
-import '@patternfly/react-core/dist/styles/base.css';
 
 export default class App extends Component {
   state = {
