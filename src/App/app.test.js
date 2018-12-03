@@ -1,5 +1,25 @@
-import { sum } from './sum';
+import React from 'react';
+import App from './';
+import { mount, shallow } from 'enzyme';
+import { Alert, Button } from '@patternfly/react-core';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+describe('App tests', () => {
+  test('should render default App component', () => {
+    const view = shallow(<App />);
+    expect(view).toMatchSnapshot();
+  });
+
+  it('should render a dismiss button', () => {
+    const wrapper = mount(<App />);
+    const button = wrapper.find(Button);
+    expect(button.exists()).toBe(true)
+  });
+
+  it('should hide the alert when clicking the dismiss button', () => {
+    const wrapper = mount(<App />);
+    const button = wrapper.find(Button);
+    expect(wrapper.find(Alert).exists()).toBe(true);
+    button.simulate('click');
+    expect(wrapper.find(Alert).exists()).toBe(false);
+  });
 });
