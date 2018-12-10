@@ -2,3 +2,5 @@
 dist
 yarn-error.log
 stats.json
+src/App/pf-ie11.css
+src/App/assets

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, Button } from '@patternfly/react-core';
 import './app.css';
+import './pf-ie11.css';
 
 export default class App extends Component {
   state = {
