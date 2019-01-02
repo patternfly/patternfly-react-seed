@@ -1,0 +1,164 @@
+
+
+
+
+.pf-c-form {
+  --pf-c-form--GridGap: var(--pf-global--gutter);
+
+  // Label
+  --pf-c-form__label--Color: var(--pf-global--Color--100);
+  --pf-c-form__label--FontWeight: var(--pf-global--FontWeight--normal);
+  --pf-c-form__label--FontSize: var(--pf-global--FontSize--sm);
+  --pf-c-form__label--LineHeight: var(--pf-global--LineHeight--sm);
+  --pf-c-form__label--PaddingTop: var(--pf-global--spacer--sm);
+  --pf-c-form__label--PaddingBottom: var(--pf-global--spacer--sm);
+  --pf-c-form__label--m-disabled--Color: var(--pf-global--disabled-color--100);
+
+  // required labels
+  --pf-c-form__label-required--MarginLeft: var(--pf-global--spacer--xs);
+  --pf-c-form__label-required--FontSize: var(--pf-global--FontSize--sm);
+  --pf-c-form__label-required--Color: var(--pf-global--danger-color--100);
+
+  // action group
+  --pf-c-form__group--m-action--MarginTop: var(--pf-global--spacer--xl);
+
+  // form Group
+  --pf-c-form__group--MarginLeft: var(--pf-global--spacer--sm);
+
+  // Helpers
+  --pf-c-form__helper-text--MarginTop: var(--pf-global--spacer--xs);
+  --pf-c-form__helper-text--FontSize: var(--pf-global--FontSize--sm);
+  --pf-c-form__helper-text--Color: var(--pf-global--Color--100);
+
+
+  // Inline
+  --pf-c-form--m-inline--MarginRight: var(--pf-global--spacer--lg);
+
+  // States
+  --pf-c-form--m-error--Color: var(--pf-global--danger-color--200);
+
+
+  display: grid;
+  grid-gap: var(--pf-c-form--GridGap);
+
+  &.pf-m-horizontal {
+    &.pf-m-align-right {
+      .pf-c-form__label {
+        text-align: right;
+      }
+    }
+
+    .pf-c-form__group {
+      display: grid;
+      grid-column-gap: var(--pf-c-form--GridGap);
+
+      .pf-c-form-control {
+        align-self: start;
+      }
+    }
+
+    @media (min-width: $pf-global--breakpoint--md) {
+      .pf-c-form__group {
+        // this number needs to be confirmed by design :)
+        grid-template-columns: 150px 1fr;
+      }
+
+      .pf-c-form__group .pf-c-form__label {
+        padding-top: var(--pf-c-form__label--PaddingTop);
+        padding-bottom: 0;
+      }
+
+      .pf-c-form-control,
+      .pf-c-form__horizontal-group,
+      .pf-c-form__helper-text,
+      .pf-c-check {
+        grid-column-start: 2;
+      }
+    }
+  }
+
+  .pf-c-form__group {
+    // Handle additional items within __group without having an additional wrapper or selector
+    > *:not(.pf-c-form__label):not(.pf-c-input-group):not(.pf-c-form-control):not(.pf-c-form__helper-text):not(.pf-c-form__legend):not(.pf-c-form__action-group):not(.pf-c-check):not(.pf-c-form__horizontal-group):not([class*="pf-l-"]) {
+      margin-left: var(--pf-c-form__group--MarginLeft);
+    }
+
+    .pf-c-form__label {
+      padding-bottom: var(--pf-c-form__label--PaddingBottom);
+    }
+
+    &.pf-m-action {
+      margin-top: var(--pf-c-form__group--m-action--MarginTop);
+    }
+  }
+
+  .pf-c-form__label {
+    display: inline-block;
+    font-size: var(--pf-c-form__label--FontSize);
+    font-weight: var(--pf-c-form__label--FontWeight);
+    line-height: var(--pf-c-form__label--LineHeight);
+    color: var(--pf-c-form__label--Color);
+
+    &::selection {
+      background-color: none;
+    }
+
+    &:not(.pf-m-disabled):hover {
+      cursor: pointer;
+    }
+
+    &.pf-m-disabled {
+      color: var(--pf-c-form__label--m-disabled--Color);
+    }
+
+    &.pf-m-disabled:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  .pf-c-form__label-required {
+    margin-left: var(--pf-c-form__label-required--MarginLeft);
+    font-size: var(--pf-c-form__label-required--FontSize);
+    line-height: 0;
+    color: var(--pf-c-form__label-required--Color);
+  }
+
+
+  .pf-c-form__helper-text {
+    margin-top: var(--pf-c-form__helper-text--MarginTop);
+    font-size: var(--pf-c-form__helper-text--FontSize);
+
+    &:not(.pf-m-error) {
+      color: var(--pf-c-form__helper-text--Color);
+    }
+
+    &.pf-m-error {
+      color: var(--pf-c-form--m-error--Color);
+    }
+
+    &.pf-m-inactive {
+      display: none;
+    }
+  }
+
+  // Inline
+  .pf-m-inline {
+    .pf-c-form__label {
+      flex-basis: 100%;
+    }
+
+    display: flex;
+    flex-flow: row wrap;
+
+    // Purpose: larger margin-right than the default value for '--group.'
+    > *:not(.pf-c-form__label) {
+      flex: auto 0;
+      margin-right: var(--pf-c-form--m-inline--MarginRight);
+    }
+  }
+
+  // Fieldset
+  .pf-c-form__fieldset {
+    border: none;
+  }
+}

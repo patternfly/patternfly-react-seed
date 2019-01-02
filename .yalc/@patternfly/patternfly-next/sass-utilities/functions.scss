@@ -1,0 +1,22 @@
+//
+// PatternFly Functions
+// --------------------------------------------------
+
+// Transform px to rems
+@function pf-strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function pf-size-prem($pxval, $base: $pf-global--space-size-root) {
+  @return pf-strip-unit($pxval) / $base * 1rem;
+}
+
+@function pf-font-prem($pxval, $base: $pf-global--font-size-root) {
+  @return pf-strip-unit($pxval) / $base * 1rem;
+}
+
+@function pf-bg-svg($svg-coordinates, $viewBox: "512", $svg-color: "currentColor") {
+  $color: str-slice(#{$svg-color}, 2);
+
+  @return url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{$viewBox} 512'%3E%3Cpath fill='%23#{$color}' d='#{$svg-coordinates}'/%3E%3C/svg%3E");
+}

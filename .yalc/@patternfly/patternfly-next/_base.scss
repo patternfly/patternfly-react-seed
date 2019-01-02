@@ -1,0 +1,155 @@
+// CSS shild against PF 3
+[class^="pf-"],
+[class^="pf-"]::before,
+[class^="pf-"]::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--pf-global--FontFamily--sans-serif);
+  font-size: var(--pf-global--FontSize--md);
+  font-weight: var(--pf-global--FontWeight--normal);
+  line-height: var(--pf-global--LineHeight--md);
+  color: var(--pf-global--Color--100); // this color rule is set here to be able to use themes
+  background-color: transparent;
+  text-rendering: optimizeLegibility;
+}
+
+// Since PF3 sets root font size to 10px, we need to unset it.
+// This doesn't affect PF3.
+// https://github.com/twbs/bootstrap/blob/v3.4.0-dev/less/scaffolding.less#L23
+
+/* stylelint-disable */
+html {
+  font-size: unset !important; // the important is needed because we don't know if pf3 will be loaded after pfnext
+}
+
+/* stylelint-enable */
+
+@if $pf-global--enable-reset {
+  // Reset
+  // Based on minireset.css v0.0.3 | MIT License github.com/jgthms/minireset.css
+  // stylelint-disable at-rule-no-vendor-prefix, declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix
+
+  html,
+  body,
+  p,
+  ol,
+  ul,
+  li,
+  dl,
+  dt,
+  dd,
+  blockquote,
+  figure,
+  fieldset,
+  legend,
+  textarea,
+  pre,
+  iframe,
+  hr,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 100%;
+    font-weight: var(--pf-global--FontWeight--normal);
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    margin: 0;
+  }
+
+  img,
+  embed,
+  iframe,
+  object,
+  audio,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  iframe {
+    border: 0;
+  }
+
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    padding: 0;
+    text-align: left;
+  }
+
+  // Patternfly base styles
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: sans-serif;
+    line-height: 1.15;
+  }
+
+  body {
+    font-family: var(--pf-global--FontFamily--sans-serif);
+    font-size: var(--pf-global--FontSize--md);
+    font-weight: var(--pf-global--FontWeight--normal);
+    line-height: var(--pf-global--LineHeight--md);
+    text-align: left;
+    background-color: var(--pf-global--BackgroundColor--100);
+  }
+
+  // Links styles
+
+  a {
+    font-weight: var(--pf-global--link--FontWeight);
+    color: var(--pf-global--link--Color);
+    text-decoration: var(--pf-global--link--TextDecoration);
+
+    &:hover {
+      --pf-global--link--Color: var(--pf-global--link--Color--hover);
+      --pf-global--link--TextDecoration: var(--pf-global--link--TextDecoration--hover);
+    }
+  }
+
+  button,
+  a {
+    cursor: pointer;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    &::-moz-focus-inner {
+      padding: 0;
+      border-style: none;
+    }
+  }
+} // ends if

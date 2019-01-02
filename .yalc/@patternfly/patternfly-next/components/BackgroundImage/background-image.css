@@ -1,0 +1,50 @@
+/* stylelint-enable */
+.pf-c-background-image {
+  --pf-c-background-image--BackgroundImage--xs: url("../../assets/images/pfbg_576.jpg");
+  --pf-c-background-image--BackgroundImage--xs-2x: url("../../assets/images/pfbg_576@2x.jpg");
+  --pf-c-background-image--BackgroundImage--sm: url("../../assets/images/pfbg_768.jpg");
+  --pf-c-background-image--BackgroundImage--sm-2x: url("../../assets/images/pfbg_768@2x.jpg");
+  --pf-c-background-image--BackgroundImage--md: url("../../assets/images/pfbg_992.jpg");
+  --pf-c-background-image--BackgroundImage--md-2x: url("../../assets/images/pfbg_992@2x.jpg");
+  --pf-c-background-image--BackgroundImage--lg: url("../../assets/images/pfbg_1200.jpg");
+  --pf-c-background-image--BackgroundImage--xl: url("../../assets/images/pfbg_2000.jpg");
+  --pf-c-background-image--Filter: url("../../assets/images/background-filter.svg#image_overlay"); }
+  .pf-c-background-image::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: var(--pf-global--BackgroundColor--dark-200);
+    background-image: var(--pf-c-background-image--BackgroundImage--xs);
+    filter: var(--pf-c-background-image--Filter);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* stylelint-disable */
+    /* stylelint-enable */ }
+    @media (max-width: 576px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 576px) and (min-resolution: 192dpi) {
+      .pf-c-background-image::before {
+        background-image: var(--pf-c-background-image--BackgroundImage--xs-2x); } }
+    @media (min-width: 576px) {
+      .pf-c-background-image::before {
+        background-image: var(--pf-c-background-image--BackgroundImage--sm); } }
+    @media (min-width: 576px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 576px) and (min-resolution: 192dpi) {
+      .pf-c-background-image::before {
+        background-image: var(--pf-c-background-image--BackgroundImage--sm-2x); } }
+    @media (min-width: 768px) {
+      .pf-c-background-image::before {
+        background-image: var(--pf-c-background-image--BackgroundImage--md); } }
+    @media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-resolution: 192dpi) {
+      .pf-c-background-image::before {
+        background-image: var(--pf-c-background-image--BackgroundImage--md-2x); } }
+    @media (min-width: 992px) {
+      .pf-c-background-image::before {
+        background-image: var(--pf-c-background-image--BackgroundImage--lg); } }
+    @media (min-width: 992px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 992px) and (min-resolution: 192dpi) {
+      .pf-c-background-image::before {
+        background-image: var(--pf-c-background-image--BackgroundImage--xl); } }
+    @media (min-width: 1200px) {
+      .pf-c-background-image::before {
+        background-image: var(--pf-c-background-image--BackgroundImage--xl); } }
