@@ -2,10 +2,8 @@
 
 
 .pf-l-page {
-
   // Header brand link
   --pf-l-page__header-brand-link--MarginLeft: var(--pf-global--spacer--md);
-  --pf-l-page__header-brand-link--c-brand--MaxHeight: #{pf-size-prem(60px)};
   --pf-l-page__header-brand-link--md--MaxWidth: #{pf-size-prem(150px)};
 
   // Header nav
@@ -80,6 +78,8 @@
 
 // Link
 .pf-l-page__header-brand-link {
+  --pf-l-page__header-brand-link--c-brand--MaxHeight: #{pf-size-prem(60px)};
+
   display: flex;
   flex: 1;
   align-items: center;
@@ -96,7 +96,6 @@
 
 // Sidebar toggle
 .pf-l-page__header-brand-toggle {
-
   // Toggle
   --pf-l-page__header-sidebar-toggle__c-button--Padding: var(--pf-global--spacer--sm);
   --pf-l-page__header-sidebar-toggle__c-button--MarginRight: var(--pf-global--spacer--md);
