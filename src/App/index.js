@@ -5,10 +5,6 @@ const avatarImg = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGl
 // import './app.css';
 import './pf-ie11.css';
 
-// <div className="app-container">
-
-// </div>
-
 export default class App extends Component {
   state = {
     isShowing: true
@@ -108,7 +104,7 @@ export default class App extends Component {
             </nav>
           </aside>
 
-          <main role="main" className="pf-l-page__main">
+          <section role="main" className="pf-l-page__main">
 
             <section className="pf-l-page__main-section pf-m-light">
               <div className="pf-c-content">
@@ -212,7 +208,7 @@ export default class App extends Component {
               </div>
             </section>
 
-          </main>
+          </section>
 
         </div>
       </React.Fragment>

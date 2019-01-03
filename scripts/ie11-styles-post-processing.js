@@ -18,7 +18,7 @@ postcss([
     features: {
       'custom-properties': false
     },
-    autoprefixer: { grid: true }
+    autoprefixer: { grid: "autoplace" }
   }),
   cssvariables()
 
