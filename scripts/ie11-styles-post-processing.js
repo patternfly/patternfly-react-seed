@@ -6,9 +6,15 @@ const cssvariables = require('postcss-css-variables');
 const path = require('path');
 const fromPath = '../node_modules/@patternfly/patternfly-next/patternfly.css';
 const toPath = '../src/App/pf-ie11.css';
+const customStylesPath = '../src/App/app.css';
 
 const css = fs.readFileSync(
   path.resolve(__dirname, fromPath),
+  'utf8'
+);
+
+const customAppCss = fs.readFileSync(
+  path.resolve(__dirname, customStylesPath),
   'utf8'
 );
 
@@ -23,7 +29,7 @@ postcss([
   cssvariables()
 
 ])
-  .process(css, {
+  .process([css, customAppCss].join(' '), {
     from: path.resolve(__dirname, fromPath),
     to: path.resolve(__dirname, toPath)
   })

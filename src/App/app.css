@@ -1,5 +1,7 @@
 :root {
   /* --myApp-global--spacer--md: 30px; */
+  --pf-l-gallery--GridTemplateColumns: 50px 50px 50px 50px;
+  --pf-l-gallery--GridTemplateRows: 50px 50px 50px 50px;
 }
 
 .app-container {
@@ -13,3 +15,10 @@
 .notification-container {
   flex: 0 1 auto;
 }
+
+/* .pf-l-gallery {
+  --pf-l-gallery--GridTemplateRows: 100px 100px 100px 100px;
+  --pf-l-gallery--GridTemplateColumns: 100px 100px 100px 100px;
+  grid-template-columns: var(--pf-l-gallery--GridTemplateColumns);
+  grid-template-rows: var(--pf-l-gallery--GridTemplateRows);
+} */
