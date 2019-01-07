@@ -17,6 +17,18 @@
     "clean": "yarn rimraf dist",
     "bootstrap-ie": "node scripts/ie11-styles-post-processing.js"
   },
+  "browserslist": [
+    "last 2 chrome versions",
+    "last 2 safari versions",
+    "last 2 firefox versions",
+    "last 2 edge versions",
+    "last 2 android versions",
+    "last 2 ios versions",
+    "last 2 opera versions",
+    "last 2 operamobile versions",
+    "last 1 operamini version",
+    "ie 11"
+  ],
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
@@ -43,6 +55,8 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss": "^7.0.6",
     "postcss-css-variables": "^0.11.0",
+    "postcss-nested": "^4.1.1",
+    "postcss-nesting": "^7.0.0",
     "postcss-preset-env": "^6.4.0",
     "prettier": "^1.15.2",
     "react": "^16.6.3",

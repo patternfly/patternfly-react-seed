@@ -3,6 +3,8 @@ const postcss = require('postcss');
 const fs = require('fs');
 const fse = require('fs-extra');
 const cssvariables = require('postcss-css-variables');
+// const postcssNesting = require('postcss-nesting');
+const nested = require('postcss-nested');
 const path = require('path');
 const concat = require('concat');
 const pfStylesheetPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly.css');
@@ -19,8 +21,11 @@ concat([pfStylesheetPath, myAppStylesheetPath])
         stage: 0,
         features: {
           'custom-properties': false
+          // 'nesting-rules': true // this doesn't seem helpful
         }
       }),
+      // postcssNesting(), // doesn't work
+      nested, // doesn't work
       cssvariables()
     ])
       // no need to write to disk here, it's all in memory and needs another transform
