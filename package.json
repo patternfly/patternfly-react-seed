@@ -28,6 +28,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "concat": "^1.0.3",
     "core-js": "^2.6.0",
     "css-loader": "^1.0.1",
     "es6-promise": "^4.2.5",

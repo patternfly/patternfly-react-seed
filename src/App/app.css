@@ -1,24 +1,11 @@
 :root {
-  /* --myApp-global--spacer--md: 30px; */
-  --pf-l-gallery--GridTemplateColumns: 50px 50px 50px 50px;
-  --pf-l-gallery--GridTemplateRows: 50px 50px 50px 50px;
+  --seed-global--spacer--md: 30px;
 }
 
-.app-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* margin-top: var(--myApp-global--spacer--md); */
-  margin-top: 30px;
-}
-
-.notification-container {
-  flex: 0 1 auto;
-}
-
-/* .pf-l-gallery {
-  --pf-l-gallery--GridTemplateRows: 100px 100px 100px 100px;
-  --pf-l-gallery--GridTemplateColumns: 100px 100px 100px 100px;
+.pf-l-gallery.seed-gallery-grid-override {
+  --pf-l-gallery--GridTemplateColumns: 1fr 1fr 1fr;
+  --pf-l-gallery--GridTemplateRows: 1fr 1fr 1fr;
   grid-template-columns: var(--pf-l-gallery--GridTemplateColumns);
   grid-template-rows: var(--pf-l-gallery--GridTemplateRows);
-} */
+  margin-top: var(--seed-global--spacer--md);
+}
