@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "@patternfly/patternfly-next": {
+      "signature": "6f7630d0c5af515ba49a869fe7bb69c5",
+      "file": true,
+      "replaced": "^1.0.101"
+    }
+  }
+}
