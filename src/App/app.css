@@ -1,11 +1,9 @@
-:root {
-  --seed-global--spacer--md: 30px;
+/* .pf-l-gallery {
+  --pf-l-gallery--GridTemplateColumns: 1fr 2fr 1fr;
+  --pf-l-gallery--GridTemplateRows: 1fr 1fr 1fr;
 }
 
 .pf-l-gallery.seed-gallery-grid-override {
-  --pf-l-gallery--GridTemplateColumns: 1fr 1fr 1fr;
-  --pf-l-gallery--GridTemplateRows: 1fr 1fr 1fr;
   grid-template-columns: var(--pf-l-gallery--GridTemplateColumns);
   grid-template-rows: var(--pf-l-gallery--GridTemplateRows);
-  margin-top: var(--seed-global--spacer--md);
-}
+} */
