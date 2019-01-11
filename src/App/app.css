@@ -1,9 +1,4 @@
-.pf-l-gallery {
-  --pf-l-gallery--GridTemplateColumns: 1fr 2fr 1fr;
-  --pf-l-gallery--GridTemplateRows: 1fr 1fr 1fr;
-}
-
 .pf-l-gallery.seed-gallery-grid-override {
-  grid-template-columns: var(--pf-l-gallery--GridTemplateColumns);
-  grid-template-rows: var(--pf-l-gallery--GridTemplateRows);
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
 }
