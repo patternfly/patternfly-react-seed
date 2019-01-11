@@ -6,40 +6,34 @@ const cssvariables = require('postcss-css-variables');
 const path = require('path');
 const concat = require('concat');
 const glob = require('glob');
-const pfStylesheetPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly.css');
-const pfComponentPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,layouts,utilities}');
+const fullPfStylesheetPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly.css');
+const pfComponentPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,utilities,layouts}');
 // TODO: see how we can handle both pf and app stylesheets together
 const myAppStylesheetPath = path.resolve(__dirname, '../src/App/app.css');
 const toPath = '../src/App/pf-ie11.css';
 
-// remove the closing bracket from variable definitions where found
-function cleanup(variables) {
-  return variables.map(v => {
-    return (v.endsWith(`}`)) ? v.replace('}', '') : v;
-  });
-}
-
 // build an array of global variables
 // TODO: this only needs to be ran once, not for every file we want to process
-function getGlobalVarDefinitions(css) {
-  let fullPfStylesheet = fs.readFileSync(pfStylesheetPath, 'utf8');
-  let vars;
-  vars = cleanup(cleanup(fullPfStylesheet.match(/[^\r\n]+/g).filter(el => el.trim().substring(0, 13) === '--pf-global--')));
-  return vars;
+function getGlobalVarDefinitions(stylesheetPath) {
+  let fullPfStylesheet = fs.readFileSync(stylesheetPath, 'utf8').match(/[^\r\n]+/g);
+  let startToken = '--pf-global--';
+  return fullPfStylesheet
+    .filter(el => el.trim().startsWith(startToken))
+    .map(el => el.substring(el.indexOf(startToken), el.lastIndexOf(';') + 1));
 }
 
 // build an array of local variables
 function getLocalVarDefinitions(stylesheetPath) {
-  // console.log('need to grab all vars defined in: ', stylesheetPath);
-  let singlePfStylesheet = fs.readFileSync(stylesheetPath, 'utf8');
-  let styleSheetAsArray = cleanup(cleanup(singlePfStylesheet.match(/[^\r\n]+/g)));
-  let vars = styleSheetAsArray.filter(el => el.trim().substring(0, 5) === '--pf-');
-  return vars;
+  let singleStylesheet = fs.readFileSync(stylesheetPath, 'utf8').match(/[^\r\n]+/g);
+  const startToken = '--pf-';
+  return singleStylesheet
+    .filter(el => el.trim().startsWith(startToken))
+    .map(el => el.substring(el.indexOf(startToken), el.lastIndexOf(';') + 1));
 }
 
 // transforms variables to static values
+// and modern grid definitions into legacy
 function transformVariables(stylesheet) {
-  // console.log('transformVariables before: ', stylesheet);
   return postcss([
     presetEnv({
       stage: 0,
@@ -56,31 +50,18 @@ function transformVariables(stylesheet) {
       to: undefined
     })
     .then(result => {
-      // console.log('transformVariables after: ', result.css);
       return result.css;
-    }); // return only the static css for next step of the process
+    })
+    .catch(error => {
+      console.log('Problem transforming this stylesheet: ', error);
+    });
 }
 
-// transforms modern grid definitions into legacy IE11 grid definitions
-// function transformGrid(staticStylesheet) {
-//   return postcss([
-//     presetEnv({
-//       stage: 0,
-//       autoprefixer: { grid: 'autoplace' }
-//     })
-//   ])
-//     .process(staticStylesheet, {
-//       from: undefined,
-//       to: undefined
-//     })
-//     .then(oldSchoolStylesheetFormat => oldSchoolStylesheetFormat.css);
-// }
-
 function doTheTransform(stylesheet) {
-  const nextStylesheet = fs.readFileSync(stylesheet, 'utf8');
-  const globalVars = getGlobalVarDefinitions(stylesheet).join('\n');
+  const curStylesheet = fs.readFileSync(stylesheet, 'utf8');
+  const globalVars = getGlobalVarDefinitions(fullPfStylesheetPath).join('\n');
   const localVars = getLocalVarDefinitions(stylesheet).join('\n');
-  const newStylesheet = `:root {\n${globalVars}\n ${localVars} } \n\n${nextStylesheet}`;
+  const newStylesheet = `:root {\n${globalVars}\n ${localVars} } \n\n${curStylesheet}`;
 
   // debugging stuffs
   // let fileName = path.basename(stylesheet);
@@ -90,15 +71,7 @@ function doTheTransform(stylesheet) {
   //   newStylesheet
   // );
 
-  return transformVariables(newStylesheet)
-    .then(stylesheet => {
-      // processing these separately may not be necessary afterall
-      // return transformGrid(stylesheet);
-      return stylesheet;
-    })
-    .then(oldSchoolStylesheet => {
-      return oldSchoolStylesheet;
-    });
+  return transformVariables(newStylesheet);
 }
 
 // produces an IE11 compatible version of a given stylesheet
