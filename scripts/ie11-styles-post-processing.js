@@ -6,7 +6,7 @@ const cssvariables = require('postcss-css-variables');
 const path = require('path');
 const concat = require('concat');
 const glob = require('glob');
-const fullPfStylesheetPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly.css');
+const basePfStylesheet = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly-base.css');
 const pfComponentPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,utilities,layouts}');
 // TODO: see how we can handle both pf and app stylesheets together
 const myAppStylesheetPath = path.resolve(__dirname, '../src/App/app.css');
@@ -33,7 +33,7 @@ function getLocalVarDefinitions(stylesheetPath) {
 
 // transforms variables to static values
 // and modern grid definitions into legacy
-function transformVariables(stylesheet) {
+function postProcess(stylesheet) {
   return postcss([
     presetEnv({
       stage: 0,
@@ -53,31 +53,31 @@ function transformVariables(stylesheet) {
       return result.css;
     })
     .catch(error => {
-      console.log('Problem transforming this stylesheet: ', error);
+      console.log('Problem transforming this stylesheet: ');
     });
 }
 
-function doTheTransform(stylesheet) {
+function prepForTransform(stylesheet) {
   const curStylesheet = fs.readFileSync(stylesheet, 'utf8');
-  const globalVars = getGlobalVarDefinitions(fullPfStylesheetPath).join('\n');
+  const pfBase = getGlobalVarDefinitions(basePfStylesheet).join('\n');
   const localVars = getLocalVarDefinitions(stylesheet).join('\n');
-  const newStylesheet = `:root {\n${globalVars}\n ${localVars} } \n\n${curStylesheet}`;
+  const newStylesheet = `:root {\n${pfBase}\n ${localVars} } \n\n${curStylesheet}`;
 
   // debugging stuffs
-  // let fileName = path.basename(stylesheet);
-  // let ie11StagedFilePath = path.dirname(stylesheet) + path.sep + `ie11-stage-${fileName}`;
-  // fs.writeFileSync(
-  //   ie11StagedFilePath,
-  //   newStylesheet
-  // );
+  let fileName = path.basename(stylesheet);
+  let ie11StagedFilePath = path.dirname(stylesheet) + path.sep + `staged-${fileName}`;
+  fs.writeFileSync(
+    ie11StagedFilePath,
+    newStylesheet
+  );
 
-  return transformVariables(newStylesheet);
+  return postProcess(newStylesheet);
 }
 
 // produces an IE11 compatible version of a given stylesheet
 const processStylesheet = stylesheet => {
   return new Promise(resolve => {
-    doTheTransform(stylesheet).then((ie11ReadyStylesheet) => {
+    prepForTransform(stylesheet).then((ie11ReadyStylesheet) => {
       let fileName = path.basename(stylesheet);
       let ie11ReadyFilePath = path.dirname(stylesheet) + path.sep + `ie11-${fileName}`;
 

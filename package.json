@@ -15,7 +15,8 @@
     "build:bundle-profile": "webpack --profile --json > stats.json",
     "bundle-profile:analyze": "yarn build:bundle-profile && webpack-bundle-analyzer ./stats.json",
     "clean": "yarn rimraf dist",
-    "bootstrap-ie": "node scripts/ie11-styles-post-processing.js"
+    "bootstrap-ie": "node scripts/ie11-styles-post-processing.js",
+    "update-app-styles": "node scripts/consuming-app-preprocessing.js"
   },
   "browserslist": [
     "last 2 chrome versions",
