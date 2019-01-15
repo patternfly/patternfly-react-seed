@@ -26,16 +26,32 @@ function getLocalVarDefinitions(stylesheetPath) {
     .map(el => el.substring(el.indexOf(startToken), el.lastIndexOf(';') + 1));
 }
 
+// transforms modern grid definitions into legacy IE11 grid definitions
+function transformGrid(staticStylesheet) {
+  return postcss([
+    presetEnv({
+      stage: 0,
+      autoprefixer: { grid: 'autoplace' }
+    })
+  ])
+    .process(staticStylesheet, {
+      from: undefined,
+      to: undefined
+    })
+    .then(oldSchoolStylesheetFormat => oldSchoolStylesheetFormat.css)
+    .catch(error => {
+      console.log('Problem transforming grid in stylesheet: ', error);
+    });
+}
+
 // transforms variables to static values
-// and modern grid definitions into legacy
-function postProcess(stylesheet) {
+function transformVars(stylesheet) {
   return postcss([
     presetEnv({
       stage: 0,
       features: {
         'custom-properties': false
-      },
-      autoprefixer: { grid: 'autoplace' }
+      }
     }),
     cssvariables()
   ])
@@ -43,11 +59,9 @@ function postProcess(stylesheet) {
       from: undefined,
       to: undefined
     })
-    .then(result => {
-      return result.css;
-    })
+    .then(result => result.css)
     .catch(error => {
-      console.log('Problem transforming this stylesheet: ', error);
+      console.log('Problem transforming variables in stylesheet: ', error);
     });
 }
 
@@ -58,14 +72,15 @@ function prepForTransform(stylesheet) {
   const newStylesheet = `:root {\n${pfBase}\n ${localVars} } \n\n${curStylesheet}`;
 
   // debugging stuffs
-  let fileName = path.basename(stylesheet);
-  let ie11StagedFilePath = path.dirname(stylesheet) + path.sep + `staged-${fileName}`;
-  fs.writeFileSync(
-    ie11StagedFilePath,
-    newStylesheet
-  );
+  // let fileName = path.basename(stylesheet);
+  // let ie11StagedFilePath = path.dirname(stylesheet) + path.sep + `staged-${fileName}`;
+  // fs.writeFileSync(
+  //   ie11StagedFilePath,
+  //   newStylesheet
+  // );
 
-  return postProcess(newStylesheet);
+  return transformVars(newStylesheet)
+    .then(stylesheet => transformGrid(stylesheet));
 }
 
 // produces an IE11 compatible version of a given stylesheet

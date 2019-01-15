@@ -7,7 +7,7 @@ const path = require('path');
 const concat = require('concat');
 const glob = require('glob');
 const basePfStylesheet = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly-base.css');
-const pfComponentPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,layouts,utilities}');
+const pfStylesheetsPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,layouts,utilities}');
 const myAppStylesheetPath = path.resolve(__dirname, '../src/App/app.css');
 const toPath = '../src/App/pf-ie11.css';
 const problematicFiles = [
@@ -24,6 +24,7 @@ function fixAssetPaths(files) {
         return (line.includes('../../assets')) ? line.replace(re, './assets') : line;
       }).join('\n');
 
+    // update these files in place
     fs.writeFileSync(
       filePath,
       cssWithFixedPaths
@@ -31,11 +32,10 @@ function fixAssetPaths(files) {
   });
 }
 
-// step 1: ensure assets paths are all aligned, out of the box you'll get './assets' for fonts and '../../assets' for background image
 fixAssetPaths(problematicFiles);
 
 // step 2: gather all the component paths
-glob(`${pfComponentPath}/**/ie11-*.css`, function (err, files) {
+glob(`${pfStylesheetsPath}/**/ie11-*.css`, function (err, files) {
   if (err) {
     process.exit(1);
   }
@@ -45,6 +45,11 @@ glob(`${pfComponentPath}/**/ie11-*.css`, function (err, files) {
 
   concat(allFiles)
     .then(concatCss => {
+      // debugging stuffs
+      // fs.writeFileSync(
+      //   path.resolve(__dirname, '../src/App/stage-pf-ie11.css'),
+      //   concatCss
+      // );
       return postcss([
         presetEnv({
           stage: 0,
