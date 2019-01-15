@@ -45,7 +45,6 @@ glob(`${pfComponentPath}/**/ie11-*.css`, function (err, files) {
 
   concat(allFiles)
     .then(concatCss => {
-      // console.log(concatCss);
       return postcss([
         presetEnv({
           stage: 0,
@@ -56,12 +55,11 @@ glob(`${pfComponentPath}/**/ie11-*.css`, function (err, files) {
         }),
         cssvariables()
       ])
-        // no need to write to disk here, it's all in memory and needs another transform
         .process(concatCss, {
           from: undefined,
           to: undefined
         })
-        .then(result => result.css); // return only the static css for next step of the process
+        .then(result => result.css); // return only the static css
     })
     .then(processedCss => {
       // write the ie11 ready css file to disk

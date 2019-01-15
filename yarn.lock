@@ -798,9 +798,9 @@
   integrity sha512-rLu3wcBWH4P5q1CGoSSH/i9hrXs7SlbRLkoq9IGuoPYNGQvDJ3pt/wmOM+XgYjIDRMVIdkUWt0RsfzF50JfnCw==
 
 "@patternfly/patternfly-next@^1.0.101":
-  version "1.0.118"
-  resolved "https://registry.yarnpkg.com/@patternfly/patternfly-next/-/patternfly-next-1.0.118.tgz#24f755e7bc9e0602574c8e655dfcd44444cb0f64"
-  integrity sha512-M5kiGtP2oVvWWT90PD7FxVGEsdbK7fadGcpjWOQPnu2LRct5OfFcZ48yNxXLHKRsxlE7lhh8SNucsW3fxv4ZmQ==
+  version "1.0.122"
+  resolved "https://registry.yarnpkg.com/@patternfly/patternfly-next/-/patternfly-next-1.0.122.tgz#cedc0e60c70d0ec95c713b632d06ad34105623f2"
+  integrity sha512-tjD3Oc7+jSNgsVFYIosAiImlE84YQZtR6/2goH/sSFXAl2+DnXqreClHGT8QBK6l5qAkgtp6KZukdt8YZJWzlQ==
 
 "@patternfly/react-core@^1.38.2":
   version "1.38.2"

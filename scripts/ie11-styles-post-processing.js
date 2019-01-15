@@ -1,16 +1,11 @@
 const presetEnv = require('postcss-preset-env');
 const postcss = require('postcss');
 const fs = require('fs');
-const fse = require('fs-extra');
 const cssvariables = require('postcss-css-variables');
 const path = require('path');
-const concat = require('concat');
 const glob = require('glob');
 const basePfStylesheet = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly-base.css');
 const pfComponentPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,utilities,layouts}');
-// TODO: see how we can handle both pf and app stylesheets together
-const myAppStylesheetPath = path.resolve(__dirname, '../src/App/app.css');
-const toPath = '../src/App/pf-ie11.css';
 
 // build an array of global variables
 // TODO: this only needs to be ran once, not for every file we want to process
@@ -44,7 +39,6 @@ function postProcess(stylesheet) {
     }),
     cssvariables()
   ])
-    // no need to write to disk here, it's all in memory and needs another transform
     .process(stylesheet, {
       from: undefined,
       to: undefined
@@ -53,7 +47,7 @@ function postProcess(stylesheet) {
       return result.css;
     })
     .catch(error => {
-      console.log('Problem transforming this stylesheet: ');
+      console.log('Problem transforming this stylesheet: ', error);
     });
 }
 
