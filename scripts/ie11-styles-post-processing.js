@@ -8,7 +8,6 @@ const basePfStylesheet = path.resolve(__dirname, '../node_modules/@patternfly/pa
 const pfComponentPath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,utilities,layouts}');
 
 // build an array of global variables
-// TODO: this only needs to be ran once, not for every file we want to process
 function getGlobalVarDefinitions(stylesheetPath) {
   let fullPfStylesheet = fs.readFileSync(stylesheetPath, 'utf8').match(/[^\r\n]+/g);
   let startToken = '--pf-global--';
@@ -65,54 +64,45 @@ function transformVars(stylesheet) {
     });
 }
 
-function prepForTransform(stylesheet) {
-  const pfBase = getGlobalVarDefinitions(basePfStylesheet).join('\n');
-  const localVars = getLocalVarDefinitions(stylesheet).join('\n');
-  const curStylesheet = fs.readFileSync(stylesheet, 'utf8');
-  const newStylesheet = `:root {\n${pfBase}\n ${localVars} } \n\n${curStylesheet}`;
+function writeFileToDisk(file, stylesheetPath) {
+  let fileName = path.basename(stylesheetPath);
+  let ie11ReadyFilePath = path.dirname(stylesheetPath) + path.sep + `ie11-${fileName}`;
 
-  // debugging stuffs
-  // let fileName = path.basename(stylesheet);
-  // let ie11StagedFilePath = path.dirname(stylesheet) + path.sep + `staged-${fileName}`;
-  // fs.writeFileSync(
-  //   ie11StagedFilePath,
-  //   newStylesheet
-  // );
+  fs.writeFileSync(
+    ie11ReadyFilePath,
+    file
+  );
+}
+
+const globalVars = getGlobalVarDefinitions(basePfStylesheet).join('\n');
+
+function transform(stylesheetPath) {
+  const localVars = getLocalVarDefinitions(stylesheetPath).join('\n');
+  const curStylesheet = fs.readFileSync(stylesheetPath, 'utf8');
+  const newStylesheet = `:root {\n${globalVars}\n ${localVars} } \n\n${curStylesheet}`;
 
   return transformVars(newStylesheet)
     .then(stylesheet => transformGrid(stylesheet));
 }
 
-// produces an IE11 compatible version of a given stylesheet
-const processStylesheet = stylesheet => {
+function processStylesheet(stylesheetPath) {
+  return transform(stylesheetPath)
+    .then(ie11ReadyStylesheet => writeFileToDisk(ie11ReadyStylesheet, stylesheetPath));
+}
+
+function getComponentStylesheets() {
   return new Promise(resolve => {
-    prepForTransform(stylesheet).then(ie11ReadyStylesheet => {
-      let fileName = path.basename(stylesheet);
-      let ie11ReadyFilePath = path.dirname(stylesheet) + path.sep + `ie11-${fileName}`;
-
-      // write the ie11 ready css file to disk right beside each pf thingie
-      fs.writeFileSync(
-        ie11ReadyFilePath,
-        ie11ReadyStylesheet
-      );
-      resolve();
+    glob(`${pfComponentPath}/**/*.css`, function (err, files) {
+      if (err) {
+        process.exit(1);
+      }
+      resolve(files);
     });
-  }
-  );
-};
-
-// returns a promise which resolves to an array of file paths
-// to stylesheets which need to be processed
-const getComponentStylesheets = () => new Promise((resolve) => {
-  glob(`${pfComponentPath}/**/*.css`, function (err, files) {
-    if (err) {
-      process.exit(1);
-    }
-    resolve(files);
   });
-});
+}
 
 getComponentStylesheets()
   .then(files => {
-    files.reduce((prevPromise, nextStylesheet) => prevPromise.then(() => processStylesheet(nextStylesheet)), Promise.resolve());
+    files.reduce((prevPromise, nextStylesheet) =>
+      prevPromise.then(() => processStylesheet(nextStylesheet)), Promise.resolve());
   });

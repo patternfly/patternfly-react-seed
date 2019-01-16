@@ -798,7 +798,7 @@
   integrity sha512-rLu3wcBWH4P5q1CGoSSH/i9hrXs7SlbRLkoq9IGuoPYNGQvDJ3pt/wmOM+XgYjIDRMVIdkUWt0RsfzF50JfnCw==
 
 "@patternfly/patternfly-next@file:.yalc/@patternfly/patternfly-next":
-  version "0.0.0-development-817bc493"
+  version "0.0.0-development-d0941405"
 
 "@patternfly/react-core@^1.38.2":
   version "1.38.2"
