@@ -1,5 +1,11 @@
+.pf-l-gallery {
+  --pf-l-gallery--GridTemplateColumns: 1fr 1fr 1fr;
+  --pf-l-gallery--GridTemplateRows: 1fr 1fr 1fr;
+  --pf-l-gallery--m-gutter--GridGap: var(--pf-global--gutter);
+}
+
 .pf-l-gallery.seed-gallery-grid-override {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-template-columns: var(--pf-l-gallery--GridTemplateColumns);
+  grid-template-rows: var(--pf-l-gallery--GridTemplateRows);
+  grid-gap: var(--pf-l-gallery--m-gutter--GridGap);
 }

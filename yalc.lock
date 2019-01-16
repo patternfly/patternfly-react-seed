@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@patternfly/patternfly-next": {
-      "signature": "817bc493e7275bb467fb44005ceba2c9",
+      "signature": "d09414058c159b09f52e3dcffd417b86",
       "file": true,
       "replaced": "^1.0.101"
     }

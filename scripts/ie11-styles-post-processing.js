@@ -66,9 +66,9 @@ function transformVars(stylesheet) {
 }
 
 function prepForTransform(stylesheet) {
-  const curStylesheet = fs.readFileSync(stylesheet, 'utf8');
   const pfBase = getGlobalVarDefinitions(basePfStylesheet).join('\n');
   const localVars = getLocalVarDefinitions(stylesheet).join('\n');
+  const curStylesheet = fs.readFileSync(stylesheet, 'utf8');
   const newStylesheet = `:root {\n${pfBase}\n ${localVars} } \n\n${curStylesheet}`;
 
   // debugging stuffs
@@ -86,7 +86,7 @@ function prepForTransform(stylesheet) {
 // produces an IE11 compatible version of a given stylesheet
 const processStylesheet = stylesheet => {
   return new Promise(resolve => {
-    prepForTransform(stylesheet).then((ie11ReadyStylesheet) => {
+    prepForTransform(stylesheet).then(ie11ReadyStylesheet => {
       let fileName = path.basename(stylesheet);
       let ie11ReadyFilePath = path.dirname(stylesheet) + path.sep + `ie11-${fileName}`;
 
