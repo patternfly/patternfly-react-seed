@@ -89,7 +89,7 @@ function transformGrid(staticStylesheet) {
     });
 }
 
-function prepForTransform(stylesheet) {
+function transform(stylesheet) {
   const globalVars = getGlobalVarDefinitions(basePfStylesheet).join('\n');
   const localVars = getLocalVarDefinitions(stylesheet).join('\n');
   const basePf = fs.readFileSync(basePfStylesheet, 'utf8');
@@ -120,7 +120,7 @@ fixAssetPaths(problematicFiles);
 
 getStylesheetPaths(pfStylesheetsBaseGlob)
   .then(files => concat(files))
-  .then(concatCss => prepForTransform(concatCss))
+  .then(concatCss => transform(concatCss))
   .then(ie11ReadyStylesheet => {
     fs.writeFileSync(
       path.resolve(__dirname, toPath),
