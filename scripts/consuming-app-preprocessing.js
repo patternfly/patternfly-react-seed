@@ -34,16 +34,18 @@ function fixAssetPaths(files) {
 
 fixAssetPaths(problematicFiles);
 
-// step 2: gather all the component paths
+// step 2: gather all the component stylesheet paths
 glob(`${pfStylesheetsPath}/**/ie11-*.css`, function (err, files) {
   if (err) {
     process.exit(1);
   }
 
-  // TODO: illustrate how to filter out components we don't want
   const allFiles = [basePfStylesheet].concat(files, myAppStylesheetPath);
+  const componentsWeDoNotWant = ['Table', 'Login'];
+  // filter out components we don't want with a bit of manual tree shaking
+  const selectedStylesheets = componentsWeDoNotWant.reduce((acc, curExclude) => acc.filter(el => !el.includes(curExclude)), allFiles);
 
-  concat(allFiles)
+  concat(selectedStylesheets)
     .then(concatCss => {
       // debugging stuffs
       // fs.writeFileSync(
