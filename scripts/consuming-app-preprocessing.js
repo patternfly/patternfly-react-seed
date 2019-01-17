@@ -1,9 +1,10 @@
-const { getStylesheetPaths, transform } = require('./utils');
+const { getStylesheetPaths, transform } = require('@patternfly/patternfly-next/scripts/ie-conversion-utils');
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 const concat = require('concat');
 const pfStylesheetsGlob = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,layouts,utilities}/**/ie11-*.css');
+const patternflyBasePath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly-base.css');
 const myAppStylesheetPath = path.resolve(__dirname, '../src/App/app.css');
 const toPath = '../src/App/pf-ie11.css';
 const problematicFiles = [
@@ -33,7 +34,7 @@ const stylesheetsToExclude = ['Table', 'Login'];
 
 getStylesheetPaths(pfStylesheetsGlob, stylesheetsToExclude, [myAppStylesheetPath])
   .then(files => concat(files))
-  .then(concatCss => transform(concatCss))
+  .then(concatCss => transform(concatCss, patternflyBasePath))
   .then(ie11ReadyStylesheet => {
     fs.writeFileSync(
       path.resolve(__dirname, toPath),
