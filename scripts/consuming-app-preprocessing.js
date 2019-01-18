@@ -1,8 +1,8 @@
-const { getStylesheetPaths, transform } = require('@patternfly/patternfly-next/scripts/ie-conversion-utils');
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 const concat = require('concat');
+const { getStylesheetPaths, transform } = require('@patternfly/patternfly-next/scripts/ie-conversion-utils');
 const pfStylesheetsGlob = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,layouts,utilities}/**/ie11-*.css');
 const patternflyBasePath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly-base.css');
 const myAppStylesheetPath = path.resolve(__dirname, '../src/App/app.css');
@@ -30,6 +30,7 @@ function fixAssetPaths(files) {
 }
 
 fixAssetPaths(problematicFiles);
+
 const stylesheetsToExclude = ['Table', 'Login'];
 
 getStylesheetPaths(pfStylesheetsGlob, stylesheetsToExclude, [myAppStylesheetPath])
@@ -45,13 +46,12 @@ getStylesheetPaths(pfStylesheetsGlob, stylesheetsToExclude, [myAppStylesheetPath
     const sourceAssetsDir = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/assets');
     const newAssetDir = path.resolve(__dirname, '../src/App/assets');
 
-    fse.copy(sourceAssetsDir, newAssetDir, function (err) {
-      if (err) {
-        console.error(err);
+    fse.copy(sourceAssetsDir, newAssetDir, function (error) {
+      if (error) {
+        throw new Error(error);
       }
     });
   })
   .catch(error => {
-    console.log('There was an error: ', error);
-    process.exit(1);
+    throw new Error(error);
   });
