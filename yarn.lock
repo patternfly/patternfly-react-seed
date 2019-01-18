@@ -797,8 +797,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.2.tgz#576ff7fb1230185b619a75d258cbc98f0867a8dc"
   integrity sha512-rLu3wcBWH4P5q1CGoSSH/i9hrXs7SlbRLkoq9IGuoPYNGQvDJ3pt/wmOM+XgYjIDRMVIdkUWt0RsfzF50JfnCw==
 
-"@patternfly/patternfly-next@file:.yalc/@patternfly/patternfly-next":
-  version "0.0.0-development-d0941405"
+"@patternfly/patternfly-next@^1.0.133":
+  version "1.0.133"
+  resolved "https://registry.yarnpkg.com/@patternfly/patternfly-next/-/patternfly-next-1.0.133.tgz#1327d4f0d8a2e23a17fd28449d3510fc2b28cb43"
+  integrity sha512-hfrDv3fmzxmY0BNR3r84SpJulwW8+vgl+dHei9eTPe7EBPKSy9yw0b8DdWvsnJEYyq8eEoC+exnNQuS0p+6Ncg==
 
 "@patternfly/react-core@^1.38.2":
   version "1.38.2"
