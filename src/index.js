@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import "@patternfly/react-core/dist/styles/base.css";
+import App from "./App";
 
 if (process.env.NODE_ENV !== "production") {
   var axe = require("react-axe");
