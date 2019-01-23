@@ -32,8 +32,8 @@ module.exports = {
         },
         include: function (input) {
           // only process modules with this loader
-          // if they live under a 'fonts' directory
-          return input.indexOf('fonts') > -1;
+          // if they live under a 'fonts' or 'pficon' directory
+          return (input.indexOf('fonts') > -1 || input.indexOf('pficon') > -1);
         }
       },
       {
