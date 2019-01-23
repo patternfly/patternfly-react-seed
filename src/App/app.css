@@ -4,8 +4,25 @@
   --pf-l-gallery--m-gutter--GridGap: var(--pf-global--gutter);
 }
 
-.pf-l-gallery.seed-gallery-grid-override {
+.pf-l-gallery {
   grid-template-columns: var(--pf-l-gallery--GridTemplateColumns);
   grid-template-rows: var(--pf-l-gallery--GridTemplateRows);
   grid-gap: var(--pf-l-gallery--m-gutter--GridGap);
+}
+
+.pf-c-page__main-section {
+  background-color: var(--pf-c-page__main-section--BackgroundColor);
+}
+
+.pf-c-page__main-section:last-of-type {
+  background-color: rgb(237, 237, 237);
+}
+
+.pf-c-page__main-section.pf-m-light {
+  background-color: var(--pf-c-page__main-section--m-light--BackgroundColor);
+}
+
+.pf-c-page__header .pf-c-dropdown__toggle.pf-m-plain,
+.pf-c-page__header .pf-c-button, {
+  color: var(--pf-global--Color--light-100);
 }

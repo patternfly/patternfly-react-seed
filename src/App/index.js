@@ -10,7 +10,6 @@ export default class App extends Component {
         </div>
         <div className="pf-c-page" id="page-layout-default-nav">
           <header role="banner" className="pf-c-page__header">
-
             <div className="pf-c-page__header-brand">
               <div className="pf-c-page__header-brand-toggle">
                 <button className="pf-c-button pf-m-plain" id="page-layout-default-nav-nav-toggle" aria-label="Toggle primary navigation">
@@ -21,48 +20,34 @@ export default class App extends Component {
                 <img className="pf-c-brand" src={brandImg} alt="Patternfly Logo" />
               </a>
             </div>
-
             <div className="pf-c-page__header-tools">
-              <div className="pf-l-toolbar">
-                <div className="pf-l-toolbar__group pf-m-icons pf-screen-reader">
-                  <div className="pf-l-toolbar__item">
-                    <button className="pf-c-button pf-m-plain" aria-label="Notifications">
-                      <i className="fas fa-bell" aria-hidden="true"></i>
+              <div className="pf-c-page__header-tools-group pf-m-icons pf-screen-reader">
+                <button className="pf-c-button pf-m-plain" aria-label="Alerts">
+                  <i className="fas fa-bell" aria-hidden="true"></i>
+                </button>
+                <button className="pf-c-button pf-m-plain" aria-label="Settings">
+                  <i className="fas fa-cog" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div className="pf-c-page__header-tools-group">
+                <button className="pf-c-button pf-m-plain pf-m-mobile" aria-label="Overflow actions">
+                  <i className="fas fa-ellipsis-v" aria-hidden="true"></i>
+                </button>
+                <div className="pf-m-user pf-screen-reader">
+                  <div className="pf-c-dropdown">
+                    <button id="page-layout-default-nav-dropdown-button" className="pf-c-dropdown__toggle pf-m-plain" aria-expanded="false">
+                      Kyle Baker
+                      <i className="fas fa-caret-down pf-c-dropdown__toggle-icon" aria-hidden="true"></i>
                     </button>
-                  </div>
-                  <div className="pf-l-toolbar__item">
-                    <button className="pf-c-button pf-m-plain" aria-label="Settings">
-                      <i className="fas fa-cog" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-                <div className="pf-l-toolbar__group">
-                  <div className="pf-l-toolbar__item pf-m-mobile">
-                    <button className="pf-c-button pf-m-plain" aria-label="Overflow actions">
-                      <i className="fas fa-ellipsis-v" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                  <div className="pf-l-toolbar__item pf-m-user pf-screen-reader">
-                    <div className="pf-c-dropdown">
-                      <button id="page-layout-default-nav-dropdown-button" className="pf-c-dropdown__toggle pf-m-plain" aria-expanded="false">
-                        <span className="pf-c-dropdown__toggle-text">
-                          Kyle Baker
-                        </span>
-                        <i className="fas fa-caret-down pf-c-dropdown__toggle-icon" aria-hidden="true"></i>
-                      </button>
-                      <div className="pf-c-dropdown__menu" hidden>
-                        Kyle Baker
-                      </div>
-                    </div>
+                    <div className="pf-c-dropdown__menu" hidden>Kyle Baker</div>
                   </div>
                 </div>
               </div>
               <img className="pf-c-avatar" src={avatarImg} alt="Avatar Image" />
             </div>
-
           </header>
 
-          <aside className="pf-c-page__sidebar">
+          <aside className="pf-c-page__sidebar pf-m-expanded">
             <nav className="pf-c-nav" id="page-layout-default-nav-primary-nav" aria-label="Primary Nav Default Example">
               <ul className="pf-c-nav__list">
                 <li className="pf-c-nav__item">
@@ -107,7 +92,7 @@ export default class App extends Component {
             </section>
 
             <section className="pf-c-page__main-section">
-              <div className="pf-l-gallery pf-m-gutter seed-gallery-grid-override">
+              <div className="pf-l-gallery pf-m-gutter">
                 <div className="pf-l-gallery__item">
                   <div className="pf-c-card">
                     <div className="pf-c-card__body">

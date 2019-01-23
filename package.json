@@ -15,7 +15,7 @@
     "build:bundle-profile": "webpack --profile --json > stats.json",
     "bundle-profile:analyze": "yarn build:bundle-profile && webpack-bundle-analyzer ./stats.json",
     "clean": "yarn rimraf dist",
-    "update-app-styles": "node scripts/consuming-app-preprocessing.js"
+    "update-app-styles": "node ./consuming-app-preprocessing.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",

@@ -3,12 +3,12 @@ const fse = require('fs-extra');
 const path = require('path');
 const concat = require('concat');
 const { getStylesheetPaths, transform } = require('@patternfly/patternfly-next/scripts/ie-conversion-utils');
-const pfStylesheetsGlob = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/{components,layouts,utilities}/**/ie11-*.css');
-const patternflyBasePath = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/patternfly-base.css');
-const myAppStylesheetPath = path.resolve(__dirname, '../src/App/app.css');
-const toPath = '../src/App/pf-ie11.css';
-const problematicFiles = [
-  path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/components/BackgroundImage/ie11-background-image.css')
+const pfStylesheetsGlob = path.resolve(__dirname, './node_modules/@patternfly/patternfly-next/{components,layouts,utilities}/**/*.css');
+const patternflyBasePath = path.resolve(__dirname, './node_modules/@patternfly/patternfly-next/patternfly-base.css');
+const myAppStylesheetPath = path.resolve(__dirname, './src/App/app.css');
+const toPath = './src/App/pf-ie11.css';
+const filesThatNeedPathAdjustments = [
+  path.resolve(__dirname, './node_modules/@patternfly/patternfly-next/components/BackgroundImage/background-image.css')
 ];
 
 function fixAssetPaths(files) {
@@ -29,7 +29,7 @@ function fixAssetPaths(files) {
   });
 }
 
-fixAssetPaths(problematicFiles);
+fixAssetPaths(filesThatNeedPathAdjustments);
 
 const stylesheetsToExclude = ['Table', 'Login'];
 
@@ -43,8 +43,8 @@ getStylesheetPaths(pfStylesheetsGlob, stylesheetsToExclude, [myAppStylesheetPath
     );
 
     // copy assets into local directory where our stylesheets can find them
-    const sourceAssetsDir = path.resolve(__dirname, '../node_modules/@patternfly/patternfly-next/assets');
-    const newAssetDir = path.resolve(__dirname, '../src/App/assets');
+    const sourceAssetsDir = path.resolve(__dirname, './node_modules/@patternfly/patternfly-next/assets');
+    const newAssetDir = path.resolve(__dirname, './src/App/assets');
 
     fse.copy(sourceAssetsDir, newAssetDir, function (error) {
       if (error) {
