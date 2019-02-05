@@ -1,16 +1,16 @@
 # Patternfly Seed
 
-Patternfly Seed is an open source build scaffolding utility for web apps. The primary purpose of this project is to give developers a jump start when creating new projects that will use patternfly. A secondary purpose of this project is to serve as a reference for how to configure various aspects of an application that will use patternfly.
+Patternfly Seed is an open source build scaffolding utility for web apps. The primary purpose of this project is to give developers a jump start when creating new projects that will use patternfly. A secondary purpose of this project is to serve as a reference for how to configure various aspects of an application that uses patternfly.
 
 ## Quick-start
-
-    npm install yarn -g # to install yarn on your machine globally 
-    git clone https://github.com/patternfly/patternfly-react-seed
-    cd patternfly-react-seed
-    yarn # to install react-seed dependencies
-    yarn build # to build the project
-    yarn start # to start the server
-
+```bash
+npm install yarn -g # ensure you have yarn on your machine globally
+git clone https://github.com/patternfly/patternfly-react-seed # clone the project
+cd patternfly-react-seed # navigate into the project directory
+yarn # install patternfly-react-seed dependencies
+yarn build # build the project
+yarn start # start the development server
+```
 ## Development Scripts
 
 Install development/build dependencies
