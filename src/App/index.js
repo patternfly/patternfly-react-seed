@@ -19,7 +19,7 @@ export default class App extends Component {
               variant="success"
               title="Setup Complete"
               action={
-                <Button onClick={this.dismissNotification} variant="secondary">
+                <Button className="dismiss-notification" onClick={this.dismissNotification} variant="secondary">
                   Dismiss
                 </Button>
               }
