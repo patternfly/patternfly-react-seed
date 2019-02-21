@@ -9,21 +9,11 @@ exports[`App tests should render default App component 1`] = `
   >
     <Alert
       action={
-        <Button
-          aria-label={null}
-          className="dismiss-notification"
-          component="button"
-          isActive={false}
-          isBlock={false}
-          isDisabled={false}
-          isFocus={false}
-          isHover={false}
-          onClick={[Function]}
-          type="button"
-          variant="secondary"
-        >
-          Dismiss
-        </Button>
+        <AlertActionCloseButton
+          aria-label=""
+          className=""
+          onClose={[Function]}
+        />
       }
       className=""
       title="Setup Complete"
