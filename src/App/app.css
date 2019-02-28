@@ -1,3 +1,7 @@
+#root {
+  height: 100%;
+}
+
 .pf-l-gallery {
   --pf-l-gallery--GridTemplateColumns: 1fr 1fr 1fr;
   --pf-l-gallery--GridTemplateRows: 1fr 1fr 1fr;
@@ -23,6 +27,6 @@
 }
 
 .pf-c-page__header .pf-c-dropdown__toggle.pf-m-plain,
-.pf-c-page__header .pf-c-button, {
+.pf-c-page__header .pf-c-button {
   color: var(--pf-global--Color--light-100);
 }
