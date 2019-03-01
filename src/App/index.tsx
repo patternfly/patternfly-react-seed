@@ -3,13 +3,10 @@ import { Alert, AlertActionCloseButton } from '@patternfly/react-core';
 import './app.css';
 
 export default class App extends Component {
-  state = {
+  public state = {
     isShowing: true
   };
-  dismissNotification = () => {
-    this.setState({ isShowing: false });
-  };
-  render() {
+  public render() {
     const { isShowing } = this.state;
     return (
       <div className="app-container">
@@ -27,4 +24,7 @@ export default class App extends Component {
       </div>
     );
   }
+  private dismissNotification = () => {
+    this.setState({ isShowing: false });
+  };
 }
