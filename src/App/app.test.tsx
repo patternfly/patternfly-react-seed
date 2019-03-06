@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './';
+import App from '.';
 import { mount, shallow } from 'enzyme';
 import { Alert, Button } from '@patternfly/react-core';
 
