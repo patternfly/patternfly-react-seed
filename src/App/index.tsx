@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, AlertActionCloseButton } from '@patternfly/react-core';
-import './app.css';
+import '@pfseed/app.css'
 
 export default class App extends Component {
   public state = {

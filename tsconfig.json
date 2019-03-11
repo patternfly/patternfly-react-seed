@@ -17,7 +17,11 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@pfseed/*": ["src/App/*"],
+      "@pfassets/*": ["node_modules/@patternfly/react-core/dist/styles/assets/*"]
+    },
   },
   "include": [
     "**/*.ts",
