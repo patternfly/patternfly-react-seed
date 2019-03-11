@@ -31,15 +31,15 @@ module.exports = {
             limit: 5000
           }
         },
-        include: function (input) {
+        include: function(input) {
           // only process modules with this loader
           // if they live under a 'fonts' or 'pficon' directory
-          return (input.indexOf('fonts') > -1 || input.indexOf('pficon') > -1);
+          return input.indexOf('fonts') > -1 || input.indexOf('pficon') > -1;
         }
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
-        use: ['url-loader?limit=10000', 'img-loader']
+        use: [{ loader: 'url-loader', options: { limit: 10000, outputPath: 'images' } }, 'img-loader']
       },
       {
         test: /\.svg$/,
@@ -47,7 +47,7 @@ module.exports = {
           loader: 'svg-url-loader',
           options: {}
         },
-        include: function (input) {
+        include: function(input) {
           // only process modules with this loader
           // if they live under an 'images' directory
           return input.indexOf('images') > -1;
