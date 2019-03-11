@@ -53,6 +53,22 @@ module.exports = {
       },
       {
         test: /\.svg$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 5000,
+              outputPath: 'svgs',
+              name: '[name].[ext]',
+            }
+          }
+        ],
+        include: function (input) {
+          return (input.indexOf('background-filter.svg') > 1);
+        }
+      },
+      {
+        test: /\.svg$/,
         use: {
           loader: 'svg-url-loader',
           options: {}
@@ -74,6 +90,7 @@ module.exports = {
           // 'fonts', or 'pficon' directory, those are handled with other loaders
           return (input.indexOf('bgimages') === -1) &&
             (input.indexOf('fonts') === -1) &&
+            (input.indexOf('background-filter') === -1) &&
             (input.indexOf('pficon') === -1);
         }
       }

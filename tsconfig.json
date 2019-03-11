@@ -19,8 +19,8 @@
     "strict": true,
     "resolveJsonModule": true,
     "paths": {
-      "@pfseed/*": ["src/App/*"],
-      "@pfassets/*": ["node_modules/@patternfly/react-core/dist/styles/assets/*"]
+      "@app/*": ["src/app/*"],
+      "@assets/*": ["node_modules/@patternfly/react-core/dist/styles/assets/*"]
     },
   },
   "include": [
