@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "@patternfly/react-core/dist/styles/base.css";
-import App from "./App/index";
+import App from '@pfseed/index';
 
 if (process.env.NODE_ENV !== "production") {
   // tslint:disable-next-line

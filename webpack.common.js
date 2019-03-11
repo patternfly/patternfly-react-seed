@@ -26,9 +26,10 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: 'fonts/[name].[ext]',
             // Limit at 50k. larger files emited into separate files
-            limit: 5000
+            limit: 5000,
+            outputPath: 'fonts',
+            name: '[name].[ext]',
           }
         },
         include: function(input) {
@@ -39,7 +40,16 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
-        use: [{ loader: 'url-loader', options: { limit: 10000, outputPath: 'images' } }, 'img-loader']
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 5000,
+              outputPath: 'images',
+              name: '[name].[ext]',
+            }
+          }
+        ]
       },
       {
         test: /\.svg$/,
@@ -48,9 +58,23 @@ module.exports = {
           options: {}
         },
         include: function(input) {
-          // only process modules with this loader
-          // if they live under an 'images' directory
-          return input.indexOf('images') > -1;
+          // only process SVG modules with this loader if they live under a 'bgimages' directory
+          // this is primarily useful when applying a CSS background using an SVG
+          return input.indexOf('bgimages') > -1;
+        }
+      },
+      {
+        test: /\.svg$/,
+        use: {
+          loader: 'raw-loader',
+          options: {}
+        },
+        include: function(input) {
+          // only process SVG modules with this loader when they don't live under a 'bgimages',
+          // 'fonts', or 'pficon' directory, those are handled with other loaders
+          return (input.indexOf('bgimages') === -1) &&
+            (input.indexOf('fonts') === -1) &&
+            (input.indexOf('pficon') === -1);
         }
       }
     ]

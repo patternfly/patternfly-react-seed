@@ -32,8 +32,8 @@ Launch a tool to inspect the bundle size
 `yarn bundle-profile:analyze`
 
 ## Configurations
-* [Babel Config](./babel.config.js)
-* [Webpack Config](./webpack.config.js)
+* [TypeScript Config](./tsconfig.json)
+* [Webpack Config](./webpack.common.js)
 * [Jest Config](./jest.config.js)
 
 ## Code Quality Tools
