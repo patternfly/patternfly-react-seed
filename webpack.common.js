@@ -63,9 +63,7 @@ module.exports = {
             }
           }
         ],
-        include: function (input) {
-          return (input.indexOf('background-filter.svg') > 1);
-        }
+        include: input => input.indexOf('background-filter.svg') > 1
       },
       {
         test: /\.svg$/,
