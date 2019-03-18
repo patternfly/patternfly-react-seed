@@ -17,7 +17,6 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
-    "@patternfly/react-core": "^2.1.4",
     "@types/enzyme": "^3.9.0",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.9",
@@ -60,5 +59,8 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@patternfly/react-core": "^2.3.6",
+    "@patternfly/react-icons": "^3.3.1"
+  }
 }
