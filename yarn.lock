@@ -521,6 +521,13 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/victory@^31.0.14":
+  version "31.0.14"
+  resolved "https://registry.yarnpkg.com/@types/victory/-/victory-31.0.14.tgz#253696ec00609e733f004fe1e2609735deeb9d46"
+  integrity sha512-/xeAjRJFMgu7G8ZAJeZW+mdN0gBWocxOq/KT6vUnu0Q5cyYJ80O4Vo0Jrn7G5QZ+dXyyYa8/CvjP34RcBmZFww==
+  dependencies:
+    "@types/react" "*"
+
 "@types/webpack@^4.4.25":
   version "4.4.26"
   resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.4.26.tgz#b52f605351f2ed60e6ce24fa7df39ab7abd03470"
