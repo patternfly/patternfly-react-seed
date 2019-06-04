@@ -24,15 +24,11 @@ exports[`App tests should render default App component 1`] = `
       <Alert
         action={
           <AlertActionCloseButton
-            aria-label=""
-            className=""
             onClose={[Function]}
           />
         }
-        className=""
         title="Setup Complete"
         variant="success"
-        variantLabel={null}
       >
         You have successfully launched your patternfly starter project.
       </Alert>
