@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const fromReactStylesPkg = path => path.indexOf('@patternfly/react-styles/css/') > -1;
 
 module.exports = {
   entry: {
@@ -13,6 +14,11 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ["null-loader"],
+        include: stylesheet => fromReactStylesPkg(stylesheet)
+      },
       {
         test: /\.(tsx|ts)?$/,
         use: [

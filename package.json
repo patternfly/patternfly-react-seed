@@ -34,6 +34,7 @@
     "imagemin": "^6.0.0",
     "jest": "^24.1.0",
     "mini-css-extract-plugin": "^0.7.0",
+    "null-loader": "^3.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prettier": "^1.15.2",
     "prop-types": "^15.6.1",
@@ -61,7 +62,8 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "@patternfly/react-core": "^3.34.0",
-    "@patternfly/react-icons": "^3.9.3"
+    "@patternfly/patternfly": "^2.14.0",
+    "@patternfly/react-core": "^3.38.1",
+    "@patternfly/react-icons": "^3.10.4"
   }
 }
