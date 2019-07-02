@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Alert, AlertActionCloseButton, BackgroundImage, BackgroundImageSrc } from '@patternfly/react-core';
+import "@patternfly/react-core/dist/styles/base.css";
+import {
+  Alert,
+  AlertActionCloseButton,
+  BackgroundImage,
+  BackgroundImageSrc
+} from '@patternfly/react-core';
 import '@app/app.css';
 import xs from '@assets/images/pfbg_576.jpg';
 import xs2x from '@assets/images/pfbg_576@2x.jpg';
@@ -26,7 +32,7 @@ export default class App extends Component {
     return (
       <React.Fragment>
         <BackgroundImage src={images} />
-        <div className="app-container">
+        <main className="app-container">
           {isShowing && (
             <div className="notification-container">
               <Alert
@@ -38,7 +44,7 @@ export default class App extends Component {
               </Alert>
             </div>
           )}
-        </div>
+        </main>
       </React.Fragment>
     );
   }
