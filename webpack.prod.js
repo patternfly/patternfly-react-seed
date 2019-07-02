@@ -27,7 +27,8 @@ module.exports = merge(common, {
           path.resolve(__dirname, 'node_modules/patternfly'),
           path.resolve(__dirname, 'node_modules/@patternfly/patternfly'),
           path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/base.css'),
-          path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/esm/@patternfly/patternfly')
+          path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/esm/@patternfly/patternfly'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-styles/css')
         ],
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       }

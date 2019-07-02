@@ -39,9 +39,9 @@ Launch a tool to inspect the bundle size
 
 ## Image Support
 
-To use an image asset that's shipped with patternfly core, you'll prefix the paths with `@pfassets`. `@pfassets` is an alias for the patternfly assets directory in node_modules.
+To use an image asset that's shipped with patternfly core, you'll prefix the paths with `@assets`. `@assets` is an alias for the patternfly assets directory in node_modules.
 
-`import imgSrc from '@pfassets/images/g_sizing.png';`
+`import imgSrc from '@assets/images/g_sizing.png';`
 Then you can use it like:
 `<img src={imgSrc} alt="Some image" />`
 
