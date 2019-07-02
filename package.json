@@ -24,7 +24,7 @@
     "@types/react": "^16.8.6",
     "@types/react-dom": "^16.8.2",
     "@types/victory": "^31.0.14",
-    "@types/webpack": "^4.4.25",
+    "@types/webpack": "^4.4.34",
     "css-loader": "^2.1.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
@@ -54,10 +54,10 @@
     "tslint-react": "^4.0.0",
     "typescript": "^3.3.3333",
     "url-loader": "^2.0.0",
-    "webpack": "^4.25.1",
+    "webpack": "^4.35.2",
     "webpack-bundle-analyzer": "^3.0.3",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
