@@ -10,12 +10,12 @@ module.exports = merge(common, {
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({})
-    ]
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css'
+      chunkFilename: '[name].bundle.css'
     })
   ],
   module: {
