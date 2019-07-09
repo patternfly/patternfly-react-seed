@@ -1,38 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App tests should render default App component 1`] = `
-<Fragment>
-  <BackgroundImage
-    className=""
-    src={
-      Object {
-        "filter": "test-file-stub#image_overlay",
-        "lg": "test-file-stub",
-        "sm": "test-file-stub",
-        "sm2x": "test-file-stub",
-        "xs": "test-file-stub",
-        "xs2x": "test-file-stub",
-      }
-    }
-  />
-  <div
-    className="app-container"
-  >
-    <div
-      className="notification-container"
-    >
-      <Alert
-        action={
-          <AlertActionCloseButton
-            onClose={[Function]}
-          />
-        }
-        title="Setup Complete"
-        variant="success"
-      >
-        You have successfully launched your patternfly starter project.
-      </Alert>
-    </div>
-  </div>
-</Fragment>
+<BrowserRouter>
+  <AppLayout>
+    <AppRoutes />
+  </AppLayout>
+</BrowserRouter>
 `;

@@ -23,6 +23,7 @@
     "@types/node": "^12.0.4",
     "@types/react": "^16.8.6",
     "@types/react-dom": "^16.8.2",
+    "@types/react-router-dom": "^4.3.4",
     "@types/victory": "^31.0.14",
     "@types/webpack": "^4.4.34",
     "css-loader": "^2.1.1",
@@ -61,7 +62,8 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "@patternfly/react-core": "^3.38.1",
-    "@patternfly/react-icons": "^3.10.6"
+    "@patternfly/react-core": "^3.58.1",
+    "@patternfly/react-icons": "^3.10.9",
+    "react-router-dom": "^5.0.1"
   }
 }
