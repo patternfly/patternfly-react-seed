@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+const BG_IMAGES_DIRNAME = 'bgimages';
+
 module.exports = {
   entry: {
     app: './src/index.tsx'
@@ -63,7 +65,7 @@ module.exports = {
         test: /\.svg$/,
         // only process SVG modules with this loader if they live under a 'bgimages' directory
         // this is primarily useful when applying a CSS background using an SVG
-        include: input => input.indexOf('bgimages') > -1,
+        include: input => input.indexOf(BG_IMAGES_DIRNAME) > -1,
         use: {
           loader: 'svg-url-loader',
           options: {}
@@ -74,7 +76,7 @@ module.exports = {
         // only process SVG modules with this loader when they don't live under a 'bgimages',
         // 'fonts', or 'pficon' directory, those are handled with other loaders
         include: input => (
-          (input.indexOf('bgimages') === -1) &&
+          (input.indexOf(BG_IMAGES_DIRNAME) === -1) &&
           (input.indexOf('fonts') === -1) &&
           (input.indexOf('background-filter') === -1) &&
           (input.indexOf('pficon') === -1)
