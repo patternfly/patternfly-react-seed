@@ -65,6 +65,7 @@
   "dependencies": {
     "@patternfly/react-core": "^3.58.1",
     "@patternfly/react-icons": "^3.10.9",
+    "react-document-title": "^2.0.3",
     "react-router-dom": "^5.0.1"
   }
 }
