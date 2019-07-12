@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App tests should render default App component 1`] = `
-<BrowserRouter>
-  <AppLayout>
-    <AppRoutes />
-  </AppLayout>
-</BrowserRouter>
+<SideEffect(DocumentTitle)
+  title="Patternfly React Seed | App Title"
+>
+  <BrowserRouter>
+    <AppLayout>
+      <AppRoutes />
+    </AppLayout>
+  </BrowserRouter>
+</SideEffect(DocumentTitle)>
 `;

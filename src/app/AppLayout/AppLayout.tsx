@@ -12,6 +12,7 @@ import {
   PageSidebar,
   SkipToContent
 } from '@patternfly/react-core';
+import { routes } from '@app/routes';
 import '@app/app.css';
 
 interface IAppLayout {
@@ -49,28 +50,13 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
   const Navigation = (
     <Nav id="nav-primary-simple">
       <NavList id="nav-list-simple" variant={NavVariants.simple}>
-        <NavItem
-          id="dashboard-link"
-          itemId={'dashboard'}>
-          <NavLink
-            to="/dashboard"
-            activeClassName="pf-m-current">Dashboard</NavLink>
-        </NavItem>
-        <NavItem
-          id="support-link"
-          itemId={'support'}>
-          <NavLink
-            to="/support"
-            activeClassName="pf-m-current">Support</NavLink>
-        </NavItem>
-        <NavItemSeparator />
-        <NavItem
-          id="404-link"
-          itemId={'404'}>
-          <NavLink
-            to="/asdf"
-            activeClassName="pf-m-current">Bad Route</NavLink>
-        </NavItem>
+        {routes.map((route, idx) => {
+          return (
+            <NavItem key={`${route.label}-${idx}`} id={`${route.label}-${idx}`}>
+              <NavLink to={route.path} activeClassName="pf-m-current">{route.label}</NavLink>
+            </NavItem>
+          );
+        })}
       </NavList>
     </Nav>
   );
