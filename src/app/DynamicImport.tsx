@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { accessibleRouteChangeHandler } from '@app/utils/utils';
 
 interface IDynamicImport {
   load: () => Promise<any>;
@@ -11,9 +12,14 @@ class DynamicImport extends React.Component<IDynamicImport> {
   };
   public componentDidMount() {
     this.props.load().then(component => {
-      this.setState({
-        component: component.default ? component.default : component
-      });
+      if (component) {
+        this.setState({
+          component: component.default ? component.default : component
+        });
+      }
+    })
+    .then(() => {
+      accessibleRouteChangeHandler();
     });
   }
   public render() {
