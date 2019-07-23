@@ -23,7 +23,7 @@ Install development/build dependencies
 Start the development server
 `yarn start`
 
-Run a full build
+Run a production build
 `yarn build`
 
 Run the test suite
@@ -31,6 +31,9 @@ Run the test suite
 
 Run the linter
 `yarn lint`
+
+Run the code formatter
+`yarn format`
 
 Launch a tool to inspect the bundle size
 `yarn bundle-profile:analyze`

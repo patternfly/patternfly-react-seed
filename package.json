@@ -12,6 +12,7 @@
     "start": "webpack-dev-server --hot --color --progress --info=true --config webpack.dev.js",
     "test": "jest",
     "lint": "tslint -c ./tslint.json --project .",
+    "format": "prettier --check --write ./src/**/*.{tsx,ts,js}",
     "build:bundle-profile": "webpack --profile --json > stats.json",
     "bundle-profile:analyze": "yarn build:bundle-profile && webpack-bundle-analyzer ./stats.json",
     "clean": "rimraf dist"
