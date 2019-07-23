@@ -12,7 +12,7 @@ describe('App tests', () => {
   it('should render a nav-toggle button', () => {
     const wrapper = mount(<App />);
     const button = wrapper.find(Button);
-    expect(button.exists()).toBe(true)
+    expect(button.exists()).toBe(true);
   });
 
   it('should hide the sidebar when clicking the nav-toggle button', () => {

@@ -13,6 +13,6 @@ const App: React.FunctionComponent = () => {
       </AppLayout>
     </Router>
   );
-}
+};
 
 export { App };
