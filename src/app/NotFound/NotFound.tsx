@@ -6,7 +6,7 @@ const NotFound: React.FunctionComponent = () => {
   return (
     <PageSection>
       <Alert variant="danger" title="404! This view hasn't been created yet." /><br />
-      <NavLink to="/dashboard" className="pf-c-nav__link">Back to Dashboard</NavLink>
+      <NavLink to="/" className="pf-c-nav__link">Take me home</NavLink>
     </PageSection>
   );
 }
