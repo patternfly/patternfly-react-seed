@@ -4,12 +4,21 @@ import { accessibleRouteChangeHandler } from '@app/utils/utils';
 interface IDynamicImport {
   load: () => Promise<any>;
   children: any;
+  focusContentAfterMount: boolean;
 }
 
 class DynamicImport extends React.Component<IDynamicImport> {
   public state = {
     component: null
   };
+  private routeFocusTimer: number;
+  constructor(props: IDynamicImport) {
+    super(props);
+    this.routeFocusTimer = 0;
+  }
+  public componentWillUnmount() {
+    window.clearTimeout(this.routeFocusTimer);
+  }
   public componentDidMount() {
     this.props.load().then(component => {
       if (component) {
@@ -18,9 +27,11 @@ class DynamicImport extends React.Component<IDynamicImport> {
         });
       }
     })
-    .then(() => {
-      accessibleRouteChangeHandler();
-    });
+      .then(() => {
+        if (this.props.focusContentAfterMount) {
+          this.routeFocusTimer = accessibleRouteChangeHandler();
+        }
+      });
   }
   public render() {
     return this.props.children(this.state.component);

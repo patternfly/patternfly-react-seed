@@ -1,33 +1,35 @@
 import * as React from 'react';
-import { Redirect, Route, RouteComponentProps, Switch } from 'react-router-dom';
+import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { Alert, PageSection } from '@patternfly/react-core';
 import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { Dashboard } from '@app/Dashboard/Dashboard';
 import { NotFound } from '@app/NotFound/NotFound';
 import DocumentTitle from 'react-document-title';
-
+import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
+let routeFocusTimer: number;
 const getSupportModuleAsync = () => {
   return () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
 };
 
 const Support = (routeProps: RouteComponentProps) => {
+  const lastNavigation = useLastLocation();
   return (
-    <DynamicImport load={getSupportModuleAsync()}>
+    <DynamicImport load={getSupportModuleAsync()} focusContentAfterMount={lastNavigation !== null}>
       {(Component: any) => {
-          let loadedComponent: any;
-          if (Component === null) {
-            loadedComponent = (
-              <PageSection aria-label="Loading Content Container">
-                <div className="pf-l-bullseye">
-                  <Alert title="Loading" className="pf-l-bullseye__item" />
-                </div>
-              </PageSection>
-            );
-          } else {
-            loadedComponent = <Component.Support {...routeProps} />;
-          }
-          return loadedComponent
+        let loadedComponent: any;
+        if (Component === null) {
+          loadedComponent = (
+            <PageSection aria-label="Loading Content Container">
+              <div className="pf-l-bullseye">
+                <Alert title="Loading" className="pf-l-bullseye__item" />
+              </div>
+            </PageSection>
+          );
+        } else {
+          loadedComponent = <Component.Support {...routeProps} />;
+        }
+        return loadedComponent
       }}
     </DynamicImport>
   );
@@ -39,6 +41,8 @@ const RouteWithTitleUpdates = ({
   title,
   ...rest
 }) => {
+  const lastNavigation = useLastLocation();
+
   function routeWithTitle(routeProps: RouteComponentProps) {
     return (
       <DocumentTitle title={title}>
@@ -48,9 +52,12 @@ const RouteWithTitleUpdates = ({
   }
 
   React.useEffect(() => {
-    if (!isAsync) {
-      accessibleRouteChangeHandler()
+    if (!isAsync && lastNavigation !== null) {
+      routeFocusTimer = accessibleRouteChangeHandler()
     }
+    return () => {
+      clearTimeout(routeFocusTimer);
+    };
   }, []);
 
   return (
@@ -74,7 +81,7 @@ const routes: IAppRoute[] = [
     exact: true,
     icon: null,
     label: 'Dashboard',
-    path: '/dashboard',
+    path: '/',
     title: 'Main Dashboard Title'
   },
   {
@@ -89,19 +96,20 @@ const routes: IAppRoute[] = [
 ];
 
 const AppRoutes = () => (
-  <Switch>
-    {routes.map(({ path, exact, component, title, isAsync }, idx) => (
-      <RouteWithTitleUpdates
-        path={path}
-        exact={exact}
-        component={component}
-        key={idx}
-        title={title}
-        isAsync={isAsync} />
-    ))}
-    <Redirect exact={true} from="/" to="/dashboard" />
-    <RouteWithTitleUpdates component={NotFound} title={'404 Page Not Found'} />
-  </Switch>
+  <LastLocationProvider>
+    <Switch>
+      {routes.map(({ path, exact, component, title, isAsync }, idx) => (
+        <RouteWithTitleUpdates
+          path={path}
+          exact={exact}
+          component={component}
+          key={idx}
+          title={title}
+          isAsync={isAsync} />
+      ))}
+      <RouteWithTitleUpdates component={NotFound} title={'404 Page Not Found'} />
+    </Switch>
+  </LastLocationProvider>
 );
 
 export { AppRoutes, routes };
