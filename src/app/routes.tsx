@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Redirect, Route, RouteComponentProps, Switch } from 'react-router-dom';
+import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { Alert, PageSection } from '@patternfly/react-core';
 import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
@@ -7,7 +7,7 @@ import { Dashboard } from '@app/Dashboard/Dashboard';
 import { NotFound } from '@app/NotFound/NotFound';
 import DocumentTitle from 'react-document-title';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
-
+let routeFocusTimer: number;
 const getSupportModuleAsync = () => {
   return () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
 };
@@ -42,6 +42,7 @@ const RouteWithTitleUpdates = ({
   ...rest
 }) => {
   const lastNavigation = useLastLocation();
+
   function routeWithTitle(routeProps: RouteComponentProps) {
     return (
       <DocumentTitle title={title}>
@@ -52,8 +53,11 @@ const RouteWithTitleUpdates = ({
 
   React.useEffect(() => {
     if (!isAsync && lastNavigation !== null) {
-      accessibleRouteChangeHandler()
+      routeFocusTimer = accessibleRouteChangeHandler()
     }
+    return () => {
+      clearTimeout(routeFocusTimer);
+    };
   }, []);
 
   return (
