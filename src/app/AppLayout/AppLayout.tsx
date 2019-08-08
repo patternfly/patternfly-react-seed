@@ -1,11 +1,9 @@
 import * as React from 'react';
-import '@patternfly/react-core/dist/styles/base.css';
 import { NavLink } from 'react-router-dom';
 import {
   Nav,
   NavList,
   NavItem,
-  NavItemSeparator,
   NavVariants,
   Page,
   PageHeader,
@@ -13,7 +11,6 @@ import {
   SkipToContent
 } from '@patternfly/react-core';
 import { routes } from '@app/routes';
-import '@app/app.css';
 
 interface IAppLayout {
   children: React.ReactNode;

@@ -29,41 +29,34 @@ const Support = (routeProps: RouteComponentProps) => {
         } else {
           loadedComponent = <Component.Support {...routeProps} />;
         }
-        return loadedComponent
+        return loadedComponent;
       }}
     </DynamicImport>
   );
 };
 
-const RouteWithTitleUpdates = ({
-  component: Component,
-  isAsync = false,
-  title,
-  ...rest
-}) => {
+const RouteWithTitleUpdates = ({ component: Component, isAsync = false, title, ...rest }) => {
   const lastNavigation = useLastLocation();
 
   function routeWithTitle(routeProps: RouteComponentProps) {
     return (
       <DocumentTitle title={title}>
-        <Component {...routeProps} />
+        <Component {...rest} {...routeProps} />
       </DocumentTitle>
-    )
+    );
   }
 
   React.useEffect(() => {
     if (!isAsync && lastNavigation !== null) {
-      routeFocusTimer = accessibleRouteChangeHandler()
+      routeFocusTimer = accessibleRouteChangeHandler();
     }
     return () => {
       clearTimeout(routeFocusTimer);
     };
   }, []);
 
-  return (
-    <Route {...rest} render={routeWithTitle} />
-  );
-}
+  return <Route render={routeWithTitle} />;
+};
 
 export interface IAppRoute {
   label: string;
@@ -98,14 +91,16 @@ const routes: IAppRoute[] = [
 const AppRoutes = () => (
   <LastLocationProvider>
     <Switch>
-      {routes.map(({ path, exact, component, title, isAsync }, idx) => (
+      {routes.map(({ path, exact, component, title, isAsync, icon }, idx) => (
         <RouteWithTitleUpdates
           path={path}
           exact={exact}
           component={component}
           key={idx}
+          icon={icon}
           title={title}
-          isAsync={isAsync} />
+          isAsync={isAsync}
+        />
       ))}
       <RouteWithTitleUpdates component={NotFound} title={'404 Page Not Found'} />
     </Switch>

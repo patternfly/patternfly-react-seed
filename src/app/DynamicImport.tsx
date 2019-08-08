@@ -20,13 +20,15 @@ class DynamicImport extends React.Component<IDynamicImport> {
     window.clearTimeout(this.routeFocusTimer);
   }
   public componentDidMount() {
-    this.props.load().then(component => {
-      if (component) {
-        this.setState({
-          component: component.default ? component.default : component
-        });
-      }
-    })
+    this.props
+      .load()
+      .then(component => {
+        if (component) {
+          this.setState({
+            component: component.default ? component.default : component
+          });
+        }
+      })
       .then(() => {
         if (this.props.focusContentAfterMount) {
           this.routeFocusTimer = accessibleRouteChangeHandler();
