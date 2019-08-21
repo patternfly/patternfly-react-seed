@@ -93,11 +93,9 @@ module.exports = {
         include: [
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'node_modules/patternfly'),
-          path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets'),
           path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/images'),
           path.resolve(__dirname, 'node_modules/@patternfly/react-styles/css/assets/images'),
           path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/assets/images'),
-          path.resolve(__dirname, 'node_modules/@patternfly/react-core/node_modules/@patternfly/react-styles'),
           path.resolve(__dirname, 'node_modules/@patternfly/react-core/node_modules/@patternfly/react-styles/css/assets/images'),
           path.resolve(__dirname, 'node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css/assets/images'),
         ],
