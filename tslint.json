@@ -1,11 +1,18 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-eslint-rules", "tslint-config-prettier"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-eslint-rules",
+    "tslint-config-prettier",
+    "tslint-react-hooks"
+  ],
   "linterOptions": {
     "exclude": [
       "**/node_modules/**/*.ts"
     ]
   },
   "rules": {
-    "ordered-imports": [false]
+    "ordered-imports": [false],
+    "react-hooks-nesting": "error"
   }
 }

@@ -5,9 +5,11 @@ import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { Dashboard } from '@app/Dashboard/Dashboard';
 import { NotFound } from '@app/NotFound/NotFound';
-import DocumentTitle from 'react-document-title';
+import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
+
 let routeFocusTimer: number;
+
 const getSupportModuleAsync = () => {
   return () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
 };
@@ -35,33 +37,10 @@ const Support = (routeProps: RouteComponentProps) => {
   );
 };
 
-const RouteWithTitleUpdates = ({ component: Component, isAsync = false, title, ...rest }) => {
-  const lastNavigation = useLastLocation();
-
-  function routeWithTitle(routeProps: RouteComponentProps) {
-    return (
-      <DocumentTitle title={title}>
-        <Component {...rest} {...routeProps} />
-      </DocumentTitle>
-    );
-  }
-
-  React.useEffect(() => {
-    if (!isAsync && lastNavigation !== null) {
-      routeFocusTimer = accessibleRouteChangeHandler();
-    }
-    return () => {
-      clearTimeout(routeFocusTimer);
-    };
-  }, []);
-
-  return <Route render={routeWithTitle} />;
-};
-
 export interface IAppRoute {
-  label: string;
+  label?: string;
   component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
-  icon: any;
+  icon?: any;
   exact?: boolean;
   path: string;
   title: string;
@@ -88,6 +67,44 @@ const routes: IAppRoute[] = [
   }
 ];
 
+// a custom hook for sending focus to the primary content container
+// after a view has loaded so that subsequent press of tab key
+// sends focus directly to relevant content
+const useA11yRouteChange = (isAsync: boolean) => {
+  const lastNavigation = useLastLocation();
+  React.useEffect(() => {
+    if (!isAsync && lastNavigation !== null) {
+      routeFocusTimer = accessibleRouteChangeHandler();
+    }
+    return () => {
+      clearTimeout(routeFocusTimer);
+    };
+  }, [isAsync, lastNavigation]);
+}
+
+const RouteWithTitleUpdates = ({
+  component: Component,
+  isAsync = false,
+  title,
+  ...rest
+}: IAppRoute) => {
+  useA11yRouteChange(isAsync);
+  useDocumentTitle(title);
+
+  function routeWithTitle(routeProps: RouteComponentProps) {
+    return (
+      <Component {...rest} {...routeProps} />
+    );
+  }
+
+  return <Route render={routeWithTitle} />;
+};
+
+const PageNotFound = ({ title }: { title: string }) => {
+  useDocumentTitle(title);
+  return <Route component={NotFound} />;
+}
+
 const AppRoutes = () => (
   <LastLocationProvider>
     <Switch>
@@ -102,7 +119,7 @@ const AppRoutes = () => (
           isAsync={isAsync}
         />
       ))}
-      <RouteWithTitleUpdates component={NotFound} title={'404 Page Not Found'} />
+      <PageNotFound title={'404 Page Not Found'} />
     </Switch>
   </LastLocationProvider>
 );

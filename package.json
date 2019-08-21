@@ -44,7 +44,7 @@
     "react-axe": "^3.0.2",
     "react-dom": "^16.6.3",
     "regenerator-runtime": "^0.13.3",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.0",
     "style-loader": "^1.0.0",
     "svg-url-loader": "^3.0.0",
     "ts-jest": "^24.0.0",
@@ -54,6 +54,7 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^4.0.0",
+    "tslint-react-hooks": "^2.2.1",
     "typescript": "^3.5.3",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.1",
@@ -66,7 +67,6 @@
     "@patternfly/react-core": "^3.77.2",
     "@patternfly/react-icons": "^3.10.15",
     "@patternfly/react-styles": "^3.5.7",
-    "react-document-title": "^2.0.3",
     "react-router-dom": "^5.0.1",
     "react-router-last-location": "^2.0.1"
   }
