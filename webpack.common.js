@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(tsx|ts)?$/,
+        test: /\.(tsx|ts|jsx)?$/,
         include: path.resolve(__dirname, 'src'),
         use: [
           {
@@ -98,6 +98,7 @@ module.exports = {
           path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/assets/images'),
           path.resolve(__dirname, 'node_modules/@patternfly/react-core/node_modules/@patternfly/react-styles/css/assets/images'),
           path.resolve(__dirname, 'node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css/assets/images'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-inline-edit-extension/node_modules/@patternfly/react-styles/css/assets/images')
         ],
         use: [
           {
@@ -117,7 +118,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     plugins: [
       new TsconfigPathsPlugin({
         configFile: path.resolve(__dirname, './tsconfig.json')
