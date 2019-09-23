@@ -3,3 +3,4 @@ dist
 yarn-error.log
 stats.json
 coverage
+storybook-static

@@ -15,9 +15,16 @@
     "format": "prettier --check --write ./src/**/*.{tsx,ts,js}",
     "build:bundle-profile": "webpack --config webpack.prod.js --profile --json > stats.json",
     "bundle-profile:analyze": "yarn build:bundle-profile && webpack-bundle-analyzer ./stats.json",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "storybook": "start-storybook -p 6006",
+    "build:storybook": "build-storybook"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-info": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.17",
@@ -25,6 +32,7 @@
     "@types/react": "^16.8.25",
     "@types/react-dom": "^16.8.5",
     "@types/react-router-dom": "^4.3.4",
+    "@types/storybook__react": "^4.0.2",
     "@types/victory": "^31.0.14",
     "@types/webpack": "^4.32.1",
     "css-loader": "^3.2.0",
@@ -42,6 +50,7 @@
     "raw-loader": "^3.1.0",
     "react": "^16.8.4",
     "react-axe": "^3.0.2",
+    "react-docgen-typescript-loader": "^3.2.1",
     "react-dom": "^16.6.3",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.0",
