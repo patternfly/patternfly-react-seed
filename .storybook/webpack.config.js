@@ -9,6 +9,7 @@ module.exports = ({ config }) => {
     test: /\.css$/,
     include: [
       path.resolve(__dirname, '../src'),
+      path.resolve(__dirname, '../.storybook'),
       path.resolve(__dirname, '../node_modules/@storybook'),
       path.resolve(__dirname, '../node_modules/patternfly'),
       path.resolve(__dirname, '../node_modules/@patternfly/patternfly'),

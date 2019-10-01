@@ -1,23 +1,10 @@
 import * as React from 'react';
+import { PageSection, Title, EmptyState, EmptyStateVariant, EmptyStateIcon, EmptyStateBody, Button, EmptyStateSecondaryActions } from '@patternfly/react-core';
 import { CubesIcon } from '@patternfly/react-icons';
-import {
-  PageSection,
-  Title,
-  Button,
-  EmptyState,
-  EmptyStateVariant,
-  EmptyStateIcon,
-  EmptyStateBody,
-  EmptyStateSecondaryActions
-} from '@patternfly/react-core';
 
-export interface ISupportProps {
-  sampleProp?: string;
-}
-
-const Support: React.FunctionComponent<ISupportProps> = (props) => {
+export const Support: React.FunctionComponent<any> = ({ children, ...props }) => {
   return (
-    <PageSection>
+    <PageSection {...props}>
       <EmptyState variant={EmptyStateVariant.full}>
         <EmptyStateIcon icon={CubesIcon} />
         <Title headingLevel="h5" size="lg">
@@ -40,5 +27,3 @@ const Support: React.FunctionComponent<ISupportProps> = (props) => {
     </PageSection>
   );
 }
-
-export { Support };

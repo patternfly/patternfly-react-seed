@@ -19,6 +19,7 @@
     "strict": true,
     "resolveJsonModule": true,
     "paths": {
+      "@prj/*": ["src/*"],
       "@app/*": ["src/app/*"],
       "@assets/*": ["node_modules/@patternfly/react-core/dist/styles/assets/*"]
     }

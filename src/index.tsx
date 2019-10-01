@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from '@app/index';
+import { App } from '@app/app';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 if (process.env.NODE_ENV !== "production") {
   // tslint:disable-next-line
@@ -8,4 +9,10 @@ if (process.env.NODE_ENV !== "production") {
   axe(React, ReactDOM, 1000);
 }
 
-ReactDOM.render(<App />, document.getElementById("root") as HTMLElement);
+ReactDOM.render((
+    <Router>
+      <App />
+    </Router>
+  ),
+  document.getElementById("root") as HTMLElement
+);

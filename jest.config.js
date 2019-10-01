@@ -28,6 +28,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+    "@prj/(.*)": '<rootDir>/src/$1',
     "@app/(.*)": '<rootDir>/src/app/$1'
   },
 
@@ -35,13 +36,13 @@ module.exports = {
   preset: "ts-jest/presets/js-with-ts",
 
   // The path to a module that runs some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['<rootDir>/test-setup.js'],
+  // setupFilesAfterEnv: ['<rootDir>/test-setup.js'],
 
   // The test environment that will be used for testing.
   testEnvironment: "jsdom",
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-  snapshotSerializers: ['enzyme-to-json/serializer'],
+  // snapshotSerializers: ['enzyme-to-json/serializer'],
 
   // The glob patterns Jest uses to detect test files
   testMatch: [

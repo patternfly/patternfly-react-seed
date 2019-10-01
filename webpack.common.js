@@ -1,8 +1,11 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const BG_IMAGES_DIRNAME = 'bgimages';
+const PUBLIC_URL = process.env.PUBLIC_URL || '/';
 
 module.exports = {
   entry: {
@@ -10,8 +13,15 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html')
-    })
+      template: path.resolve(__dirname, 'src', 'index.html'),
+      publicUrl: PUBLIC_URL
+    }),
+    new FaviconsWebpackPlugin({
+      logo: path.resolve(__dirname, 'src', 'favicon.svg'),
+    }),
+    new webpack.DefinePlugin({
+      'process.env.PUBLIC_URL': JSON.stringify(PUBLIC_URL),
+    }),
   ],
   module: {
     rules: [
@@ -114,7 +124,8 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: PUBLIC_URL
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
