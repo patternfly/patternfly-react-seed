@@ -38,27 +38,26 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
       logo="Patternfly"
       logoProps={logoProps}
       toolbar="Toolbar"
-      showNavToggle={true}
+      showNavToggle
       isNavOpen={isNavOpen}
       onNavToggle={isMobileView ? onNavToggleMobile : onNavToggle}
     />
   );
 
   const Navigation = (
-    <Nav id="nav-primary-simple">
-      <NavList id="nav-list-simple" variant={NavVariants.simple}>
-        {routes.map((route, idx) => {
-          return route.label && (
+    <Nav id="nav-primary-simple" theme="dark">
+      <NavList id="nav-list-simple" variant={NavVariants.default}>
+        {routes.map((route, idx) => route.label && (
             <NavItem key={`${route.label}-${idx}`} id={`${route.label}-${idx}`}>
-              <NavLink exact={true} to={route.path} activeClassName="pf-m-current">{route.label}</NavLink>
+              <NavLink exact to={route.path} activeClassName="pf-m-current">{route.label}</NavLink>
             </NavItem>
-          );
-        })}
+          ))}
       </NavList>
     </Nav>
   );
   const Sidebar = (
     <PageSidebar
+      theme="dark"
       nav={Navigation}
       isNavOpen={isMobileView ? isNavOpenMobile : isNavOpen} />
   );

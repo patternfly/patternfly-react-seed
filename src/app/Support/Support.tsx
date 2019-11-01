@@ -15,8 +15,7 @@ export interface ISupportProps {
   sampleProp?: string;
 }
 
-const Support: React.FunctionComponent<ISupportProps> = (props) => {
-  return (
+const Support: React.FunctionComponent<ISupportProps> = () => (
     <PageSection>
       <EmptyState variant={EmptyStateVariant.full}>
         <EmptyStateIcon icon={CubesIcon} />
@@ -24,7 +23,7 @@ const Support: React.FunctionComponent<ISupportProps> = (props) => {
           Empty State (Stub Support Module)
         </Title>
         <EmptyStateBody>
-          This represents an the empty state pattern in Patternfly 4. Hopefully it's simple enough to use but flexible
+          This represents an the empty state pattern in Patternfly 4. Hopefully it&apos;s simple enough to use but flexible
           enough to meet a variety of needs.
         </EmptyStateBody>
         <Button variant="primary">Primary Action</Button>
@@ -38,7 +37,6 @@ const Support: React.FunctionComponent<ISupportProps> = (props) => {
         </EmptyStateSecondaryActions>
       </EmptyState>
     </PageSection>
-  );
-}
+  )
 
 export { Support };
