@@ -15,9 +15,11 @@ const getSupportModuleAsync = () => () => import(/* webpackChunkName: 'support' 
 const Support = (routeProps: RouteComponentProps) => {
   const lastNavigation = useLastLocation();
   return (
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     <DynamicImport load={getSupportModuleAsync()} focusContentAfterMount={lastNavigation !== null}>
-      {(Component: any) => { // eslint-disable-line
-        let loadedComponent: any; // eslint-disable-line
+      {(Component: any) => {
+        let loadedComponent: any;
+        /* eslint-enable @typescript-eslint/no-explicit-any */
         if (Component === null) {
           loadedComponent = (
             <PageSection aria-label="Loading Content Container">
@@ -37,7 +39,9 @@ const Support = (routeProps: RouteComponentProps) => {
 
 export interface IAppRoute {
   label?: string;
-  component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>; // eslint-disable-line
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
   exact?: boolean;
   path: string;
   title: string;

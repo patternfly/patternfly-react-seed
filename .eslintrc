@@ -5,6 +5,7 @@
   "parserOptions": {
     "tsx": true,
     "jsx": true,
+    "js": true,
     "useJSXTextNode": true,
     "project": "./tsconfig.json",
     "tsconfigRootDir": "."

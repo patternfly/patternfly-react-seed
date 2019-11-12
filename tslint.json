@@ -8,7 +8,12 @@
   ],
   "linterOptions": {
     "exclude": [
-      "**/node_modules/**/*.ts"
+      "**/node_modules/**/*.ts",
+      "**/node_modules/**/*.js",
+      "**/dist/**/*.js",
+      "**/coverage/**/*.js",
+      "**/webpack.*.js",
+      "**/jest.config.js"
     ]
   },
   "rules": {
