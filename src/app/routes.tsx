@@ -10,16 +10,16 @@ import { LastLocationProvider, useLastLocation } from 'react-router-last-locatio
 
 let routeFocusTimer: number;
 
-const getSupportModuleAsync = () => {
-  return () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
-};
+const getSupportModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
 
 const Support = (routeProps: RouteComponentProps) => {
   const lastNavigation = useLastLocation();
   return (
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     <DynamicImport load={getSupportModuleAsync()} focusContentAfterMount={lastNavigation !== null}>
       {(Component: any) => {
         let loadedComponent: any;
+        /* eslint-enable @typescript-eslint/no-explicit-any */
         if (Component === null) {
           loadedComponent = (
             <PageSection aria-label="Loading Content Container">
@@ -39,8 +39,9 @@ const Support = (routeProps: RouteComponentProps) => {
 
 export interface IAppRoute {
   label?: string;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
-  icon?: any;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
   exact?: boolean;
   path: string;
   title: string;
@@ -51,7 +52,6 @@ const routes: IAppRoute[] = [
   {
     component: Dashboard,
     exact: true,
-    icon: null,
     label: 'Dashboard',
     path: '/',
     title: 'Main Dashboard Title'
@@ -59,7 +59,6 @@ const routes: IAppRoute[] = [
   {
     component: Support,
     exact: true,
-    icon: null,
     isAsync: true,
     label: 'Support',
     path: '/support',
@@ -108,18 +107,17 @@ const PageNotFound = ({ title }: { title: string }) => {
 const AppRoutes = () => (
   <LastLocationProvider>
     <Switch>
-      {routes.map(({ path, exact, component, title, isAsync, icon }, idx) => (
+      {routes.map(({ path, exact, component, title, isAsync }, idx) => (
         <RouteWithTitleUpdates
           path={path}
           exact={exact}
           component={component}
           key={idx}
-          icon={icon}
           title={title}
           isAsync={isAsync}
         />
       ))}
-      <PageNotFound title={'404 Page Not Found'} />
+      <PageNotFound title="404 Page Not Found" />
     </Switch>
   </LastLocationProvider>
 );

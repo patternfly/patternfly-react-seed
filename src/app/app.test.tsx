@@ -18,8 +18,9 @@ describe('App tests', () => {
   it('should hide the sidebar when clicking the nav-toggle button', () => {
     const wrapper = mount(<App />);
     const button = wrapper.find('#nav-toggle').hostNodes();
-    expect(wrapper.find('#page-sidebar').hasClass('pf-m-expanded'));
+    expect(wrapper.find('#page-sidebar').hasClass('pf-m-expanded')).toBeTruthy();
     button.simulate('click');
-    expect(wrapper.find('#page-sidebar').hasClass('pf-m-collapsed'));
+    expect(wrapper.find('#page-sidebar').hasClass('pf-m-collapsed')).toBeTruthy();
+    expect(wrapper.find('#page-sidebar').hasClass('pf-m-expanded')).toBeFalsy();
   });
 });

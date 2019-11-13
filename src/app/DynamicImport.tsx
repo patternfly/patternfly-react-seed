@@ -2,8 +2,10 @@ import * as React from 'react';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 
 interface IDynamicImport {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   load: () => Promise<any>;
   children: any;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
   focusContentAfterMount: boolean;
 }
 

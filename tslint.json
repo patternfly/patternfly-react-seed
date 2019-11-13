@@ -8,11 +8,17 @@
   ],
   "linterOptions": {
     "exclude": [
-      "**/node_modules/**/*.ts"
+      "**/node_modules/**/*.ts",
+      "**/node_modules/**/*.js",
+      "**/dist/**/*.js",
+      "**/coverage/**/*.js",
+      "**/webpack.*.js",
+      "**/jest.config.js"
     ]
   },
   "rules": {
     "ordered-imports": [false],
-    "react-hooks-nesting": "error"
+    "react-hooks-nesting": "error",
+    "jsx-boolean-value": ["never"]
   }
 }
