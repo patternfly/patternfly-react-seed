@@ -8,12 +8,11 @@ Out of the box you'll get an app layout with chrome (header/sidebar), routing, b
 
 ## Quick-start
 ```bash
-npm install yarn -g # ensure you have yarn on your machine globally
 git clone https://github.com/patternfly/patternfly-react-seed # clone the project
 cd patternfly-react-seed # navigate into the project directory
-yarn # install patternfly-react-seed dependencies
-yarn build # build the project
-yarn start # start the development server
+npm install # install patternfly-react-seed dependencies
+npm run build # build the project
+npm run start # start the development server
 ```
 ## Development Scripts
 

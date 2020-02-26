@@ -4,3 +4,4 @@ yarn-error.log
 stats.json
 coverage
 storybook-static
+package-lock.json
