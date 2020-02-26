@@ -2,21 +2,22 @@
   "name": "patternfly-seed",
   "version": "0.0.1",
   "description": "An open source build scaffolding utility for web apps.",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/patternfly/patternfly-react-seed.git",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "prebuild": "yarn clean",
+    "prebuild": "npm run clean",
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --hot --color --progress --info=true --config webpack.dev.js",
+    "start": "node server.js",
+    "start:dev": "webpack-dev-server --hot --color --progress --info=true --config webpack.dev.js",
     "test": "jest",
     "tslint": "tslint -c ./tslint.json --project .",
     "eslint": "eslint --ext .tsx,.js ./src/",
-    "lint": "yarn tslint && yarn eslint",
+    "lint": "npm run tslint && npm run eslint",
     "format": "prettier --check --write ./src/**/*.{tsx,ts,js}",
     "build:bundle-profile": "webpack --config webpack.prod.js --profile --json > stats.json",
-    "bundle-profile:analyze": "yarn build:bundle-profile && webpack-bundle-analyzer ./stats.json",
+    "bundle-profile:analyze": "npm run build:bundle-profile && webpack-bundle-analyzer ./stats.json",
     "clean": "rimraf dist",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook"
@@ -84,6 +85,7 @@
     "@patternfly/react-icons": "^3.14.28",
     "@patternfly/react-styles": "^3.6.15",
     "react-router-dom": "^5.0.1",
-    "react-router-last-location": "^2.0.1"
+    "react-router-last-location": "^2.0.1",
+    "express": "^4.13.4"
   }
 }
