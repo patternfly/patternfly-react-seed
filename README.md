@@ -82,6 +82,3 @@ body {
 * To keep our code formatting in check, we use [prettier](https://github.com/prettier/prettier)
 * To keep our code logic and test coverage in check, we use [jest](https://github.com/facebook/jest)
 * To ensure code styles remain consistent, we use [eslint](https://eslint.org/)
-
-### Linter Supper
-Currently, eslint and tslint are both supported. This is temporary. We will be removing support for tslint at some point in the near future, given tslint's roadmap to deprecate itself in favor of a more unified developer experience across TypeScript and JavaScript languages.

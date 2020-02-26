@@ -76,7 +76,7 @@ const useA11yRouteChange = (isAsync: boolean) => {
       routeFocusTimer = accessibleRouteChangeHandler();
     }
     return () => {
-      clearTimeout(routeFocusTimer);
+      window.clearTimeout(routeFocusTimer);
     };
   }, [isAsync, lastNavigation]);
 }
