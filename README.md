@@ -11,31 +11,33 @@ Out of the box you'll get an app layout with chrome (header/sidebar), routing, b
 git clone https://github.com/patternfly/patternfly-react-seed # clone the project
 cd patternfly-react-seed # navigate into the project directory
 npm install # install patternfly-react-seed dependencies
-npm run build # build the project
 npm run start # start the development server
 ```
 ## Development Scripts
 
 Install development/build dependencies
-`yarn`
+`npm install`
 
 Start the development server
-`yarn start`
+`npm run start:dev`
 
 Run a production build
-`yarn build`
+`npm run build`
 
 Run the test suite
-`yarn test`
+`npm run test`
 
 Run the linter
-`yarn lint`
+`npm run lint`
 
 Run the code formatter
-`yarn format`
+`npm run format`
 
 Launch a tool to inspect the bundle size
-`yarn bundle-profile:analyze`
+`npm run bundle-profile:analyze`
+
+Start the express server (run a production build first)
+`npm run start`
 
 ## Configurations
 * [TypeScript Config](./tsconfig.json)
