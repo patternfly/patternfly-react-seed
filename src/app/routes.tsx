@@ -76,24 +76,17 @@ const useA11yRouteChange = (isAsync: boolean) => {
       routeFocusTimer = accessibleRouteChangeHandler();
     }
     return () => {
-      clearTimeout(routeFocusTimer);
+      window.clearTimeout(routeFocusTimer);
     };
   }, [isAsync, lastNavigation]);
-}
+};
 
-const RouteWithTitleUpdates = ({
-  component: Component,
-  isAsync = false,
-  title,
-  ...rest
-}: IAppRoute) => {
+const RouteWithTitleUpdates = ({ component: Component, isAsync = false, title, ...rest }: IAppRoute) => {
   useA11yRouteChange(isAsync);
   useDocumentTitle(title);
 
   function routeWithTitle(routeProps: RouteComponentProps) {
-    return (
-      <Component {...rest} {...routeProps} />
-    );
+    return <Component {...rest} {...routeProps} />;
   }
 
   return <Route render={routeWithTitle} />;
@@ -102,7 +95,7 @@ const RouteWithTitleUpdates = ({
 const PageNotFound = ({ title }: { title: string }) => {
   useDocumentTitle(title);
   return <Route component={NotFound} />;
-}
+};
 
 const AppRoutes = () => (
   <LastLocationProvider>

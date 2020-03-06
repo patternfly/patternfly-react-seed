@@ -19,7 +19,7 @@ const Support: React.FunctionComponent<ISupportProps> = () => (
     <PageSection>
       <EmptyState variant={EmptyStateVariant.full}>
         <EmptyStateIcon icon={CubesIcon} />
-        <Title headingLevel="h5" size="lg">
+        <Title headingLevel="h1" size="lg">
           Empty State (Stub Support Module)
         </Title>
         <EmptyStateBody>

@@ -8,35 +8,36 @@ Out of the box you'll get an app layout with chrome (header/sidebar), routing, b
 
 ## Quick-start
 ```bash
-npm install yarn -g # ensure you have yarn on your machine globally
 git clone https://github.com/patternfly/patternfly-react-seed # clone the project
 cd patternfly-react-seed # navigate into the project directory
-yarn # install patternfly-react-seed dependencies
-yarn build # build the project
-yarn start # start the development server
+npm install # install patternfly-react-seed dependencies
+npm run start # start the development server
 ```
 ## Development Scripts
 
 Install development/build dependencies
-`yarn`
+`npm install`
 
 Start the development server
-`yarn start`
+`npm run start:dev`
 
 Run a production build
-`yarn build`
+`npm run build`
 
 Run the test suite
-`yarn test`
+`npm run test`
 
 Run the linter
-`yarn lint`
+`npm run lint`
 
 Run the code formatter
-`yarn format`
+`npm run format`
 
 Launch a tool to inspect the bundle size
-`yarn bundle-profile:analyze`
+`npm run bundle-profile:analyze`
+
+Start the express server (run a production build first)
+`npm run start`
 
 ## Configurations
 * [TypeScript Config](./tsconfig.json)
@@ -82,6 +83,3 @@ body {
 * To keep our code formatting in check, we use [prettier](https://github.com/prettier/prettier)
 * To keep our code logic and test coverage in check, we use [jest](https://github.com/facebook/jest)
 * To ensure code styles remain consistent, we use [eslint](https://eslint.org/)
-
-### Linter Supper
-Currently, eslint and tslint are both supported. This is temporary. We will be removing support for tslint at some point in the near future, given tslint's roadmap to deprecate itself in favor of a more unified developer experience across TypeScript and JavaScript languages.

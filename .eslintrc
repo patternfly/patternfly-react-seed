@@ -12,11 +12,30 @@
   },
   // we want to use the recommended rules provided from the typescript plugin
   "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:patternfly-react/recommended"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
+  "globals": {
+    "window": "readonly",
+    "describe": "readonly",
+    "test": "readonly",
+    "expect": "readonly",
+    "it": "readonly",
+    "process": "readonly",
+    "document": "readonly"
+  },
+  "settings": {
+    "react": {
+      "version": "^16.11.0"
+    }
+  },
   // includes the typescript specific rules found here: https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
-  "plugins": ["@typescript-eslint", "react-hooks", "eslint-plugin-react-hooks"],
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks",
+    "eslint-plugin-react-hooks"
+  ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
     "react-hooks/rules-of-hooks": "error",
