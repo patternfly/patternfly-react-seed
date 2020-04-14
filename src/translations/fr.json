@@ -1,0 +1,6 @@
+{
+  "supportBody": "Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.",
+  "supportButtonPrimary": "Merci d'être venue",
+  "supportCats": "Mais {count, plural, =0 {sans bureautique} one {# bureautique} other {# bureautique}}.",
+  "supportTitle": "Bonjour"
+}

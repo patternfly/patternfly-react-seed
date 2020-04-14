@@ -11,6 +11,7 @@ import {
   SkipToContent
 } from '@patternfly/react-core';
 import { routes } from '@app/routes';
+import { LangSelector } from './LangSelector';
 
 interface IAppLayout {
   children: React.ReactNode;
@@ -37,7 +38,9 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
     <PageHeader
       logo="Patternfly"
       logoProps={logoProps}
-      toolbar="Toolbar"
+      toolbar={
+        <LangSelector />
+      }
       showNavToggle
       isNavOpen={isNavOpen}
       onNavToggle={isMobileView ? onNavToggleMobile : onNavToggle}

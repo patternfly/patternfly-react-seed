@@ -1,0 +1,6 @@
+{
+  "supportBody": "This represents the empty state pattern in PatternFly 4. Hopefully it's simple enough to use but flexible enough to meet a variety of needs.",
+  "supportButtonPrimary": "Primary Action",
+  "supportCats": "You have {count, plural, =0 {no cats} one {# cat} other {# cats}}.",
+  "supportTitle": "Empty State (Stub Support Module)"
+}
