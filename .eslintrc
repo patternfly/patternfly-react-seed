@@ -45,5 +45,9 @@
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "react/prop-types": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
   }
 }

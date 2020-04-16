@@ -21,7 +21,8 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@assets/*": ["node_modules/@patternfly/react-core/dist/styles/assets/*"]
-    }
+    },
+    "importHelpers": true
   },
   "include": [
     "**/*.ts",
