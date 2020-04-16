@@ -20,7 +20,7 @@
     "clean": "rimraf dist",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
-    "i18n": "NODE_ENV=development extract-messages -l=en,ar,de,fr,zh -o src/translations -d en --flat false 'src/**/*.{ts,tsx}'"
+    "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -43,6 +43,7 @@
     "@types/webpack": "^4.41.6",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
+    "babel-plugin-i18next-extract": "^0.7.2",
     "css-loader": "^3.4.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.15.1",

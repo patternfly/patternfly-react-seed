@@ -93,24 +93,24 @@ const Support: React.FunctionComponent<ISupportProps> = () => {
       <EmptyState variant={EmptyStateVariant.full}>
         <EmptyStateIcon icon={CubesIcon} />
         <Title headingLevel="h1" size="lg">
-          {t('supportTitle')}
+          {t('supportTitle', 'Empty State (Stub Support Module)')}
         </Title>
         <EmptyStateBody>
           <div>
             <strong>Localized message: </strong>
-            {t('supportBody')}
+            {t('supportBody', `This represents the empty state pattern in PatternFly 4. Hopefully it's simple enough to use but flexible enough to meet a variety of needs.`)}
           </div>
           <div>
             <strong>Message with arguments and plurality aware (Some languages like Arabic have multiple cases): </strong><br />
-            {t('supportCats', { count: 0 })}<br />
-            {t('supportCats', { count: 1 })}<br />
-            {t('supportCats', { count: 2 })}<br />
-            {t('supportCats', { count: 3 })}<br />
-            {t('supportCats', { count: 4 })}<br />
-            {t('supportCats', { count: 5 })}<br />
-            {t('supportCats', { count: 11 })}<br />
-            {t('supportCats', { count: 99 })}<br />
-            {t('supportCats', { count: 100 })}
+            {t('supportCats', { count: 0, defaultValue: `(singular) You have {{count}} cat.`})}<br />
+            {t('supportCats', { count: 1, defaultValue: `(singular) You have {{count}} cat.` })}<br />
+            {t('supportCats', { count: 2, defaultValue: `(singular) You have {{count}} cat.` })}<br />
+            {t('supportCats', { count: 3, defaultValue: `(singular) You have {{count}} cat.` })}<br />
+            {t('supportCats', { count: 4, defaultValue: `(singular) You have {{count}} cat.` })}<br />
+            {t('supportCats', { count: 5, defaultValue: `(singular) You have {{count}} cat.` })}<br />
+            {t('supportCats', { count: 11, defaultValue: `(singular) You have {{count}} cat.` })}<br />
+            {t('supportCats', { count: 99, defaultValue: `(singular) You have {{count}} cat.` })}<br />
+            {t('supportCats', { count: 100, defaultValue: `(singular) You have {{count}} cat.` })}
           </div>
           <LocalizedDate locale={locale} date={new Date(1459913574887)} />
           <LocalizedTime locale={locale} date={new Date(1459913574887)} />
@@ -119,7 +119,7 @@ const Support: React.FunctionComponent<ISupportProps> = () => {
           <LocalizedCurrency locale={locale} />
         </EmptyStateBody>
         <Button variant="primary">
-          {t('supportButtonPrimary')}
+          {t('supportButtonPrimary', 'Primary Action')}
         </Button>
         <EmptyStateSecondaryActions>
           <Button variant="link">Multiple</Button>
