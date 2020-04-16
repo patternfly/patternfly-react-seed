@@ -1,6 +1,7 @@
 {
   "supportBody": "Dies entspricht dem leeren zustand Modell in PatternFly 4. Hoffentlich ist es einfach genug zu benutzen, aber flexibel genug um mehrere anwendungs bedürfnisse zu decken.",
   "supportButtonPrimary": "Haupt Aktion",
-  "supportCats": "Sie haben {count, plural, =0 {keine Katzen} one {# Katze} other {# Katzen}}.",
+  "supportCats": "(singular) Sie haben {{count}} Katze.",
+  "supportCats_plural": "(plural) Sie haben {{count}} Katzen.",
   "supportTitle": "Leerer Zustand"
 }

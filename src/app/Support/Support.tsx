@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import * as React from 'react';
 import { CubesIcon } from '@patternfly/react-icons';
 import {
@@ -10,83 +11,60 @@ import {
   EmptyStateBody,
   EmptyStateSecondaryActions
 } from '@patternfly/react-core';
-import { 
-  defineMessages, 
-  FormattedMessage, 
-  FormattedDate, 
-  FormattedTime, 
-  FormattedRelativeTime, 
-  FormattedNumber
-} from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { LocaleContext } from '../LocaleContext';
 
-const messages = defineMessages({
-  supportTitle: {
-    id: 'supportTitle',
-    defaultMessage: 'Empty State (Stub Support Module)'
-  },
-  supportBody: {
-    id: 'supportBody',
-    defaultMessage: `This represents the empty state pattern in PatternFly 4. Hopefully it's simple enough to use but flexible enough to meet a variety of needs.`
-  },
-  supportButtonPrimary: {
-    id: 'supportButtonPrimary',
-    defaultMessage: `Primary Action`
-  },
-  supportCats: {
-    id: 'supportCats',
-    defaultMessage: "You have {count, plural, =0 {no cats} one {# cat} other {# cats}}."
-  }
-});
+// using polyfill in i18n.js
+// @ts-ignore
+const IntlRelativeTimeFormat = Intl.RelativeTimeFormat;
 
 export interface ISupportProps {
   sampleProp?: string;
 }
 
-const LocalizedDate = ({ date }) => (
+const LocalizedDate = ({ locale, date }) => (
   <div>
     <strong>Localized date: </strong>
-    <FormattedDate
-      value={date}
-      year="numeric"
-      month="long"
-      day="numeric"
-      weekday="long"
-    />
+    {new Intl.DateTimeFormat(locale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(date)}
   </div>
 );
 
-const LocalizedTime = ({ date }) => (
+const LocalizedTime = ({ locale, date }) => (
   <div>
     <strong>Localized time: </strong>
-    <FormattedTime value={date} />
+    {new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: 'numeric', second: 'numeric' }).format(date)}
   </div>
 );
 
-const LocalizedRelativeTime = () => (
+const LocalizedRelativeTime = ({ locale }) => (
   <div>
-    <strong>Localized relative time: </strong>
-    <FormattedRelativeTime value={0} numeric="auto" updateIntervalInSeconds={10} />
+    <strong>Localized relative time (consumer is responsible to auto-update the time if needed): </strong>
+    {new IntlRelativeTimeFormat(locale, { numeric: 'auto' }).format(-1, 'second')}
   </div>
 );
 
-const LocalizedNumber = () => (
-  <>
-  <div>
-    <strong>Localized number: </strong>
-    <FormattedNumber value={1000} />
-  </div>
-  <div>
-    <strong> As a unit: </strong>
-    <FormattedNumber
-      value={16384}
-      style="unit"
-      unit="kilobyte"
-      unitDisplay="narrow"
-    />
-  </div>
-  </>
-);
+const LocalizedNumber = ({ locale }) => {
+  try {
+    return (
+      <>
+        <div>
+          <strong>Localized number: </strong>
+          {new Intl.NumberFormat(locale).format(1000)}
+        </div>
+        <div>
+          <strong> As a unit (Intl.NumberFormat supports units only for Chrome 77+ at the moment, otherwise polyfill or other lib is required): </strong>
+          {new Intl.NumberFormat(locale, {
+            style: 'unit',
+            // @ts-ignore
+            unit: 'kilobyte'
+          }).format(16384)}
+        </div>
+      </>
+    );
+  } catch(err) {
+    return <span>Intl.NumberFormat supports units only for Chrome 77+ at the moment, otherwise polyfill or other lib is required</span>;
+  }
+}
 
 const LocalizedCurrency = ({ locale }) => {
   // simplified since you'd also want to consider region, e.g. en_US (USD) vs en_GB (GBP)
@@ -103,42 +81,45 @@ const LocalizedCurrency = ({ locale }) => {
   return (
   <div>
     <strong>Localized currency for {locale}: </strong>
-    <FormattedNumber
-      value={1200.24}
-      style="currency"
-      currency={currency}
-    />
+    {new Intl.NumberFormat(locale, { style: 'currency', currency }).format(1200.24)}
   </div>
 )};
 
 const Support: React.FunctionComponent<ISupportProps> = () => {
+  const { t } = useTranslation();
   const { locale } = React.useContext(LocaleContext);
   return (
     <PageSection>
       <EmptyState variant={EmptyStateVariant.full}>
         <EmptyStateIcon icon={CubesIcon} />
         <Title headingLevel="h1" size="lg">
-          <FormattedMessage {...messages.supportTitle} />
+          {t('supportTitle')}
         </Title>
         <EmptyStateBody>
           <div>
             <strong>Localized message: </strong>
-            <FormattedMessage {...messages.supportBody} />
+            {t('supportBody')}
           </div>
           <div>
-            <strong>Message with arguments and plurality aware: </strong>
-            <FormattedMessage values={{ count: 0 }} {...messages.supportCats} />{" "}
-            <FormattedMessage values={{ count: 1 }} {...messages.supportCats} />{" "}
-            <FormattedMessage values={{ count: 8 }} {...messages.supportCats} />
+            <strong>Message with arguments and plurality aware (Some languages like Arabic have multiple cases): </strong><br />
+            {t('supportCats', { count: 0 })}<br />
+            {t('supportCats', { count: 1 })}<br />
+            {t('supportCats', { count: 2 })}<br />
+            {t('supportCats', { count: 3 })}<br />
+            {t('supportCats', { count: 4 })}<br />
+            {t('supportCats', { count: 5 })}<br />
+            {t('supportCats', { count: 11 })}<br />
+            {t('supportCats', { count: 99 })}<br />
+            {t('supportCats', { count: 100 })}
           </div>
-          <LocalizedDate date={new Date(1459913574887)} />
-          <LocalizedTime date={new Date(1459913574887)} />
-          <LocalizedRelativeTime />
-          <LocalizedNumber />
+          <LocalizedDate locale={locale} date={new Date(1459913574887)} />
+          <LocalizedTime locale={locale} date={new Date(1459913574887)} />
+          <LocalizedRelativeTime locale={locale} />
+          <LocalizedNumber locale={locale} />
           <LocalizedCurrency locale={locale} />
         </EmptyStateBody>
         <Button variant="primary">
-          <FormattedMessage {...messages.supportButtonPrimary} />
+          {t('supportButtonPrimary')}
         </Button>
         <EmptyStateSecondaryActions>
           <Button variant="link">Multiple</Button>

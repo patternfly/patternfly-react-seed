@@ -5,8 +5,10 @@ import {
   SelectOptionObject
 } from '@patternfly/react-core';
 import { LocaleContext } from '../LocaleContext';
+import { useTranslation } from 'react-i18next';
 
 const LangSelector: React.FunctionComponent = () => {
+  const { i18n } = useTranslation();
   const langOptions = [
     { value: 'English', locale: 'en' },
     { value: 'French', locale: 'fr' },
@@ -23,11 +25,11 @@ const LangSelector: React.FunctionComponent = () => {
       aria-label="Select language"
       onToggle={(expanded: boolean) => setIsExpanded(expanded)}
       onSelect={(event: React.MouseEvent | React.ChangeEvent, value: string | SelectOptionObject) => {
-        debugger;
         setSelected(value as string); 
         setIsExpanded(false);
         const match = langOptions.find((option) => option.value === value);
         setLocale(match ? match.locale : 'en');
+        i18n.changeLanguage(match ? match.locale : 'en');
       }}
       selections={selected}
       isExpanded={isExpanded}

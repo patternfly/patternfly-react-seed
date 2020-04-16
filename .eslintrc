@@ -23,7 +23,11 @@
     "expect": "readonly",
     "it": "readonly",
     "process": "readonly",
-    "document": "readonly"
+    "document": "readonly",
+    "Intl": "readonly"
+  },
+  "env": {
+    "node": true
   },
   "settings": {
     "react": {
