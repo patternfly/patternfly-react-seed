@@ -17,13 +17,6 @@ module.exports = {
     "<rootDir>/src"
   ],
 
-  // An array of file extensions your modules use
-  moduleFileExtensions: [
-    "ts",
-    "tsx",
-    "js"
-  ],
-
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
@@ -43,13 +36,4 @@ module.exports = {
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   snapshotSerializers: ['enzyme-to-json/serializer'],
 
-  // The glob patterns Jest uses to detect test files
-  testMatch: [
-    "**/*.test.(ts|tsx)"
-  ],
-
-  // A map from regular expressions to paths to transformers
-  transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"
-  }
 };

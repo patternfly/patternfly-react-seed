@@ -11,7 +11,7 @@ Out of the box you'll get an app layout with chrome (header/sidebar), routing, b
 git clone https://github.com/patternfly/patternfly-react-seed # clone the project
 cd patternfly-react-seed # navigate into the project directory
 npm install # install patternfly-react-seed dependencies
-npm run start # start the development server
+npm run start:dev # start the development server
 ```
 ## Development Scripts
 
