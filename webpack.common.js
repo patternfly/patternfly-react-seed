@@ -50,20 +50,6 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        include: input => input.indexOf('background-filter.svg') > 1,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 5000,
-              outputPath: 'svgs',
-              name: '[name].[ext]',
-            }
-          }
-        ]
-      },
-      {
-        test: /\.svg$/,
         // only process SVG modules with this loader if they live under a 'bgimages' directory
         // this is primarily useful when applying a CSS background using an SVG
         include: input => input.indexOf(BG_IMAGES_DIRNAME) > -1,

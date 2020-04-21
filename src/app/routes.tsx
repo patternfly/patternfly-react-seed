@@ -4,6 +4,7 @@ import { Alert, PageSection } from '@patternfly/react-core';
 import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { Dashboard } from '@app/Dashboard/Dashboard';
+import { AuthPage } from '@app/AuthPage/AuthPage';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
@@ -57,6 +58,12 @@ const routes: IAppRoute[] = [
     title: 'Main Dashboard Title'
   },
   {
+    component: AuthPage,
+    exact: true,
+    path: '/login',
+    title: 'Login Page Title'
+  },
+  {
     component: Support,
     exact: true,
     isAsync: true,
@@ -66,7 +73,7 @@ const routes: IAppRoute[] = [
   }
 ];
 
-// a custom hook for sending focus to the primary content container
+// a hook for sending focus to the primary content container
 // after a view has loaded so that subsequent press of tab key
 // sends focus directly to relevant content
 const useA11yRouteChange = (isAsync: boolean) => {
