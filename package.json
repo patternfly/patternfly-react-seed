@@ -9,7 +9,7 @@
   "scripts": {
     "prebuild": "npm run clean",
     "dr:surge": "node dr-surge.js",
-    "build": "webpack --config webpack.prod.js && yarn dr:surge",
+    "build": "webpack --config webpack.prod.js && npm run dr:surge",
     "start": "node server.js",
     "start:dev": "webpack-dev-server --hot --color --progress --info=true --config webpack.dev.js",
     "test": "jest",
