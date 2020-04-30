@@ -3,39 +3,13 @@ import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { Alert, PageSection } from '@patternfly/react-core';
 import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
-import { Dashboard } from '@app/Dashboard/Dashboard';
+import { Build } from '@app/Build/Build';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
+import { View } from '@app/View/View';
 
 let routeFocusTimer: number;
-
-const getSupportModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
-
-const Support = (routeProps: RouteComponentProps) => {
-  const lastNavigation = useLastLocation();
-  return (
-    /* eslint-disable @typescript-eslint/no-explicit-any */
-    <DynamicImport load={getSupportModuleAsync()} focusContentAfterMount={lastNavigation !== null}>
-      {(Component: any) => {
-        let loadedComponent: any;
-        /* eslint-enable @typescript-eslint/no-explicit-any */
-        if (Component === null) {
-          loadedComponent = (
-            <PageSection aria-label="Loading Content Container">
-              <div className="pf-l-bullseye">
-                <Alert title="Loading" className="pf-l-bullseye__item" />
-              </div>
-            </PageSection>
-          );
-        } else {
-          loadedComponent = <Component.Support {...routeProps} />;
-        }
-        return loadedComponent;
-      }}
-    </DynamicImport>
-  );
-};
 
 export interface IAppRoute {
   label?: string;
@@ -50,19 +24,19 @@ export interface IAppRoute {
 
 const routes: IAppRoute[] = [
   {
-    component: Dashboard,
+    component: Build,
     exact: true,
-    label: 'Dashboard',
+    label: 'Build',
     path: '/',
-    title: 'Main Dashboard Title'
+    title: 'Build Configuration Page'
   },
   {
-    component: Support,
+    component: View,
     exact: true,
     isAsync: true,
-    label: 'Support',
-    path: '/support',
-    title: 'Support Page Title'
+    label: 'View',
+    path: '/view',
+    title: 'View Page'
   }
 ];
 

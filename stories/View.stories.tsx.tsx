@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { Support } from '@app/Support/Support';
+import { View } from '@app/View/View';
 
 const stories = storiesOf('Components', module);
 stories.addDecorator(withInfo);
 stories.add(
-  'Support',
-  () => <Support />,
+  'View',
+  () => <View />,
   { info: { inline: true } }
 );
