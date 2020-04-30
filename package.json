@@ -9,7 +9,7 @@
   "scripts": {
     "prebuild": "npm run clean",
     "dr:surge": "node dr-surge.js",
-    "build": "webpack --config webpack.prod.js && yarn dr:surge",
+    "build": "webpack --config webpack.prod.js && npm run dr:surge",
     "start": "node server.js",
     "start:dev": "webpack-dev-server --hot --color --progress --info=true --config webpack.dev.js",
     "test": "jest",
@@ -40,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "css-loader": "^3.4.2",
+    "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.4",
@@ -56,6 +57,7 @@
     "prop-types": "^15.6.1",
     "raw-loader": "^4.0.0",
     "react": "^16.11.0",
+    "react-axe": "^3.4.1",
     "react-docgen-typescript-loader": "^3.2.1",
     "react-dom": "^16.11.0",
     "regenerator-runtime": "^0.13.3",
@@ -80,7 +82,6 @@
     "@patternfly/react-icons": "^4.1.1",
     "@patternfly/react-styles": "^4.1.1",
     "express": "^4.13.4",
-    "react-axe": "^3.4.1",
     "react-router-dom": "^5.0.1",
     "react-router-last-location": "^2.0.1"
   }

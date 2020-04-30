@@ -54,7 +54,7 @@ const routes: IAppRoute[] = [
     exact: true,
     label: 'Dashboard',
     path: '/',
-    title: 'Main Dashboard Title'
+    title: 'PatternFly Seed | Main Dashboard'
   },
   {
     component: Support,
@@ -62,7 +62,7 @@ const routes: IAppRoute[] = [
     isAsync: true,
     label: 'Support',
     path: '/support',
-    title: 'Support Page Title'
+    title: 'PatternFly Seed | Support Page'
   }
 ];
 
