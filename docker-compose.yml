@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  patternfly-react-seed:
+    image: patternfly-react-seed
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8080
