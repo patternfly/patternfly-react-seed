@@ -54,7 +54,7 @@ const routes: IAppRoute[] = [
     exact: true,
     label: 'Dashboard',
     path: '/',
-    title: 'PatternFly Seed | Main Dashboard'
+    title: 'PatternFly Seed | Main Dashboard',
   },
   {
     component: Support,
@@ -62,8 +62,8 @@ const routes: IAppRoute[] = [
     isAsync: true,
     label: 'Support',
     path: '/support',
-    title: 'PatternFly Seed | Support Page'
-  }
+    title: 'PatternFly Seed | Support Page',
+  },
 ];
 
 // a custom hook for sending focus to the primary content container

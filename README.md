@@ -4,46 +4,47 @@ Patternfly Seed is an open source build scaffolding utility for web apps. The pr
 
 Out of the box you'll get an app layout with chrome (header/sidebar), routing, build pipeline, test suite, and some code quality tools. Basically, all the essentials.
 
-<img width="1058" alt="Out of box dashboard view of patternfly seed" src="https://user-images.githubusercontent.com/5942899/62715686-fa954980-b9ce-11e9-9fc2-217b7a4d1d81.png">
+<img width="1058" alt="Out of box dashboard view of patternfly seed" src="https://user-images.githubusercontent.com/5942899/82119580-b4cf9380-974d-11ea-9f13-fa10471c5c73.png">
 
 ## Quick-start
+
 ```bash
-git clone https://github.com/patternfly/patternfly-react-seed # clone the project
-cd patternfly-react-seed # navigate into the project directory
-npm install # install patternfly-react-seed dependencies
-npm run start:dev # start the development server
+git clone https://github.com/patternfly/patternfly-react-seed
+cd patternfly-react-seed 
+npm install && npm run start:dev 
 ```
 ## Development Scripts
+```sh
+# Install development/build dependencies
+npm install
 
-Install development/build dependencies
-`npm install`
+# Start the development server
+npm run start:dev
 
-Start the development server
-`npm run start:dev`
+# Run a production build (outputs to "dist" dir)
+npm run build
 
-Run a production build (outputs to "dist" dir)
-`npm run build`
+# Run the test suite
+npm run test
 
-Run the test suite
-`npm run test`
+# Run the linter
+npm run lint
 
-Run the linter
-`npm run lint`
+# Run the code formatter
+npm run format
 
-Run the code formatter
-`npm run format`
+# Launch a tool to inspect the bundle size
+npm run bundle-profile:analyze
 
-Launch a tool to inspect the bundle size
-`npm run bundle-profile:analyze`
+# Start the express server (run a production build first)
+npm run start
 
-Start the express server (run a production build first)
-`npm run start`
+# Start storybook component explorer
+npm run storybook
 
-Start storybook component explorer
-`npm run storybook`
-
-Build storybook component explorer as standalone app (outputs to "storybook-static" dir)
-`npm run build:storybook`
+# Build storybook component explorer as standalone app (outputs to "storybook-static" dir)
+npm run build:storybook
+```
 
 ## Configurations
 * [TypeScript Config](./tsconfig.json)
@@ -53,7 +54,7 @@ Build storybook component explorer as standalone app (outputs to "storybook-stat
 
 ## Raster Image Support
 
-To use an image asset that's shipped with patternfly core, you'll prefix the paths with "@assets". `@assets` is an alias for the patternfly assets directory in node_modules.
+To use an image asset that's shipped with PatternFly core, you'll prefix the paths with "@assets". `@assets` is an alias for the PatternFly assets directory in node_modules.
 
 For example:
 ```js
