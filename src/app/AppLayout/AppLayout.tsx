@@ -4,7 +4,6 @@ import {
   Nav,
   NavList,
   NavItem,
-  NavVariants,
   Page,
   PageHeader,
   PageSidebar,
@@ -46,7 +45,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
 
   const Navigation = (
     <Nav id="nav-primary-simple" theme="dark">
-      <NavList id="nav-list-simple" variant={NavVariants.default}>
+      <NavList id="nav-list-simple">
         {routes.map((route, idx) => route.label && (
             <NavItem key={`${route.label}-${idx}`} id={`${route.label}-${idx}`}>
               <NavLink exact to={route.path} activeClassName="pf-m-current">{route.label}</NavLink>
