@@ -2,9 +2,9 @@ const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const appConfig = require('../webpack.common');
 
-module.exports = ({ config }) => {
+module.exports = ({ config, mode }) => {
   config.module.rules = [];
-  config.module.rules.push(...appConfig.module.rules);
+  config.module.rules.push(...appConfig(mode).module.rules);
   config.module.rules.push({
     test: /\.css$/,
     include: [
