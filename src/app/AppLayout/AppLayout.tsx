@@ -36,7 +36,6 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
     <PageHeader
       logo="Patternfly"
       logoProps={logoProps}
-      toolbar="Toolbar"
       showNavToggle
       isNavOpen={isNavOpen}
       onNavToggle={isMobileView ? onNavToggleMobile : onNavToggle}
