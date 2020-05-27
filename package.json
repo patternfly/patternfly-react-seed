@@ -23,6 +23,7 @@
     "build:storybook": "build-storybook"
   },
   "devDependencies": {
+    "@patternfly/patternfly": "^4.10.27",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
@@ -47,6 +48,7 @@
     "imagemin": "^7.0.0",
     "jest": "^26.0.1",
     "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prettier": "^2.0.5",
     "prop-types": "^15.6.1",
@@ -56,6 +58,7 @@
     "react-router-dom": "^5.2.0",
     "regenerator-runtime": "^0.13.5",
     "rimraf": "^3.0.2",
+    "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "svg-url-loader": "^5.0.0",
     "terser-webpack-plugin": "^3.0.1",

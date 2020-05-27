@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const BG_IMAGES_DIRNAME = 'bgimages';
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = env => {
 
@@ -106,7 +107,20 @@ module.exports = env => {
               }
             }
           ]
-        }
+        },
+        {
+          test: /\.s?css$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: process.env.NODE_ENV === 'development',
+              },
+            },
+            'css-loader',
+            'sass-loader'
+          ],
+        },
       ]
     },
     output: {
@@ -120,6 +134,10 @@ module.exports = env => {
       new Dotenv({
         systemvars: true,
         silent: true
+      }),
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[name].bundle.css'
       })
     ],
     resolve: {
