@@ -12,7 +12,7 @@ let routeFocusTimer: number;
 
 const getSupportModuleAsync = () => () => import(/* webpackChunkName: 'support' */ '@app/Support/Support');
 
-const Support = (routeProps: RouteComponentProps) => {
+const Support = (routeProps: RouteComponentProps): React.ReactElement => {
   const lastNavigation = useLastLocation();
   return (
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -97,7 +97,7 @@ const PageNotFound = ({ title }: { title: string }) => {
   return <Route component={NotFound} />;
 };
 
-const AppRoutes = () => (
+const AppRoutes = (): React.ReactElement => (
   <LastLocationProvider>
     <Switch>
       {routes.map(({ path, exact, component, title, isAsync }, idx) => (
