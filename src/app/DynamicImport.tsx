@@ -18,10 +18,10 @@ class DynamicImport extends React.Component<IDynamicImport> {
     super(props);
     this.routeFocusTimer = 0;
   }
-  public componentWillUnmount() {
+  public componentWillUnmount(): void {
     window.clearTimeout(this.routeFocusTimer);
   }
-  public componentDidMount() {
+  public componentDidMount(): void {
     this.props
       .load()
       .then((component) => {
@@ -37,7 +37,7 @@ class DynamicImport extends React.Component<IDynamicImport> {
         }
       });
   }
-  public render() {
+  public render(): React.ReactNode {
     return this.props.children(this.state.component);
   }
 }
