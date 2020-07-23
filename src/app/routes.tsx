@@ -4,6 +4,8 @@ import { Alert, PageSection } from '@patternfly/react-core';
 import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { Dashboard } from '@app/Dashboard/Dashboard';
+import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
+import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
@@ -38,7 +40,7 @@ const Support = (routeProps: RouteComponentProps): React.ReactElement => {
 };
 
 export interface IAppRoute {
-  label?: string;
+  label?: string; // Excluding the label will exclude the route from the nav sidebar in AppLayout
   /* eslint-disable @typescript-eslint/no-explicit-any */
   component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
   /* eslint-enable @typescript-eslint/no-explicit-any */
@@ -46,9 +48,17 @@ export interface IAppRoute {
   path: string;
   title: string;
   isAsync?: boolean;
+  routes?: undefined;
 }
 
-const routes: IAppRoute[] = [
+export interface IAppRouteGroup {
+  label: string;
+  routes: IAppRoute[];
+}
+
+export type AppRouteConfig = IAppRoute | IAppRouteGroup;
+
+const routes: AppRouteConfig[] = [
   {
     component: Dashboard,
     exact: true,
@@ -63,6 +73,25 @@ const routes: IAppRoute[] = [
     label: 'Support',
     path: '/support',
     title: 'PatternFly Seed | Support Page',
+  },
+  {
+    label: 'Settings',
+    routes: [
+      {
+        component: GeneralSettings,
+        exact: true,
+        label: 'General',
+        path: '/settings/general',
+        title: 'PatternFly Seed | General Settings',
+      },
+      {
+        component: ProfileSettings,
+        exact: true,
+        label: 'Profile',
+        path: '/settings/profile',
+        title: 'PatternFly Seed | Profile Settings',
+      },
+    ],
   },
 ];
 
@@ -97,10 +126,15 @@ const PageNotFound = ({ title }: { title: string }) => {
   return <Route component={NotFound} />;
 };
 
+const flattenedRoutes: IAppRoute[] = routes.reduce(
+  (flattened, route) => [...flattened, ...(route.routes ? route.routes : [route])],
+  [] as IAppRoute[]
+);
+
 const AppRoutes = (): React.ReactElement => (
   <LastLocationProvider>
     <Switch>
-      {routes.map(({ path, exact, component, title, isAsync }, idx) => (
+      {flattenedRoutes.map(({ path, exact, component, title, isAsync }, idx) => (
         <RouteWithTitleUpdates
           path={path}
           exact={exact}
