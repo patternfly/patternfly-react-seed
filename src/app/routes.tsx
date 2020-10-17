@@ -26,7 +26,7 @@ const Support = (routeProps: RouteComponentProps): React.ReactElement => {
           loadedComponent = (
             <PageSection aria-label="Loading Content Container">
               <div className="pf-l-bullseye">
-                <Alert title="Loading" className="pf-l-bullseye__item" />
+                <Alert title="Loading" variant="info" className="pf-l-bullseye__item" />
               </div>
             </PageSection>
           );
