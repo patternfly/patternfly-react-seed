@@ -2,7 +2,6 @@
   "name": "patternfly-seed",
   "version": "0.0.2",
   "description": "An open source build scaffolding utility for web apps.",
-  "main": "server.js",
   "repository": "https://github.com/patternfly/patternfly-react-seed.git",
   "homepage": "https://patternfly-react-seed.surge.sh",
   "license": "MIT",
@@ -11,7 +10,7 @@
     "prebuild": "npm run clean",
     "dr:surge": "node dr-surge.js",
     "build": "webpack --config webpack.prod.js && npm run dr:surge",
-    "start": "node server.js",
+    "start": "sirv dist --cors --single --host --port 8080",
     "start:dev": "webpack serve --hot --color --progress --config webpack.dev.js",
     "test": "jest",
     "eslint": "eslint --ext .tsx,.js ./src/",
@@ -80,9 +79,9 @@
     "@patternfly/react-core": "^4.63.3",
     "@patternfly/react-icons": "^4.7.11",
     "@patternfly/react-styles": "^4.7.8",
-    "express": "^4.17.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-router-last-location": "^2.0.1"
+    "react-router-last-location": "^2.0.1",
+    "sirv-cli": "^1.0.8"
   }
 }
