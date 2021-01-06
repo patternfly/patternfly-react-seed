@@ -17,7 +17,7 @@ interface IAppLayout {
   children: React.ReactNode;
 }
 
-const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
+const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const [isNavOpen, setIsNavOpen] = React.useState(true);
   const [isMobileView, setIsMobileView] = React.useState(true);
   const [isNavOpenMobile, setIsNavOpenMobile] = React.useState(false);
@@ -80,20 +80,28 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
       </NavList>
     </Nav>
   );
+
   const Sidebar = (
     <PageSidebar
       theme="dark"
       nav={Navigation}
       isNavOpen={isMobileView ? isNavOpenMobile : isNavOpen} />
   );
+
+  const pageId = 'primary-app-container';
+
   const PageSkipToContent = (
-    <SkipToContent href="#primary-app-container">
+    <SkipToContent onClick={(event) => {
+      event.preventDefault();
+      const primaryContentContainer = document.getElementById(pageId);
+      primaryContentContainer && primaryContentContainer.focus();
+    }} href={`#${pageId}`}>
       Skip to Content
     </SkipToContent>
   );
   return (
     <Page
-      mainContainerId="primary-app-container"
+      mainContainerId={pageId}
       header={Header}
       sidebar={Sidebar}
       onPageResize={onPageResize}
