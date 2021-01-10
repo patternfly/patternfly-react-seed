@@ -9,7 +9,7 @@ module.exports = env => {
 
   return {
     entry: {
-      app: path.resolve(__dirname, 'src', 'index.tsx')
+      app: ['react-hot-loader/patch', path.resolve(__dirname, 'src', 'index.tsx')]
     },
     module: {
       rules: [
