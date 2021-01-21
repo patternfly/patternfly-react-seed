@@ -57,6 +57,7 @@
     "raw-loader": "^4.0.2",
     "react-axe": "^3.5.4",
     "react-docgen-typescript-loader": "^3.7.2",
+    "react-hot-loader": "^4.13.0",
     "react-router-dom": "^5.2.0",
     "regenerator-runtime": "^0.13.7",
     "rimraf": "^3.0.2",
@@ -80,7 +81,7 @@
     "@patternfly/react-icons": "^4.7.11",
     "@patternfly/react-styles": "^4.7.8",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react-dom": "npm:@hot-loader/react-dom@^16.14.0",
     "react-router-last-location": "^2.0.1",
     "sirv-cli": "^1.0.8"
   }
