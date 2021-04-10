@@ -54,7 +54,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   const renderNavItem = (route: IAppRoute, index: number) => (
     <NavItem key={`${route.label}-${index}`} id={`${route.label}-${index}`}>
-      <NavLink exact to={route.path} activeClassName="pf-m-current">
+      <NavLink exact={route.exact} to={route.path} activeClassName="pf-m-current">
         {route.label}
       </NavLink>
     </NavItem>
