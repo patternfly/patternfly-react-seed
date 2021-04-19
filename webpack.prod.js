@@ -12,7 +12,11 @@ module.exports = merge(common('production'), {
   optimization: {
     minimizer: [
       new TerserJSPlugin({}),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorPluginOptions: {
+          preset: ['default', { mergeLonghand: false }]
+        }
+      })
     ],
   },
   plugins: [
