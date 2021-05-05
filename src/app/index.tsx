@@ -1,4 +1,3 @@
-import { hot } from 'react-hot-loader/root';
 import * as React from 'react';
 import '@patternfly/react-core/dist/styles/base.css';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -14,4 +13,4 @@ const App: React.FunctionComponent = () => (
   </Router>
 );
 
-export default hot(App);
+export default App;

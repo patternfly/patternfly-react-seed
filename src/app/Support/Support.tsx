@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { hot } from 'react-hot-loader/root';
 import { CubesIcon } from '@patternfly/react-icons';
 import {
   PageSection,
@@ -40,5 +39,4 @@ let Support: React.FunctionComponent<ISupportProps> = () => (
   </PageSection>
 )
 
-Support = hot(Support); // enable HMR for this async module
 export { Support };

@@ -15,7 +15,6 @@ module.exports = merge(common('development'), {
     compress: true,
     inline: true,
     historyApiFallback: true,
-    hot: true,
     overlay: true,
     open: true
   },
