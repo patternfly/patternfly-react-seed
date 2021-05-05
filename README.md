@@ -27,6 +27,9 @@ npm run build
 # Run the test suite
 npm run test
 
+# Run the test suite with coverage
+npm run test:coverage
+
 # Run the linter
 npm run lint
 
