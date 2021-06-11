@@ -5,7 +5,7 @@ Patternfly Seed is an open source build scaffolding utility for web apps. The pr
 ## Quick-start
 ```bash
 npm install yarn -g # ensure you have yarn on your machine globally
-git clone https://github.com/patternfly/patternfly-react-seed # clone the project
+git clone --branch javascript https://github.com/patternfly/patternfly-react-seed # clone the project
 cd patternfly-react-seed # navigate into the project directory
 yarn # install patternfly-react-seed dependencies
 yarn build # build the project
