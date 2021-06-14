@@ -15,6 +15,7 @@ export interface ISupportProps {
   sampleProp?: string;
 }
 
+// eslint-disable-next-line prefer-const
 let Support: React.FunctionComponent<ISupportProps> = () => (
   <PageSection>
     <EmptyState variant={EmptyStateVariant.full}>
