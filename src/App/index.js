@@ -18,7 +18,7 @@ export default class App extends Component {
             <Alert
               variant="success"
               title="Setup Complete"
-              action={<AlertActionCloseButton onClose={this.dismissNotification} />}
+              actionClose={<AlertActionCloseButton onClose={this.dismissNotification} />}
             >
               You have successfully launched your patternfly starter project.
             </Alert>

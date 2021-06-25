@@ -2,6 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  resolve: {
+    fallback: {
+      crypto: require.resolve('crypto-browserify'),
+      buffer: require.resolve('buffer'),
+      stream: require.resolve('stream-browserify')
+    }
+  },
   entry: {
     app: './src/index.js'
   },
