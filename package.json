@@ -1,5 +1,5 @@
 {
-  "name": "patternfly-seed",
+  "name": "stockistory",
   "version": "0.0.2",
   "description": "An open source build scaffolding utility for web apps.",
   "repository": "https://github.com/patternfly/patternfly-react-seed.git",
@@ -79,7 +79,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@patternfly/react-core": "^4.162.3",
+    "@patternfly/react-charts": "^6.34.1",
+    "@patternfly/react-core": "^4.181.1",
     "@patternfly/react-icons": "^4.13.1",
     "@patternfly/react-styles": "^4.12.5",
     "@storybook/builder-webpack5": "^6.2.9",
