@@ -26,7 +26,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   };
   const onNavToggle = () => {
     setIsNavOpen(!isNavOpen);
-  }
+  };
   const onPageResize = (props: { mobileView: boolean; windowSize: number }) => {
     setIsMobileView(props.mobileView);
   };
@@ -53,8 +53,8 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const location = useLocation();
 
   const renderNavItem = (route: IAppRoute, index: number) => (
-    <NavItem key={`${route.label}-${index}`} id={`${route.label}-${index}`}>
-      <NavLink exact={route.exact} to={route.path} activeClassName="pf-m-current">
+    <NavItem key={`${route.label}-${index}`} id={`${route.label}-${index}`} isActive={route.path === location.pathname}>
+      <NavLink exact={route.exact} to={route.path}>
         {route.label}
       </NavLink>
     </NavItem>
@@ -109,6 +109,6 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
       {children}
     </Page>
   );
-}
+};
 
 export { AppLayout };
