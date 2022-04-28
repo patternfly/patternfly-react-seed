@@ -1,6 +1,7 @@
 **/node_modules
 dist
 yarn-error.log
+yarn.lock
 stats.json
 coverage
 storybook-static
