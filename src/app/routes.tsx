@@ -4,6 +4,7 @@ import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { Dashboard } from '@app/Dashboard/Dashboard';
 import { Support } from '@app/Support/Support';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
+import { Details } from '@app/Settings/General/Details';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
@@ -46,19 +47,26 @@ const routes: AppRouteConfig[] = [
     title: 'PatternFly Seed | Support Page',
   },
   {
-    label: 'Settings',
+    label: 'Ongoing Authorization',
     routes: [
       {
         component: GeneralSettings,
         exact: true,
-        label: 'General',
+        label: 'Base Images',
         path: '/settings/general',
+        title: 'PatternFly Seed | General Settings',
+      },
+      {
+        component: Details,
+        exact: true,
+        label: 'Component Details',
+        path: '/settings/details',
         title: 'PatternFly Seed | General Settings',
       },
       {
         component: ProfileSettings,
         exact: true,
-        label: 'Profile',
+        label: 'Runtime',
         path: '/settings/profile',
         title: 'PatternFly Seed | Profile Settings',
       },
