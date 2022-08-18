@@ -18,6 +18,8 @@ export interface ISupportProps {
   sampleProp?: string;
 }
 
+const foo: string = 3;
+
 // eslint-disable-next-line prefer-const
 let Support: React.FunctionComponent<ISupportProps> = () => (
   <PageSection>
