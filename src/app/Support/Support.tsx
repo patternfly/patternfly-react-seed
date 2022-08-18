@@ -11,7 +11,7 @@ import {
   EmptyStateSecondaryActions,
   Text,
   TextContent,
-  TextVariants
+  TextVariants,
 } from '@patternfly/react-core';
 
 export interface ISupportProps {
@@ -29,11 +29,12 @@ let Support: React.FunctionComponent<ISupportProps> = () => (
       <EmptyStateBody>
         <TextContent>
           <Text component="p">
-            This represents an the empty state pattern in Patternfly 4. Hopefully it&apos;s simple enough to use but flexible
-            enough to meet a variety of needs.
+            This represents an the empty state pattern in Patternfly 4. Hopefully it&apos;s simple enough to use but
+            flexible enough to meet a variety of needs.
           </Text>
           <Text component={TextVariants.small}>
-            This text has overridden a css component variable to demonstrate how to apply customizations using PatternFly's global variable API.
+            This text has overridden a css component variable to demonstrate how to apply customizations using
+            PatternFly&apos;s global variable API.
           </Text>
         </TextContent>
       </EmptyStateBody>
