@@ -1,0 +1,30 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - release*
+
+jobs:
+  tests:
+    name: Lint, Test, Build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🔎 Job triggered by ${{ github.event_name }} event on branch ${{ github.ref }} in repository ${{ github.repository }}."
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps # TODO remove --legacy-peer-deps after https://github.com/patternfly/patternfly-react-seed/issues/134 is fixed
+      - name: Check TypeScript types
+        run: npm run type-check
+      - name: Run eslint
+        run: npm run lint
+      - name: Run tests
+        run: npm run test
+      - name: Attempt a build
+        run: npm run build
