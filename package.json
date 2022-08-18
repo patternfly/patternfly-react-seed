@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "prebuild": "npm run clean && npm run type-check",
+    "prebuild": "npm run type-check && npm run clean",
     "dr:surge": "node dr-surge.js",
     "build": "webpack --config webpack.prod.js && npm run dr:surge",
     "start": "sirv dist --cors --single --host --port 8080",
