@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { Route, RouteComponentProps, Switch } from 'react-router-dom';
+import { Route, RouteComponentProps, Switch, useLocation } from 'react-router-dom';
 import { Dashboard } from '@app/Dashboard/Dashboard';
 import { Support } from '@app/Support/Support';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
-import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
 
 let routeFocusTimer: number;
 export interface IAppRoute {
@@ -66,21 +65,20 @@ const routes: AppRouteConfig[] = [
 // a custom hook for sending focus to the primary content container
 // after a view has loaded so that subsequent press of tab key
 // sends focus directly to relevant content
+// may not be necessary if https://github.com/ReactTraining/react-router/issues/5210 is resolved
 const useA11yRouteChange = () => {
-  const lastNavigation = useLastLocation();
+  const { pathname } = useLocation();
   React.useEffect(() => {
-    if (lastNavigation !== null) {
-      routeFocusTimer = window.setTimeout(() => {
-        const mainContainer = document.getElementById('primary-app-container');
-        if (mainContainer) {
-          mainContainer.focus();
-        }
-      }, 50);
-    }
+    routeFocusTimer = window.setTimeout(() => {
+      const mainContainer = document.getElementById('primary-app-container');
+      if (mainContainer) {
+        mainContainer.focus();
+      }
+    }, 50);
     return () => {
       window.clearTimeout(routeFocusTimer);
     };
-  }, [lastNavigation]);
+  }, [pathname]);
 };
 
 const RouteWithTitleUpdates = ({ component: Component, title, ...rest }: IAppRoute) => {
@@ -105,14 +103,12 @@ const flattenedRoutes: IAppRoute[] = routes.reduce(
 );
 
 const AppRoutes = (): React.ReactElement => (
-  <LastLocationProvider>
-    <Switch>
-      {flattenedRoutes.map(({ path, exact, component, title }, idx) => (
-        <RouteWithTitleUpdates path={path} exact={exact} component={component} key={idx} title={title} />
-      ))}
-      <PageNotFound title="404 Page Not Found" />
-    </Switch>
-  </LastLocationProvider>
+  <Switch>
+    {flattenedRoutes.map(({ path, exact, component, title }, idx) => (
+      <RouteWithTitleUpdates path={path} exact={exact} component={component} key={idx} title={title} />
+    ))}
+    <PageNotFound title="404 Page Not Found" />
+  </Switch>
 );
 
 export { AppRoutes, routes };
