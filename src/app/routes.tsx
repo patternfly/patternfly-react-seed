@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
-import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { Dashboard } from '@app/Dashboard/Dashboard';
 import { Support } from '@app/Support/Support';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
@@ -18,7 +17,6 @@ export interface IAppRoute {
   exact?: boolean;
   path: string;
   title: string;
-  isAsync?: boolean;
   routes?: undefined;
 }
 
@@ -40,7 +38,6 @@ const routes: AppRouteConfig[] = [
   {
     component: Support,
     exact: true,
-    isAsync: true,
     label: 'Support',
     path: '/support',
     title: 'PatternFly Seed | Support Page',
@@ -69,27 +66,32 @@ const routes: AppRouteConfig[] = [
 // a custom hook for sending focus to the primary content container
 // after a view has loaded so that subsequent press of tab key
 // sends focus directly to relevant content
-const useA11yRouteChange = (isAsync: boolean) => {
+const useA11yRouteChange = () => {
   const lastNavigation = useLastLocation();
   React.useEffect(() => {
-    if (!isAsync && lastNavigation !== null) {
-      routeFocusTimer = accessibleRouteChangeHandler();
+    if (lastNavigation !== null) {
+      routeFocusTimer = window.setTimeout(() => {
+        const mainContainer = document.getElementById('primary-app-container');
+        if (mainContainer) {
+          mainContainer.focus();
+        }
+      }, 50);
     }
     return () => {
       window.clearTimeout(routeFocusTimer);
     };
-  }, [isAsync, lastNavigation]);
+  }, [lastNavigation]);
 };
 
-const RouteWithTitleUpdates = ({ component: Component, isAsync = false, title, ...rest }: IAppRoute) => {
-  useA11yRouteChange(isAsync);
+const RouteWithTitleUpdates = ({ component: Component, title, ...rest }: IAppRoute) => {
+  useA11yRouteChange();
   useDocumentTitle(title);
 
   function routeWithTitle(routeProps: RouteComponentProps) {
     return <Component {...rest} {...routeProps} />;
   }
 
-  return <Route render={routeWithTitle} {...rest}/>;
+  return <Route render={routeWithTitle} {...rest} />;
 };
 
 const PageNotFound = ({ title }: { title: string }) => {
@@ -105,15 +107,8 @@ const flattenedRoutes: IAppRoute[] = routes.reduce(
 const AppRoutes = (): React.ReactElement => (
   <LastLocationProvider>
     <Switch>
-      {flattenedRoutes.map(({ path, exact, component, title, isAsync }, idx) => (
-        <RouteWithTitleUpdates
-          path={path}
-          exact={exact}
-          component={component}
-          key={idx}
-          title={title}
-          isAsync={isAsync}
-        />
+      {flattenedRoutes.map(({ path, exact, component, title }, idx) => (
+        <RouteWithTitleUpdates path={path} exact={exact} component={component} key={idx} title={title} />
       ))}
       <PageNotFound title="404 Page Not Found" />
     </Switch>
