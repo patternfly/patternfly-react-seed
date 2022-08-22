@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { Route, RouteComponentProps, Switch } from 'react-router-dom';
-import { accessibleRouteChangeHandler } from '@app/utils/utils';
+import { Route, RouteComponentProps, Switch, useLocation } from 'react-router-dom';
 import { Dashboard } from '@app/Dashboard/Dashboard';
 import { Support } from '@app/Support/Support';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
-import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
 
 let routeFocusTimer: number;
 export interface IAppRoute {
@@ -18,7 +16,6 @@ export interface IAppRoute {
   exact?: boolean;
   path: string;
   title: string;
-  isAsync?: boolean;
   routes?: undefined;
 }
 
@@ -40,7 +37,6 @@ const routes: AppRouteConfig[] = [
   {
     component: Support,
     exact: true,
-    isAsync: true,
     label: 'Support',
     path: '/support',
     title: 'PatternFly Seed | Support Page',
@@ -69,27 +65,31 @@ const routes: AppRouteConfig[] = [
 // a custom hook for sending focus to the primary content container
 // after a view has loaded so that subsequent press of tab key
 // sends focus directly to relevant content
-const useA11yRouteChange = (isAsync: boolean) => {
-  const lastNavigation = useLastLocation();
+// may not be necessary if https://github.com/ReactTraining/react-router/issues/5210 is resolved
+const useA11yRouteChange = () => {
+  const { pathname } = useLocation();
   React.useEffect(() => {
-    if (!isAsync && lastNavigation !== null) {
-      routeFocusTimer = accessibleRouteChangeHandler();
-    }
+    routeFocusTimer = window.setTimeout(() => {
+      const mainContainer = document.getElementById('primary-app-container');
+      if (mainContainer) {
+        mainContainer.focus();
+      }
+    }, 50);
     return () => {
       window.clearTimeout(routeFocusTimer);
     };
-  }, [isAsync, lastNavigation]);
+  }, [pathname]);
 };
 
-const RouteWithTitleUpdates = ({ component: Component, isAsync = false, title, ...rest }: IAppRoute) => {
-  useA11yRouteChange(isAsync);
+const RouteWithTitleUpdates = ({ component: Component, title, ...rest }: IAppRoute) => {
+  useA11yRouteChange();
   useDocumentTitle(title);
 
   function routeWithTitle(routeProps: RouteComponentProps) {
     return <Component {...rest} {...routeProps} />;
   }
 
-  return <Route render={routeWithTitle} {...rest}/>;
+  return <Route render={routeWithTitle} {...rest} />;
 };
 
 const PageNotFound = ({ title }: { title: string }) => {
@@ -103,21 +103,12 @@ const flattenedRoutes: IAppRoute[] = routes.reduce(
 );
 
 const AppRoutes = (): React.ReactElement => (
-  <LastLocationProvider>
-    <Switch>
-      {flattenedRoutes.map(({ path, exact, component, title, isAsync }, idx) => (
-        <RouteWithTitleUpdates
-          path={path}
-          exact={exact}
-          component={component}
-          key={idx}
-          title={title}
-          isAsync={isAsync}
-        />
-      ))}
-      <PageNotFound title="404 Page Not Found" />
-    </Switch>
-  </LastLocationProvider>
+  <Switch>
+    {flattenedRoutes.map(({ path, exact, component, title }, idx) => (
+      <RouteWithTitleUpdates path={path} exact={exact} component={component} key={idx} title={title} />
+    ))}
+    <PageNotFound title="404 Page Not Found" />
+  </Switch>
 );
 
 export { AppRoutes, routes };
