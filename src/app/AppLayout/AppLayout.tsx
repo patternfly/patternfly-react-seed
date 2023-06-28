@@ -1,18 +1,19 @@
 import * as React from 'react';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import {
 	Nav,
+  NavExpandable,
+  NavItem,
 	NavList,
-	NavItem,
-	NavExpandable,
 	Page,
 	PageSidebar,
-	SkipToContent, PageSidebarBody
+  PageSidebarBody,
+	SkipToContent
 } from '@patternfly/react-core';
 import {
 	PageHeader
 } from '@patternfly/react-core/deprecated';
-import { routes, IAppRoute, IAppRouteGroup } from '@app/routes';
+import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
 import logo from '@app/bgimages/Patternfly-Logo.svg';
 
 interface IAppLayout {

@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { CubesIcon } from '@patternfly/react-icons';
 import {
-  PageSection,
   Button,
   EmptyState,
-  EmptyStateVariant,
-  EmptyStateIcon,
+  EmptyStateActions,
   EmptyStateBody,
+  EmptyStateFooter,
+  EmptyStateHeader,
+  EmptyStateIcon,
+  EmptyStateVariant,
+  PageSection,
   Text,
   TextContent,
-  TextVariants, EmptyStateActions, EmptyStateHeader, EmptyStateFooter,
+  TextVariants,
 } from '@patternfly/react-core';
 
 export interface ISupportProps {

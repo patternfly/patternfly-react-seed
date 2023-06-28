@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { ExclamationTriangleIcon } from '@patternfly/react-icons';
 import {
-  PageSection,
   Button,
   EmptyState,
+  EmptyStateBody,
+  EmptyStateFooter,
+  EmptyStateHeader,
   EmptyStateIcon,
-  EmptyStateBody, EmptyStateHeader, EmptyStateFooter,
+  PageSection,
 } from '@patternfly/react-core';
 import { useHistory } from 'react-router-dom';
 
