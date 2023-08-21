@@ -36,6 +36,7 @@
     "@storybook/react": "^7.0.27",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "14.4.3",
     "@types/jest": "^29.5.3",
     "@types/react-router-dom": "^5.3.3",
     "@types/victory": "^33.1.5",
@@ -79,9 +80,9 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
-    "@patternfly/react-core": "^5.0.0-prerealse.22",
-    "@patternfly/react-icons": "^5.0.0-prerealse.8",
-    "@patternfly/react-styles": "^5.0.0-prerealse.6",
+    "@patternfly/react-core": "^5.0.0",
+    "@patternfly/react-icons": "^5.0.0",
+    "@patternfly/react-styles": "^5.0.0",
     "@storybook/builder-webpack5": "^7.0.27",
     "react": "^18",
     "react-dom": "^18",
