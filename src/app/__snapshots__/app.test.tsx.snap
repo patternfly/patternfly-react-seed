@@ -59,6 +59,7 @@ exports[`App tests should render default App component 1`] = `
             alt="Patterfly Logo"
             class="pf-v5-c-brand"
             src="test-file-stub"
+            style="--pf-v5-c-brand--Height: 36px;"
           />
         </span>
       </div>
