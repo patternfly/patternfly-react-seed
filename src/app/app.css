@@ -12,8 +12,3 @@ body,
   --pf-c-content--hr--BackgroundColor: lemonchiffon;
   /* changes a <hr> color to lemonchiffon */
 }
-
-@font-face {
-  font-family: "RedHatDisplay";
-  src: url("../../node_modules/@patternfly/react-core/dist/styles/assets/fonts/RedHatDisplay/RedHatDisplay-Regular.woff2");
-}
