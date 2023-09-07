@@ -1,53 +1,44 @@
 import * as React from 'react';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import {
-  Nav,
-  NavList,
-  NavItem,
+  Brand,
+  Button,
+  Masthead,
+  MastheadBrand,
+  MastheadMain,
+  MastheadToggle,
+	Nav,
   NavExpandable,
-  Page,
-  PageHeader,
-  PageSidebar,
-  SkipToContent
+  NavItem,
+	NavList,
+	Page,
+	PageSidebar,
+  PageSidebarBody,
+	SkipToContent
 } from '@patternfly/react-core';
-import { routes, IAppRoute, IAppRouteGroup } from '@app/routes';
+import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
 import logo from '@app/bgimages/Patternfly-Logo.svg';
+import { BarsIcon } from '@patternfly/react-icons';
 
 interface IAppLayout {
   children: React.ReactNode;
 }
 
 const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
-  const [isNavOpen, setIsNavOpen] = React.useState(true);
-  const [isMobileView, setIsMobileView] = React.useState(true);
-  const [isNavOpenMobile, setIsNavOpenMobile] = React.useState(false);
-  const onNavToggleMobile = () => {
-    setIsNavOpenMobile(!isNavOpenMobile);
-  };
-  const onNavToggle = () => {
-    setIsNavOpen(!isNavOpen);
-  };
-  const onPageResize = (props: { mobileView: boolean; windowSize: number }) => {
-    setIsMobileView(props.mobileView);
-  };
-
-  function LogoImg() {
-    const history = useHistory();
-    function handleClick() {
-      history.push('/');
-    }
-    return (
-      <img src={logo} onClick={handleClick} alt="PatternFly Logo" />
-    );
-  }
-
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const Header = (
-    <PageHeader
-      logo={<LogoImg />}
-      showNavToggle
-      isNavOpen={isNavOpen}
-      onNavToggle={isMobileView ? onNavToggleMobile : onNavToggle}
-    />
+    <Masthead>
+      <MastheadToggle>
+        <Button variant="plain" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Global navigation">
+          <BarsIcon />
+        </Button>
+      </MastheadToggle>
+      <MastheadMain>
+        <MastheadBrand>
+          <Brand src={logo} alt="Patterfly Logo" heights={{ default: '36px' }} />
+        </MastheadBrand>
+      </MastheadMain>
+    </Masthead>
   );
 
   const location = useLocation();
@@ -82,10 +73,11 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   );
 
   const Sidebar = (
-    <PageSidebar
-      theme="dark"
-      nav={Navigation}
-      isNavOpen={isMobileView ? isNavOpenMobile : isNavOpen} />
+    <PageSidebar theme="dark" >
+      <PageSidebarBody>
+        {Navigation}
+      </PageSidebarBody>
+    </PageSidebar>
   );
 
   const pageId = 'primary-app-container';
@@ -103,8 +95,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     <Page
       mainContainerId={pageId}
       header={Header}
-      sidebar={Sidebar}
-      onPageResize={onPageResize}
+      sidebar={sidebarOpen && Sidebar}
       skipToContent={PageSkipToContent}>
       {children}
     </Page>

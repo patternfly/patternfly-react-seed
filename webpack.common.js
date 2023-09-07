@@ -25,6 +25,7 @@ module.exports = (env) => {
         },
         {
           test: /\.(svg|ttf|eot|woff|woff2)$/,
+          type: 'asset/resource',
           // only process modules with this loader
           // if they live under a 'fonts' or 'pficon' directory
           include: [
@@ -34,22 +35,13 @@ module.exports = (env) => {
             path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/fonts'),
             path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/pficon'),
           ],
-          use: {
-            loader: 'file-loader',
-            options: {
-              // Limit at 50k. larger files emited into separate files
-              limit: 5000,
-              outputPath: 'fonts',
-              name: '[name].[ext]',
-            },
-          },
         },
         {
           test: /\.svg$/,
+          type: 'asset/inline',
           include: (input) => input.indexOf('background-filter.svg') > 1,
           use: [
             {
-              loader: 'url-loader',
               options: {
                 limit: 5000,
                 outputPath: 'svgs',
@@ -63,10 +55,7 @@ module.exports = (env) => {
           // only process SVG modules with this loader if they live under a 'bgimages' directory
           // this is primarily useful when applying a CSS background using an SVG
           include: (input) => input.indexOf(BG_IMAGES_DIRNAME) > -1,
-          use: {
-            loader: 'svg-url-loader',
-            options: {},
-          },
+          type: 'asset/inline',
         },
         {
           test: /\.svg$/,
@@ -103,9 +92,9 @@ module.exports = (env) => {
               'node_modules/@patternfly/react-inline-edit-extension/node_modules/@patternfly/react-styles/css/assets/images'
             ),
           ],
+          type: 'asset/inline',
           use: [
             {
-              loader: 'url-loader',
               options: {
                 limit: 5000,
                 outputPath: 'images',

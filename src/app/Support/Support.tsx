@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { CubesIcon } from '@patternfly/react-icons';
 import {
-  PageSection,
-  Title,
   Button,
   EmptyState,
-  EmptyStateVariant,
-  EmptyStateIcon,
+  EmptyStateActions,
   EmptyStateBody,
-  EmptyStateSecondaryActions,
+  EmptyStateFooter,
+  EmptyStateHeader,
+  EmptyStateIcon,
+  EmptyStateVariant,
+  PageSection,
   Text,
   TextContent,
   TextVariants,
@@ -22,10 +23,7 @@ export interface ISupportProps {
 let Support: React.FunctionComponent<ISupportProps> = () => (
   <PageSection>
     <EmptyState variant={EmptyStateVariant.full}>
-      <EmptyStateIcon icon={CubesIcon} />
-      <Title headingLevel="h1" size="lg">
-        Empty State (Stub Support Module)
-      </Title>
+      <EmptyStateHeader titleText="Empty State (Stub Support Module)" icon={<EmptyStateIcon icon={CubesIcon} />} headingLevel="h1" />
       <EmptyStateBody>
         <TextContent>
           <Text component="p">
@@ -37,17 +35,17 @@ let Support: React.FunctionComponent<ISupportProps> = () => (
             PatternFly&apos;s global variable API.
           </Text>
         </TextContent>
-      </EmptyStateBody>
+      </EmptyStateBody><EmptyStateFooter>
       <Button variant="primary">Primary Action</Button>
-      <EmptyStateSecondaryActions>
+      <EmptyStateActions>
         <Button variant="link">Multiple</Button>
         <Button variant="link">Action Buttons</Button>
         <Button variant="link">Can</Button>
         <Button variant="link">Go here</Button>
         <Button variant="link">In the secondary</Button>
         <Button variant="link">Action area</Button>
-      </EmptyStateSecondaryActions>
-    </EmptyState>
+      </EmptyStateActions>
+    </EmptyStateFooter></EmptyState>
   </PageSection>
 );
 

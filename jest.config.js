@@ -27,13 +27,6 @@ module.exports = {
   // A preset that is used as a base for Jest's configuration
   preset: "ts-jest/presets/js-with-ts",
 
-  // The path to a module that runs some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['<rootDir>/test-setup.js'],
-
   // The test environment that will be used for testing.
   testEnvironment: "jsdom",
-
-  // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-  snapshotSerializers: ['enzyme-to-json/serializer'],
-
 };

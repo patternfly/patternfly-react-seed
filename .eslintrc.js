@@ -1,4 +1,4 @@
-{
+module.exports = {
   // tells eslint to use the TypeScript parser
   "parser": "@typescript-eslint/parser",
   // tell the TypeScript parser that we want to use JSX syntax
@@ -12,6 +12,7 @@
   },
   // we want to use the recommended rules provided from the typescript plugin
   "extends": [
+    "@redhat-cloud-services/eslint-config-redhat-cloud-services",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
@@ -23,8 +24,24 @@
     "expect": "readonly",
     "it": "readonly",
     "process": "readonly",
-    "document": "readonly"
+    "document": "readonly",
+    "insights": "readonly",
+    "shallow": "readonly",
+    "render": "readonly",
+    "mount": "readonly"
   },
+  "overrides": [
+    {
+      "files": ["src/**/*.ts", "src/**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "react/prop-types": "off",
+        "@typescript-eslint/no-unused-vars": "error"
+      },
+    },
+  ],
   "settings": {
     "react": {
       "version": "^16.11.0"
@@ -37,6 +54,12 @@
     "eslint-plugin-react-hooks"
   ],
   "rules": {
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
