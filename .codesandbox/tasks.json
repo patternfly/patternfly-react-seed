@@ -1,0 +1,103 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "npm install"
+    }
+  ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "prebuild": {
+      "name": "prebuild",
+      "command": "npm run prebuild",
+      "runAtStart": false
+    },
+    "dr:surge": {
+      "name": "dr:surge",
+      "command": "npm run dr:surge",
+      "runAtStart": false
+    },
+    "build": {
+      "name": "build",
+      "command": "npm run build",
+      "runAtStart": false
+    },
+    "start": {
+      "name": "start",
+      "command": "npm run start",
+      "runAtStart": true
+    },
+    "start:dev": {
+      "name": "start:dev",
+      "command": "npm run start:dev",
+      "runAtStart": false
+    },
+    "test": {
+      "name": "test",
+      "command": "npm run test",
+      "runAtStart": false
+    },
+    "test:watch": {
+      "name": "test:watch",
+      "command": "npm run test:watch",
+      "runAtStart": false
+    },
+    "test:coverage": {
+      "name": "test:coverage",
+      "command": "npm run test:coverage",
+      "runAtStart": false
+    },
+    "eslint": {
+      "name": "eslint",
+      "command": "npm run eslint",
+      "runAtStart": false
+    },
+    "lint": {
+      "name": "lint",
+      "command": "npm run lint",
+      "runAtStart": false
+    },
+    "format": {
+      "name": "format",
+      "command": "npm run format",
+      "runAtStart": false
+    },
+    "type-check": {
+      "name": "type-check",
+      "command": "npm run type-check",
+      "runAtStart": false
+    },
+    "ci-checks": {
+      "name": "ci-checks",
+      "command": "npm run ci-checks",
+      "runAtStart": false
+    },
+    "build:bundle-profile": {
+      "name": "build:bundle-profile",
+      "command": "npm run build:bundle-profile",
+      "runAtStart": false
+    },
+    "bundle-profile:analyze": {
+      "name": "bundle-profile:analyze",
+      "command": "npm run bundle-profile:analyze",
+      "runAtStart": false
+    },
+    "clean": {
+      "name": "clean",
+      "command": "npm run clean",
+      "runAtStart": false
+    },
+    "storybook": {
+      "name": "storybook",
+      "command": "npm run storybook",
+      "runAtStart": false
+    },
+    "build:storybook": {
+      "name": "build:storybook",
+      "command": "npm run build:storybook",
+      "runAtStart": false
+    }
+  }
+}
