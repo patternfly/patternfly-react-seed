@@ -73,7 +73,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   );
 
   const Sidebar = (
-    <PageSidebar theme="dark" >
+    <PageSidebar>
       <PageSidebarBody>
         {Navigation}
       </PageSidebarBody>
