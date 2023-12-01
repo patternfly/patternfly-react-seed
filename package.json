@@ -80,7 +80,7 @@
   },
   "dependencies": {
     "@patternfly/react-core": "^5.0.0",
-    "@patternfly/react-icons": "^5.0.0",
+    "@patternfly/react-icons": "^5.1.1",
     "@patternfly/react-styles": "^5.0.0",
     "@storybook/builder-webpack5": "^7.0.27",
     "react": "^18",
