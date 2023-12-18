@@ -69,7 +69,7 @@ You can use a similar technique to import assets from your local app, just prefi
 
 ```js
 import loader from '@app/assets/images/loader.gif';
-<img src={loader} alt="Content loading />
+<img src={loader} alt="Content loading" />
 ```
 
 ## Vector image support
@@ -88,7 +88,7 @@ body {
 ```
 
 ## Adding custom CSS
-When importing CSS from a third-party package for the first time, you may encounter the error `Module parse failed: Unexpected token... You may need an appropriate loader to handle this file typ...`. You need to register the path to the stylesheet directory in [stylePaths.js](./stylePaths.js). We specify these explicity for performance reasons to avoid webpack needing to crawl through the entire node_modules directory when parsing CSS modules.
+When importing CSS from a third-party package for the first time, you may encounter the error `Module parse failed: Unexpected token... You may need an appropriate loader to handle this file typ...`. You need to register the path to the stylesheet directory in [stylePaths.js](./stylePaths.js). We specify these explicitly for performance reasons to avoid webpack needing to crawl through the entire node_modules directory when parsing CSS modules.
 
 ## Code quality tools
 * For accessibility compliance, we use [react-axe](https://github.com/dequelabs/react-axe)
