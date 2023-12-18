@@ -69,7 +69,7 @@ You can use a similar technique to import assets from your local app, just prefi
 
 ```js
 import loader from '@app/assets/images/loader.gif';
-<img src={loader} alt="Content loading />
+<img src={loader} alt="Content loading" />
 ```
 
 ## Vector image support
