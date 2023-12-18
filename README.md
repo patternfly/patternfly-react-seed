@@ -3,41 +3,44 @@
 Patternfly Seed is an open source build scaffolding utility for web apps. The primary purpose of this project is to give developers a jump start when creating new projects that will use patternfly. A secondary purpose of this project is to serve as a reference for how to configure various aspects of an application that uses patternfly.
 
 ## Quick-start
+
 ```bash
-npm install yarn -g # ensure you have yarn on your machine globally
 git clone --branch javascript https://github.com/patternfly/patternfly-react-seed # clone the project
 cd patternfly-react-seed # navigate into the project directory
-yarn # install patternfly-react-seed dependencies
-yarn build # build the project
-yarn start # start the development server
+npm install --legacy-peer-deps # install patternfly-react-seed dependencies
+npm run build # build the project
+npm run start:dev # start the development server
 ```
+
 ## Development Scripts
 
 Install development/build dependencies
-`yarn`
+`npm install --legacy-peer-deps`
 
 Start the development server
-`yarn start`
+`npm run start:dev`
 
 Run a full build
-`yarn build`
+`npm run build`
 
 Run the test suite
-`yarn test`
+`npm run test`
 
 Run the linter
-`yarn lint`
+`npm run lint`
 
 Launch a tool to inspect the bundle size
-`yarn bundle-profile:analyze`
+`npm run bundle-profile:analyze`
 
 ## Configurations
-* [Babel Config](./babel.config.js)
-* [Webpack Config](./webpack.config.js)
-* [Jest Config](./jest.config.js)
+
+- [Babel Config](./babel.config.js)
+- [Webpack Config](./webpack.config.js)
+- [Jest Config](./jest.config.js)
 
 ## Code Quality Tools
-* For accessibility compliance, we use [react-axe](https://github.com/dequelabs/react-axe)
-* To keep our bundle size in check, we use [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
-* To keep our code formatting in check, we use [prettier](https://github.com/prettier/prettier)
-* To keep our code logic and test coverage in check, we use [jest](https://github.com/facebook/jest)
+
+- For accessibility compliance, we use [react-axe](https://github.com/dequelabs/react-axe)
+- To keep our bundle size in check, we use [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
+- To keep our code formatting in check, we use [prettier](https://github.com/prettier/prettier)
+- To keep our code logic and test coverage in check, we use [jest](https://github.com/facebook/jest)
