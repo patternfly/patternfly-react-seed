@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
-  Brand,
   Button,
   Masthead,
   MastheadBrand,
