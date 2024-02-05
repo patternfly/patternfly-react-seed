@@ -2,21 +2,32 @@ import * as React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   Button,
+  Icon,
   Masthead,
   MastheadBrand,
+  MastheadContent,
   MastheadMain,
   MastheadToggle,
-	Nav,
+  Nav,
   NavExpandable,
   NavItem,
-	NavList,
-	Page,
-	PageSidebar,
+  NavList,
+  Page,
+  PageSidebar,
   PageSidebarBody,
-	SkipToContent
+  SkipToContent,
+  Switch,
+  ToggleGroup,
+  ToggleGroupItem,
+  Toolbar,
+  ToolbarContent,
+  ToolbarItem,
+  ToolbarGroup,
 } from '@patternfly/react-core';
 import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
 import { BarsIcon } from '@patternfly/react-icons';
+import MoonIcon from '@patternfly/react-icons/dist/esm/icons/moon-icon';
+import SunIcon from '@patternfly/react-icons/dist/esm/icons/sun-icon';
 
 interface IAppLayout {
   children: React.ReactNode;
@@ -24,6 +35,15 @@ interface IAppLayout {
 
 const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+  const [isRTL, setIsRTL] = React.useState(false);
+
+  const toggleDarkTheme = (_evt, selected) => {
+    const darkThemeToggleClicked = !selected === isDarkTheme;
+    document.querySelector('html').classList.toggle('pf-v5-theme-dark', darkThemeToggleClicked);
+    setIsDarkTheme(darkThemeToggleClicked);
+  };
+
   const Header = (
     <Masthead>
       <MastheadToggle>
@@ -42,7 +62,11 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
               </linearGradient>
             </defs>
             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-              <g transform="translate(206.000000, 45.750000)" fill="var(--pf-t--global--text--color--regular)" fillRule="nonzero">
+              <g
+                transform="translate(206.000000, 45.750000)"
+                fill="var(--pf-t--global--text--color--regular)"
+                fillRule="nonzero"
+              >
                 <path d="M0,65.25 L0,2.25 L33.21,2.25 C37.35,2.25 41.025,3.135 44.235,4.905 C47.445,6.675 49.98,9.09 51.84,12.15 C53.7,15.21 54.63,18.72 54.63,22.68 C54.63,26.46 53.7,29.865 51.84,32.895 C49.98,35.925 47.43,38.31 44.19,40.05 C40.95,41.79 37.29,42.66 33.21,42.66 L15.48,42.66 L15.48,65.25 L0,65.25 Z M15.48,29.88 L31.41,29.88 C33.69,29.88 35.52,29.22 36.9,27.9 C38.28,26.58 38.97,24.87 38.97,22.77 C38.97,20.61 38.28,18.855 36.9,17.505 C35.52,16.155 33.69,15.48 31.41,15.48 L15.48,15.48 L15.48,29.88 Z"></path>
                 <path d="M77.04,66.06 C73.68,66.06 70.695,65.43 68.085,64.17 C65.475,62.91 63.435,61.17 61.965,58.95 C60.495,56.73 59.76,54.18 59.76,51.3 C59.76,46.74 61.485,43.215 64.935,40.725 C68.385,38.235 73.2,36.99 79.38,36.99 C83.1,36.99 86.7,37.44 90.18,38.34 L90.18,36 C90.18,31.26 87.15,28.89 81.09,28.89 C77.49,28.89 72.69,30.15 66.69,32.67 L61.47,21.96 C69.15,18.48 76.56,16.74 83.7,16.74 C90.3,16.74 95.43,18.315 99.09,21.465 C102.75,24.615 104.58,29.04 104.58,34.74 L104.58,65.25 L90.18,65.25 L90.18,62.37 C88.26,63.69 86.235,64.635 84.105,65.205 C81.975,65.775 79.62,66.06 77.04,66.06 Z M73.62,51.03 C73.62,52.53 74.28,53.7 75.6,54.54 C76.92,55.38 78.75,55.8 81.09,55.8 C84.69,55.8 87.72,55.05 90.18,53.55 L90.18,47.43 C87.42,46.71 84.54,46.35 81.54,46.35 C79.02,46.35 77.07,46.755 75.69,47.565 C74.31,48.375 73.62,49.53 73.62,51.03 Z"></path>
                 <path d="M137.25,65.88 C125.73,65.88 119.97,60.84 119.97,50.76 L119.97,29.79 L110.34,29.79 L110.34,17.64 L119.97,17.64 L119.97,5.4 L134.55,2.25 L134.55,17.64 L147.87,17.64 L147.87,29.79 L134.55,29.79 L134.55,47.88 C134.55,49.98 135.015,51.465 135.945,52.335 C136.875,53.205 138.51,53.64 140.85,53.64 C143.01,53.64 145.2,53.31 147.42,52.65 L147.42,64.44 C146.1,64.86 144.42,65.205 142.38,65.475 C140.34,65.745 138.63,65.88 137.25,65.88 Z"></path>
@@ -55,14 +79,64 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
                 <path d="M429.21,84.69 C428.07,84.69 426.96,84.645 425.88,84.555 C424.8,84.465 423.9,84.33 423.18,84.15 L423.18,71.73 C424.38,71.97 425.88,72.09 427.68,72.09 C432.36,72.09 435.51,70.05 437.13,65.97 L437.13,65.88 L418.86,17.64 L434.97,17.64 L445.5,47.61 L457.74,17.64 L473.49,17.64 L452.16,67.68 C450.42,71.82 448.5,75.135 446.4,77.625 C444.3,80.115 441.87,81.915 439.11,83.025 C436.35,84.135 433.05,84.69 429.21,84.69 Z"></path>
               </g>
               <g transform="translate(0.000000, 0.000000)">
-                <path d="M61.826087,0 L158,0 L158,96.173913 L147.695652,96.173913 C100.271201,96.173913 61.826087,57.7287992 61.826087,10.3043478 L61.826087,0 L61.826087,0 Z" fill="#0066CC"></path>
-                <path d="M158,3.43478261 L65.2608696,158 L138,158 C149.045695,158 158,149.045695 158,138 L158,3.43478261 L158,3.43478261 Z" fill="url(#linearGradient-basic-masthead)"></path>
-                <path d="M123.652174,-30.9130435 L30.9130435,123.652174 L103.652174,123.652174 C114.697869,123.652174 123.652174,114.697869 123.652174,103.652174 L123.652174,-30.9130435 L123.652174,-30.9130435 Z" fill="url(#linearGradient-basic-masthead)" transform="translate(77.282609, 46.369565) scale(1, -1) rotate(90.000000) translate(-77.282609, -46.369565) "></path>
+                <path
+                  d="M61.826087,0 L158,0 L158,96.173913 L147.695652,96.173913 C100.271201,96.173913 61.826087,57.7287992 61.826087,10.3043478 L61.826087,0 L61.826087,0 Z"
+                  fill="#0066CC"
+                ></path>
+                <path
+                  d="M158,3.43478261 L65.2608696,158 L138,158 C149.045695,158 158,149.045695 158,138 L158,3.43478261 L158,3.43478261 Z"
+                  fill="url(#linearGradient-basic-masthead)"
+                ></path>
+                <path
+                  d="M123.652174,-30.9130435 L30.9130435,123.652174 L103.652174,123.652174 C114.697869,123.652174 123.652174,114.697869 123.652174,103.652174 L123.652174,-30.9130435 L123.652174,-30.9130435 Z"
+                  fill="url(#linearGradient-basic-masthead)"
+                  transform="translate(77.282609, 46.369565) scale(1, -1) rotate(90.000000) translate(-77.282609, -46.369565) "
+                ></path>
               </g>
             </g>
           </svg>
         </MastheadBrand>
       </MastheadMain>
+      <MastheadContent>
+        <Toolbar isFullHeight>
+          <ToolbarContent>
+            <ToolbarGroup align={{ default: 'alignRight' }} spaceItems={{ default: 'spacerNone', md: 'spacerMd' }}>
+              <ToolbarItem>
+                <ToggleGroup aria-label="Dark theme toggle group">
+                  <ToggleGroupItem
+                    aria-label="light theme toggle"
+                    icon={
+                      <Icon size="md">
+                        <SunIcon />
+                      </Icon>
+                    }
+                    isSelected={!isDarkTheme}
+                    onChange={toggleDarkTheme}
+                  />
+                  <ToggleGroupItem
+                    aria-label="dark theme toggle"
+                    icon={
+                      <Icon size="md">
+                        <MoonIcon />
+                      </Icon>
+                    }
+                    isSelected={isDarkTheme}
+                    onChange={toggleDarkTheme}
+                  />
+                </ToggleGroup>
+              </ToolbarItem>
+              <ToolbarItem>
+                <Switch
+                  id="ws-rtl-switch"
+                  label={'RTL'}
+                  defaultChecked={isRTL}
+                  onChange={() => setIsRTL((isRTL) => !isRTL)}
+                />
+              </ToolbarItem>
+            </ToolbarGroup>
+          </ToolbarContent>
+        </Toolbar>
+      </MastheadContent>
     </Masthead>
   );
 
@@ -91,7 +165,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     <Nav id="nav-primary-simple">
       <NavList id="nav-list-simple">
         {routes.map(
-          (route, idx) => route.label && (!route.routes ? renderNavItem(route, idx) : renderNavGroup(route, idx))
+          (route, idx) => route.label && (!route.routes ? renderNavItem(route, idx) : renderNavGroup(route, idx)),
         )}
       </NavList>
     </Nav>
@@ -99,29 +173,27 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   const Sidebar = (
     <PageSidebar>
-      <PageSidebarBody>
-        {Navigation}
-      </PageSidebarBody>
+      <PageSidebarBody>{Navigation}</PageSidebarBody>
     </PageSidebar>
   );
 
   const pageId = 'primary-app-container';
 
   const PageSkipToContent = (
-    <SkipToContent onClick={(event) => {
-      event.preventDefault();
-      const primaryContentContainer = document.getElementById(pageId);
-      primaryContentContainer && primaryContentContainer.focus();
-    }} href={`#${pageId}`}>
+    <SkipToContent
+      onClick={(event) => {
+        event.preventDefault();
+        const primaryContentContainer = document.getElementById(pageId);
+        primaryContentContainer && primaryContentContainer.focus();
+      }}
+      href={`#${pageId}`}
+    >
       Skip to Content
     </SkipToContent>
   );
+
   return (
-    <Page
-      mainContainerId={pageId}
-      header={Header}
-      sidebar={sidebarOpen && Sidebar}
-      skipToContent={PageSkipToContent}>
+    <Page mainContainerId={pageId} header={Header} sidebar={sidebarOpen && Sidebar} skipToContent={PageSkipToContent}>
       {children}
     </Page>
   );
