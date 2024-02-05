@@ -88,7 +88,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   );
 
   const Navigation = (
-    <Nav id="nav-primary-simple" theme="light">
+    <Nav id="nav-primary-simple">
       <NavList id="nav-list-simple">
         {routes.map(
           (route, idx) => route.label && (!route.routes ? renderNavItem(route, idx) : renderNavGroup(route, idx))
