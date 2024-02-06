@@ -36,7 +36,6 @@ interface IAppLayout {
 const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
-  const [isRTL, setIsRTL] = React.useState(false);
 
   const toggleDarkTheme = (_evt, selected) => {
     const darkThemeToggleClicked = !selected === isDarkTheme;
@@ -44,8 +43,14 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     setIsDarkTheme(darkThemeToggleClicked);
   };
 
+  const toggleRTL = () => {
+    const html = document.querySelector('html');
+    const curDir = html.dir;
+    html.dir = curDir !== 'rtl' ? 'rtl' : 'ltr';
+  };
+
   const Header = (
-    <Masthead>
+    <Masthead className="demo-masthead">
       <MastheadToggle>
         <Button variant="plain" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Global navigation">
           <BarsIcon />
@@ -100,7 +105,11 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
       <MastheadContent>
         <Toolbar isFullHeight>
           <ToolbarContent>
-            <ToolbarGroup align={{ default: 'alignRight' }} spaceItems={{ default: 'spacerNone', md: 'spacerMd' }}>
+            <ToolbarGroup
+              className="pf-m-align-end"
+              align={{ default: 'alignRight' }}
+              spaceItems={{ default: 'spacerNone', md: 'spacerMd' }}
+            >
               <ToolbarItem>
                 <ToggleGroup aria-label="Dark theme toggle group">
                   <ToggleGroupItem
@@ -126,12 +135,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
                 </ToggleGroup>
               </ToolbarItem>
               <ToolbarItem>
-                <Switch
-                  id="ws-rtl-switch"
-                  label={'RTL'}
-                  defaultChecked={isRTL}
-                  onChange={() => setIsRTL((isRTL) => !isRTL)}
-                />
+                <Switch id="ws-rtl-switch" label={'RTL'} defaultChecked={false} onChange={() => toggleRTL()} />
               </ToolbarItem>
             </ToolbarGroup>
           </ToolbarContent>
