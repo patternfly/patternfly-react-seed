@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import { Support } from '@app/Support/Support';
+import { Support } from '@app/Resources/Resources';
 import { Story } from '@storybook/react';
 
 //👇 This default export determines where your story goes in the story list

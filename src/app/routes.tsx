@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, RouteComponentProps, Switch, useLocation } from 'react-router-dom';
 import { Dashboard } from '@app/Dashboard/Dashboard';
-import { Support } from '@app/Support/Support';
+import { PrimaryDetailCardView as Resources } from '@app/Resources/Resources';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
 import { NotFound } from '@app/NotFound/NotFound';
@@ -35,11 +35,11 @@ const routes: AppRouteConfig[] = [
     title: 'PatternFly Seed | Main Dashboard',
   },
   {
-    component: Support,
+    component: Resources,
     exact: true,
-    label: 'Support',
-    path: '/support',
-    title: 'PatternFly Seed | Support Page',
+    label: 'Resources',
+    path: '/resources',
+    title: 'PatternFly Seed | Resources Page',
   },
   {
     label: 'Settings',
@@ -99,7 +99,7 @@ const PageNotFound = ({ title }: { title: string }) => {
 
 const flattenedRoutes: IAppRoute[] = routes.reduce(
   (flattened, route) => [...flattened, ...(route.routes ? route.routes : [route])],
-  [] as IAppRoute[]
+  [] as IAppRoute[],
 );
 
 const AppRoutes = (): React.ReactElement => (
