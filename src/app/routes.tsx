@@ -2,8 +2,7 @@ import * as React from 'react';
 import { Route, RouteComponentProps, Switch, useLocation } from 'react-router-dom';
 import { Dashboard } from '@app/Dashboard/Dashboard';
 import { Support } from '@app/Support/Support';
-import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
-import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
+import { FilterAttributeSearch as Inventory } from '@app/Inventory/Inventory';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 
@@ -42,23 +41,11 @@ const routes: AppRouteConfig[] = [
     title: 'PatternFly Seed | Support Page',
   },
   {
-    label: 'Settings',
-    routes: [
-      {
-        component: GeneralSettings,
-        exact: true,
-        label: 'General',
-        path: '/settings/general',
-        title: 'PatternFly Seed | General Settings',
-      },
-      {
-        component: ProfileSettings,
-        exact: true,
-        label: 'Profile',
-        path: '/settings/profile',
-        title: 'PatternFly Seed | Profile Settings',
-      },
-    ],
+    component: Inventory,
+    exact: true,
+    label: 'Inventory',
+    path: '/inventory',
+    title: 'PatternFly Seed | Inventory',
   },
 ];
 
@@ -99,7 +86,7 @@ const PageNotFound = ({ title }: { title: string }) => {
 
 const flattenedRoutes: IAppRoute[] = routes.reduce(
   (flattened, route) => [...flattened, ...(route.routes ? route.routes : [route])],
-  [] as IAppRoute[]
+  [] as IAppRoute[],
 );
 
 const AppRoutes = (): React.ReactElement => (
