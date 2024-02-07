@@ -39,14 +39,14 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   const toggleDarkTheme = (_evt, selected) => {
     const darkThemeToggleClicked = !selected === isDarkTheme;
-    document.querySelector('html').classList.toggle('pf-v5-theme-dark', darkThemeToggleClicked);
+    document.querySelector('html')!.classList.toggle('pf-v5-theme-dark', darkThemeToggleClicked);
     setIsDarkTheme(darkThemeToggleClicked);
   };
 
   const toggleRTL = () => {
     const html = document.querySelector('html');
-    const curDir = html.dir;
-    html.dir = curDir !== 'rtl' ? 'rtl' : 'ltr';
+    const curDir = html!.dir;
+    html!.dir = curDir !== 'rtl' ? 'rtl' : 'ltr';
   };
 
   const Header = (
@@ -108,7 +108,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
             <ToolbarGroup
               className="pf-m-align-end"
               align={{ default: 'alignRight' }}
-              spaceItems={{ default: 'spacerNone', md: 'spacerMd' }}
+              spaceItems={{ default: 'spaceItemsNone', md: 'spaceItemsMd' }}
             >
               <ToolbarItem>
                 <ToggleGroup aria-label="Dark theme toggle group">
