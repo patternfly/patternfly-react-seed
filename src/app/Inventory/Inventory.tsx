@@ -1,29 +1,29 @@
 import React from 'react';
 import {
+  Badge,
+  Bullseye,
+  Button,
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateBody,
+  EmptyStateFooter,
+  Menu,
+  MenuContent,
+  MenuItem,
+  MenuList,
+  MenuToggle,
+  MenuToggleCheckbox,
+  Pagination,
+  Popper,
   SearchInput,
   Toolbar,
   ToolbarContent,
-  ToolbarItem,
-  Menu,
-  MenuContent,
-  MenuList,
-  MenuItem,
-  MenuToggle,
-  MenuToggleCheckbox,
-  Popper,
-  Pagination,
-  EmptyState,
-  EmptyStateFooter,
-  EmptyStateBody,
-  Button,
-  Bullseye,
-  Badge,
-  ToolbarGroup,
   ToolbarFilter,
+  ToolbarGroup,
+  ToolbarItem,
   ToolbarToggleGroup,
-  EmptyStateActions,
 } from '@patternfly/react-core';
-import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
+import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import SearchIcon from '@patternfly/react-icons/dist/esm/icons/search-icon';
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 
@@ -151,7 +151,7 @@ export const FilterAttributeSearch: React.FunctionComponent = () => {
 
   // Set up bulk selection menu
   const bulkSelectMenuRef = React.useRef<HTMLDivElement>(null);
-  const bulkSelectToggleRef = React.useRef<any>(null);
+  const bulkSelectToggleRef = React.useRef<HTMLDivElement | HTMLButtonElement>(null);
   const bulkSelectContainerRef = React.useRef<HTMLDivElement>(null);
 
   const [isBulkSelectOpen, setIsBulkSelectOpen] = React.useState<boolean>(false);
@@ -216,7 +216,7 @@ export const FilterAttributeSearch: React.FunctionComponent = () => {
             key="attribute-search-input-bulk-select"
             aria-label="Select all"
             isChecked={menuToggleCheckmark}
-            onChange={(checked, _event) => selectAllRepos(checked)}
+            onChange={(checked) => selectAllRepos(checked)}
           />,
         ],
       }}
