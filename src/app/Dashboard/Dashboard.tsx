@@ -5,10 +5,10 @@ import { CardEventsView } from './CardEventsView.tsx';
 import { CardStatus } from '@patternfly/react-core/src/demos/examples/Card/CardStatus.tsx';
 import { CardDetailsDemo } from './CardDetailsDemo.tsx';
 // Inventory card
-// Need to create data list demo
+import { InventoryCard } from './InventoryCard.tsx';
 import { CardNested } from './CardNested.tsx';
 // Recommendations by severity card
-// Need to create this pie chart view
+import { RecommendationsCard } from './RecommendationsCard.tsx';
 
 const Dashboard: React.FunctionComponent = () => (
   <PageSection isWidthLimited>
@@ -18,7 +18,7 @@ const Dashboard: React.FunctionComponent = () => (
         <Flex direction={{ default: 'column' }}>
           <CardStatus />
           <CardNested />
-          {/* RECOMMENDATIONS BY SEVERITY HERE */}
+          <RecommendationsCard />
         </Flex>
       </GridItem>
       <GridItem lg={4} xl2={3} style={{ '--pf-v5-l-grid--item--Order-on-lg': 2 } as React.CSSProperties}>
@@ -26,7 +26,9 @@ const Dashboard: React.FunctionComponent = () => (
           <FlexItem flex={1}>
             <CardDetailsDemo />
           </FlexItem>
-          <FlexItem flex={1}>{/* DATA LIST DEMO HERE */}</FlexItem>
+          <FlexItem flex={1}>
+            <InventoryCard />
+          </FlexItem>
         </Flex>
       </GridItem>
       <GridItem lg={4} xl2={3} style={{ '--pf-v5-l-grid--item--Order-on-lg': 4 } as React.CSSProperties}>
