@@ -1,0 +1,19 @@
+#primary-app-container {
+  z-index: var(--pf-v5-c-page__sidebar--ZIndex);
+}
+
+.ws-full-page-utils {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: var(--pf-v5-global--spacer--lg);
+}
+
+.ws-full-page-utils::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-color: var(--pf-v5-global--BackgroundColor--100);
+  opacity: 0.8;
+  box-shadow: var(--pf-v5-global--BoxShadow--sm);
+}

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   Button,
+  Flex,
   Icon,
   Masthead,
   MastheadBrand,
@@ -28,6 +29,7 @@ import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
 import { BarsIcon } from '@patternfly/react-icons';
 import MoonIcon from '@patternfly/react-icons/dist/esm/icons/moon-icon';
 import SunIcon from '@patternfly/react-icons/dist/esm/icons/sun-icon';
+import './AppLayout.css';
 
 interface IAppLayout {
   children: React.ReactNode;
@@ -102,45 +104,6 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
           </svg>
         </MastheadBrand>
       </MastheadMain>
-      <MastheadContent>
-        <Toolbar isFullHeight>
-          <ToolbarContent>
-            <ToolbarGroup
-              className="pf-m-align-end"
-              align={{ default: 'alignRight' }}
-              spaceItems={{ default: 'spaceItemsNone', md: 'spaceItemsMd' }}
-            >
-              <ToolbarItem>
-                <ToggleGroup aria-label="Dark theme toggle group">
-                  <ToggleGroupItem
-                    aria-label="light theme toggle"
-                    icon={
-                      <Icon size="md">
-                        <SunIcon />
-                      </Icon>
-                    }
-                    isSelected={!isDarkTheme}
-                    onChange={toggleDarkTheme}
-                  />
-                  <ToggleGroupItem
-                    aria-label="dark theme toggle"
-                    icon={
-                      <Icon size="md">
-                        <MoonIcon />
-                      </Icon>
-                    }
-                    isSelected={isDarkTheme}
-                    onChange={toggleDarkTheme}
-                  />
-                </ToggleGroup>
-              </ToolbarItem>
-              <ToolbarItem>
-                <Switch id="ws-rtl-switch" label={'RTL'} defaultChecked={false} onChange={() => toggleRTL()} />
-              </ToolbarItem>
-            </ToolbarGroup>
-          </ToolbarContent>
-        </Toolbar>
-      </MastheadContent>
     </Masthead>
   );
 
@@ -199,6 +162,22 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   return (
     <Page mainContainerId={pageId} header={Header} sidebar={sidebarOpen && Sidebar} skipToContent={PageSkipToContent}>
       {children}
+      <Flex direction={{ default: 'column' }} gap={{ default: 'gapLg' }} className="ws-full-page-utils">
+        <Switch
+          label="Dark theme"
+          defaultChecked={false}
+          onChange={() => document!.querySelector('html')!.classList.toggle('pf-v5-theme-dark')}
+        />
+        <Switch
+          label="RTL"
+          defaultChecked={false}
+          onChange={() => {
+            const html = document.querySelector('html');
+            const curDir = html!.dir;
+            html!.dir = curDir !== 'rtl' ? 'rtl' : 'ltr';
+          }}
+        />
+      </Flex>
     </Page>
   );
 };
