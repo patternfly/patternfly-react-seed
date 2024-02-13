@@ -3,10 +3,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 import {
   Button,
   Flex,
-  Icon,
   Masthead,
   MastheadBrand,
-  MastheadContent,
   MastheadMain,
   MastheadToggle,
   Nav,
@@ -18,17 +16,9 @@ import {
   PageSidebarBody,
   SkipToContent,
   Switch,
-  ToggleGroup,
-  ToggleGroupItem,
-  Toolbar,
-  ToolbarContent,
-  ToolbarItem,
-  ToolbarGroup,
 } from '@patternfly/react-core';
 import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
 import { BarsIcon } from '@patternfly/react-icons';
-import MoonIcon from '@patternfly/react-icons/dist/esm/icons/moon-icon';
-import SunIcon from '@patternfly/react-icons/dist/esm/icons/sun-icon';
 import './AppLayout.css';
 
 interface IAppLayout {
@@ -37,22 +27,9 @@ interface IAppLayout {
 
 const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
-  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
-
-  const toggleDarkTheme = (_evt, selected) => {
-    const darkThemeToggleClicked = !selected === isDarkTheme;
-    document.querySelector('html')!.classList.toggle('pf-v5-theme-dark', darkThemeToggleClicked);
-    setIsDarkTheme(darkThemeToggleClicked);
-  };
-
-  const toggleRTL = () => {
-    const html = document.querySelector('html');
-    const curDir = html!.dir;
-    html!.dir = curDir !== 'rtl' ? 'rtl' : 'ltr';
-  };
 
   const Header = (
-    <Masthead className="demo-masthead">
+    <Masthead>
       <MastheadToggle>
         <Button variant="plain" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Global navigation">
           <BarsIcon />
