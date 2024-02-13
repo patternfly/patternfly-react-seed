@@ -172,7 +172,7 @@ export const FilterAttributeSearch: React.FunctionComponent = () => {
     ) {
       if (event.key === 'Escape' || event.key === 'Tab') {
         setIsBulkSelectOpen(!isBulkSelectOpen);
-        bulkSelectToggleRef.current?.querySelector('button').focus();
+        bulkSelectToggleRef.current?.querySelector('button')?.focus();
       }
     }
   };
@@ -231,7 +231,7 @@ export const FilterAttributeSearch: React.FunctionComponent = () => {
       onSelect={(_ev, itemId) => {
         selectAllRepos(itemId === 1 || itemId === 2);
         setIsBulkSelectOpen(!isBulkSelectOpen);
-        bulkSelectToggleRef.current?.querySelector('button').focus();
+        bulkSelectToggleRef.current?.querySelector('button')?.focus();
       }}
     >
       <MenuContent>
