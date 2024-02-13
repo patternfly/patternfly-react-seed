@@ -286,6 +286,74 @@ exports[`App tests should render default App component 1`] = `
           Dashboard Page Title!
         </h1>
       </section>
+      <div
+        class="pf-v5-l-flex pf-m-column pf-m-gap-lg ws-full-page-utils"
+      >
+        <label
+          class="pf-v5-c-switch"
+          data-ouia-component-id="OUIA-Generated-Switch-1"
+          data-ouia-component-type="PF5/Switch"
+          data-ouia-safe="true"
+          for="pf-17077884105535sdjxqgs5tu"
+        >
+          <input
+            aria-label=""
+            aria-labelledby="pf-17077884105535sdjxqgs5tu-on"
+            class="pf-v5-c-switch__input"
+            id="pf-17077884105535sdjxqgs5tu"
+            type="checkbox"
+          />
+          <span
+            class="pf-v5-c-switch__toggle"
+          />
+          <span
+            aria-hidden="true"
+            class="pf-v5-c-switch__label pf-m-on"
+            id="pf-17077884105535sdjxqgs5tu-on"
+          >
+            Dark theme
+          </span>
+          <span
+            aria-hidden="true"
+            class="pf-v5-c-switch__label pf-m-off"
+            id="pf-17077884105535sdjxqgs5tu-off"
+          >
+            Dark theme
+          </span>
+        </label>
+        <label
+          class="pf-v5-c-switch"
+          data-ouia-component-id="OUIA-Generated-Switch-2"
+          data-ouia-component-type="PF5/Switch"
+          data-ouia-safe="true"
+          for="pf-170778841055466yx8yjr9ae"
+        >
+          <input
+            aria-label=""
+            aria-labelledby="pf-170778841055466yx8yjr9ae-on"
+            class="pf-v5-c-switch__input"
+            id="pf-170778841055466yx8yjr9ae"
+            type="checkbox"
+          />
+          <span
+            class="pf-v5-c-switch__toggle"
+          />
+          <span
+            aria-hidden="true"
+            class="pf-v5-c-switch__label pf-m-on"
+            id="pf-170778841055466yx8yjr9ae-on"
+          >
+            RTL
+          </span>
+          <span
+            aria-hidden="true"
+            class="pf-v5-c-switch__label pf-m-off"
+            id="pf-170778841055466yx8yjr9ae-off"
+          >
+            RTL
+          </span>
+        </label>
+      </div>
     </main>
   </div>
 </DocumentFragment>
