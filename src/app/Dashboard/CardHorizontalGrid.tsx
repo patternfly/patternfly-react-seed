@@ -1,37 +1,34 @@
 import React from 'react';
 import {
+  Button,
   Card,
-  CardHeader,
-  CardTitle,
   CardBody,
   CardExpandableContent,
-  Level,
-  LabelGroup,
-  Label,
-  Grid,
+  CardHeader,
+  CardTitle,
+  Dropdown,
+  DropdownItem,
+  DropdownList,
   Flex,
   FlexItem,
-  List,
-  ListItem,
-  Button,
-  Dropdown,
-  DropdownList,
-  DropdownItem,
+  Grid,
   Icon,
+  Label,
+  LabelGroup,
+  Level,
   MenuToggle,
   MenuToggleElement,
   Text,
   TextContent,
   TextVariants,
 } from '@patternfly/react-core';
-import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
-import ArrowRightIcon from '@patternfly/react-icons/dist/esm/icons/arrow-right-icon';
-import ExternalLinkAltIcon from '@patternfly/react-icons/dist/esm/icons/external-link-alt-icon';
-import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
-import OnIcon from '@patternfly/react-icons/dist/esm/icons/on-icon';
-import PortIcon from '@patternfly/react-icons/dist/esm/icons/port-icon';
-import CubeIcon from '@patternfly/react-icons/dist/esm/icons/cube-icon';
-import AutomationIcon from '@patternfly/react-icons/dist/esm/icons/automation-icon';
+import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
+import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
+import EllipsisVIcon from '@patternfly/react-icons/dist/js/icons/ellipsis-v-icon';
+import OnIcon from '@patternfly/react-icons/dist/js/icons/on-icon';
+import PortIcon from '@patternfly/react-icons/dist/js/icons/port-icon';
+import CubeIcon from '@patternfly/react-icons/dist/js/icons/cube-icon';
+import AutomationIcon from '@patternfly/react-icons/dist/js/icons/automation-icon';
 
 export const CardHorizontalGrid: React.FunctionComponent = () => {
   const [isCardExpanded, setIsCardExpanded] = React.useState(true);

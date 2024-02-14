@@ -23,10 +23,10 @@ const Dashboard: React.FunctionComponent = () => (
       </GridItem>
       <GridItem lg={4} xl2={3} style={{ '--pf-v5-l-grid--item--Order-on-lg': 2 } as React.CSSProperties}>
         <Flex direction={{ default: 'column', md: 'row', lg: 'column' }}>
-          <FlexItem flex={1}>
+          <FlexItem flex={{ default: 'flex_1' }}>
             <CardDetailsDemo />
           </FlexItem>
-          <FlexItem flex={1}>
+          <FlexItem flex={{ default: 'flex_1' }}>
             <InventoryCard />
           </FlexItem>
         </Flex>

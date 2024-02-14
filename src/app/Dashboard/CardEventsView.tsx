@@ -2,31 +2,31 @@
 import React from 'react';
 import {
   Card,
-  CardHeader,
-  CardTitle,
   CardBody,
   CardFooter,
-  Gallery,
-  Flex,
-  FlexItem,
-  Title,
+  CardHeader,
+  CardTitle,
   DescriptionList,
+  DescriptionListDescription,
   DescriptionListGroup,
   DescriptionListTerm,
-  DescriptionListDescription,
-  Spinner,
+  Divider,
+  Flex,
+  FlexItem,
+  Gallery,
+  MenuToggle,
   Select,
   SelectList,
   SelectOption,
-  Divider,
-  MenuToggle,
+  Spinner,
+  Title,
 } from '@patternfly/react-core';
-import ExclamationCircleIcon from '@patternfly/react-icons/dist/esm/icons/exclamation-circle-icon';
-import ExclamationTriangleIcon from '@patternfly/react-icons/dist/esm/icons/exclamation-triangle-icon';
-import CheckCircleIcon from '@patternfly/react-icons/dist/esm/icons/check-circle-icon';
+import ExclamationCircleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
+import ExclamationTriangleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-triangle-icon';
+import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 import flex from '@patternfly/react-styles/css/utilities/Flex/flex';
 import text from '@patternfly/react-styles/css/utilities/Text/text';
-import l_gallery_GridTemplateColumns_min from '@patternfly/react-tokens/dist/esm/l_gallery_GridTemplateColumns_min';
+import l_gallery_GridTemplateColumns_min from '@patternfly/react-tokens/dist/js/l_gallery_GridTemplateColumns_min';
 
 export const CardEventsView: React.FunctionComponent = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -116,7 +116,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                   </FlexItem>
                 </Flex>
               </DescriptionListTerm>
-              <DescriptionListDescription>Pulling image "openshift/hello-openshift"</DescriptionListDescription>
+              <DescriptionListDescription>
+                Pulling image &quot;openshift/hello-openshift&quot;
+              </DescriptionListDescription>
               <DescriptionListDescription>
                 <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 10:59 am</time>
               </DescriptionListDescription>

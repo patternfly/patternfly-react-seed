@@ -1,16 +1,15 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import {
   Card,
-  CardTitle,
   CardBody,
   CardFooter,
-  Title,
+  CardTitle,
   DescriptionList,
+  DescriptionListDescription,
   DescriptionListGroup,
   DescriptionListTerm,
-  DescriptionListDescription,
   Divider,
+  Title,
 } from '@patternfly/react-core';
 
 export const CardDetailsDemo: React.FunctionComponent = () => (

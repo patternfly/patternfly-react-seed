@@ -4,11 +4,10 @@ import {
   CardHeader,
   CardTitle,
   DataList,
-  DataListItem,
-  DataListItemRow,
-  DataListItemCell,
-  DataListItemCells,
   DataListCell,
+  DataListItem,
+  DataListItemCells,
+  DataListItemRow,
   Flex,
   Icon,
 } from '@patternfly/react-core';
@@ -48,14 +47,14 @@ export const InventoryCard: React.FunctionComponent = () => (
       id="dashboard-demo-data-list-card-1-data-list"
     >
       {data.map(({ count, text }, idx) => (
-        <DataListItem aria-labelledby={`dashboard-demo-data-list-card-1-data-list-item-${idx + 1}`}>
+        <DataListItem key={`item-${idx}`} aria-labelledby={`dashboard-demo-data-list-card-1-data-list-item-${idx + 1}`}>
           <DataListItemRow>
             <DataListItemCells
               dataListCells={[
-                <DataListCell id={`dashboard-demo-data-list-card-1-data-list-item-${idx + 1}`}>
+                <DataListCell key={`${idx}-1`} id={`dashboard-demo-data-list-card-1-data-list-item-${idx + 1}`}>
                   {count} {text}
                 </DataListCell>,
-                <DataListCell isFilled={false} alignRight>
+                <DataListCell key={`${idx}-2`} isFilled={false} alignRight>
                   <a href="#">
                     <Flex spaceItems={{ default: 'spaceItemsSm' }}>
                       <span>{count}</span>

@@ -1,17 +1,16 @@
 import React from 'react';
 import {
   Card,
-  CardHeader,
-  CardTitle,
   CardBody,
   CardExpandableContent,
-  Checkbox,
-  Title,
+  CardHeader,
+  CardTitle,
   Divider,
-  Grid,
-  GridItem,
   Flex,
   FlexItem,
+  Grid,
+  GridItem,
+  Title,
 } from '@patternfly/react-core';
 import { ChartArea, ChartGroup, ChartVoronoiContainer } from '@patternfly/react-charts';
 import sizing from '@patternfly/react-styles/css/utilities/Sizing/sizing';
