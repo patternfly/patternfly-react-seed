@@ -142,12 +142,14 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
       <Flex direction={{ default: 'column' }} gap={{ default: 'gapLg' }} className="ws-full-page-utils">
         <Switch
           id="demo-theme-switcher"
+          label="Dark theme"
           aria-label="Dark theme enabled"
           defaultChecked={false}
           onChange={() => document!.querySelector('html')!.classList.toggle('pf-v5-theme-dark')}
         />
         <Switch
           id="demo-rtl-switcher"
+          label="RTL"
           aria-label="RTL enabled"
           defaultChecked={false}
           onChange={() => {
