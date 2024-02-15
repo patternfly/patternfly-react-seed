@@ -294,31 +294,35 @@ exports[`App tests should render default App component 1`] = `
           data-ouia-component-id="OUIA-Generated-Switch-1"
           data-ouia-component-type="PF5/Switch"
           data-ouia-safe="true"
-          for="pf-1707789380679np9ng40t0v"
+          for="demo-theme-switcher"
         >
           <input
-            aria-label=""
-            aria-labelledby="pf-1707789380679np9ng40t0v-on"
+            aria-label="Dark theme enabled"
             class="pf-v5-c-switch__input"
-            id="pf-1707789380679np9ng40t0v"
+            id="demo-theme-switcher"
             type="checkbox"
           />
           <span
             class="pf-v5-c-switch__toggle"
-          />
-          <span
-            aria-hidden="true"
-            class="pf-v5-c-switch__label pf-m-on"
-            id="pf-1707789380679np9ng40t0v-on"
           >
-            Dark theme
-          </span>
-          <span
-            aria-hidden="true"
-            class="pf-v5-c-switch__label pf-m-off"
-            id="pf-1707789380679np9ng40t0v-off"
-          >
-            Dark theme
+            <div
+              aria-hidden="true"
+              class="pf-v5-c-switch__toggle-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="pf-v5-svg"
+                fill="currentColor"
+                height="1em"
+                role="img"
+                viewBox="0 0 512 512"
+                width="1em"
+              >
+                <path
+                  d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                />
+              </svg>
+            </div>
           </span>
         </label>
         <label
@@ -326,31 +330,35 @@ exports[`App tests should render default App component 1`] = `
           data-ouia-component-id="OUIA-Generated-Switch-2"
           data-ouia-component-type="PF5/Switch"
           data-ouia-safe="true"
-          for="pf-1707789380681ziihjaq6q3"
+          for="demo-rtl-switcher"
         >
           <input
-            aria-label=""
-            aria-labelledby="pf-1707789380681ziihjaq6q3-on"
+            aria-label="RTL enabled"
             class="pf-v5-c-switch__input"
-            id="pf-1707789380681ziihjaq6q3"
+            id="demo-rtl-switcher"
             type="checkbox"
           />
           <span
             class="pf-v5-c-switch__toggle"
-          />
-          <span
-            aria-hidden="true"
-            class="pf-v5-c-switch__label pf-m-on"
-            id="pf-1707789380681ziihjaq6q3-on"
           >
-            RTL
-          </span>
-          <span
-            aria-hidden="true"
-            class="pf-v5-c-switch__label pf-m-off"
-            id="pf-1707789380681ziihjaq6q3-off"
-          >
-            RTL
+            <div
+              aria-hidden="true"
+              class="pf-v5-c-switch__toggle-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="pf-v5-svg"
+                fill="currentColor"
+                height="1em"
+                role="img"
+                viewBox="0 0 512 512"
+                width="1em"
+              >
+                <path
+                  d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                />
+              </svg>
+            </div>
           </span>
         </label>
       </div>
