@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { Route, RouteComponentProps, Switch, useLocation } from 'react-router-dom';
 import { Dashboard } from '@app/Dashboard/Dashboard';
-import { Support } from '@app/Support/Support';
-import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
-import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
+import { Resources } from '@app/Resources/Resources';
+import { Inventory } from '@app/Inventory/Inventory';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 
@@ -35,30 +34,18 @@ const routes: AppRouteConfig[] = [
     title: 'PatternFly Seed | Dashboard Page',
   },
   {
-    component: Support,
+    component: Resources,
     exact: true,
-    label: 'Support',
-    path: '/support',
-    title: 'PatternFly Seed | Support Page',
+    label: 'Resources',
+    path: '/resources',
+    title: 'PatternFly Seed | Resources Page',
   },
   {
-    label: 'Settings',
-    routes: [
-      {
-        component: GeneralSettings,
-        exact: true,
-        label: 'General',
-        path: '/settings/general',
-        title: 'PatternFly Seed | General Settings',
-      },
-      {
-        component: ProfileSettings,
-        exact: true,
-        label: 'Profile',
-        path: '/settings/profile',
-        title: 'PatternFly Seed | Profile Settings',
-      },
-    ],
+    component: Inventory,
+    exact: true,
+    label: 'Inventory',
+    path: '/inventory',
+    title: 'PatternFly Seed | Inventory Page',
   },
 ];
 
@@ -94,7 +81,7 @@ const RouteWithTitleUpdates = ({ component: Component, title, ...rest }: IAppRou
 
 const PageNotFound = ({ title }: { title: string }) => {
   useDocumentTitle(title);
-  return <Route component={NotFound} />;
+  return <Route component={NotFound}/>;
 };
 
 const flattenedRoutes: IAppRoute[] = routes.reduce(

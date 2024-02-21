@@ -1,10 +1,10 @@
 import React, { ComponentProps } from 'react';
-import { Support } from '@app/Support/Support';
+import { Support } from '@app/Support/Resources';
 import { Story } from '@storybook/react';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Components/Support',
+  title: 'Components/Resources',
   component: Support,
 };
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Flex, FlexItem, Grid, GridItem, PageSection } from '@patternfly/react-core';
 import { CardHorizontalGrid } from './CardHorizontalGrid.tsx';
 import { CardEventsView } from './CardEventsView.tsx';
-import { CardStatus } from '@patternfly/react-core/src/demos/examples/Card/CardStatus.tsx';
+import { CardStatus } from './CardStatus.tsx';
 import { CardDetailsDemo } from './CardDetailsDemo.tsx';
 // Inventory card
 import { InventoryCard } from './InventoryCard.tsx';

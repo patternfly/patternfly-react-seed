@@ -188,82 +188,23 @@ exports[`App tests should render default App component 1`] = `
             >
               <a
                 class="pf-v5-c-nav__link"
-                href="/support"
+                href="/resources"
               >
-                Support
+                Resources
               </a>
             </li>
             <li
               class="pf-v5-c-nav__item"
-              data-ouia-component-id="OUIA-Generated-NavExpandable-1"
-              data-ouia-component-type="PF5/NavExpandable"
+              data-ouia-component-id="OUIA-Generated-NavItem-3"
+              data-ouia-component-type="PF5/NavItem"
               data-ouia-safe="true"
             >
-              <button
-                aria-expanded="false"
+              <a
                 class="pf-v5-c-nav__link"
-                id="Settings-2"
+                href="/inventory"
               >
-                Settings
-                <span
-                  class="pf-v5-c-nav__toggle"
-                >
-                  <span
-                    class="pf-v5-c-nav__toggle-icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="pf-v5-svg"
-                      fill="currentColor"
-                      height="1em"
-                      role="img"
-                      viewBox="0 0 256 512"
-                      width="1em"
-                    >
-                      <path
-                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </button>
-              <section
-                aria-labelledby="Settings-2"
-                class="pf-v5-c-nav__subnav"
-                hidden=""
-              >
-                <ul
-                  class="pf-v5-c-nav__list"
-                  role="list"
-                >
-                  <li
-                    class="pf-v5-c-nav__item"
-                    data-ouia-component-id="OUIA-Generated-NavItem-3"
-                    data-ouia-component-type="PF5/NavItem"
-                    data-ouia-safe="true"
-                  >
-                    <a
-                      class="pf-v5-c-nav__link"
-                      href="/settings/general"
-                    >
-                      General
-                    </a>
-                  </li>
-                  <li
-                    class="pf-v5-c-nav__item"
-                    data-ouia-component-id="OUIA-Generated-NavItem-4"
-                    data-ouia-component-type="PF5/NavItem"
-                    data-ouia-safe="true"
-                  >
-                    <a
-                      class="pf-v5-c-nav__link"
-                      href="/settings/profile"
-                    >
-                      Profile
-                    </a>
-                  </li>
-                </ul>
-              </section>
+                Inventory
+              </a>
             </li>
           </ul>
         </nav>
@@ -275,16 +216,2928 @@ exports[`App tests should render default App component 1`] = `
       tabindex="-1"
     >
       <section
-        class="pf-v5-c-page__main-section"
+        class="pf-v5-c-page__main-section pf-m-limit-width"
       >
-        <h1
-          class="pf-v5-c-title pf-m-lg"
-          data-ouia-component-id="OUIA-Generated-Title-1"
-          data-ouia-component-type="PF5/Title"
-          data-ouia-safe="true"
+        <div
+          class="pf-v5-c-page__main-body"
         >
-          Dashboard Page Title!
-        </h1>
+          <div
+            class="pf-v5-l-grid pf-m-gutter"
+          >
+            <div
+              class="pf-v5-c-card pf-m-expanded"
+              data-ouia-component-id="OUIA-Generated-Card-1"
+              data-ouia-component-type="PF5/Card"
+              data-ouia-safe="true"
+              id="horizontal card"
+            >
+              <div
+                class="pf-v5-c-card__header"
+              >
+                <div
+                  class="pf-v5-c-card__header-toggle"
+                >
+                  <button
+                    aria-disabled="false"
+                    aria-expanded="true"
+                    aria-label="Actions"
+                    aria-labelledby="titleId toggle-button"
+                    class="pf-v5-c-button pf-m-plain"
+                    data-ouia-component-id="OUIA-Generated-Button-plain-2"
+                    data-ouia-component-type="PF5/Button"
+                    data-ouia-safe="true"
+                    id="toggle-button"
+                    type="button"
+                  >
+                    <span
+                      class="pf-v5-c-card__header-toggle-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="pf-v5-svg"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 256 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="pf-v5-c-card__actions"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-label="Horizontal card grid demo kebab toggle"
+                    class="pf-v5-c-menu-toggle pf-m-plain"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v5-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 192 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="pf-v5-c-card__header-main"
+                >
+                  <div
+                    class="pf-v5-c-card__title"
+                  >
+                    <div
+                      class="pf-v5-c-card__title-text"
+                      id="titleId"
+                    >
+                      Improve recommended pathways
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="pf-v5-c-card__expandable-content"
+              >
+                <div
+                  class="pf-v5-c-card__body"
+                >
+                  <div
+                    class="pf-v5-l-grid pf-m-all-6-col-on-md pf-m-all-4-col-on-lg pf-m-gutter"
+                  >
+                    <div
+                      class="pf-v5-l-flex pf-m-space-items-lg pf-m-column pf-m-align-items-flex-start"
+                    >
+                      <div
+                        class="pf-v5-l-flex pf-m-space-items-sm pf-m-grow pf-m-column pf-m-align-items-flex-start"
+                      >
+                        <span
+                          class="pf-v5-c-label pf-m-blue pf-m-outline"
+                        >
+                          <span
+                            class="pf-v5-c-label__content"
+                          >
+                            <span
+                              class="pf-v5-c-label__icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 960 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M385.2,430.2 C382.8,423.7 373.8,423.2 370.6,429.3 L264.8,631.8 C262,637.1 256.6,640 250.6,640 L0,640 L0,512 L177.9,512 C180.9,512 183.6,510.6 185,508 L377.4,139.7 C381.4,132 387.7,128 395.4,128 C403.1,128 410.8,133.9 413.9,141.9 L588.1,606.7 C590.5,613 599,613.7 602.5,608 L731.7,392.5 C734.6,387.7 739.8,384 745.4,384 L960,384 L960,512 L813.4,512 C810.6,512 808,514.2 806.5,516.6 L584.2,887.2 C581,892.5 576.4,896 570.2,896 C564,896 558,891.3 555.5,884.6 L385.2,430.2 Z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="pf-v5-c-label__text"
+                            >
+                              Performance
+                            </span>
+                          </span>
+                        </span>
+                        <a
+                          href="#"
+                        >
+                          378 systems
+                        </a>
+                        <div
+                          class="pf-v5-c-content"
+                        >
+                          <p
+                            class=""
+                            data-ouia-component-id="OUIA-Generated-Text-1"
+                            data-ouia-component-type="PF5/Text"
+                            data-ouia-safe="true"
+                            data-pf-content="true"
+                          >
+                            Upgrade your kernel version to remediate ntpd time sync issues, kernel panics, network instabilities and issues with system performance
+                          </p>
+                        </div>
+                        <div
+                          class="pf-v5-l-flex pf-m-grow pf-m-column pf-m-row-on-lg pf-m-align-content-flex-end-on-lg pf-m-justify-content-flex-end pf-m-justify-content-flex-start-on-lg"
+                          style="row-gap: var(--pf-v5-global--spacer--md);"
+                        >
+                          <div
+                            class=""
+                            style="margin-block-end: -.25em;"
+                          >
+                            <span
+                              class="pf-v5-c-label pf-m-red"
+                            >
+                              <span
+                                class="pf-v5-c-label__content"
+                              >
+                                <span
+                                  class="pf-v5-c-label__text"
+                                >
+                                  Incident
+                                </span>
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="pf-v5-l-flex pf-m-space-items-sm pf-m-align-items-center pf-m-nowrap"
+                            style="row-gap: var(--pf-v5-global--spacer--md);"
+                          >
+                            <span
+                              class="pf-v5-c-icon"
+                              style="line-height: 1;"
+                            >
+                              <span
+                                class="pf-v5-c-icon__content"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="pf-v5-svg"
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M663.603658,224.4 L663.603658,224.4 C641.771642,250.215879 643.831875,288.571296 668.303658,311.9 C670.303658,313.8 672.303658,315.7 674.203658,317.7 C703.443938,346.873221 726.741707,381.446295 742.803658,419.5 C776.369088,499.099506 776.405142,588.873559 742.903658,668.5 C710.393155,745.27714 649.280798,806.389497 572.503658,838.9 C492.877204,872.366658 403.130112,872.366658 323.503658,838.9 C246.726518,806.389497 185.61416,745.27714 153.103658,668.5 C119.637,588.873546 119.637,499.126454 153.103658,419.5 C169.190182,381.459603 192.484939,346.891 221.703658,317.7 C223.703658,315.7 225.603658,313.8 227.603658,311.9 C244.902514,296.274512 252.337369,272.479103 247.011573,249.784562 C241.685777,227.090022 224.441743,209.086081 201.997819,202.787151 C179.553894,196.488221 155.460168,202.89064 139.103658,219.5 C50.4831883,303.673416 0.213266584,420.475994 0.00182414744,542.7 C-0.696342125,790.9 199.103658,991.6 447.303658,992.000597 C695.003658,992.4 896.003658,791.7 896.003658,544 C896.003658,416.1 842.403658,300.8 756.503658,219.1 C729.903658,193.8 687.303658,196.3 663.603658,224.4 M448.003658,32 C412.714357,32.1370474 384.140705,60.7106988 384.003658,96 L384.003658,416 C384.003658,451.346224 412.657434,480 448.003658,480 C483.349882,480 512.003658,451.346224 512.003658,416 L512.003658,96 C511.86661,60.7106988 483.292959,32.1370474 448.003658,32"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                            <div
+                              class="pf-v5-c-content"
+                            >
+                              <p
+                                class="pf-v5-u-color-200"
+                                data-ouia-component-id="OUIA-Generated-Text-2"
+                                data-ouia-component-type="PF5/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                System reboot
+                                <b
+                                  class="pf-v5-u-color-100"
+                                >
+                                   is not
+                                </b>
+                                 required
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a
+                        aria-disabled="false"
+                        class="pf-v5-c-button pf-m-link pf-m-inline"
+                        data-ouia-component-id="OUIA-Generated-Button-link-1"
+                        data-ouia-component-type="PF5/Button"
+                        data-ouia-safe="true"
+                        href="#"
+                      >
+                        View pathway
+                        <span
+                          class="pf-v5-c-button__icon pf-m-end"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="pf-v5-svg"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
+                    <div
+                      class="pf-v5-l-flex pf-m-space-items-lg pf-m-column pf-m-align-items-flex-start"
+                    >
+                      <div
+                        class="pf-v5-l-flex pf-m-space-items-sm pf-m-grow pf-m-column pf-m-align-items-flex-start"
+                      >
+                        <span
+                          class="pf-v5-c-label pf-m-blue pf-m-outline"
+                        >
+                          <span
+                            class="pf-v5-c-label__content"
+                          >
+                            <span
+                              class="pf-v5-c-label__icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M239.1 6.3l-208 78c-18.7 7-31.1 25-31.1 45v225.1c0 18.2 10.3 34.8 26.5 42.9l208 104c13.5 6.8 29.4 6.8 42.9 0l208-104c16.3-8.1 26.5-24.8 26.5-42.9V129.3c0-20-12.4-37.9-31.1-44.9l-208-78C262 2.2 250 2.2 239.1 6.3zM256 68.4l192 72v1.1l-192 78-192-78v-1.1l192-72zm32 356V275.5l160-65v133.9l-160 80z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="pf-v5-c-label__text"
+                            >
+                              Stability
+                            </span>
+                          </span>
+                        </span>
+                        <a
+                          href="#"
+                        >
+                          211 systems
+                        </a>
+                        <div
+                          class="pf-v5-c-content"
+                        >
+                          <p
+                            class=""
+                            data-ouia-component-id="OUIA-Generated-Text-3"
+                            data-ouia-component-type="PF5/Text"
+                            data-ouia-safe="true"
+                            data-pf-content="true"
+                          >
+                            Adjust your networking configuration to get ahead of network perfomance degradations and packet losses
+                          </p>
+                        </div>
+                        <div
+                          class="pf-v5-l-flex pf-m-grow pf-m-column pf-m-row-on-lg pf-m-align-content-flex-end-on-lg pf-m-justify-content-flex-end pf-m-justify-content-flex-start-on-lg"
+                          style="row-gap: var(--pf-v5-global--spacer--md);"
+                        >
+                          <div
+                            class="pf-v5-l-flex pf-m-space-items-sm pf-m-align-items-center pf-m-nowrap"
+                            style="row-gap: var(--pf-v5-global--spacer--md);"
+                          >
+                            <span
+                              class="pf-v5-c-icon"
+                              style="line-height: 1;"
+                            >
+                              <span
+                                class="pf-v5-c-icon__content pf-m-danger"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="pf-v5-svg"
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M663.603658,224.4 L663.603658,224.4 C641.771642,250.215879 643.831875,288.571296 668.303658,311.9 C670.303658,313.8 672.303658,315.7 674.203658,317.7 C703.443938,346.873221 726.741707,381.446295 742.803658,419.5 C776.369088,499.099506 776.405142,588.873559 742.903658,668.5 C710.393155,745.27714 649.280798,806.389497 572.503658,838.9 C492.877204,872.366658 403.130112,872.366658 323.503658,838.9 C246.726518,806.389497 185.61416,745.27714 153.103658,668.5 C119.637,588.873546 119.637,499.126454 153.103658,419.5 C169.190182,381.459603 192.484939,346.891 221.703658,317.7 C223.703658,315.7 225.603658,313.8 227.603658,311.9 C244.902514,296.274512 252.337369,272.479103 247.011573,249.784562 C241.685777,227.090022 224.441743,209.086081 201.997819,202.787151 C179.553894,196.488221 155.460168,202.89064 139.103658,219.5 C50.4831883,303.673416 0.213266584,420.475994 0.00182414744,542.7 C-0.696342125,790.9 199.103658,991.6 447.303658,992.000597 C695.003658,992.4 896.003658,791.7 896.003658,544 C896.003658,416.1 842.403658,300.8 756.503658,219.1 C729.903658,193.8 687.303658,196.3 663.603658,224.4 M448.003658,32 C412.714357,32.1370474 384.140705,60.7106988 384.003658,96 L384.003658,416 C384.003658,451.346224 412.657434,480 448.003658,480 C483.349882,480 512.003658,451.346224 512.003658,416 L512.003658,96 C511.86661,60.7106988 483.292959,32.1370474 448.003658,32"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                            <div
+                              class="pf-v5-c-content"
+                            >
+                              <p
+                                class="pf-v5-u-color-200"
+                                data-ouia-component-id="OUIA-Generated-Text-4"
+                                data-ouia-component-type="PF5/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                System reboot
+                                <b
+                                  class="pf-v5-u-color-100"
+                                >
+                                   is
+                                </b>
+                                 required
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a
+                        aria-disabled="false"
+                        class="pf-v5-c-button pf-m-link pf-m-inline"
+                        data-ouia-component-id="OUIA-Generated-Button-link-2"
+                        data-ouia-component-type="PF5/Button"
+                        data-ouia-safe="true"
+                        href="#"
+                      >
+                        View pathway
+                        <span
+                          class="pf-v5-c-button__icon pf-m-end"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="pf-v5-svg"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
+                    <div
+                      class="pf-v5-l-flex pf-m-space-items-lg pf-m-column pf-m-align-items-flex-start"
+                    >
+                      <div
+                        class="pf-v5-l-flex pf-m-space-items-sm pf-m-grow pf-m-column pf-m-align-items-flex-start"
+                      >
+                        <span
+                          class="pf-v5-c-label pf-m-blue pf-m-outline"
+                        >
+                          <span
+                            class="pf-v5-c-label__content"
+                          >
+                            <span
+                              class="pf-v5-c-label__icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M768,256 L768,257.4 C765.102556,256.827424 762.153196,256.559301 759.2,256.6 C705.189545,255.686899 652.247869,271.702281 607.8,302.4 C591.952568,312.712568 582.951533,330.814358 584.293158,349.674109 C585.634783,368.53386 597.107623,385.179201 614.255294,393.144598 C631.402965,401.109995 651.522926,399.14007 666.8,388 C693.450143,369.582634 725.210685,359.998506 757.6,360.6 C761.083449,360.639748 764.563612,360.372043 768,359.8 L768,360.2 C851.8,360.2 920,428.4 920,512.1 C919.932562,571.254743 885.622089,625.020813 832,650 L832,760.2 C942.4,731.8 1024,631.6 1024,512.3 C1024,370.6 909.4,256 768,256 M746.6,452 C731.4,445.8 718.4,448.4 707.8,459.8 L635.2,531.8 L619.2,547.8 L367.6,292.9 C329,260.9 304.6,256 256,256 C114.6,256 0,371.5 0,512.8 C0,654.1 114.6,768 256,768 C304,768 344.2,750.9 380,722.9 L379.4,722.5 L384.8,718.9 C400.216562,708.213968 408.692351,690.060567 406.986867,671.380284 C405.281384,652.700001 393.658366,636.381592 376.561578,628.663984 C359.46479,620.946375 339.538112,623.023033 324.4,634.1 C301.295896,650.587389 274.106741,660.41146 245.8,662.5 C163.2,661.4 104,595.8 104,512.8 C104,430.4 165.8,363.3 247.6,360.9 L252.2,360.9 C253,361.1 253.8,360.9 254.4,361.1 L254.8,361.1 C269.4,360.9 292.6,366.3 312.6,382.3 L546.6,620.6 L458.8,708.4 C447.4,719.6 444.8,732.2 451,746.8 C457.2,761.6 468.2,768 483.8,768 L732.6,768 C742.2,768 750.6,765.4 757.6,758.4 C764.417003,751.876224 768.25027,742.835499 768.200488,733.4 L768.200488,484.8 C768.200488,469.2 761,458.2 746.6,452"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="pf-v5-c-label__text"
+                            >
+                              Availability
+                            </span>
+                          </span>
+                        </span>
+                        <a
+                          href="#"
+                        >
+                          166 systems
+                        </a>
+                        <div
+                          class="pf-v5-c-content"
+                        >
+                          <p
+                            class=""
+                            data-ouia-component-id="OUIA-Generated-Text-5"
+                            data-ouia-component-type="PF5/Text"
+                            data-ouia-safe="true"
+                            data-pf-content="true"
+                          >
+                            Fine tune your Oracle DB configuration to improve database performance and avoid process failure
+                          </p>
+                        </div>
+                        <div
+                          class="pf-v5-l-flex pf-m-grow pf-m-column pf-m-row-on-lg pf-m-align-content-flex-end-on-lg pf-m-justify-content-flex-end pf-m-justify-content-flex-start-on-lg"
+                          style="row-gap: var(--pf-v5-global--spacer--md);"
+                        >
+                          <div
+                            class=""
+                            style="margin-block-end: -.25em;"
+                          >
+                            <span
+                              class="pf-v5-c-label pf-m-red"
+                            >
+                              <span
+                                class="pf-v5-c-label__content"
+                              >
+                                <span
+                                  class="pf-v5-c-label__text"
+                                >
+                                  Incident
+                                </span>
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="pf-v5-l-flex pf-m-space-items-sm pf-m-align-items-center pf-m-nowrap"
+                            style="row-gap: var(--pf-v5-global--spacer--md);"
+                          >
+                            <span
+                              class="pf-v5-c-icon"
+                              style="line-height: 1;"
+                            >
+                              <span
+                                class="pf-v5-c-icon__content"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="pf-v5-svg"
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M663.603658,224.4 L663.603658,224.4 C641.771642,250.215879 643.831875,288.571296 668.303658,311.9 C670.303658,313.8 672.303658,315.7 674.203658,317.7 C703.443938,346.873221 726.741707,381.446295 742.803658,419.5 C776.369088,499.099506 776.405142,588.873559 742.903658,668.5 C710.393155,745.27714 649.280798,806.389497 572.503658,838.9 C492.877204,872.366658 403.130112,872.366658 323.503658,838.9 C246.726518,806.389497 185.61416,745.27714 153.103658,668.5 C119.637,588.873546 119.637,499.126454 153.103658,419.5 C169.190182,381.459603 192.484939,346.891 221.703658,317.7 C223.703658,315.7 225.603658,313.8 227.603658,311.9 C244.902514,296.274512 252.337369,272.479103 247.011573,249.784562 C241.685777,227.090022 224.441743,209.086081 201.997819,202.787151 C179.553894,196.488221 155.460168,202.89064 139.103658,219.5 C50.4831883,303.673416 0.213266584,420.475994 0.00182414744,542.7 C-0.696342125,790.9 199.103658,991.6 447.303658,992.000597 C695.003658,992.4 896.003658,791.7 896.003658,544 C896.003658,416.1 842.403658,300.8 756.503658,219.1 C729.903658,193.8 687.303658,196.3 663.603658,224.4 M448.003658,32 C412.714357,32.1370474 384.140705,60.7106988 384.003658,96 L384.003658,416 C384.003658,451.346224 412.657434,480 448.003658,480 C483.349882,480 512.003658,451.346224 512.003658,416 L512.003658,96 C511.86661,60.7106988 483.292959,32.1370474 448.003658,32"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                            <div
+                              class="pf-v5-c-content"
+                            >
+                              <p
+                                class="pf-v5-u-color-200"
+                                data-ouia-component-id="OUIA-Generated-Text-6"
+                                data-ouia-component-type="PF5/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                System reboot
+                                <b
+                                  class="pf-v5-u-color-100"
+                                >
+                                   is not
+                                </b>
+                                 required
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a
+                        aria-disabled="false"
+                        class="pf-v5-c-button pf-m-link pf-m-inline"
+                        data-ouia-component-id="OUIA-Generated-Button-link-3"
+                        data-ouia-component-type="PF5/Button"
+                        data-ouia-safe="true"
+                        href="#"
+                      >
+                        View pathway
+                        <span
+                          class="pf-v5-c-button__icon pf-m-end"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="pf-v5-svg"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pf-v5-l-grid__item pf-m-4-col-on-lg pf-m-6-col-on-2xl"
+              style="--pf-v5-l-grid--item--Order-on-lg: 3;"
+            >
+              <div
+                class="pf-v5-l-flex pf-m-column"
+              >
+                <div
+                  class="pf-v5-c-card"
+                  data-ouia-component-id="OUIA-Generated-Card-2"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__header"
+                  >
+                    <div
+                      class="pf-v5-c-card__header-main"
+                    >
+                      <h4
+                        class="pf-v5-c-title pf-m-lg"
+                        data-ouia-component-id="OUIA-Generated-Title-1"
+                        data-ouia-component-type="PF5/Title"
+                        data-ouia-safe="true"
+                      >
+                        Status
+                      </h4>
+                    </div>
+                  </div>
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-l-grid pf-m-all-6-col-on-sm pf-m-all-3-col-on-lg pf-m-gutter"
+                    >
+                      <div
+                        class="pf-v5-l-grid__item"
+                      >
+                        <div
+                          class="pf-v5-l-flex pf-m-space-items-sm"
+                        >
+                          <div
+                            class=""
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v5-svg"
+                              color="var(--pf-v5-global--success-color--100)"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class=""
+                          >
+                            <span>
+                              Cluster
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="pf-v5-l-grid__item"
+                      >
+                        <div
+                          class="pf-v5-l-flex pf-m-space-items-sm"
+                        >
+                          <div
+                            class=""
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v5-svg"
+                              color="var(--pf-v5-global--danger-color--100)"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class=""
+                          >
+                            <div
+                              style="display: contents;"
+                            >
+                              <a
+                                href="#"
+                              >
+                                Control Panel
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="pf-v5-l-grid__item"
+                      >
+                        <div
+                          class="pf-v5-l-flex pf-m-space-items-sm"
+                        >
+                          <div
+                            class=""
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v5-svg"
+                              color="var(--pf-v5-global--danger-color--100)"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="pf-v5-l-flex pf-m-space-items-none pf-m-column"
+                          >
+                            <div
+                              class=""
+                            >
+                              <a
+                                href="#"
+                              >
+                                Operators
+                              </a>
+                            </div>
+                            <div
+                              class=""
+                            >
+                              <span>
+                                1 degraded
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="pf-v5-l-grid__item"
+                      >
+                        <div
+                          class="pf-v5-l-flex pf-m-space-items-sm"
+                        >
+                          <div
+                            class=""
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v5-svg"
+                              color="var(--pf-v5-global--success-color--100)"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="pf-v5-l-flex pf-m-space-items-none pf-m-column"
+                          >
+                            <div
+                              class=""
+                            >
+                              <a
+                                href="#"
+                              >
+                                Image Vulnerabilities
+                              </a>
+                            </div>
+                            <div
+                              class=""
+                            >
+                              <span>
+                                0 vulnerabilities
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr
+                    class="pf-v5-c-divider"
+                  />
+                  <div
+                    class="pf-v5-c-notification-drawer"
+                  >
+                    <div
+                      class="pf-v5-c-notification-drawer__body"
+                    >
+                      <section
+                        class="pf-v5-c-notification-drawer__group"
+                      >
+                        <h4>
+                          <button
+                            aria-expanded="false"
+                            class="pf-v5-c-notification-drawer__group-toggle"
+                          >
+                            <div
+                              class="pf-v5-c-notification-drawer__group-toggle-title"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-space-items-sm"
+                              >
+                                <div
+                                  class="pf-m-spacer-md"
+                                >
+                                  <span>
+                                    Notifications
+                                  </span>
+                                </div>
+                                <span
+                                  class="pf-v5-c-label pf-m-red"
+                                >
+                                  <span
+                                    class="pf-v5-c-label__content"
+                                  >
+                                    <span
+                                      class="pf-v5-c-label__icon"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 512 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                        />
+                                      </svg>
+                                    </span>
+                                    <span
+                                      class="pf-v5-c-label__text"
+                                    >
+                                      1
+                                    </span>
+                                  </span>
+                                </span>
+                                <span
+                                  class="pf-v5-c-label pf-m-orange"
+                                >
+                                  <span
+                                    class="pf-v5-c-label__content"
+                                  >
+                                    <span
+                                      class="pf-v5-c-label__icon"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 576 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                        />
+                                      </svg>
+                                    </span>
+                                    <span
+                                      class="pf-v5-c-label__text"
+                                    >
+                                      3
+                                    </span>
+                                  </span>
+                                </span>
+                                <span
+                                  class="pf-v5-c-label pf-m-green"
+                                >
+                                  <span
+                                    class="pf-v5-c-label__content"
+                                  >
+                                    <span
+                                      class="pf-v5-c-label__icon"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 512 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                        />
+                                      </svg>
+                                    </span>
+                                    <span
+                                      class="pf-v5-c-label__text"
+                                    >
+                                      3
+                                    </span>
+                                  </span>
+                                </span>
+                                <span
+                                  class="pf-v5-c-label pf-m-blue"
+                                >
+                                  <span
+                                    class="pf-v5-c-label__content"
+                                  >
+                                    <span
+                                      class="pf-v5-c-label__icon"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 512 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                        />
+                                      </svg>
+                                    </span>
+                                    <span
+                                      class="pf-v5-c-label__text"
+                                    >
+                                      3
+                                    </span>
+                                  </span>
+                                </span>
+                                <span
+                                  class="pf-v5-c-label pf-m-green"
+                                >
+                                  <span
+                                    class="pf-v5-c-label__content"
+                                  >
+                                    <span
+                                      class="pf-v5-c-label__icon"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 896 1024"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M448,0 C465.333333,0 480.333333,6.33333333 493,19 C505.666667,31.6666667 512,46.6666667 512,64 L512,106 L514.23,106.45 C587.89,121.39 648.48,157.24 696,214 C744,271.333333 768,338.666667 768,416 C768,500 780,568.666667 804,622 C818.666667,652.666667 841.333333,684 872,716 C873.773676,718.829136 875.780658,721.505113 878,724 C890,737.333333 896,752.333333 896,769 C896,785.666667 890,800.333333 878,813 C866,825.666667 850.666667,832 832,832 L63.3,832 C44.9533333,831.84 29.8533333,825.506667 18,813 C6,800.333333 0,785.666667 0,769 C0,752.333333 6,737.333333 18,724 L24,716 L25.06,714.9 C55.1933333,683.28 77.5066667,652.313333 92,622 C116,568.666667 128,500 128,416 C128,338.666667 152,271.333333 200,214 C248,156.666667 309.333333,120.666667 384,106 L384,63.31 C384.166667,46.27 390.5,31.5 403,19 C415.666667,6.33333333 430.666667,0 448,0 Z M576,896 L576,897.08 C575.74,932.6 563.073333,962.573333 538,987 C512.666667,1011.66667 482.666667,1024 448,1024 C413.333333,1024 383.333333,1011.66667 358,987 C332.666667,962.333333 320,932 320,896 L576,896 Z"
+                                        />
+                                      </svg>
+                                    </span>
+                                    <span
+                                      class="pf-v5-c-label__text"
+                                    >
+                                      3
+                                    </span>
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-v5-c-notification-drawer__group-toggle-count"
+                            >
+                              <span
+                                class="pf-v5-c-badge pf-m-unread"
+                              >
+                                0
+                              </span>
+                            </div>
+                            <span
+                              class="pf-v5-c-notification-drawer__group-toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 256 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </h4>
+                        <ul
+                          class="pf-v5-c-notification-drawer__list"
+                          hidden=""
+                          role="list"
+                        >
+                          <li
+                            class="pf-v5-c-notification-drawer__list-item pf-m-hoverable pf-m-danger"
+                            tabindex="0"
+                          >
+                            <span
+                              class="pf-v5-screen-reader"
+                            >
+                              unread
+                            </span>
+                            <div
+                              class="pf-v5-c-notification-drawer__list-item-header"
+                            >
+                              <span
+                                class="pf-v5-c-notification-drawer__list-item-header-icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="pf-v5-svg"
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                  />
+                                </svg>
+                              </span>
+                              <h5
+                                class="pf-v5-c-notification-drawer__list-item-header-title"
+                              >
+                                Critical alert regarding control plane
+                              </h5>
+                            </div>
+                            <div
+                              class="pf-v5-c-notification-drawer__list-item-description"
+                            >
+                              This is a long description to show how the title will wrap if it is long and wraps to multiple lines.
+                            </div>
+                          </li>
+                          <li
+                            class="pf-v5-c-notification-drawer__list-item pf-m-hoverable pf-m-warning"
+                            tabindex="0"
+                          >
+                            <span
+                              class="pf-v5-screen-reader"
+                            >
+                              unread
+                            </span>
+                            <div
+                              class="pf-v5-c-notification-drawer__list-item-header"
+                            >
+                              <span
+                                class="pf-v5-c-notification-drawer__list-item-header-icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="pf-v5-svg"
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  viewBox="0 0 576 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                  />
+                                </svg>
+                              </span>
+                              <h5
+                                class="pf-v5-c-notification-drawer__list-item-header-title"
+                              >
+                                Warning alert
+                              </h5>
+                            </div>
+                            <div
+                              class="pf-v5-c-notification-drawer__list-item-description"
+                            >
+                              This is a warning notification description.
+                            </div>
+                          </li>
+                        </ul>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card"
+                  data-ouia-component-id="OUIA-Generated-Card-3"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id="nested-cards-card"
+                >
+                  <div
+                    class="pf-v5-c-card__header"
+                  >
+                    <div
+                      class="pf-v5-c-card__header-main"
+                    >
+                      <div
+                        class="pf-v5-c-card__title"
+                      >
+                        <div
+                          class="pf-v5-c-card__title-text"
+                          id="nested-cards-toggle-title"
+                        >
+                          <h4
+                            class="pf-v5-c-title pf-m-lg"
+                            data-ouia-component-id="OUIA-Generated-Title-2"
+                            data-ouia-component-type="PF5/Title"
+                            data-ouia-safe="true"
+                          >
+                             Hardware Monitor 
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pf-v5-c-card pf-m-expanded pf-m-plain"
+                    data-ouia-component-id="OUIA-Generated-Card-4"
+                    data-ouia-component-type="PF5/Card"
+                    data-ouia-safe="true"
+                    id="nested-cards-toggle-group-1"
+                  >
+                    <div
+                      class="pf-v5-c-card__header"
+                    >
+                      <div
+                        class="pf-v5-c-card__header-toggle"
+                      >
+                        <button
+                          aria-disabled="false"
+                          aria-expanded="true"
+                          aria-label="Details"
+                          aria-labelledby="nested-cards-toggle-group-1-title toggle-button-1"
+                          class="pf-v5-c-button pf-m-plain"
+                          data-ouia-component-id="OUIA-Generated-Button-plain-3"
+                          data-ouia-component-type="PF5/Button"
+                          data-ouia-safe="true"
+                          id="toggle-button-1"
+                          type="button"
+                        >
+                          <span
+                            class="pf-v5-c-card__header-toggle-icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v5-svg"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 256 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+                      <div
+                        class="pf-v5-c-card__header-main"
+                      >
+                        <div
+                          class="pf-v5-c-card__title"
+                        >
+                          <div
+                            class="pf-v5-c-card__title-text"
+                            id="nested-cards-toggle-group-1-title"
+                          >
+                            <span
+                              class="pf-v5-u-font-weight-light"
+                            >
+                              CPU 1
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="pf-v5-c-card__expandable-content"
+                    >
+                      <div
+                        class="pf-v5-c-card__body"
+                      >
+                        <div
+                          class="pf-v5-l-grid pf-m-gutter"
+                        >
+                          <div
+                            class="pf-v5-l-grid pf-m-gutter"
+                          >
+                            <div
+                              class="pf-v5-l-grid__item pf-m-4-col-on-md"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-space-items-none-on-md pf-m-column-on-md pf-m-justify-content-center-on-md pf-v5-u-h-100-on-md"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <b>
+                                    Temperature
+                                  </b>
+                                </div>
+                                <hr
+                                  class="pf-v5-c-divider pf-m-inset-sm pf-m-vertical pf-v5-u-hidden-on-md"
+                                />
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    64C
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-v5-l-grid__item pf-m-8-col-on-md"
+                            >
+                              <div
+                                class="pf-v5-l-grid pf-m-gutter"
+                              >
+                                <div
+                                  class="pf-v5-l-grid__item pf-m-2-col"
+                                >
+                                  <div
+                                    class="pf-v5-l-flex pf-m-space-items-none pf-m-column pf-m-align-items-flex-end-on-md"
+                                  >
+                                    <div
+                                      class=""
+                                    >
+                                      100C
+                                    </div>
+                                    <div
+                                      class=""
+                                    >
+                                      50C
+                                    </div>
+                                    <div
+                                      class=""
+                                    >
+                                      0C
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  class="pf-v5-l-grid__item pf-m-10-col"
+                                >
+                                  <div
+                                    class="pf-v5-c-chart"
+                                    style="height: 100%; width: 100%; pointer-events: none; position: relative;"
+                                  >
+                                    <svg
+                                      aria-describedby="victory-container-1-desc"
+                                      aria-labelledby="victory-container-1-title"
+                                      height="60"
+                                      role="img"
+                                      style="pointer-events: all; width: 100%; height: 100%;"
+                                      viewBox="0 0 400 60"
+                                      width="400"
+                                    >
+                                      <title
+                                        id="victory-container-1-title"
+                                      >
+                                        Mock CPU temperature sparkline chart
+                                      </title>
+                                      <desc
+                                        id="victory-container-1-desc"
+                                      >
+                                        Mock CPU temperature
+                                      </desc>
+                                      <g
+                                        clip-path="url(#victory-clip-2)"
+                                        style="height: 100%; width: 100%;"
+                                      >
+                                        <defs>
+                                          <clippath
+                                            id="victory-clip-2"
+                                          >
+                                            <rect
+                                              height="60"
+                                              vector-effect="non-scaling-stroke"
+                                              width="400"
+                                              x="0"
+                                              y="0"
+                                            />
+                                          </clippath>
+                                        </defs>
+                                        <path
+                                          d="M0,45L50,36L100,48L150,24L200,48L250,35.400000000000006L300,33L350,35.400000000000006L400,22.8L400,60L350,60L300,60L250,60L200,60L150,60L100,60L50,60L0,60Z"
+                                          role="presentation"
+                                          shape-rendering="auto"
+                                          style="fill: var(--pf-v5-chart-theme--blue--ColorScale--100, #06c); width: 22px; fill-opacity: 0.3; stroke-width: 2; stroke: var(--pf-v5-chart-theme--blue--ColorScale--100, #06c);"
+                                        />
+                                      </g>
+                                    </svg>
+                                    <div
+                                      style="z-index: 99; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+                                    >
+                                      <svg
+                                        height="60"
+                                        style="overflow: visible; width: 100%; height: 100%;"
+                                        viewBox="0 0 400 60"
+                                        width="400"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <hr
+                            class="pf-v5-c-divider pf-v5-u-hidden-on-md"
+                          />
+                          <div
+                            class="pf-v5-l-grid pf-m-gutter"
+                          >
+                            <div
+                              class="pf-v5-l-grid__item pf-m-4-col-on-md"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-space-items-none-on-md pf-m-column-on-md pf-m-justify-content-center-on-md pf-v5-u-h-100-on-md"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <b>
+                                    Speed
+                                  </b>
+                                </div>
+                                <hr
+                                  class="pf-v5-c-divider pf-m-inset-sm pf-m-vertical pf-v5-u-hidden-on-md"
+                                />
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    2.3Ghz
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-v5-l-grid__item pf-m-8-col-on-md"
+                            >
+                              <div
+                                class="pf-v5-l-grid pf-m-gutter"
+                              >
+                                <div
+                                  class="pf-v5-l-grid__item pf-m-2-col"
+                                >
+                                  <div
+                                    class="pf-v5-l-flex pf-m-space-items-none pf-m-column pf-m-align-items-flex-end-on-md"
+                                  >
+                                    <div
+                                      class=""
+                                    >
+                                      3.6Ghz
+                                    </div>
+                                    <div
+                                      class=""
+                                    >
+                                      1.5Ghz
+                                    </div>
+                                    <div
+                                      class=""
+                                    >
+                                      0GHZ
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  class="pf-v5-l-grid__item pf-m-10-col"
+                                >
+                                  <div
+                                    class="pf-v5-c-chart"
+                                    style="height: 100%; width: 100%; pointer-events: none; position: relative;"
+                                  >
+                                    <svg
+                                      aria-describedby="victory-container-3-desc"
+                                      aria-labelledby="victory-container-3-title"
+                                      height="60"
+                                      role="img"
+                                      style="pointer-events: all; width: 100%; height: 100%;"
+                                      viewBox="0 0 400 60"
+                                      width="400"
+                                    >
+                                      <title
+                                        id="victory-container-3-title"
+                                      >
+                                        Mock CPU speed sparkline chart
+                                      </title>
+                                      <desc
+                                        id="victory-container-3-desc"
+                                      >
+                                        Mock CPU speed
+                                      </desc>
+                                      <g
+                                        clip-path="url(#victory-clip-4)"
+                                        style="height: 100%; width: 100%;"
+                                      >
+                                        <defs>
+                                          <clippath
+                                            id="victory-clip-4"
+                                          >
+                                            <rect
+                                              height="60"
+                                              vector-effect="non-scaling-stroke"
+                                              width="400"
+                                              x="0"
+                                              y="0"
+                                            />
+                                          </clippath>
+                                        </defs>
+                                        <path
+                                          d="M0,45L50,36.00000000000001L100,48L150,24L200,48L250,35.333333333333336L300,33L350,35.333333333333336L400,22.833333333333332L400,60L350,60L300,60L250,60L200,60L150,60L100,60L50,60L0,60Z"
+                                          role="presentation"
+                                          shape-rendering="auto"
+                                          style="fill: var(--pf-v5-chart-theme--blue--ColorScale--100, #06c); width: 22px; fill-opacity: 0.3; stroke-width: 2; stroke: var(--pf-v5-chart-theme--blue--ColorScale--100, #06c);"
+                                        />
+                                      </g>
+                                    </svg>
+                                    <div
+                                      style="z-index: 99; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+                                    >
+                                      <svg
+                                        height="60"
+                                        style="overflow: visible; width: 100%; height: 100%;"
+                                        viewBox="0 0 400 60"
+                                        width="400"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pf-v5-c-card pf-m-plain"
+                    data-ouia-component-id="OUIA-Generated-Card-5"
+                    data-ouia-component-type="PF5/Card"
+                    data-ouia-safe="true"
+                    id="nested-cards-toggle-group-2"
+                  >
+                    <div
+                      class="pf-v5-c-card__header"
+                    >
+                      <div
+                        class="pf-v5-c-card__header-toggle"
+                      >
+                        <button
+                          aria-disabled="false"
+                          aria-expanded="false"
+                          aria-label="Details"
+                          aria-labelledby="nested-cards-toggle-group-2-title toggle-button-2"
+                          class="pf-v5-c-button pf-m-plain"
+                          data-ouia-component-id="OUIA-Generated-Button-plain-4"
+                          data-ouia-component-type="PF5/Button"
+                          data-ouia-safe="true"
+                          id="toggle-button-2"
+                          type="button"
+                        >
+                          <span
+                            class="pf-v5-c-card__header-toggle-icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v5-svg"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 256 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+                      <div
+                        class="pf-v5-c-card__header-main"
+                      >
+                        <div
+                          class="pf-v5-c-card__title"
+                        >
+                          <div
+                            class="pf-v5-c-card__title-text"
+                            id="nested-cards-toggle-group-2-title"
+                          >
+                            <span
+                              class="pf-v5-u-font-weight-light"
+                            >
+                              CPU 2
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pf-v5-c-card pf-m-plain"
+                    data-ouia-component-id="OUIA-Generated-Card-6"
+                    data-ouia-component-type="PF5/Card"
+                    data-ouia-safe="true"
+                    id="nested-cards-toggle-group-3"
+                  >
+                    <div
+                      class="pf-v5-c-card__header"
+                    >
+                      <div
+                        class="pf-v5-c-card__header-toggle"
+                      >
+                        <button
+                          aria-disabled="false"
+                          aria-expanded="false"
+                          aria-label="Details"
+                          aria-labelledby="nested-cards-toggle-group-3-title toggle-button-3"
+                          class="pf-v5-c-button pf-m-plain"
+                          data-ouia-component-id="OUIA-Generated-Button-plain-5"
+                          data-ouia-component-type="PF5/Button"
+                          data-ouia-safe="true"
+                          id="toggle-button-3"
+                          type="button"
+                        >
+                          <span
+                            class="pf-v5-c-card__header-toggle-icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v5-svg"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 256 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+                      <div
+                        class="pf-v5-c-card__header-main"
+                      >
+                        <div
+                          class="pf-v5-c-card__title"
+                        >
+                          <div
+                            class="pf-v5-c-card__title-text"
+                            id="nested-cards-toggle-group-3-title"
+                          >
+                            <span
+                              class="pf-v5-u-font-weight-light"
+                            >
+                              CPU 3
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card"
+                  data-ouia-component-id="OUIA-Generated-Card-7"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__title"
+                  >
+                    <div
+                      class="pf-v5-c-card__title-text"
+                    >
+                      Recommendations by severity
+                    </div>
+                  </div>
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-l-flex pf-m-inline-flex"
+                    >
+                      <div
+                        class="pf-v5-l-grid pf-m-all-3-col pf-m-gutter"
+                      >
+                        <div
+                          class="pf-v5-l-flex pf-m-space-items-xs pf-m-column pf-m-align-items-center"
+                        >
+                          <span
+                            class="pf-v5-u-font-size-2xl pf-v5-u-primary-color-100"
+                          >
+                            2
+                          </span>
+                          <span
+                            class="pf-v5-u-font-color-200"
+                          >
+                            Critical
+                          </span>
+                        </div>
+                        <div
+                          class="pf-v5-l-flex pf-m-space-items-xs pf-m-column pf-m-align-items-center"
+                        >
+                          <span
+                            class="pf-v5-u-font-size-2xl pf-v5-u-primary-color-100"
+                          >
+                            5
+                          </span>
+                          <span
+                            class="pf-v5-u-font-color-200"
+                          >
+                            Important
+                          </span>
+                        </div>
+                        <div
+                          class="pf-v5-l-flex pf-m-space-items-xs pf-m-column pf-m-align-items-center"
+                        >
+                          <span
+                            class="pf-v5-u-font-size-2xl pf-v5-u-primary-color-100"
+                          >
+                            7
+                          </span>
+                          <span
+                            class="pf-v5-u-font-color-200"
+                          >
+                            Moderate
+                          </span>
+                        </div>
+                        <div
+                          class="pf-v5-l-flex pf-m-space-items-xs pf-m-column pf-m-align-items-center"
+                        >
+                          <span
+                            class="pf-v5-u-font-size-2xl pf-v5-u-primary-color-100"
+                          >
+                            12
+                          </span>
+                          <span
+                            class="pf-v5-u-font-color-200"
+                          >
+                            Low
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pf-v5-c-card__title"
+                  >
+                    <div
+                      class="pf-v5-c-card__title-text"
+                    >
+                      Recommendations by category
+                    </div>
+                  </div>
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      style="height: 230px; width: 350px;"
+                    >
+                      <div
+                        class="pf-v5-c-chart"
+                        style="pointer-events: none; position: relative; width: 100%; height: 100%;"
+                      >
+                        <svg
+                          aria-describedby="victory-container-5-desc"
+                          aria-labelledby="victory-container-5-title"
+                          height="230"
+                          role="img"
+                          style="pointer-events: all; width: 100%; height: 100%;"
+                          viewBox="0 0 350 230"
+                          width="350"
+                        >
+                          <title
+                            id="victory-container-5-title"
+                          >
+                            Pie chart example
+                          </title>
+                          <desc
+                            id="victory-container-5-desc"
+                          >
+                            Categories of recommendations
+                          </desc>
+                          <g>
+                            <path
+                              d="M3.980102097228898e-15,-65A65,65,0,0,1,34.44475217515832,-55.123126250167694L0,0Z"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: var(--pf-v5-chart-theme--blue--ColorScale--100, #06c); padding: 8px; stroke: var(--pf-v5-chart-pie--data--stroke--Color, transparent); stroke-width: 1;"
+                              transform="translate(85, 115)"
+                            />
+                            <path
+                              d="M34.44475217515832,-55.123126250167694A65,65,0,0,1,58.421613009445856,-28.49412454129003L0,0Z"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: var(--pf-v5-chart-theme--blue--ColorScale--200, #8bc1f7); padding: 8px; stroke: var(--pf-v5-chart-pie--data--stroke--Color, transparent); stroke-width: 1;"
+                              transform="translate(85, 115)"
+                            />
+                            <path
+                              d="M58.421613009445856,-28.49412454129003A65,65,0,1,1,-64.64392319893777,6.7943501123974634L0,0Z"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: var(--pf-v5-chart-theme--blue--ColorScale--300, #002f5d); padding: 8px; stroke: var(--pf-v5-chart-pie--data--stroke--Color, transparent); stroke-width: 1;"
+                              transform="translate(85, 115)"
+                            />
+                            <path
+                              d="M-64.64392319893777,6.7943501123974634A65,65,0,0,1,-1.1940306291686693e-14,-65L0,0Z"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: var(--pf-v5-chart-theme--blue--ColorScale--400, #519de9); padding: 8px; stroke: var(--pf-v5-chart-pie--data--stroke--Color, transparent); stroke-width: 1;"
+                              transform="translate(85, 115)"
+                            />
+                          </g>
+                          <g>
+                            <rect
+                              height="56"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: none;"
+                              vector-effect="non-scaling-stroke"
+                              width="39.6"
+                              x="158"
+                              y="89"
+                            />
+                            <path
+                              d="M 167.128, 107.872
+      h9.744000000000028
+      v-9.744000000000028
+      h-9.744000000000028
+      z"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: var(--pf-v5-chart-theme--blue--ColorScale--100, #06c);"
+                            />
+                            <path
+                              d="M 167.128, 121.872
+      h9.744000000000028
+      v-9.744000000000028
+      h-9.744000000000028
+      z"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: var(--pf-v5-chart-theme--blue--ColorScale--200, #8bc1f7);"
+                            />
+                            <path
+                              d="M 167.128, 135.872
+      h9.744000000000028
+      v-9.744000000000028
+      h-9.744000000000028
+      z"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: var(--pf-v5-chart-theme--blue--ColorScale--300, #002f5d);"
+                            />
+                            <path
+                              d="M 167.128, 149.872
+      h9.744000000000028
+      v-9.744000000000028
+      h-9.744000000000028
+      z"
+                              role="presentation"
+                              shape-rendering="auto"
+                              style="fill: var(--pf-v5-chart-theme--blue--ColorScale--400, #519de9);"
+                            />
+                            <text
+                              direction="inherit"
+                              dx="0"
+                              id="chart1-ChartLegend-ChartLabel-0"
+                              x="188.8"
+                              y="107.97"
+                            >
+                              <tspan
+                                dx="0"
+                                dy="0"
+                                style="font-family: "RedHatText",helvetica,arial,sans-serif; font-size: 14px; letter-spacing: normal; padding: 10px; stroke: var(--pf-v5-chart-global--label--stroke, transparent); fill: var(--pf-v5-chart-global--label--Fill, #151515);"
+                                text-anchor="start"
+                                x="188.8"
+                              >
+                                Fault Tolerance: 4
+                              </tspan>
+                            </text>
+                            <text
+                              direction="inherit"
+                              dx="0"
+                              id="chart1-ChartLegend-ChartLabel-1"
+                              x="188.8"
+                              y="121.97"
+                            >
+                              <tspan
+                                dx="0"
+                                dy="0"
+                                style="font-family: "RedHatText",helvetica,arial,sans-serif; font-size: 14px; letter-spacing: normal; padding: 10px; stroke: var(--pf-v5-chart-global--label--stroke, transparent); fill: var(--pf-v5-chart-global--label--Fill, #151515);"
+                                text-anchor="start"
+                                x="188.8"
+                              >
+                                Performance: 4
+                              </tspan>
+                            </text>
+                            <text
+                              direction="inherit"
+                              dx="0"
+                              id="chart1-ChartLegend-ChartLabel-2"
+                              x="188.8"
+                              y="135.97"
+                            >
+                              <tspan
+                                dx="0"
+                                dy="0"
+                                style="font-family: "RedHatText",helvetica,arial,sans-serif; font-size: 14px; letter-spacing: normal; padding: 10px; stroke: var(--pf-v5-chart-global--label--stroke, transparent); fill: var(--pf-v5-chart-global--label--Fill, #151515);"
+                                text-anchor="start"
+                                x="188.8"
+                              >
+                                Service Availability: 25
+                              </tspan>
+                            </text>
+                            <text
+                              direction="inherit"
+                              dx="0"
+                              id="chart1-ChartLegend-ChartLabel-3"
+                              x="188.8"
+                              y="149.97"
+                            >
+                              <tspan
+                                dx="0"
+                                dy="0"
+                                style="font-family: "RedHatText",helvetica,arial,sans-serif; font-size: 14px; letter-spacing: normal; padding: 10px; stroke: var(--pf-v5-chart-global--label--stroke, transparent); fill: var(--pf-v5-chart-global--label--Fill, #151515);"
+                                text-anchor="start"
+                                x="188.8"
+                              >
+                                Security: 12
+                              </tspan>
+                            </text>
+                          </g>
+                        </svg>
+                        <div
+                          style="z-index: 99; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+                        >
+                          <svg
+                            height="230"
+                            style="overflow: visible; width: 100%; height: 100%;"
+                            viewBox="0 0 350 230"
+                            width="350"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pf-v5-c-card__footer"
+                  >
+                    <a
+                      href="#"
+                    >
+                      View more
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pf-v5-l-grid__item pf-m-4-col-on-lg pf-m-3-col-on-2xl"
+              style="--pf-v5-l-grid--item--Order-on-lg: 2;"
+            >
+              <div
+                class="pf-v5-l-flex pf-m-column pf-m-row-on-md pf-m-column-on-lg"
+              >
+                <div
+                  class="pf-m-flex-1"
+                >
+                  <div
+                    class="pf-v5-c-card"
+                    data-ouia-component-id="OUIA-Generated-Card-8"
+                    data-ouia-component-type="PF5/Card"
+                    data-ouia-safe="true"
+                    id=""
+                  >
+                    <div
+                      class="pf-v5-c-card__title"
+                    >
+                      <div
+                        class="pf-v5-c-card__title-text"
+                      >
+                        <h4
+                          class="pf-v5-c-title pf-m-xl"
+                          data-ouia-component-id="OUIA-Generated-Title-3"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
+                        >
+                          Details
+                        </h4>
+                      </div>
+                    </div>
+                    <div
+                      class="pf-v5-c-card__body"
+                    >
+                      <dl
+                        class="pf-v5-c-description-list"
+                      >
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Cluster API Address
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <a
+                                href="#"
+                              >
+                                https://api1.devcluster.openshift.com
+                              </a>
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Cluster ID
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              63b97ac1-b850-41d9-8820-239becde9e86
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Provide
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              AWS
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              OpenShift Version
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              4.5.0.ci-2020-06-16-015028
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Update Channel
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              stable-4.5
+                            </div>
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                    <hr
+                      class="pf-v5-c-divider"
+                    />
+                    <div
+                      class="pf-v5-c-card__footer"
+                    >
+                      <a
+                        href="#"
+                      >
+                        View Settings
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-m-flex-1"
+                >
+                  <div
+                    class="pf-v5-c-card"
+                    data-ouia-component-id="OUIA-Generated-Card-9"
+                    data-ouia-component-type="PF5/Card"
+                    data-ouia-safe="true"
+                    id="dashboard-demo-data-list-card-1"
+                  >
+                    <div
+                      class="pf-v5-c-card__header pf-v5-u-align-items-flex-start"
+                    >
+                      <div
+                        class="pf-v5-c-card__header-main"
+                      >
+                        <div
+                          class="pf-v5-c-card__title"
+                        >
+                          <div
+                            class="pf-v5-c-card__title-text"
+                            id="dashboard-demo-data-list-card-1-title1"
+                          >
+                            Inventory
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <ul
+                      aria-label="Simple data list example"
+                      class="pf-v5-c-data-list pf-m-grid-none"
+                      id="dashboard-demo-data-list-card-1-data-list"
+                      role="list"
+                    >
+                      <li
+                        aria-labelledby="dashboard-demo-data-list-card-1-data-list-item-1"
+                        class="pf-v5-c-data-list__item"
+                        id=""
+                      >
+                        <div
+                          class="pf-v5-c-data-list__item-row"
+                        >
+                          <div
+                            class="pf-v5-c-data-list__item-content"
+                          >
+                            <div
+                              class="pf-v5-c-data-list__cell"
+                              id="dashboard-demo-data-list-card-1-data-list-item-1"
+                            >
+                              3 Nodes
+                            </div>
+                            <div
+                              class="pf-v5-c-data-list__cell pf-m-no-fill pf-m-align-right"
+                            >
+                              <a
+                                href="#"
+                              >
+                                <div
+                                  class="pf-v5-l-flex pf-m-space-items-sm"
+                                >
+                                  <span>
+                                    3
+                                  </span>
+                                  <span
+                                    class="pf-v5-c-icon"
+                                  >
+                                    <span
+                                      class="pf-v5-c-icon__content pf-m-success"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 512 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        aria-labelledby="dashboard-demo-data-list-card-1-data-list-item-2"
+                        class="pf-v5-c-data-list__item"
+                        id=""
+                      >
+                        <div
+                          class="pf-v5-c-data-list__item-row"
+                        >
+                          <div
+                            class="pf-v5-c-data-list__item-content"
+                          >
+                            <div
+                              class="pf-v5-c-data-list__cell"
+                              id="dashboard-demo-data-list-card-1-data-list-item-2"
+                            >
+                              8 Disks
+                            </div>
+                            <div
+                              class="pf-v5-c-data-list__cell pf-m-no-fill pf-m-align-right"
+                            >
+                              <a
+                                href="#"
+                              >
+                                <div
+                                  class="pf-v5-l-flex pf-m-space-items-sm"
+                                >
+                                  <span>
+                                    8
+                                  </span>
+                                  <span
+                                    class="pf-v5-c-icon"
+                                  >
+                                    <span
+                                      class="pf-v5-c-icon__content pf-m-success"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 512 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        aria-labelledby="dashboard-demo-data-list-card-1-data-list-item-3"
+                        class="pf-v5-c-data-list__item"
+                        id=""
+                      >
+                        <div
+                          class="pf-v5-c-data-list__item-row"
+                        >
+                          <div
+                            class="pf-v5-c-data-list__item-content"
+                          >
+                            <div
+                              class="pf-v5-c-data-list__cell"
+                              id="dashboard-demo-data-list-card-1-data-list-item-3"
+                            >
+                              20 Pods
+                            </div>
+                            <div
+                              class="pf-v5-c-data-list__cell pf-m-no-fill pf-m-align-right"
+                            >
+                              <a
+                                href="#"
+                              >
+                                <div
+                                  class="pf-v5-l-flex pf-m-space-items-sm"
+                                >
+                                  <span>
+                                    20
+                                  </span>
+                                  <span
+                                    class="pf-v5-c-icon"
+                                  >
+                                    <span
+                                      class="pf-v5-c-icon__content pf-m-success"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 512 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        aria-labelledby="dashboard-demo-data-list-card-1-data-list-item-4"
+                        class="pf-v5-c-data-list__item"
+                        id=""
+                      >
+                        <div
+                          class="pf-v5-c-data-list__item-row"
+                        >
+                          <div
+                            class="pf-v5-c-data-list__item-content"
+                          >
+                            <div
+                              class="pf-v5-c-data-list__cell"
+                              id="dashboard-demo-data-list-card-1-data-list-item-4"
+                            >
+                              12 PVs
+                            </div>
+                            <div
+                              class="pf-v5-c-data-list__cell pf-m-no-fill pf-m-align-right"
+                            >
+                              <a
+                                href="#"
+                              >
+                                <div
+                                  class="pf-v5-l-flex pf-m-space-items-sm"
+                                >
+                                  <span>
+                                    12
+                                  </span>
+                                  <span
+                                    class="pf-v5-c-icon"
+                                  >
+                                    <span
+                                      class="pf-v5-c-icon__content pf-m-success"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 512 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        aria-labelledby="dashboard-demo-data-list-card-1-data-list-item-5"
+                        class="pf-v5-c-data-list__item"
+                        id=""
+                      >
+                        <div
+                          class="pf-v5-c-data-list__item-row"
+                        >
+                          <div
+                            class="pf-v5-c-data-list__item-content"
+                          >
+                            <div
+                              class="pf-v5-c-data-list__cell"
+                              id="dashboard-demo-data-list-card-1-data-list-item-5"
+                            >
+                              18 PVCs
+                            </div>
+                            <div
+                              class="pf-v5-c-data-list__cell pf-m-no-fill pf-m-align-right"
+                            >
+                              <a
+                                href="#"
+                              >
+                                <div
+                                  class="pf-v5-l-flex pf-m-space-items-sm"
+                                >
+                                  <span>
+                                    18
+                                  </span>
+                                  <span
+                                    class="pf-v5-c-icon"
+                                  >
+                                    <span
+                                      class="pf-v5-c-icon__content pf-m-success"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class="pf-v5-svg"
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        viewBox="0 0 512 512"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pf-v5-l-grid__item pf-m-4-col-on-lg pf-m-3-col-on-2xl"
+              style="--pf-v5-l-grid--item--Order-on-lg: 4;"
+            >
+              <div
+                class="pf-v5-l-flex pf-m-column"
+              >
+                <div
+                  class="pf-v5-l-gallery pf-m-gutter"
+                  style="--pf-v5-l-gallery--GridTemplateColumns--min: 360px;"
+                >
+                  <div
+                    class="pf-v5-c-card"
+                    data-ouia-component-id="OUIA-Generated-Card-10"
+                    data-ouia-component-type="PF5/Card"
+                    data-ouia-safe="true"
+                    id="card-events-view-example"
+                  >
+                    <div
+                      class="pf-v5-c-card__header pf-v5-u-align-items-flex-start"
+                    >
+                      <div
+                        class="pf-v5-c-card__actions pf-m-no-offset"
+                      >
+                        <button
+                          aria-expanded="false"
+                          class="pf-v5-c-menu-toggle pf-m-plain pf-m-text"
+                          type="button"
+                        >
+                          <span
+                            class="pf-v5-c-menu-toggle__text"
+                          >
+                            Status
+                          </span>
+                          <span
+                            class="pf-v5-c-menu-toggle__controls"
+                          >
+                            <span
+                              class="pf-v5-c-menu-toggle__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                      <div
+                        class="pf-v5-c-card__header-main"
+                      >
+                        <div
+                          class="pf-v5-c-card__title"
+                        >
+                          <div
+                            class="pf-v5-c-card__title-text"
+                            id="card-events-view-example-title"
+                          >
+                            <h4
+                              class="pf-v5-c-title pf-m-xl"
+                              data-ouia-component-id="OUIA-Generated-Title-4"
+                              data-ouia-component-type="PF5/Title"
+                              data-ouia-safe="true"
+                              style="padding-top: 3px;"
+                            >
+                              Events
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="pf-v5-c-card__body"
+                    >
+                      <dl
+                        class="pf-v5-c-description-list"
+                      >
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-nowrap"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="pf-v5-svg pf-v5-u-danger-color-100"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    Readiness probe failed
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Readiness probe failed: Get https://10.131.0.7:5000/healthz: dial tcp 10.131.0.7:5000: connect: connection refused
+                            </div>
+                          </dd>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <time
+                                class="pf-v5-u-color-200 pf-v5-u-font-size-sm"
+                              >
+                                Jun 17, 11:02 am
+                              </time>
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-nowrap"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="pf-v5-svg pf-v5-u-success-color-100"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    Successful assignment
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Successfully assigned default/example to ip-10-0-130-149.ec2.internal
+                            </div>
+                          </dd>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <time
+                                class="pf-v5-u-color-200 pf-v5-u-font-size-sm"
+                              >
+                                Jun 17, 11:13 am
+                              </time>
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-nowrap"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <svg
+                                    aria-label="loading spinner"
+                                    aria-valuetext="Loading..."
+                                    class="pf-v5-c-spinner pf-m-md"
+                                    role="progressbar"
+                                    viewBox="0 0 100 100"
+                                  >
+                                    <circle
+                                      class="pf-v5-c-spinner__path"
+                                      cx="50"
+                                      cy="50"
+                                      fill="none"
+                                      r="45"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    Pulling image
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Pulling image "openshift/hello-openshift"
+                            </div>
+                          </dd>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <time
+                                class="pf-v5-u-color-200 pf-v5-u-font-size-sm"
+                              >
+                                Jun 17, 10:59 am
+                              </time>
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-nowrap"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="pf-v5-svg pf-v5-u-success-color-100"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    Created container
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Created container hello-openshift
+                            </div>
+                          </dd>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <time
+                                class="pf-v5-u-color-200 pf-v5-u-font-size-sm"
+                              >
+                                Jun 17, 10:45 am
+                              </time>
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-nowrap"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="pf-v5-svg pf-v5-u-warning-color-100"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 576 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    CPU utilitization over 50%
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Migrated 2 pods to other hosts
+                            </div>
+                          </dd>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <time
+                                class="pf-v5-u-color-200 pf-v5-u-font-size-sm"
+                              >
+                                Jun 17, 10:33 am
+                              </time>
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-nowrap"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="pf-v5-svg pf-v5-u-danger-color-100"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    Rook-osd-10-328949
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Rebuild initiated as Disk 5 failed
+                            </div>
+                          </dd>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <time
+                                class="pf-v5-u-color-200 pf-v5-u-font-size-sm"
+                              >
+                                Jun 17, 10:33 am
+                              </time>
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-nowrap"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="pf-v5-svg pf-v5-u-success-color-100"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    Created container
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Created container hello-openshift-123
+                            </div>
+                          </dd>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <time
+                                class="pf-v5-u-color-200 pf-v5-u-font-size-sm"
+                              >
+                                Jun 17, 10:31 am
+                              </time>
+                            </div>
+                          </dd>
+                        </div>
+                        <div
+                          class="pf-v5-c-description-list__group"
+                        >
+                          <dt
+                            class="pf-v5-c-description-list__term"
+                          >
+                            <span
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <div
+                                class="pf-v5-l-flex pf-m-nowrap"
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="pf-v5-svg pf-v5-u-success-color-100"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <span>
+                                    Created container
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </dt>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              Created container hello-openshift-456
+                            </div>
+                          </dd>
+                          <dd
+                            class="pf-v5-c-description-list__description"
+                          >
+                            <div
+                              class="pf-v5-c-description-list__text"
+                            >
+                              <time
+                                class="pf-v5-u-color-200 pf-v5-u-font-size-sm"
+                              >
+                                Jun 17, 10:30 am
+                              </time>
+                            </div>
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                    <hr
+                      class="pf-v5-c-divider"
+                    />
+                    <div
+                      class="pf-v5-c-card__footer"
+                    >
+                      <a
+                        href="#"
+                      >
+                        View all events
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   </div>
