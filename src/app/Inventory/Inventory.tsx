@@ -158,7 +158,7 @@ const Inventory: React.FunctionComponent<ISupportProps> = () => {
     ) {
       if (event.key === 'Escape' || event.key === 'Tab') {
         setIsBulkSelectOpen(!isBulkSelectOpen);
-        bulkSelectToggleRef.current?.querySelector('button').focus();
+        bulkSelectToggleRef.current?.querySelector('button')?.focus();
       }
     }
   };
@@ -217,7 +217,7 @@ const Inventory: React.FunctionComponent<ISupportProps> = () => {
       onSelect={(_ev, itemId) => {
         selectAllRepos(itemId === 1 || itemId === 2);
         setIsBulkSelectOpen(!isBulkSelectOpen);
-        bulkSelectToggleRef.current?.querySelector('button').focus();
+        bulkSelectToggleRef.current?.querySelector('button')?.focus();
       }}
     >
       <MenuContent>

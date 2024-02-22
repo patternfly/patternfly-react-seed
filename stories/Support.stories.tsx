@@ -9,7 +9,7 @@ export default {
 };
 
 //👇 We create a “template” of how args map to rendering
-const Template: Story<ComponentProps<typeof Resources>> = (args) => <Support {...args} />;
+const Template: Story<ComponentProps<typeof Resources>> = (args) => <Resources {...args} />;
 
 export const SupportStory = Template.bind({});
 SupportStory.args = {
