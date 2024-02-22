@@ -2,8 +2,8 @@ import * as React from "react";
 import {ISupportProps} from "@app/Resources/Resources";
 import {
   EmptyState,
-  EmptyStateFooter,
   EmptyStateBody,
+  EmptyStateFooter,
   Button,
   Bullseye,
   EmptyStateActions,
@@ -20,7 +20,7 @@ import {
   ToolbarContent,
   ToolbarItem
 } from '@patternfly/react-core';
-import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
+import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
 import {MenuToggleElement} from "@patternfly/react-core/dist/esm/components/MenuToggle/MenuToggle";
 
@@ -170,7 +170,7 @@ const Inventory: React.FunctionComponent<ISupportProps> = () => {
       window.removeEventListener('keydown', handleBulkSelectMenuKeys);
       window.removeEventListener('click', handleBulkSelectClickOutside);
     };
-  }, [isBulkSelectOpen, bulkSelectMenuRef, handleBulkSelectMenuKeys, handleBulkSelectClickOutside]);
+  }, [isBulkSelectOpen, bulkSelectMenuRef]);
 
   const onBulkSelectToggleClick = (ev: React.MouseEvent) => {
     ev.stopPropagation(); // Stop handleClickOutside from handling

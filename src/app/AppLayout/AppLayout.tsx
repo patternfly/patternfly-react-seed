@@ -2,8 +2,10 @@ import * as React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   Button,
+  Icon,
   Masthead,
   MastheadBrand,
+  MastheadContent,
   MastheadMain,
   MastheadToggle,
 	Nav,
@@ -13,10 +15,15 @@ import {
 	Page,
 	PageSidebar,
   PageSidebarBody,
-	SkipToContent
+	SkipToContent,
+  ToggleGroup,
+  ToggleGroupItem,
+  Toolbar,
+  ToolbarContent,
+  ToolbarItem
 } from '@patternfly/react-core';
 import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
-import { BarsIcon } from '@patternfly/react-icons';
+import { BarsIcon, MoonIcon, SunIcon } from '@patternfly/react-icons';
 
 interface IAppLayout {
   children: React.ReactNode;
@@ -24,6 +31,14 @@ interface IAppLayout {
 
 const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+
+  const toggleDarkTheme = (_evt, selected) => {
+    const darkThemeToggleClicked = !selected === isDarkTheme
+    document.querySelector('html').classList.toggle('pf-v5-theme-dark', darkThemeToggleClicked);
+    setIsDarkTheme(darkThemeToggleClicked);
+  };
+
   const Header = (
     <Masthead>
       <MastheadToggle>
@@ -63,6 +78,18 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
           </svg>
         </MastheadBrand>
       </MastheadMain>
+      <MastheadContent>
+        <Toolbar>
+          <ToolbarContent>
+            <ToolbarItem align={{ default: 'alignRight' }}>
+              <ToggleGroup aria-label="Dark theme toggle group">
+                <ToggleGroupItem aria-label="light theme toggle" icon={<Icon size="md"><SunIcon /></Icon>} isSelected={!isDarkTheme} onChange={toggleDarkTheme} />
+                <ToggleGroupItem aria-label="dark theme toggle" icon={<Icon size="md"><MoonIcon /></Icon>} isSelected={isDarkTheme} onChange={toggleDarkTheme} />
+              </ToggleGroup>
+            </ToolbarItem>
+          </ToolbarContent>
+        </Toolbar>
+      </MastheadContent>
     </Masthead>
   );
 
