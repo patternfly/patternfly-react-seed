@@ -1,10 +1,12 @@
 import * as React from "react";
 import {ISupportProps} from "@app/Resources/Resources";
 import {
-  SearchInput,
-  Toolbar,
-  ToolbarContent,
-  ToolbarItem,
+  EmptyState,
+  EmptyStateFooter,
+  EmptyStateBody,
+  Button,
+  Bullseye,
+  EmptyStateActions,
   Menu,
   MenuContent,
   MenuList,
@@ -13,15 +15,14 @@ import {
   MenuToggleCheckbox,
   Popper,
   Pagination,
-  EmptyState,
-  EmptyStateFooter,
-  EmptyStateBody,
-  Button,
-  Bullseye,
-  EmptyStateActions
+  SearchInput,
+  Toolbar,
+  ToolbarContent,
+  ToolbarItem
 } from '@patternfly/react-core';
 import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
+import {MenuToggleElement} from "@patternfly/react-core/dist/esm/components/MenuToggle/MenuToggle";
 
 interface Repository {
   name: string;
@@ -136,7 +137,7 @@ const Inventory: React.FunctionComponent<ISupportProps> = () => {
 
   // Set up bulk selection menu
   const bulkSelectMenuRef = React.useRef<HTMLDivElement>(null);
-  const bulkSelectToggleRef = React.useRef<any>(null);
+  const bulkSelectToggleRef = React.useRef<MenuToggleElement>(null);
   const bulkSelectContainerRef = React.useRef<HTMLDivElement>(null);
 
   const [isBulkSelectOpen, setIsBulkSelectOpen] = React.useState<boolean>(false);
@@ -169,7 +170,7 @@ const Inventory: React.FunctionComponent<ISupportProps> = () => {
       window.removeEventListener('keydown', handleBulkSelectMenuKeys);
       window.removeEventListener('click', handleBulkSelectClickOutside);
     };
-  }, [isBulkSelectOpen, bulkSelectMenuRef]);
+  }, [isBulkSelectOpen, bulkSelectMenuRef, handleBulkSelectMenuKeys, handleBulkSelectClickOutside]);
 
   const onBulkSelectToggleClick = (ev: React.MouseEvent) => {
     ev.stopPropagation(); // Stop handleClickOutside from handling
@@ -201,7 +202,7 @@ const Inventory: React.FunctionComponent<ISupportProps> = () => {
             key="search-input-bulk-select"
             aria-label="Select all"
             isChecked={menuToggleCheckmark}
-            onChange={(checked, _event) => selectAllRepos(checked)}
+            onChange={(checked) => selectAllRepos(checked)}
           />
         ]
       }}

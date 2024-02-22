@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
+  CardHeader,
   CardTitle,
   Drawer,
   DrawerActions,
@@ -48,7 +48,7 @@ const Resources: React.FunctionComponent<ISupportProps> = () => {
   };
 
   const handleTabClick = (
-    event: React.MouseEvent<any> | React.KeyboardEvent | MouseEvent,
+    event: React.MouseEvent | React.KeyboardEvent | MouseEvent,
     tabIndex: string | number
   ) => {
     setActiveTabKey(tabIndex);
@@ -97,7 +97,7 @@ const Resources: React.FunctionComponent<ISupportProps> = () => {
 
   const drawerContent = (
     <Gallery hasGutter role="region" aria-label="Selectable card container">
-      {[1,2,3,4,5,6].map((product, key) => (
+      {[1,2,3,4,5,6].map((product) => (
         <Card
           key={`${product}-card`}
           id={`card-view-${product}`}

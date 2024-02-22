@@ -21,7 +21,7 @@ import {
   Popover,
   Title
 } from '@patternfly/react-core';
-import { Table, Thead, Tbody, Tr, Th, Td, ExpandableRowContent } from '@patternfly/react-table';
+import { ExpandableRowContent, Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import BellIcon from '@patternfly/react-icons/dist/js/icons/bell-icon';
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 import ExclamationCircleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
@@ -37,7 +37,7 @@ export const CardStatus: React.FunctionComponent = () => {
   };
 
   const [rowsExpanded, setRowsExpanded] = React.useState([false, false, false]);
-  const handleToggleExpand = (_: any, rowIndex: number) => {
+  const handleToggleExpand = (_: React.MouseEvent, rowIndex: number) => {
     const newRowsExpanded = [...rowsExpanded];
     newRowsExpanded[rowIndex] = !rowsExpanded[rowIndex];
     setRowsExpanded(newRowsExpanded);
