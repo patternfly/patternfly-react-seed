@@ -1,20 +1,21 @@
 import * as React from "react";
 import {ISupportProps} from "@app/Resources/Resources";
 import {
+  Bullseye,
+  Button,
   EmptyState,
+  EmptyStateActions,
   EmptyStateBody,
   EmptyStateFooter,
-  Button,
-  Bullseye,
-  EmptyStateActions,
   Menu,
   MenuContent,
-  MenuList,
   MenuItem,
+  MenuList,
   MenuToggle,
   MenuToggleCheckbox,
-  Popper,
+  MenuToggleElement,
   Pagination,
+  Popper,
   SearchInput,
   Toolbar,
   ToolbarContent,
@@ -22,7 +23,6 @@ import {
 } from '@patternfly/react-core';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
-import {MenuToggleElement} from "@patternfly/react-core/dist/esm/components/MenuToggle/MenuToggle";
 
 interface Repository {
   name: string;
