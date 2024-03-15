@@ -152,9 +152,9 @@ export const CardHorizontalGrid: React.FunctionComponent = () => {
                       <OnIcon />
                     </Icon>
                     <TextContent>
-                      <Text component={TextVariants.p} className="pf-v5-u-color-200">
+                      <Text component={TextVariants.p} style={{ color: 'var(--pf-t--global--text--color--subtle)' }}>
                         System reboot
-                        <b className="pf-v5-u-color-100"> is not</b> required
+                        <b> is not</b> required
                       </Text>
                     </TextContent>
                   </Flex>
@@ -202,9 +202,9 @@ export const CardHorizontalGrid: React.FunctionComponent = () => {
                       <OnIcon />
                     </Icon>
                     <TextContent>
-                      <Text component={TextVariants.p} className="pf-v5-u-color-200">
+                      <Text component={TextVariants.p} style={{ color: 'var(--pf-t--global--text--color--subtle)' }}>
                         System reboot
-                        <b className="pf-v5-u-color-100"> is</b> required
+                        <b> is</b> required
                       </Text>
                     </TextContent>
                   </Flex>
@@ -254,9 +254,9 @@ export const CardHorizontalGrid: React.FunctionComponent = () => {
                       <OnIcon />
                     </Icon>
                     <TextContent>
-                      <Text component={TextVariants.p} className="pf-v5-u-color-200">
+                      <Text component={TextVariants.p} style={{ color: 'var(--pf-t--global--text--color--subtle)' }}>
                         System reboot
-                        <b className="pf-v5-u-color-100"> is not</b> required
+                        <b> is not</b> required
                       </Text>
                     </TextContent>
                   </Flex>

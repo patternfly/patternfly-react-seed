@@ -19,7 +19,7 @@ import {
   NotificationDrawerListItemBody,
   NotificationDrawerListItemHeader,
   Popover,
-  Title
+  Title,
 } from '@patternfly/react-core';
 import { ExpandableRowContent, Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import BellIcon from '@patternfly/react-icons/dist/js/icons/bell-icon';
@@ -62,7 +62,7 @@ export const CardStatus: React.FunctionComponent = () => {
           variant="danger"
           isInline
         ></Alert>
-      )
+      ),
     },
     {
       content: ['Controller Managers', '100%'],
@@ -72,7 +72,7 @@ export const CardStatus: React.FunctionComponent = () => {
           variant="danger"
           isInline
         ></Alert>
-      )
+      ),
     },
     {
       content: ['etcd', '91%'],
@@ -82,8 +82,8 @@ export const CardStatus: React.FunctionComponent = () => {
           variant="danger"
           isInline
         ></Alert>
-      )
-    }
+      ),
+    },
   ];
 
   const popoverBodyContent = (
@@ -171,7 +171,7 @@ export const CardStatus: React.FunctionComponent = () => {
                 <a href="#">Operators</a>
               </FlexItem>
               <FlexItem>
-                <span style={{ color: global_Color_200.var }}>1 degraded</span>
+                <span style={{ color: 'var(--pf-t--global--text--color--subtle)' }}>1 degraded</span>
               </FlexItem>
             </Flex>
           </Flex>
@@ -186,7 +186,7 @@ export const CardStatus: React.FunctionComponent = () => {
                 <a href="#">Image Vulnerabilities</a>
               </FlexItem>
               <FlexItem>
-                <span style={{ color: global_Color_200.var }}>0 vulnerabilities</span>
+                <span style={{ color: 'var(--pf-t--global--text--color--subtle)' }}>0 vulnerabilities</span>
               </FlexItem>
             </Flex>
           </Flex>
