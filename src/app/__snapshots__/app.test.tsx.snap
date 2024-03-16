@@ -242,6 +242,42 @@ exports[`App tests should render default App component 1`] = `
                   </div>
                 </div>
               </div>
+              <div
+                class="pf-v5-c-toolbar__item"
+              >
+                <label
+                  class="pf-v5-c-switch"
+                  data-ouia-component-id="OUIA-Generated-Switch-1"
+                  data-ouia-component-type="PF5/Switch"
+                  data-ouia-safe="true"
+                  for="ws-rtl-switch"
+                >
+                  <input
+                    aria-label=""
+                    aria-labelledby="ws-rtl-switch-on"
+                    class="pf-v5-c-switch__input"
+                    id="ws-rtl-switch"
+                    type="checkbox"
+                  />
+                  <span
+                    class="pf-v5-c-switch__toggle"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="pf-v5-c-switch__label pf-m-on"
+                    id="ws-rtl-switch-on"
+                  >
+                    RTL
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="pf-v5-c-switch__label pf-m-off"
+                    id="ws-rtl-switch-off"
+                  >
+                    RTL
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
           <div
