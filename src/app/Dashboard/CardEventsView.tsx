@@ -13,7 +13,6 @@ import {
   Divider,
   Flex,
   FlexItem,
-  Gallery,
   MenuToggle,
   Select,
   SelectList,
@@ -26,7 +25,6 @@ import ExclamationTriangleIcon from '@patternfly/react-icons/dist/js/icons/excla
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 import flex from '@patternfly/react-styles/css/utilities/Flex/flex';
 import text from '@patternfly/react-styles/css/utilities/Text/text';
-import l_gallery_GridTemplateColumns_min from '@patternfly/react-tokens/dist/js/l_gallery_GridTemplateColumns_min';
 
 export const CardEventsView: React.FunctionComponent = () => {
   const [isOpen, setIsOpen] = React.useState(false);

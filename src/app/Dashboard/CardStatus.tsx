@@ -28,7 +28,6 @@ import ExclamationCircleIcon from '@patternfly/react-icons/dist/js/icons/exclama
 import ExclamationTriangleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-triangle-icon';
 import global_success_color_100 from '@patternfly/react-tokens/dist/js/global_success_color_100';
 import global_danger_color_100 from '@patternfly/react-tokens/dist/js/global_danger_color_100';
-import global_Color_200 from '@patternfly/react-tokens/dist/js/global_Color_200';
 
 export const CardStatus: React.FunctionComponent = () => {
   const [drawerExpanded, setDrawerExpanded] = React.useState(false);
