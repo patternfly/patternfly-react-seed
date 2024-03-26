@@ -88,7 +88,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                 date={new Date('2023-06-17T14:02:00Z')}
                 dateFormat={TimestampFormat.medium}
                 timeFormat={TimestampFormat.short}
-              />
+              >
+                Jun 17, 11:02 am
+              </Timestamp>
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
@@ -112,7 +114,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                 date={new Date('2023-06-17T14:13:00Z')}
                 dateFormat={TimestampFormat.medium}
                 timeFormat={TimestampFormat.short}
-              />
+              >
+                Jun 17, 11:13 am
+              </Timestamp>
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
@@ -132,7 +136,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                 date={new Date('2023-06-17T13:59:00Z')}
                 dateFormat={TimestampFormat.medium}
                 timeFormat={TimestampFormat.short}
-              />
+              >
+                Jun 17, 10:59 am
+              </Timestamp>
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
@@ -154,7 +160,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                 date={new Date('2023-06-17T13:45:00Z')}
                 dateFormat={TimestampFormat.medium}
                 timeFormat={TimestampFormat.short}
-              />
+              >
+                Jun 17, 10:45 am
+              </Timestamp>
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
@@ -176,7 +184,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                 date={new Date('2023-06-17T13:33:00Z')}
                 dateFormat={TimestampFormat.medium}
                 timeFormat={TimestampFormat.short}
-              />
+              >
+                Jun 17, 10:33 am
+              </Timestamp>
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
@@ -198,7 +208,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                 date={new Date('2023-06-17T13:33:00Z')}
                 dateFormat={TimestampFormat.medium}
                 timeFormat={TimestampFormat.short}
-              />
+              >
+                Jun 17, 10:33 am
+              </Timestamp>
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
@@ -220,7 +232,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                 date={new Date('2023-06-17T13:31:00Z')}
                 dateFormat={TimestampFormat.medium}
                 timeFormat={TimestampFormat.short}
-              />
+              >
+                Jun 17, 10:31 am
+              </Timestamp>
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
@@ -242,7 +256,9 @@ export const CardEventsView: React.FunctionComponent = () => {
                 date={new Date('2023-06-17T13:30:00Z')}
                 dateFormat={TimestampFormat.medium}
                 timeFormat={TimestampFormat.short}
-              />
+              >
+                Jun 17, 10:30 am
+              </Timestamp>
             </DescriptionListDescription>
           </DescriptionListGroup>
         </DescriptionList>
