@@ -13,18 +13,19 @@ import {
   Divider,
   Flex,
   FlexItem,
+  Icon,
   MenuToggle,
   Select,
   SelectList,
   SelectOption,
   Spinner,
+  Timestamp,
+  TimestampFormat,
   Title,
 } from '@patternfly/react-core';
 import ExclamationCircleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
 import ExclamationTriangleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-triangle-icon';
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
-import flex from '@patternfly/react-styles/css/utilities/Flex/flex';
-import text from '@patternfly/react-styles/css/utilities/Text/text';
 
 export const CardEventsView: React.FunctionComponent = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -56,7 +57,7 @@ export const CardEventsView: React.FunctionComponent = () => {
   );
   return (
     <Card id="card-events-view-example">
-      <CardHeader className={flex.alignItemsFlexStart} actions={{ actions: headerActions, hasNoOffset: true }}>
+      <CardHeader actions={{ actions: headerActions, hasNoOffset: true }}>
         <CardTitle>
           <Title headingLevel="h4" size="xl" style={{ paddingTop: '3px' }}>
             Events
@@ -69,7 +70,9 @@ export const CardEventsView: React.FunctionComponent = () => {
             <DescriptionListTerm>
               <Flex flexWrap={{ default: 'nowrap' }}>
                 <FlexItem>
-                  <ExclamationCircleIcon className={text.dangerColor_100} aria-hidden="true" />
+                  <Icon status="danger">
+                    <ExclamationCircleIcon aria-hidden="true" />
+                  </Icon>
                 </FlexItem>
                 <FlexItem>
                   <span>Readiness probe failed</span>
@@ -81,14 +84,20 @@ export const CardEventsView: React.FunctionComponent = () => {
               refused
             </DescriptionListDescription>
             <DescriptionListDescription>
-              <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 11:02 am</time>
+              <Timestamp
+                date={new Date('2023-06-17T14:02:00Z')}
+                dateFormat={TimestampFormat.medium}
+                timeFormat={TimestampFormat.short}
+              />
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
             <DescriptionListTerm>
               <Flex flexWrap={{ default: 'nowrap' }}>
                 <FlexItem>
-                  <CheckCircleIcon className={text.successColor_100} aria-hidden="true" />
+                  <Icon status="success">
+                    <CheckCircleIcon aria-hidden="true" />
+                  </Icon>
                 </FlexItem>
                 <FlexItem>
                   <span>Successful assignment</span>
@@ -99,7 +108,11 @@ export const CardEventsView: React.FunctionComponent = () => {
               Successfully assigned default/example to ip-10-0-130-149.ec2.internal
             </DescriptionListDescription>
             <DescriptionListDescription>
-              <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 11:13 am</time>
+              <Timestamp
+                date={new Date('2023-06-17T14:13:00Z')}
+                dateFormat={TimestampFormat.medium}
+                timeFormat={TimestampFormat.short}
+              />
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
@@ -115,14 +128,20 @@ export const CardEventsView: React.FunctionComponent = () => {
             </DescriptionListTerm>
             <DescriptionListDescription>Pulling image &quot;openshift/hello-openshift&quot;</DescriptionListDescription>
             <DescriptionListDescription>
-              <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 10:59 am</time>
+              <Timestamp
+                date={new Date('2023-06-17T13:59:00Z')}
+                dateFormat={TimestampFormat.medium}
+                timeFormat={TimestampFormat.short}
+              />
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
             <DescriptionListTerm>
               <Flex flexWrap={{ default: 'nowrap' }}>
                 <FlexItem>
-                  <CheckCircleIcon className={text.successColor_100} aria-hidden="true" />
+                  <Icon status="success">
+                    <CheckCircleIcon aria-hidden="true" />
+                  </Icon>
                 </FlexItem>
                 <FlexItem>
                   <span>Created container</span>
@@ -131,14 +150,20 @@ export const CardEventsView: React.FunctionComponent = () => {
             </DescriptionListTerm>
             <DescriptionListDescription>Created container hello-openshift</DescriptionListDescription>
             <DescriptionListDescription>
-              <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 10:45 am</time>
+              <Timestamp
+                date={new Date('2023-06-17T13:45:00Z')}
+                dateFormat={TimestampFormat.medium}
+                timeFormat={TimestampFormat.short}
+              />
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
             <DescriptionListTerm>
               <Flex flexWrap={{ default: 'nowrap' }}>
                 <FlexItem>
-                  <ExclamationTriangleIcon className={text.warningColor_100} aria-hidden="true" />
+                  <Icon status="warning">
+                    <ExclamationTriangleIcon aria-hidden="true" />
+                  </Icon>
                 </FlexItem>
                 <FlexItem>
                   <span>CPU utilitization over 50%</span>
@@ -147,14 +172,20 @@ export const CardEventsView: React.FunctionComponent = () => {
             </DescriptionListTerm>
             <DescriptionListDescription>Migrated 2 pods to other hosts</DescriptionListDescription>
             <DescriptionListDescription>
-              <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 10:33 am</time>
+              <Timestamp
+                date={new Date('2023-06-17T13:33:00Z')}
+                dateFormat={TimestampFormat.medium}
+                timeFormat={TimestampFormat.short}
+              />
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
             <DescriptionListTerm>
               <Flex flexWrap={{ default: 'nowrap' }}>
                 <FlexItem>
-                  <ExclamationCircleIcon className={text.dangerColor_100} aria-hidden="true" />
+                  <Icon status="danger">
+                    <ExclamationCircleIcon aria-hidden="true" />
+                  </Icon>
                 </FlexItem>
                 <FlexItem>
                   <span>Rook-osd-10-328949</span>
@@ -163,14 +194,20 @@ export const CardEventsView: React.FunctionComponent = () => {
             </DescriptionListTerm>
             <DescriptionListDescription>Rebuild initiated as Disk 5 failed</DescriptionListDescription>
             <DescriptionListDescription>
-              <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 10:33 am</time>
+              <Timestamp
+                date={new Date('2023-06-17T13:33:00Z')}
+                dateFormat={TimestampFormat.medium}
+                timeFormat={TimestampFormat.short}
+              />
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
             <DescriptionListTerm>
               <Flex flexWrap={{ default: 'nowrap' }}>
                 <FlexItem>
-                  <CheckCircleIcon className={text.successColor_100} aria-hidden="true" />
+                  <Icon status="success">
+                    <CheckCircleIcon aria-hidden="true" />
+                  </Icon>
                 </FlexItem>
                 <FlexItem>
                   <span>Created container</span>
@@ -179,14 +216,20 @@ export const CardEventsView: React.FunctionComponent = () => {
             </DescriptionListTerm>
             <DescriptionListDescription>Created container hello-openshift-123</DescriptionListDescription>
             <DescriptionListDescription>
-              <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 10:31 am</time>
+              <Timestamp
+                date={new Date('2023-06-17T13:31:00Z')}
+                dateFormat={TimestampFormat.medium}
+                timeFormat={TimestampFormat.short}
+              />
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
             <DescriptionListTerm>
               <Flex flexWrap={{ default: 'nowrap' }}>
                 <FlexItem>
-                  <CheckCircleIcon className={text.successColor_100} aria-hidden="true" />
+                  <Icon status="success">
+                    <CheckCircleIcon aria-hidden="true" />
+                  </Icon>
                 </FlexItem>
                 <FlexItem>
                   <span>Created container</span>
@@ -195,7 +238,11 @@ export const CardEventsView: React.FunctionComponent = () => {
             </DescriptionListTerm>
             <DescriptionListDescription>Created container hello-openshift-456</DescriptionListDescription>
             <DescriptionListDescription>
-              <time className={`${text.color_200} ${text.fontSizeSm}`}>Jun 17, 10:30 am</time>
+              <Timestamp
+                date={new Date('2023-06-17T13:30:00Z')}
+                dateFormat={TimestampFormat.medium}
+                timeFormat={TimestampFormat.short}
+              />
             </DescriptionListDescription>
           </DescriptionListGroup>
         </DescriptionList>

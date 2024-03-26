@@ -14,14 +14,14 @@ const Dashboard: React.FunctionComponent = () => (
   <PageSection isWidthLimited>
     <Grid hasGutter>
       <CardHorizontalGrid />
-      <GridItem lg={4} xl2={6} style={{ '--pf-v5-l-grid--item--Order-on-lg': 3 } as React.CSSProperties}>
+      <GridItem lg={4} xl2={6} order={{ lg: '3' }}>
         <Flex direction={{ default: 'column' }}>
           <CardStatus />
           <CardNested />
           <RecommendationsCard />
         </Flex>
       </GridItem>
-      <GridItem lg={4} xl2={3} style={{ '--pf-v5-l-grid--item--Order-on-lg': 2 } as React.CSSProperties}>
+      <GridItem lg={4} xl2={3} order={{ lg: '2' }}>
         <Flex direction={{ default: 'column', md: 'row', lg: 'column' }}>
           <FlexItem flex={{ default: 'flex_1' }}>
             <CardDetailsDemo />
@@ -31,7 +31,7 @@ const Dashboard: React.FunctionComponent = () => (
           </FlexItem>
         </Flex>
       </GridItem>
-      <GridItem lg={4} xl2={3} style={{ '--pf-v5-l-grid--item--Order-on-lg': 4 } as React.CSSProperties}>
+      <GridItem lg={4} xl2={3} order={{ lg: '4' }}>
         <Flex direction={{ default: 'column' }}>
           <CardEventsView />
         </Flex>

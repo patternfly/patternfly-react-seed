@@ -137,7 +137,7 @@ export const CardHorizontalGrid: React.FunctionComponent = () => {
                   direction={{ default: 'column', lg: 'row' }}
                   justifyContent={{ default: 'justifyContentFlexEnd', lg: 'justifyContentFlexStart' }}
                   alignContent={{ lg: 'alignContentFlexEnd' }}
-                  style={{ rowGap: 'var(--pf-v5-global--spacer--md)' }}
+                  rowGap={{ default: 'rowGapMd' }}
                 >
                   <FlexItem style={{ marginBlockEnd: '-.25em' }}>
                     <Label color="red">Incident</Label>
@@ -146,7 +146,7 @@ export const CardHorizontalGrid: React.FunctionComponent = () => {
                     alignItems={{ default: 'alignItemsCenter' }}
                     spaceItems={{ default: 'spaceItemsSm' }}
                     flexWrap={{ default: 'nowrap' }}
-                    style={{ rowGap: 'var(--pf-v5-global--spacer--md)' }}
+                    rowGap={{ default: 'rowGapMd' }}
                   >
                     <Icon style={{ lineHeight: '1' }}>
                       <OnIcon />
@@ -190,13 +190,13 @@ export const CardHorizontalGrid: React.FunctionComponent = () => {
                   direction={{ default: 'column', lg: 'row' }}
                   justifyContent={{ default: 'justifyContentFlexEnd', lg: 'justifyContentFlexStart' }}
                   alignContent={{ lg: 'alignContentFlexEnd' }}
-                  style={{ rowGap: 'var(--pf-v5-global--spacer--md)' }}
+                  rowGap={{ default: 'rowGapMd' }}
                 >
                   <Flex
                     alignItems={{ default: 'alignItemsCenter' }}
                     spaceItems={{ default: 'spaceItemsSm' }}
                     flexWrap={{ default: 'nowrap' }}
-                    style={{ rowGap: 'var(--pf-v5-global--spacer--md)' }}
+                    rowGap={{ default: 'rowGapMd' }}
                   >
                     <Icon status="danger" style={{ lineHeight: '1' }}>
                       <OnIcon />
@@ -239,7 +239,7 @@ export const CardHorizontalGrid: React.FunctionComponent = () => {
                   direction={{ default: 'column', lg: 'row' }}
                   justifyContent={{ default: 'justifyContentFlexEnd', lg: 'justifyContentFlexStart' }}
                   alignContent={{ lg: 'alignContentFlexEnd' }}
-                  style={{ rowGap: 'var(--pf-v5-global--spacer--md)' }}
+                  rowGap={{ default: 'rowGapMd' }}
                 >
                   <FlexItem style={{ marginBlockEnd: '-.25em' }}>
                     <Label color="red">Incident</Label>
@@ -248,7 +248,7 @@ export const CardHorizontalGrid: React.FunctionComponent = () => {
                     alignItems={{ default: 'alignItemsCenter' }}
                     spaceItems={{ default: 'spaceItemsSm' }}
                     flexWrap={{ default: 'nowrap' }}
-                    style={{ rowGap: 'var(--pf-v5-global--spacer--md)' }}
+                    rowGap={{ default: 'rowGapMd' }}
                   >
                     <Icon style={{ lineHeight: '1' }}>
                       <OnIcon />

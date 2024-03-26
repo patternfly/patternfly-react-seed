@@ -41,9 +41,7 @@ export const CardNested: React.FunctionComponent = () => {
             'aria-expanded': isCardExpanded1,
           }}
         >
-          <CardTitle id="nested-cards-toggle-group-1-title">
-            <span className="pf-v5-u-font-weight-light">CPU 1</span>
-          </CardTitle>
+          <CardTitle id="nested-cards-toggle-group-1-title">CPU 1</CardTitle>
         </CardHeader>
         <CardExpandableContent>
           <CardBody>
@@ -201,9 +199,7 @@ export const CardNested: React.FunctionComponent = () => {
             'aria-expanded': isCardExpanded3,
           }}
         >
-          <CardTitle id="nested-cards-toggle-group-2-title">
-            <span className="pf-v5-u-font-weight-light">CPU 2</span>
-          </CardTitle>
+          <CardTitle id="nested-cards-toggle-group-2-title">CPU 2</CardTitle>
         </CardHeader>
         <CardExpandableContent>
           <CardBody>
@@ -361,9 +357,7 @@ export const CardNested: React.FunctionComponent = () => {
             'aria-expanded': isCardExpanded2,
           }}
         >
-          <CardTitle id="nested-cards-toggle-group-3-title">
-            <span className="pf-v5-u-font-weight-light">CPU 3</span>
-          </CardTitle>
+          <CardTitle id="nested-cards-toggle-group-3-title">CPU 3</CardTitle>
         </CardHeader>
         <CardExpandableContent>
           <CardBody>

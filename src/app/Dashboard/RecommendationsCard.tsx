@@ -34,8 +34,15 @@ export const RecommendationsCard: React.FC = () => (
               spaceItems={{ default: 'spaceItemsXs' }}
               alignItems={{ default: 'alignItemsCenter' }}
             >
-              <span className="pf-v5-u-font-size-2xl pf-v5-u-primary-color-100">{item.count}</span>
-              <span className="pf-v5-u-font-color-200">{item.level}</span>
+              <span
+                style={{
+                  color: 'var(--pf-t--global--text--color--brand--default)',
+                  fontSize: 'var(--pf-t--global--font--size--2xl)',
+                }}
+              >
+                {item.count}
+              </span>
+              {item.level}
             </Flex>
           ))}
         </Grid>
