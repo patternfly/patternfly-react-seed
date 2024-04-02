@@ -38,7 +38,7 @@ const data = [
 
 export const InventoryCard: React.FunctionComponent = () => (
   <Card id="dashboard-demo-data-list-card-1">
-    <CardHeader className="pf-v5-u-align-items-flex-start">
+    <CardHeader className="pf-v6-u-align-items-flex-start">
       <CardTitle id="dashboard-demo-data-list-card-1-title1">Inventory</CardTitle>
     </CardHeader>
     <DataList

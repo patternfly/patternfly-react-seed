@@ -36,7 +36,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   const toggleDarkTheme = (_evt, selected) => {
     const darkThemeToggleClicked = !selected === isDarkTheme;
-    document.querySelector('html')?.classList.toggle('pf-v5-theme-dark', darkThemeToggleClicked);
+    document.querySelector('html')?.classList.toggle('pf-v6-theme-dark', darkThemeToggleClicked);
     setIsDarkTheme(darkThemeToggleClicked);
   };
 

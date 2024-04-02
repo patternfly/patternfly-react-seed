@@ -139,7 +139,7 @@ const Resources: React.FunctionComponent<ISupportProps> = () => {
       </PageSection>
       <PageSection isFilled padding={{ default: 'noPadding' }}>
         <Drawer isExpanded={isDrawerExpanded} className={'pf-m-inline-on-2xl'}>
-          <DrawerContent panelContent={panelContent} colorVariant="no-background">
+          <DrawerContent panelContent={panelContent}>
             <DrawerContentBody hasPadding>{drawerContent}</DrawerContentBody>
           </DrawerContent>
         </Drawer>
