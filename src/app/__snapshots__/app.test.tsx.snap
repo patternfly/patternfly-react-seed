@@ -56,7 +56,7 @@ exports[`App tests should render default App component 1`] = `
           class="pf-v5-c-masthead__brand"
         >
           <img
-            alt="Patterfly Logo"
+            alt="Patternfly Logo"
             class="pf-v5-c-brand"
             src="test-file-stub"
             style="--pf-v5-c-brand--Height: 36px;"
