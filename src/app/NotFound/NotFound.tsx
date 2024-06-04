@@ -5,6 +5,8 @@ import {
   EmptyState,
   EmptyStateBody,
   EmptyStateFooter,
+  EmptyStateHeader,
+  EmptyStateIcon,
   PageSection,
 } from '@patternfly/react-core';
 import { useHistory } from 'react-router-dom';
@@ -22,7 +24,8 @@ const NotFound: React.FunctionComponent = () => {
 
   return (
     <PageSection>
-      <EmptyState titleText="404 Page not found" variant="full" icon={ExclamationTriangleIcon} >
+      <EmptyState variant="full">
+        <EmptyStateHeader titleText="404 Page not found" icon={<EmptyStateIcon icon={ExclamationTriangleIcon} />} headingLevel="h1" />
         <EmptyStateBody>
           We didn&apos;t find a page that matches the address you navigated to.
         </EmptyStateBody><EmptyStateFooter>

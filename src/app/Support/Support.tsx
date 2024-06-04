@@ -6,6 +6,8 @@ import {
   EmptyStateActions,
   EmptyStateBody,
   EmptyStateFooter,
+  EmptyStateHeader,
+  EmptyStateIcon,
   EmptyStateVariant,
   PageSection,
   Text,
@@ -20,7 +22,8 @@ export interface ISupportProps {
 // eslint-disable-next-line prefer-const
 let Support: React.FunctionComponent<ISupportProps> = () => (
   <PageSection>
-    <EmptyState variant={EmptyStateVariant.full} titleText="Empty State (Stub Support Module)" icon={CubesIcon} >
+    <EmptyState variant={EmptyStateVariant.full}>
+      <EmptyStateHeader titleText="Empty State (Stub Support Module)" icon={<EmptyStateIcon icon={CubesIcon} />} headingLevel="h1" />
       <EmptyStateBody>
         <TextContent>
           <Text component="p">
