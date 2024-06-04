@@ -102,7 +102,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
       <MastheadContent>
         <Toolbar>
           <ToolbarContent>
-            <ToolbarItem align={{ default: 'alignRight' }}>
+            <ToolbarItem align={{ default: 'alignEnd' }}>
               <ToggleGroup aria-label="Dark theme toggle group">
                 <ToggleGroupItem
                   aria-label="light theme toggle"

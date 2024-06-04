@@ -79,33 +79,14 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
-    "@patternfly/react-core": "6.0.0-alpha.50",
-    "@patternfly/react-icons": "6.0.0-alpha.19",
-    "@patternfly/react-styles": "6.0.0-alpha.19",
-    "@patternfly/react-charts": "8.0.0-alpha.19",
-    "@patternfly/react-table": "6.0.0-alpha.50",
+    "@patternfly/react-core": "6.0.0-alpha.61",
+    "@patternfly/react-icons": "6.0.0-alpha.23",
+    "@patternfly/react-styles": "6.0.0-alpha.23",
+    "@patternfly/react-charts": "8.0.0-alpha.23",
+    "@patternfly/react-table": "6.0.0-alpha.61",
     "@storybook/builder-webpack5": "^7.5.3",
     "react": "^18",
     "react-dom": "^18",
     "sirv-cli": "^2.0.2"
-  },
-  "overrides": {
-    "victory-area": "36.6.11",
-    "victory-axis": "36.6.11",
-    "victory-bar": "36.6.11",
-    "victory-box-plot": "36.6.11",
-    "victory-chart": "36.6.11",
-    "victory-core": "36.6.11",
-    "victory-create-container": "36.6.11",
-    "victory-cursor-container": "36.6.11",
-    "victory-group": "36.6.11",
-    "victory-legend": "36.6.11",
-    "victory-line": "36.6.11",
-    "victory-pie": "36.6.11",
-    "victory-scatter": "36.6.11",
-    "victory-stack": "36.6.11",
-    "victory-tooltip": "36.6.11",
-    "victory-voronoi-container": "36.6.11",
-    "victory-zoom-container": "36.6.11"
   }
 }
