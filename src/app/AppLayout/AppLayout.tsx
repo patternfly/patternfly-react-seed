@@ -46,7 +46,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     html!.dir = curDir !== 'rtl' ? 'rtl' : 'ltr';
   };
 
-  const Header = (
+  const masthead = (
     <Masthead>
       <MastheadToggle>
         <Button variant="plain" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Global navigation">
@@ -187,7 +187,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     </SkipToContent>
   );
   return (
-    <Page mainContainerId={pageId} header={Header} sidebar={sidebarOpen && Sidebar} skipToContent={PageSkipToContent}>
+    <Page mainContainerId={pageId} masthead={masthead} sidebar={sidebarOpen && Sidebar} skipToContent={PageSkipToContent}>
       {children}
     </Page>
   );
