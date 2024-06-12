@@ -24,7 +24,7 @@ interface IAppLayout {
 
 const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
-  const Header = (
+  const masthead = (
     <Masthead>
       <MastheadToggle>
         <Button variant="plain" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Global navigation">
@@ -119,7 +119,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   return (
     <Page
       mainContainerId={pageId}
-      header={Header}
+      masthead={masthead}
       sidebar={sidebarOpen && Sidebar}
       skipToContent={PageSkipToContent}>
       {children}
