@@ -16,7 +16,11 @@ exports[`App tests should render default App component 1`] = `
         data-ouia-safe="true"
         href="#primary-app-container"
       >
-        Skip to Content
+        <span
+          class="pf-v6-c-button__text"
+        >
+          Skip to Content
+        </span>
       </a>
     </div>
     <header
@@ -34,19 +38,23 @@ exports[`App tests should render default App component 1`] = `
           data-ouia-safe="true"
           type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="pf-v6-svg"
-            fill="currentColor"
-            height="1em"
-            role="img"
-            viewBox="0 0 448 512"
-            width="1em"
+          <span
+            class="pf-v6-c-button__text"
           >
-            <path
-              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
+              <path
+                d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+              />
+            </svg>
+          </span>
         </button>
       </span>
       <div
@@ -280,14 +288,18 @@ exports[`App tests should render default App component 1`] = `
         <section
           class="pf-v6-c-page__main-section"
         >
-          <h1
-            class="pf-v6-c-title pf-m-lg"
-            data-ouia-component-id="OUIA-Generated-Title-1"
-            data-ouia-component-type="PF6/Title"
-            data-ouia-safe="true"
+          <div
+            class="pf-v6-c-page__main-body"
           >
-            Dashboard Page Title!
-          </h1>
+            <h1
+              class="pf-v6-c-title pf-m-lg"
+              data-ouia-component-id="OUIA-Generated-Title-1"
+              data-ouia-component-type="PF6/Title"
+              data-ouia-safe="true"
+            >
+              Dashboard Page Title!
+            </h1>
+          </div>
         </section>
       </main>
     </div>
