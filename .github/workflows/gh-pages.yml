@@ -27,7 +27,7 @@ jobs:
         with:
           path: './node_modules'
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-          fail-on-cache-miss: true        
+          fail-on-cache-miss: false        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
