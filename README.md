@@ -43,3 +43,7 @@ yarn start
 * [Jest Config](./jest.config.js)
 * [Editor Config](./.editorconfig)
 
+## Authentication
+
+the authentication is performed throw auth0 service. See `index.ts` `Auth0Provider` for getting/changing domain/clientId
+
