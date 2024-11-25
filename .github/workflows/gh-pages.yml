@@ -23,6 +23,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: actions/cache/restore@v4
+        with:
+          path: './node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          fail-on-cache-miss: true        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

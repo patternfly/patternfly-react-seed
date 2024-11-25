@@ -1,9 +1,9 @@
 {
-  "name": "patternfly-seed",
-  "version": "0.0.2",
-  "description": "An open source build scaffolding utility for web apps.",
-  "repository": "https://github.com/patternfly/patternfly-react-seed.git",
-  "homepage": "https://patternfly-react-seed.surge.sh",
+  "name": "personal-expenses",
+  "version": "0.0.1",
+  "description": "A personal app for analysing personal expenses .",
+  "repository": "https://github.com/Ginxo/personal-expenses.git",
+  "homepage": "https://ginxo.github.io/personal-expenses",
   "license": "MIT",
   "private": true,
   "scripts": {
