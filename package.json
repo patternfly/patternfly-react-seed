@@ -11,7 +11,7 @@
     "dr:surge": "node dr-surge.js",
     "build": "webpack --config webpack.prod.js && npm run dr:surge",
     "start": "sirv dist --cors --single --host --port 8080",
-    "start:dev": "webpack serve --color --progress --config webpack.dev.js",
+    "start:dev": "concurrently 'webpack serve --color --progress --config webpack.dev.js' 'mockoon-cli start --data ./mockdata/mockoon-data.json'",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -27,6 +27,7 @@
     "deploy": "gh-pages -d dist -u 'github-actions-bot <support+actions@github.com>'"
   },
   "devDependencies": {
+    "@mockoon/cli": "^9.0.0",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^1.3.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -35,6 +36,7 @@
     "@types/victory": "^33.1.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
+    "concurrently": "^9.1.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.11.0",
     "css-minimizer-webpack-plugin": "^5.0.1",
