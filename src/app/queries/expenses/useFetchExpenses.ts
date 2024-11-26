@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { expensesKeys } from './expensesKeys';
-import { PaginationType } from '../PaginationType';
 import { getExpenses } from '@app/services/expenses/expensesService';
+import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
 
-export const useFetchExpenses = (baseKey: string, params: PaginationType) => {
+export const useFetchExpenses = (baseKey: string, query: ExpensesQuery) => {
   const { data, error, dataUpdatedAt, status } = useQuery({
-    queryKey: expensesKeys.paginate(baseKey, params),
-    queryFn: () => getExpenses(params),
+    queryKey: expensesKeys.paginate(baseKey, query),
+    queryFn: () => getExpenses(query),
     retry: false,
   });
 

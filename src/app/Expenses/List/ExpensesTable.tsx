@@ -1,48 +1,42 @@
 import { Expense } from '@app/model/Expense';
-import { PaginationType } from '@app/queries/PaginationType';
+import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
 import { Pagination, PaginationVariant } from '@patternfly/react-core';
 import { Table, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
 import { QueryStatus } from '@tanstack/react-query';
 import React from 'react';
+import { ExpensesTableFilter } from './ExpensesTableFilter';
 import { ExpensesTableSkeleton } from './ExpensesTableSkeleton';
 
 type ExpensesTableProps = {
   expenses?: Expense[];
   total?: number;
   status: QueryStatus;
-  pagination: PaginationType;
-  paginaChangeCallback?: (pagination: PaginationType) => void;
+  query: ExpensesQuery;
+  queryChangeCallback?: (query: ExpensesQuery) => void;
 };
 
-const ExpensesTable = ({ expenses, total, status, pagination, paginaChangeCallback }: ExpensesTableProps) => {
+const ExpensesTable = ({ expenses, total, status, query, queryChangeCallback }: ExpensesTableProps) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState<number>();
   const [activeSortDirection, setActiveSortDirection] = React.useState<'asc' | 'desc'>();
-  const [paginationState, setPaginationState] = React.useState<PaginationType>(pagination);
+  const [queryState, setQueryState] = React.useState<ExpensesQuery>(query);
 
   const [selectedRows, setSelectedRows] = React.useState<Expense[]>([]);
   const [shifting, setShifting] = React.useState(false);
   const [recentSelectedRowIndex, setRecentSelectedRowIndex] = React.useState<number | null>(null);
   const areAllRowsSelected = selectedRows.length === expenses?.length;
 
-  const onSetPage = (_event: React.MouseEvent | React.KeyboardEvent | MouseEvent, page: number) => {
-    setPaginationState({ ...paginationState, page });
-  };
-
-  const onPerPageSelect = (_event: React.MouseEvent | React.KeyboardEvent | MouseEvent, size: number, page: number) => {
-    setPaginationState({ ...paginationState, page, size });
-  };
-
   React.useEffect(() => {
-    if (paginaChangeCallback && JSON.stringify(pagination) !== JSON.stringify(paginationState)) {
-      paginaChangeCallback(paginationState);
+    console.log('ExpensesTable', JSON.stringify(query) !== JSON.stringify(queryState), query, queryState);
+    if (queryChangeCallback && JSON.stringify(query) !== JSON.stringify(queryState)) {
+      queryChangeCallback(queryState);
     }
     // avoid reaction on pagination
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paginationState, paginaChangeCallback]);
+  }, [queryState, queryChangeCallback]);
 
   React.useEffect(() => {
-    setPaginationState(pagination);
-  }, [pagination, setPaginationState]);
+    setQueryState(query);
+  }, [query, setQueryState]);
 
   React.useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -102,60 +96,77 @@ const ExpensesTable = ({ expenses, total, status, pagination, paginaChangeCallba
 
   const selectAllRepos = (isSelecting = true) => setSelectedRows(isSelecting && expenses ? expenses : []);
 
-  switch (status) {
-    case 'pending':
-      return <ExpensesTableSkeleton />;
-    case 'error':
-      return <p>Error</p>;
-    default:
-      return (
-        <>
-          <Table aria-label="Sortable table custom toolbar">
-            <Thead>
-              <Tr>
-                <Th
-                  select={{
-                    onSelect: (_event, isSelecting) => selectAllRepos(isSelecting),
-                    isSelected: areAllRowsSelected,
-                  }}
-                  aria-label="Row select"
+  return (
+    <>
+      <ExpensesTableFilter
+        query={queryState}
+        queryChangeCallback={(query) => setQueryState({ ...queryState, ...query })}
+        disabled={status !== 'success'}
+      />
+      {(() => {
+        switch (status) {
+          case 'pending':
+            return <ExpensesTableSkeleton />;
+          case 'error':
+            return <p>Error</p>;
+          default:
+            return (
+              <>
+                <Table aria-label="Sortable table for expenses">
+                  <Thead>
+                    <Tr>
+                      <Th
+                        select={{
+                          onSelect: (_event, isSelecting) => selectAllRepos(isSelecting),
+                          isSelected: areAllRowsSelected,
+                        }}
+                        aria-label="Row select"
+                      />
+                      <Th sort={getSortParams(0)}>Fecha</Th>
+                      <Th sort={getSortParams(1)}>Concepto</Th>
+                      <Th sort={getSortParams(2)}>Importe</Th>
+                      <Th sort={getSortParams(3)}>Categoría</Th>
+                      <Th></Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {expenses?.map((expense, rowIndex) => (
+                      <Tr key={rowIndex}>
+                        <Td
+                          select={{
+                            rowIndex,
+                            onSelect: (_event, isSelecting) => onSelectRepo(expense, rowIndex, isSelecting),
+                            isSelected: isRowSelected(expense),
+                          }}
+                        />
+                        <Td>{expense.date}</Td>
+                        <Td>{expense.name}</Td>
+                        <Td>{expense.amount}</Td>
+                        <Td>{expense.category.name}</Td>
+                      </Tr>
+                    ))}
+                  </Tbody>
+                </Table>
+                <Pagination
+                  itemCount={total ?? queryState.pagination.size}
+                  perPage={queryState.pagination.size}
+                  page={queryState.pagination.page}
+                  variant={PaginationVariant.bottom}
+                  onSetPage={(_event: React.MouseEvent | React.KeyboardEvent | MouseEvent, page: number) =>
+                    setQueryState({ ...queryState, pagination: { ...queryState.pagination, page } })
+                  }
+                  onPerPageSelect={(
+                    _event: React.MouseEvent | React.KeyboardEvent | MouseEvent,
+                    size: number,
+                    page: number,
+                  ) => setQueryState({ ...queryState, pagination: { ...queryState.pagination, page, size } })}
                 />
-                <Th sort={getSortParams(0)}>Fecha</Th>
-                <Th sort={getSortParams(1)}>Concepto</Th>
-                <Th sort={getSortParams(2)}>Importe</Th>
-                <Th sort={getSortParams(3)}>Categoría</Th>
-                <Th sort={getSortParams(4)}></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {expenses?.map((expense, rowIndex) => (
-                <Tr key={rowIndex}>
-                  <Td
-                    select={{
-                      rowIndex,
-                      onSelect: (_event, isSelecting) => onSelectRepo(expense, rowIndex, isSelecting),
-                      isSelected: isRowSelected(expense),
-                    }}
-                  />
-                  <Td>{expense.date}</Td>
-                  <Td>{expense.name}</Td>
-                  <Td>{expense.amount}</Td>
-                  <Td>{expense.category.name}</Td>
-                </Tr>
-              ))}
-            </Tbody>
-          </Table>
-          <Pagination
-            itemCount={total ?? paginationState.size}
-            perPage={paginationState.size}
-            page={paginationState.page}
-            variant={PaginationVariant.bottom}
-            onSetPage={onSetPage}
-            onPerPageSelect={onPerPageSelect}
-          />
-        </>
-      );
-  }
+              </>
+            );
+        }
+      })()}
+    </>
+  );
 };
 
 export { ExpensesTable };

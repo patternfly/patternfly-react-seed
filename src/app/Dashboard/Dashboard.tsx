@@ -1,17 +1,19 @@
 import { ExpensesTable } from '@app/Expenses/List/ExpensesTable';
+import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
 import { useFetchExpenses } from '@app/queries/expenses/useFetchExpenses';
-import { PaginationType } from '@app/queries/PaginationType';
 import { PageSection, Title } from '@patternfly/react-core';
 import * as React from 'react';
 
 const Dashboard: React.FunctionComponent = () => {
-  const [expensesPagination, setExpensesPagination] = React.useState<PaginationType>({
-    page: 1,
-    size: 20,
-    order: 'asc',
+  const [expensesQuery, setExpensesQuery] = React.useState<ExpensesQuery>({
+    pagination: {
+      page: 1,
+      size: 20,
+      order: 'asc',
+    },
   });
 
-  const fetchExpenses = useFetchExpenses('dashboard', expensesPagination);
+  const fetchExpenses = useFetchExpenses('dashboard', expensesQuery);
 
   return (
     <PageSection hasBodyWrapper={false}>
@@ -22,8 +24,8 @@ const Dashboard: React.FunctionComponent = () => {
         expenses={fetchExpenses.data?.items}
         total={fetchExpenses.data?.total}
         status={fetchExpenses.status}
-        pagination={expensesPagination}
-        paginaChangeCallback={setExpensesPagination}
+        query={expensesQuery}
+        queryChangeCallback={setExpensesQuery}
       />
     </PageSection>
   );

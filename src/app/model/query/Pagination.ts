@@ -1,7 +1,7 @@
-type PaginationType = {
+type Pagination = {
   page: number;
   size: number;
   order?: string;
 };
 
-export { PaginationType };
+export { Pagination };
