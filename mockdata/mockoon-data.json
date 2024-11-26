@@ -3,7 +3,7 @@
   "lastMigration": 33,
   "name": "Expenses API",
   "endpointPrefix": "api",
-  "latency": 0,
+  "latency": 200,
   "port": 3000,
   "hostname": "",
   "folders": [],
