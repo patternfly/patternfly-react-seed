@@ -35,6 +35,37 @@
           "callbacks": []
         }
       ],
+      "responseMode": "DISABLE_RULES",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e66d2071-ea13-415b-b7a1-3159a05b96a2",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "categories",
+      "responses": [
+        {
+          "uuid": "b7177cb1-2915-4020-ac44-7b1fde7034e1",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "i8o9",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
@@ -44,6 +75,10 @@
     {
       "type": "route",
       "uuid": "86ab47f6-b5fb-4cad-b87d-93daff82baf7"
+    },
+    {
+      "type": "route",
+      "uuid": "e66d2071-ea13-415b-b7a1-3159a05b96a2"
     }
   ],
   "proxyMode": false,
@@ -95,7 +130,14 @@
       "id": "o5a7",
       "name": "Expenses",
       "documentation": "",
-      "value": "{\n  \"items\": [\n    {{#repeat (queryParam 'size' '10')}}\n    {\n      \"id\": \"{{faker 'string.uuid'}}\",\n      \"date\": \"{{faker 'date.anytime'}}\",\n      \"name\": \"{{faker 'word.words'}}\",\n      \"description\": \"{{faker 'word.words'}}\",\n      \"amount\": \"{{faker 'commerce.price'}}\",\n      \"category\": \"{{faker 'word.noun'}}\"\n    }\n    {{/repeat}}\n  ],\n  \"total\": 99\n}"
+      "value": "{\n  \"items\": [\n    {{#repeat (queryParam 'size') (queryParam 'size')}}\n    {\n      \"id\": \"{{faker 'string.uuid'}}\",\n      \"date\": \"{{faker 'date.anytime'}}\",\n      \"name\": \"{{faker 'word.words'}}\",\n      \"description\": \"{{faker 'word.words'}}\",\n      \"amount\": \"{{faker 'commerce.price'}}\",\n      \"category\": {\n        \"id\": \"{{faker 'string.uuid'}}\",\n        \"name\": \"{{faker 'word.words'}}\"\n      }\n    }\n    {{/repeat}}\n  ],\n  \"total\": 99\n}"
+    },
+    {
+      "uuid": "1b1f8e76-8b25-4c94-9ddc-cd8dcac9a8a6",
+      "id": "i8o9",
+      "name": "Categories",
+      "documentation": "",
+      "value": "{\n  \"items\": [\n    {{#repeat (queryParam 'size') (queryParam 'size')}}\n    {\n      \"id\": \"{{faker 'string.uuid'}}\",\n      \"name\": \"{{faker 'word.noun'}}\"\n    }\n    {{/repeat}}\n  ],\n  \"total\": 20\n}"
     }
   ],
   "callbacks": []
