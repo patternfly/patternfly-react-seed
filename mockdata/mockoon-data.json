@@ -1,7 +1,7 @@
 {
-  "uuid": "732010d3-fb3b-49f0-b929-4a6b36770d9b",
+  "uuid": "c444e550-a7da-407e-a99c-ec185752d984",
   "lastMigration": 33,
-  "name": "Demo API",
+  "name": "Expenses API",
   "endpointPrefix": "api",
   "latency": 0,
   "port": 3000,
@@ -9,14 +9,14 @@
   "folders": [],
   "routes": [
     {
-      "uuid": "bc933b4a-43a9-4e68-8280-fac42df40233",
+      "uuid": "86ab47f6-b5fb-4cad-b87d-93daff82baf7",
       "type": "crud",
       "documentation": "Endpoint performing CRUD operations on a data bucket (automatically creates GET, POST, PUT, DELETE routes)",
       "method": "",
       "endpoint": "expenses",
       "responses": [
         {
-          "uuid": "1af9ca02-bcfa-49e4-8485-641cd8321c33",
+          "uuid": "ff0f61cf-162b-4aaa-bb6d-1ce3bdd44c6f",
           "body": "{}",
           "latency": 0,
           "statusCode": 200,
@@ -43,7 +43,7 @@
   "rootChildren": [
     {
       "type": "route",
-      "uuid": "bc933b4a-43a9-4e68-8280-fac42df40233"
+      "uuid": "86ab47f6-b5fb-4cad-b87d-93daff82baf7"
     }
   ],
   "proxyMode": false,
@@ -91,11 +91,11 @@
   ],
   "data": [
     {
-      "uuid": "d9746d57-7200-429b-973f-b4676d428ea5",
+      "uuid": "2efca4d7-3211-4fcd-ba02-053aeb2bda56",
       "id": "o5a7",
       "name": "Expenses",
       "documentation": "",
-      "value": "[\n  {{#repeat 50}}\n  {\n    \"id\": \"{{faker 'string.uuid'}}\",\n    \"date\": \"{{faker 'date.anytime'}}\",\n    \"name\": \"{{faker 'word.words'}}\"\n    \"description\": \"{{faker 'word.words'}}\"\n    \"amount\": \"{{faker 'commerce.price'}}\"\n    \"category\": \"{{faker 'word.noun'}}\"\n  }\n  {{/repeat}}\n]"
+      "value": "{\n  \"items\": [\n    {{#repeat (queryParam 'size' '10')}}\n    {\n      \"id\": \"{{faker 'string.uuid'}}\",\n      \"date\": \"{{faker 'date.anytime'}}\",\n      \"name\": \"{{faker 'word.words'}}\",\n      \"description\": \"{{faker 'word.words'}}\",\n      \"amount\": \"{{faker 'commerce.price'}}\",\n      \"category\": \"{{faker 'word.noun'}}\"\n    }\n    {{/repeat}}\n  ],\n  \"total\": 99\n}"
     }
   ],
   "callbacks": []
