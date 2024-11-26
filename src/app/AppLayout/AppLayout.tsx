@@ -1,20 +1,13 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import {
-  Avatar,
   Brand,
   Button,
-  ButtonVariant,
-  Dropdown,
-  DropdownItem,
-  DropdownList,
   Masthead,
   MastheadBrand,
   MastheadContent,
   MastheadLogo,
   MastheadMain,
   MastheadToggle,
-  MenuToggle,
-  MenuToggleElement,
   Nav,
   NavExpandable,
   NavItem,
@@ -23,18 +16,12 @@ import {
   PageSidebar,
   PageSidebarBody,
   SkipToContent,
-  Toolbar,
-  ToolbarContent,
-  ToolbarGroup,
-  ToolbarItem,
 } from '@patternfly/react-core';
 import { BarsIcon } from '@patternfly/react-icons';
-import { BellIcon } from '@patternfly/react-icons';
-import { CogIcon } from '@patternfly/react-icons';
-import { QuestionCircleIcon } from '@patternfly/react-icons';
 import * as React from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../bgimages/logo-nb.svg';
+import { HeaderToolbar } from './HeaderToolbar';
 import { IAppRoute, IAppRouteGroup, routes } from './routes';
 
 interface IAppLayout {
@@ -46,66 +33,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const location = useLocation();
 
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
-  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
-  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
-
-  const headerToolbar = React.useMemo(
-    () => (
-      <Toolbar id="toolbar" isStatic>
-        <ToolbarContent>
-          <ToolbarGroup
-            variant="action-group-plain"
-            align={{ default: 'alignEnd' }}
-            gap={{ default: 'gapNone', md: 'gapMd' }}
-          >
-            <ToolbarItem>
-              <Button aria-label="Notifications" variant={ButtonVariant.plain} icon={<BellIcon />} />
-            </ToolbarItem>
-            <ToolbarGroup variant="action-group-plain" visibility={{ default: 'hidden', lg: 'visible' }}>
-              <ToolbarItem>
-                <Button aria-label="Settings" variant={ButtonVariant.plain} icon={<CogIcon />} />
-              </ToolbarItem>
-              <ToolbarItem>
-                <Button aria-label="Help" variant={ButtonVariant.plain} icon={<QuestionCircleIcon />} />
-              </ToolbarItem>
-            </ToolbarGroup>
-          </ToolbarGroup>
-          <ToolbarItem visibility={{ default: 'hidden', md: 'visible' }}>
-            {isAuthenticated ? (
-              <Dropdown
-                isOpen={isDropdownOpen}
-                onSelect={() => setIsDropdownOpen(false)}
-                onOpenChange={(isOpen: boolean) => setIsDropdownOpen(isOpen)}
-                popperProps={{ position: 'right' }}
-                toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
-                  <MenuToggle
-                    ref={toggleRef}
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    isExpanded={isDropdownOpen}
-                    icon={<Avatar src={user?.picture} alt="" size="sm" />}
-                  >
-                    {user?.name}
-                  </MenuToggle>
-                )}
-              >
-                <DropdownList>
-                  <DropdownItem key="user" onClick={() => navigate('/user')}>
-                    Perfil
-                  </DropdownItem>
-                  <DropdownItem key="logout" onClick={logout}>
-                    Logout
-                  </DropdownItem>
-                </DropdownList>
-              </Dropdown>
-            ) : (
-              <button onClick={() => loginWithRedirect()}>Log In</button>
-            )}
-          </ToolbarItem>
-        </ToolbarContent>
-      </Toolbar>
-    ),
-    [isAuthenticated, isDropdownOpen, loginWithRedirect, logout, navigate, user?.name, user?.picture],
-  );
+  const { user, isAuthenticated, loginWithRedirect, logout, isLoading } = useAuth0();
 
   const masthead = (
     <Masthead>
@@ -124,7 +52,15 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
           </MastheadLogo>
         </MastheadBrand>
       </MastheadMain>
-      <MastheadContent>{headerToolbar}</MastheadContent>
+      <MastheadContent>
+        <HeaderToolbar
+          isAuthenticated={isAuthenticated}
+          isLoading={isLoading}
+          user={user}
+          login={loginWithRedirect}
+          logout={logout}
+        />
+      </MastheadContent>
     </Masthead>
   );
 
