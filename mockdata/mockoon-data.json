@@ -130,7 +130,7 @@
       "id": "o5a7",
       "name": "Expenses",
       "documentation": "",
-      "value": "{\n  \"items\": [\n    {{#repeat (queryParam 'size') (queryParam 'size')}}\n    {\n      \"id\": \"{{faker 'string.uuid'}}\",\n      \"date\": \"{{faker 'date.anytime'}}\",\n      \"name\": \"{{faker 'word.words'}}\",\n      \"description\": \"{{faker 'word.words'}}\",\n      \"amount\": \"{{faker 'commerce.price'}}\",\n      \"category\": {\n        \"id\": \"{{faker 'string.uuid'}}\",\n        \"name\": \"{{faker 'word.words'}}\"\n      }\n    }\n    {{/repeat}}\n  ],\n  \"total\": 99\n}"
+      "value": "{\n  \"items\": [\n    {{#repeat (queryParam 'size') (queryParam 'size')}}\n    {\n      \"id\": \"{{faker 'string.uuid'}}\",\n      \"date\": \"{{faker 'date.anytime'}}\",\n      \"name\": \"{{faker 'word.words'}}\",\n      \"description\": \"{{faker 'word.words'}}\",\n      \"amount\": \"{{faker 'number.float' min=-1000 max=1000}}\",\n      \"category\": {\n        \"id\": \"{{faker 'string.uuid'}}\",\n        \"name\": \"{{faker 'word.noun'}}\"\n      }\n    }\n    {{/repeat}}\n  ],\n  \"total\": 99\n}"
     },
     {
       "uuid": "1b1f8e76-8b25-4c94-9ddc-cd8dcac9a8a6",

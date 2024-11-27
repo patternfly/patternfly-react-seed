@@ -160,7 +160,7 @@ const ExpensesTableFilter = ({ disabled, queryChangeCallback, query, categories 
           </Select>
         </ToolbarItem>
         <ToolbarItem>
-          <Button icon={<TimesIcon />} onClick={clearValues} />
+          <Button icon={<TimesIcon />} size="sm" onClick={clearValues} />
         </ToolbarItem>
       </ToolbarContent>
     </Toolbar>

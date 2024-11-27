@@ -1,7 +1,7 @@
 import { Category } from '@app/model/Category';
 import { Expense } from '@app/model/Expense';
 import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
-import { Pagination, PaginationVariant } from '@patternfly/react-core';
+import { Button, Label, Pagination, PaginationVariant, Timestamp, Tooltip } from '@patternfly/react-core';
 import { Table, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
 import { QueryStatus } from '@tanstack/react-query';
 import React from 'react';
@@ -32,6 +32,7 @@ const ExpensesTable = ({
   const [selectedRows, setSelectedRows] = React.useState<Expense[]>([]);
   const [shifting, setShifting] = React.useState(false);
   const [recentSelectedRowIndex, setRecentSelectedRowIndex] = React.useState<number | null>(null);
+  const isAnyRowSelected = selectedRows.length > 0;
   const areAllRowsSelected = selectedRows.length === expenses?.length;
 
   React.useEffect(() => {
@@ -136,7 +137,11 @@ const ExpensesTable = ({
                       <Th sort={getSortParams(1, 'name')}>Concepto</Th>
                       <Th sort={getSortParams(2, 'amount')}>Importe</Th>
                       <Th sort={getSortParams(3, 'category')}>Categoría</Th>
-                      <Th></Th>
+                      <Th>
+                        <Button variant="primary" size="sm" disabled={!isAnyRowSelected}>
+                          Cambiar Categoría
+                        </Button>
+                      </Th>
                     </Tr>
                   </Thead>
                   <Tbody>
@@ -149,10 +154,27 @@ const ExpensesTable = ({
                             isSelected: isRowSelected(expense),
                           }}
                         />
-                        <Td>{expense.date}</Td>
-                        <Td>{expense.name}</Td>
-                        <Td>{expense.amount}</Td>
-                        <Td>{expense.category.name}</Td>
+                        <Td>
+                          <Tooltip aria="none" aria-live="polite" content={expense.date}>
+                            <Timestamp dateFormat="short" date={new Date(expense.date)} />
+                          </Tooltip>
+                        </Td>
+                        <Td>
+                          <Tooltip aria="none" aria-live="polite" content={expense.description}>
+                            <span>{expense.name}</span>
+                          </Tooltip>
+                        </Td>
+                        <Td>
+                          <span style={{ color: expense.amount < 0 ? 'red' : 'green', fontWeight: 'bold' }}>
+                            {new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(
+                              expense.amount,
+                            )}
+                          </span>
+                        </Td>
+                        <Td>
+                          <Label>{expense.category.name.toUpperCase()}</Label>
+                        </Td>
+                        <Td></Td>
                       </Tr>
                     ))}
                   </Tbody>
