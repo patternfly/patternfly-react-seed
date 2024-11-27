@@ -35,7 +35,7 @@
           "callbacks": []
         }
       ],
-      "responseMode": "DISABLE_RULES",
+      "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
     },

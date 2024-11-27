@@ -6,9 +6,10 @@ import { MinusCircleIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { Table, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
 import { MutationStatus, QueryStatus } from '@tanstack/react-query';
 import React from 'react';
-import { BulkMovementChangeModal } from '../BulkMovementChangeModal';
-import { MovementsTableFilter } from './MovementsTableFilter';
+import { BulkMovementChangeModal } from '../modals/BulkMovementChangeModal';
+import { CreateEditMovementModal } from '../modals/CreateEditMovementModal';
 import { MovementsTableSkeleton } from './MovementsTableSkeleton';
+import { MovementsTableToolbar } from './MovementsTableToolbar';
 
 type MovementsTableProps = {
   movements?: Movement[];
@@ -19,6 +20,7 @@ type MovementsTableProps = {
   movementsQuery: MovementsQuery;
   queryChangeCallback?: (query: MovementsQuery) => void;
   patchMovements: (movements: Movement[]) => void;
+  postMovement: (movement: Partial<Movement>) => void;
 };
 
 const MovementsTable = ({
@@ -30,6 +32,7 @@ const MovementsTable = ({
   movementsQuery,
   queryChangeCallback,
   patchMovements,
+  postMovement,
 }: MovementsTableProps) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState<number>();
   const [activeSortDirection, setActiveSortDirection] = React.useState<'asc' | 'desc'>();
@@ -42,6 +45,7 @@ const MovementsTable = ({
   const areAllRowsSelected = selectedMovements.length === movements?.length;
 
   const [isBulkMovementModalOpen, setIsBulkMovementModalOpen] = React.useState(false);
+  const [isCreateMovementModalOpen, setIsCreateMovementModalOpen] = React.useState(false);
 
   React.useEffect(() => {
     if (queryChangeCallback && JSON.stringify(movementsQuery) !== JSON.stringify(queryState)) {
@@ -116,11 +120,12 @@ const MovementsTable = ({
 
   return (
     <>
-      <MovementsTableFilter
+      <MovementsTableToolbar
         query={queryState}
         queryChangeCallback={(query) => setQueryState({ ...queryState, ...query })}
         disabled={![queryStatus, patchStatus].includes('success')}
         categories={categories}
+        createMovementCallback={() => setIsCreateMovementModalOpen(true)}
       />
       {(() => {
         switch (true) {
@@ -239,6 +244,14 @@ const MovementsTable = ({
             )
           }
           onCloseCallback={() => setIsBulkMovementModalOpen(false)}
+        />
+      ) : null}
+
+      {isCreateMovementModalOpen ? (
+        <CreateEditMovementModal
+          categories={categories}
+          onSubmitCallback={(movement: Partial<Movement>) => postMovement(movement)}
+          onCloseCallback={() => setIsCreateMovementModalOpen(false)}
         />
       ) : null}
     </>

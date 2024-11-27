@@ -18,6 +18,8 @@ const getMovements = (queryParams: MovementsQuery) => {
   );
 };
 
+const postMovement = (movement: Partial<Movement>) => apiRequest.post<Movement>('/movements', movement);
+
 const patchMovements = (movements: Movement[]) => apiRequest.patch<{ status: number }>('/movements', movements);
 
-export { getMovements, patchMovements };
+export { getMovements, postMovement, patchMovements };

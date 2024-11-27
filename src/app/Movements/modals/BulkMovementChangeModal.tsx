@@ -27,7 +27,7 @@ const BulkMovementChangeModal = ({
   onSubmitCallback,
   onCloseCallback,
 }: BulkMovementChangeModalProps) => {
-  const [selectedCategoryId, setSelectedCategoryId] = React.useState<string>(categories?.[0]?.id ?? '');
+  const [selectedCategoryId, setSelectedCategoryId] = React.useState<string | undefined>(categories?.[0]?.id ?? '');
   const [selectedType, setSelectedType] = React.useState<Movement['type']>(MovementTypes[0]);
   return (
     <Modal

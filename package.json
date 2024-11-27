@@ -84,6 +84,7 @@
     "@patternfly/react-table": "^6.0.0",
     "@tanstack/react-query": "^5.61.3",
     "axios": "^1.7.7",
+    "dayjs": "^1.11.13",
     "qs": "^6.13.1",
     "react": "^18",
     "react-dom": "^18",
