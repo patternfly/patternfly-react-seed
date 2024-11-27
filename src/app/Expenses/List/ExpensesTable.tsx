@@ -1,3 +1,4 @@
+import { Category } from '@app/model/Category';
 import { Expense } from '@app/model/Expense';
 import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
 import { Pagination, PaginationVariant } from '@patternfly/react-core';
@@ -9,13 +10,14 @@ import { ExpensesTableSkeleton } from './ExpensesTableSkeleton';
 
 type ExpensesTableProps = {
   expenses?: Expense[];
+  categories?: Category[];
   total?: number;
   status: QueryStatus;
   query: ExpensesQuery;
   queryChangeCallback?: (query: ExpensesQuery) => void;
 };
 
-const ExpensesTable = ({ expenses, total, status, query, queryChangeCallback }: ExpensesTableProps) => {
+const ExpensesTable = ({ expenses, categories, total, status, query, queryChangeCallback }: ExpensesTableProps) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState<number>();
   const [activeSortDirection, setActiveSortDirection] = React.useState<'asc' | 'desc'>();
   const [queryState, setQueryState] = React.useState<ExpensesQuery>(query);
@@ -26,7 +28,6 @@ const ExpensesTable = ({ expenses, total, status, query, queryChangeCallback }: 
   const areAllRowsSelected = selectedRows.length === expenses?.length;
 
   React.useEffect(() => {
-    console.log('ExpensesTable', JSON.stringify(query) !== JSON.stringify(queryState), query, queryState);
     if (queryChangeCallback && JSON.stringify(query) !== JSON.stringify(queryState)) {
       queryChangeCallback(queryState);
     }
@@ -102,6 +103,7 @@ const ExpensesTable = ({ expenses, total, status, query, queryChangeCallback }: 
         query={queryState}
         queryChangeCallback={(query) => setQueryState({ ...queryState, ...query })}
         disabled={status !== 'success'}
+        categories={categories}
       />
       {(() => {
         switch (status) {
@@ -148,18 +150,18 @@ const ExpensesTable = ({ expenses, total, status, query, queryChangeCallback }: 
                   </Tbody>
                 </Table>
                 <Pagination
-                  itemCount={total ?? queryState.pagination.size}
-                  perPage={queryState.pagination.size}
-                  page={queryState.pagination.page}
+                  itemCount={total ?? queryState.size}
+                  perPage={queryState.size}
+                  page={queryState.page}
                   variant={PaginationVariant.bottom}
                   onSetPage={(_event: React.MouseEvent | React.KeyboardEvent | MouseEvent, page: number) =>
-                    setQueryState({ ...queryState, pagination: { ...queryState.pagination, page } })
+                    setQueryState({ ...queryState, page })
                   }
                   onPerPageSelect={(
                     _event: React.MouseEvent | React.KeyboardEvent | MouseEvent,
                     size: number,
                     page: number,
-                  ) => setQueryState({ ...queryState, pagination: { ...queryState.pagination, page, size } })}
+                  ) => setQueryState({ ...queryState, page, size })}
                 />
               </>
             );

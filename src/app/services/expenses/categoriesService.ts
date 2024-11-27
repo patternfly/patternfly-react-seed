@@ -1,5 +1,5 @@
 import { ExpenseList } from '@app/model/ExpenseList';
-import { Pagination } from '@app/queries/Pagination';
+import { Pagination } from '@app/model/query/Pagination';
 import { stringify } from 'qs';
 import apiRequest from '../apiRequest';
 

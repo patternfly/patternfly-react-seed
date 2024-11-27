@@ -1,4 +1,5 @@
 import { Pagination } from './Pagination';
+import { Sorting } from './Sorting';
 
 type ExpensesQuery = {
   from?: string;
@@ -6,7 +7,7 @@ type ExpensesQuery = {
   name?: string;
   amount?: number;
   categories?: string[];
-  pagination: Pagination;
-};
+} & Pagination &
+  Sorting;
 
 export { ExpensesQuery };

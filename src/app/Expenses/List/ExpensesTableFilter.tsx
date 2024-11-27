@@ -1,8 +1,14 @@
 import { Category } from '@app/model/Category';
 import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
 import {
+  Badge,
   Button,
   DatePicker,
+  MenuToggle,
+  MenuToggleElement,
+  Select,
+  SelectList,
+  SelectOption,
   TextInput,
   Toolbar,
   ToolbarContent,
@@ -22,14 +28,17 @@ type ExpensesTableFilterProps = {
   disabled: boolean;
   query: ExpensesQuery;
   queryChangeCallback: (query: ExpensesQuery) => void;
-  categories: Category[];
+  categories?: Category[];
 };
 
-const ExpensesTableFilter = ({ disabled, queryChangeCallback, query }: ExpensesTableFilterProps) => {
+const ExpensesTableFilter = ({ disabled, queryChangeCallback, query, categories }: ExpensesTableFilterProps) => {
   const [startDate, setStartDate] = React.useState<DatePickerType>({ value: query.from });
   const [endDate, setEndDate] = React.useState<DatePickerType>({ value: query.to });
   const [name, setName] = React.useState<string | undefined>(query.name ?? '');
   const [amount, setAmount] = React.useState<string | undefined>(query.amount ? `${query.amount}` : '');
+
+  const [isCategoriesSelectOpen, setIsCategoriesSelectOpen] = React.useState(false);
+  const [selectedCategories, setSelectedCategories] = React.useState<Category[]>([]);
 
   // TODO: use formik
   const clearValues = () => {
@@ -37,6 +46,8 @@ const ExpensesTableFilter = ({ disabled, queryChangeCallback, query }: ExpensesT
     setEndDate({});
     setName('');
     setAmount('');
+    setSelectedCategories([]);
+    setIsCategoriesSelectOpen(false);
   };
 
   const onChangeQuery = useDebouncedCallback((query: ExpensesQuery) => {
@@ -44,16 +55,21 @@ const ExpensesTableFilter = ({ disabled, queryChangeCallback, query }: ExpensesT
   }, 350);
 
   React.useEffect(
-    () =>
-      onChangeQuery({
+    () => {
+      const newQuery = {
         ...query,
         name: name && name.trim().length > 0 ? name.trim() : undefined,
         amount: amount && amount.trim().length > 0 ? +amount : undefined,
         from: startDate.value,
         to: endDate.value,
-      }),
+        categories: selectedCategories.length ? selectedCategories.map((e) => e.id) : undefined,
+      };
+      if (JSON.stringify(newQuery) !== JSON.stringify(query)) {
+        onChangeQuery(newQuery);
+      }
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [startDate, endDate, name, amount, onChangeQuery],
+    [startDate, endDate, name, amount, selectedCategories, onChangeQuery],
   );
 
   return (
@@ -84,6 +100,7 @@ const ExpensesTableFilter = ({ disabled, queryChangeCallback, query }: ExpensesT
             placeholder="Concepto"
             onChange={(_event, name) => setName(name)}
             aria-label="expense name to filter"
+            isDisabled={disabled}
           />
         </ToolbarItem>
         <ToolbarItem>
@@ -95,9 +112,53 @@ const ExpensesTableFilter = ({ disabled, queryChangeCallback, query }: ExpensesT
             aria-label="provider name to filter"
             min={0}
             max={100000}
+            isDisabled={disabled}
           />
         </ToolbarItem>
-        <ToolbarItem>{/* categorias */}</ToolbarItem>
+        <ToolbarItem>
+          <Select
+            role="menu"
+            id="categories-select"
+            isOpen={isCategoriesSelectOpen}
+            selected={selectedCategories}
+            onSelect={(_e, categoryId) => {
+              const category = categories?.find((c) => c.id === categoryId);
+              if (category) {
+                if (selectedCategories.includes(category)) {
+                  setSelectedCategories(selectedCategories.filter((e) => e.id !== categoryId));
+                } else {
+                  setSelectedCategories([...selectedCategories, category]);
+                }
+              }
+            }}
+            onOpenChange={(nextOpen: boolean) => setIsCategoriesSelectOpen(nextOpen)}
+            toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
+              <MenuToggle
+                ref={toggleRef}
+                onClick={() => setIsCategoriesSelectOpen(!isCategoriesSelectOpen)}
+                isExpanded={isCategoriesSelectOpen}
+                style={{ width: '190px' }}
+                isDisabled={disabled}
+              >
+                Categorías {selectedCategories.length > 0 && <Badge isRead>{selectedCategories.length}</Badge>}
+              </MenuToggle>
+            )}
+          >
+            <SelectList>
+              {categories?.map((category) => (
+                <SelectOption
+                  isDisabled={disabled}
+                  hasCheckbox
+                  key={category.id}
+                  value={category.id}
+                  isSelected={selectedCategories.includes(category)}
+                >
+                  {category.name}
+                </SelectOption>
+              ))}
+            </SelectList>
+          </Select>
+        </ToolbarItem>
         <ToolbarItem>
           <Button icon={<TimesIcon />} onClick={clearValues} />
         </ToolbarItem>

@@ -1,6 +1,6 @@
+import { Pagination } from '@app/model/query/Pagination';
 import { getCategories } from '@app/services/expenses/categoriesService';
 import { useQuery } from '@tanstack/react-query';
-import { Pagination } from '../Pagination';
 import { categoriesKeys } from './categoriesKeys';
 
 export const useFetchCategories = (baseKey: string, params: Pagination) => {

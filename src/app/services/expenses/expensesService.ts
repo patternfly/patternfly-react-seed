@@ -4,9 +4,10 @@ import apiRequest from '../apiRequest';
 import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
 
 const getExpenses = (queryParams: ExpensesQuery) => {
-  const { pagination, ...rest } = queryParams;
+  const { categories, ...rest } = queryParams;
+  const categoriesFilter = categories?.length ? { categories: categories?.join(',') } : {};
   return apiRequest.get<ExpenseList>(
-    `/expenses?${stringify({ ...rest, ...pagination }, { encode: false, indices: false })}`,
+    `/expenses?${stringify({ ...categoriesFilter, ...rest }, { encode: false, indices: false })}`,
     {
       headers: {
         Accept: 'application/json',
