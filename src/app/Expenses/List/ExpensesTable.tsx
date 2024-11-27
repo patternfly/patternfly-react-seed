@@ -3,8 +3,9 @@ import { Expense } from '@app/model/Expense';
 import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
 import { Button, Label, Pagination, PaginationVariant, Timestamp, Tooltip } from '@patternfly/react-core';
 import { Table, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
-import { QueryStatus } from '@tanstack/react-query';
+import { MutationStatus, QueryStatus } from '@tanstack/react-query';
 import React from 'react';
+import { ChangeCategoryModal } from '../ChangeCategoryModal';
 import { ExpensesTableFilter } from './ExpensesTableFilter';
 import { ExpensesTableSkeleton } from './ExpensesTableSkeleton';
 
@@ -12,28 +13,34 @@ type ExpensesTableProps = {
   expenses?: Expense[];
   categories?: Category[];
   total?: number;
-  status: QueryStatus;
+  queryStatus: QueryStatus;
+  patchStatus: MutationStatus;
   expensesQuery: ExpensesQuery;
   queryChangeCallback?: (query: ExpensesQuery) => void;
+  patchExpenses: (expenses: Expense[]) => void;
 };
 
 const ExpensesTable = ({
   expenses,
   categories,
   total,
-  status,
+  queryStatus,
+  patchStatus,
   expensesQuery,
   queryChangeCallback,
+  patchExpenses,
 }: ExpensesTableProps) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState<number>();
   const [activeSortDirection, setActiveSortDirection] = React.useState<'asc' | 'desc'>();
   const [queryState, setQueryState] = React.useState<ExpensesQuery>(expensesQuery);
 
-  const [selectedRows, setSelectedRows] = React.useState<Expense[]>([]);
+  const [selectedExpenses, setSelectedExpenses] = React.useState<Expense[]>([]);
   const [shifting, setShifting] = React.useState(false);
   const [recentSelectedRowIndex, setRecentSelectedRowIndex] = React.useState<number | null>(null);
-  const isAnyRowSelected = selectedRows.length > 0;
-  const areAllRowsSelected = selectedRows.length === expenses?.length;
+  const isAnyRowSelected = selectedExpenses.length > 0;
+  const areAllRowsSelected = selectedExpenses.length === expenses?.length;
+
+  const [isChangeCategoryModalOpen, setIsChangeCategoryModalOpen] = React.useState(false);
 
   React.useEffect(() => {
     if (queryChangeCallback && JSON.stringify(expensesQuery) !== JSON.stringify(queryState)) {
@@ -81,10 +88,10 @@ const ExpensesTable = ({
     columnIndex,
   });
 
-  const isRowSelected = (expense: Expense) => selectedRows.find((e) => e.id === expense.id) !== undefined;
+  const isRowSelected = (expense: Expense) => selectedExpenses.find((e) => e.id === expense.id) !== undefined;
 
   const setRowSelected = (expense: Expense, isSelecting = true) =>
-    setSelectedRows((prevSelected) => {
+    setSelectedExpenses((prevSelected) => {
       const otherSelectedRows: Expense[] = prevSelected.filter((r) => r.id !== expense.id);
       return isSelecting ? [...otherSelectedRows, expense] : otherSelectedRows;
     });
@@ -104,21 +111,22 @@ const ExpensesTable = ({
     setRecentSelectedRowIndex(rowIndex);
   };
 
-  const selectAllRepos = (isSelecting = true) => setSelectedRows(isSelecting && expenses ? expenses : []);
+  const selectAllRepos = (isSelecting = true) => setSelectedExpenses(isSelecting && expenses ? expenses : []);
 
   return (
     <>
       <ExpensesTableFilter
         query={queryState}
         queryChangeCallback={(query) => setQueryState({ ...queryState, ...query })}
-        disabled={status !== 'success'}
+        disabled={![queryStatus, patchStatus].includes('success')}
         categories={categories}
       />
+      <p>patchStatus {patchStatus}</p>
       {(() => {
-        switch (status) {
-          case 'pending':
+        switch (true) {
+          case [patchStatus, queryStatus].includes('pending'):
             return <ExpensesTableSkeleton />;
-          case 'error':
+          case [patchStatus, queryStatus].includes('error'):
             return <p>Error</p>;
           default:
             return (
@@ -138,7 +146,12 @@ const ExpensesTable = ({
                       <Th sort={getSortParams(2, 'amount')}>Importe</Th>
                       <Th sort={getSortParams(3, 'category')}>Categoría</Th>
                       <Th>
-                        <Button variant="primary" size="sm" disabled={!isAnyRowSelected}>
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          isDisabled={!isAnyRowSelected}
+                          onClick={() => setIsChangeCategoryModalOpen(true)}
+                        >
                           Cambiar Categoría
                         </Button>
                       </Th>
@@ -197,6 +210,16 @@ const ExpensesTable = ({
             );
         }
       })()}
+      {isChangeCategoryModalOpen ? (
+        <ChangeCategoryModal
+          numberOfSelectedExpenses={selectedExpenses.length}
+          categories={categories}
+          onSubmitCallback={(category: Category) =>
+            patchExpenses(selectedExpenses?.map((expense) => ({ ...expense, category }) as Expense) ?? [])
+          }
+          onCloseCallback={() => setIsChangeCategoryModalOpen(false)}
+        />
+      ) : null}
     </>
   );
 };

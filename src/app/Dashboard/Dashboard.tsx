@@ -1,9 +1,11 @@
 import { ExpensesTable } from '@app/Expenses/List/ExpensesTable';
+import { Expense } from '@app/model/Expense';
 import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
 import { Pagination } from '@app/model/query/Pagination';
 import { Sorting } from '@app/model/query/Sorting';
 import { useFetchCategories } from '@app/queries/categories/useFetchCategories';
 import { useFetchExpenses } from '@app/queries/expenses/useFetchExpenses';
+import { usePatchExpenses } from '@app/queries/expenses/usePatchExpenses';
 import { PageSection, Title } from '@patternfly/react-core';
 import * as React from 'react';
 
@@ -22,6 +24,7 @@ const Dashboard: React.FunctionComponent = () => {
 
   const fetchExpenses = useFetchExpenses('dashboard', expensesQuery);
   const fetchCategories = useFetchCategories('dashboard', categoriesQuery);
+  const patchExpenses = usePatchExpenses('dashboard');
 
   return (
     <PageSection hasBodyWrapper={false}>
@@ -32,9 +35,11 @@ const Dashboard: React.FunctionComponent = () => {
         expenses={fetchExpenses.data?.items}
         categories={fetchCategories.data?.items}
         total={fetchExpenses.data?.total}
-        status={fetchExpenses.status}
+        queryStatus={fetchExpenses.status}
+        patchStatus={patchExpenses.status}
         expensesQuery={expensesQuery}
         queryChangeCallback={setExpensesQuery}
+        patchExpenses={(expenses: Expense[]) => patchExpenses.mutate(expenses)}
       />
     </PageSection>
   );

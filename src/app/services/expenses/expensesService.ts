@@ -2,6 +2,7 @@ import { ExpenseList } from '@app/model/ExpenseList';
 import { stringify } from 'qs';
 import apiRequest from '../apiRequest';
 import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
+import { Expense } from '@app/model/Expense';
 
 const getExpenses = (queryParams: ExpensesQuery) => {
   const { categories, ...rest } = queryParams;
@@ -16,4 +17,6 @@ const getExpenses = (queryParams: ExpensesQuery) => {
   );
 };
 
-export { getExpenses };
+const patchExpenses = (expenses: Expense[]) => apiRequest.patch<{ status: number }>('/expenses', expenses);
+
+export { getExpenses, patchExpenses };
