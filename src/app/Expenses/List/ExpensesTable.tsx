@@ -13,14 +13,21 @@ type ExpensesTableProps = {
   categories?: Category[];
   total?: number;
   status: QueryStatus;
-  query: ExpensesQuery;
+  expensesQuery: ExpensesQuery;
   queryChangeCallback?: (query: ExpensesQuery) => void;
 };
 
-const ExpensesTable = ({ expenses, categories, total, status, query, queryChangeCallback }: ExpensesTableProps) => {
+const ExpensesTable = ({
+  expenses,
+  categories,
+  total,
+  status,
+  expensesQuery,
+  queryChangeCallback,
+}: ExpensesTableProps) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState<number>();
   const [activeSortDirection, setActiveSortDirection] = React.useState<'asc' | 'desc'>();
-  const [queryState, setQueryState] = React.useState<ExpensesQuery>(query);
+  const [queryState, setQueryState] = React.useState<ExpensesQuery>(expensesQuery);
 
   const [selectedRows, setSelectedRows] = React.useState<Expense[]>([]);
   const [shifting, setShifting] = React.useState(false);
@@ -28,7 +35,7 @@ const ExpensesTable = ({ expenses, categories, total, status, query, queryChange
   const areAllRowsSelected = selectedRows.length === expenses?.length;
 
   React.useEffect(() => {
-    if (queryChangeCallback && JSON.stringify(query) !== JSON.stringify(queryState)) {
+    if (queryChangeCallback && JSON.stringify(expensesQuery) !== JSON.stringify(queryState)) {
       queryChangeCallback(queryState);
     }
     // avoid reaction on pagination
@@ -36,8 +43,8 @@ const ExpensesTable = ({ expenses, categories, total, status, query, queryChange
   }, [queryState, queryChangeCallback]);
 
   React.useEffect(() => {
-    setQueryState(query);
-  }, [query, setQueryState]);
+    setQueryState(expensesQuery);
+  }, [expensesQuery, setQueryState]);
 
   React.useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -60,7 +67,7 @@ const ExpensesTable = ({ expenses, categories, total, status, query, queryChange
     };
   }, []);
 
-  const getSortParams = (columnIndex: number): ThProps['sort'] => ({
+  const getSortParams = (columnIndex: number, order_by: string): ThProps['sort'] => ({
     sortBy: {
       index: activeSortIndex,
       direction: activeSortDirection,
@@ -68,6 +75,7 @@ const ExpensesTable = ({ expenses, categories, total, status, query, queryChange
     onSort: (_event, index, direction) => {
       setActiveSortIndex(index);
       setActiveSortDirection(direction as 'desc' | 'asc');
+      setQueryState({ ...queryState, order_by, direction: direction as 'desc' | 'asc' });
     },
     columnIndex,
   });
@@ -124,10 +132,10 @@ const ExpensesTable = ({ expenses, categories, total, status, query, queryChange
                         }}
                         aria-label="Row select"
                       />
-                      <Th sort={getSortParams(0)}>Fecha</Th>
-                      <Th sort={getSortParams(1)}>Concepto</Th>
-                      <Th sort={getSortParams(2)}>Importe</Th>
-                      <Th sort={getSortParams(3)}>Categoría</Th>
+                      <Th sort={getSortParams(0, 'date')}>Fecha</Th>
+                      <Th sort={getSortParams(1, 'name')}>Concepto</Th>
+                      <Th sort={getSortParams(2, 'amount')}>Importe</Th>
+                      <Th sort={getSortParams(3, 'category')}>Categoría</Th>
                       <Th></Th>
                     </Tr>
                   </Thead>

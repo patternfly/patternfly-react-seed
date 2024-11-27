@@ -33,7 +33,7 @@ const Dashboard: React.FunctionComponent = () => {
         categories={fetchCategories.data?.items}
         total={fetchExpenses.data?.total}
         status={fetchExpenses.status}
-        query={expensesQuery}
+        expensesQuery={expensesQuery}
         queryChangeCallback={setExpensesQuery}
       />
     </PageSection>
