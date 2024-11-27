@@ -3,10 +3,10 @@ import React from 'react';
 import { Skeleton } from '@patternfly/react-core';
 import { Table, TableVariant, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 
-type ExpensesTableSkeletonProps = {
+type MovementsTableSkeletonProps = {
   size?: number;
 };
-const ExpensesTableSkeleton = ({ size }: ExpensesTableSkeletonProps) => (
+const MovementsTableSkeleton = ({ size }: MovementsTableSkeletonProps) => (
   <Table aria-label="Cluster with issues table skeleton" variant={TableVariant.compact}>
     <Thead>
       <Tr>
@@ -41,4 +41,4 @@ const ExpensesTableSkeleton = ({ size }: ExpensesTableSkeletonProps) => (
   </Table>
 );
 
-export { ExpensesTableSkeleton };
+export { MovementsTableSkeleton };

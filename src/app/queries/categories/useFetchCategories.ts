@@ -1,5 +1,5 @@
 import { Pagination } from '@app/model/query/Pagination';
-import { getCategories } from '@app/services/expenses/categoriesService';
+import { getCategories } from '@app/services/movements/categoriesService';
 import { useQuery } from '@tanstack/react-query';
 import { categoriesKeys } from './categoriesKeys';
 

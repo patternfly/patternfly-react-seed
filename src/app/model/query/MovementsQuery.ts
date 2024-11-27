@@ -1,7 +1,7 @@
 import { Pagination } from './Pagination';
 import { Sorting } from './Sorting';
 
-type ExpensesQuery = {
+type MovementsQuery = {
   from?: string;
   to?: string;
   name?: string;
@@ -10,4 +10,4 @@ type ExpensesQuery = {
 } & Pagination &
   Sorting;
 
-export { ExpensesQuery };
+export { MovementsQuery };

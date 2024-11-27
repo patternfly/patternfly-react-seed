@@ -1,12 +1,13 @@
 import { Category } from './Category';
 
-type Expense = {
+type Movement = {
   id: string;
   date: number;
   name: string;
   description?: string;
   amount: number;
   category: Category;
+  type: 'income' | 'expense';
 };
 
-export { Expense };
+export { Movement };

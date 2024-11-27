@@ -1,7 +1,7 @@
 {
   "uuid": "c444e550-a7da-407e-a99c-ec185752d984",
   "lastMigration": 33,
-  "name": "Expenses API",
+  "name": "Movements API",
   "endpointPrefix": "api",
   "latency": 200,
   "port": 3000,
@@ -13,7 +13,7 @@
       "type": "crud",
       "documentation": "Endpoint performing CRUD operations on a data bucket (automatically creates GET, POST, PUT, DELETE routes)",
       "method": "",
-      "endpoint": "expenses",
+      "endpoint": "movements",
       "responses": [
         {
           "uuid": "ff0f61cf-162b-4aaa-bb6d-1ce3bdd44c6f",
@@ -128,9 +128,9 @@
     {
       "uuid": "2efca4d7-3211-4fcd-ba02-053aeb2bda56",
       "id": "o5a7",
-      "name": "Expenses",
+      "name": "Movements",
       "documentation": "",
-      "value": "{\n  \"items\": [\n    {{#repeat (queryParam 'size') (queryParam 'size')}}\n    {\n      \"id\": \"{{faker 'string.uuid'}}\",\n      \"date\": \"{{faker 'date.anytime'}}\",\n      \"name\": \"{{faker 'word.words'}}\",\n      \"description\": \"{{faker 'word.words'}}\",\n      \"amount\": \"{{faker 'number.float' min=-1000 max=1000}}\",\n      \"category\": {\n        \"id\": \"{{faker 'string.uuid'}}\",\n        \"name\": \"{{faker 'word.noun'}}\"\n      }\n    }\n    {{/repeat}}\n  ],\n  \"total\": 99\n}"
+      "value": "{\n  \"items\": [\n    {{#repeat (queryParam 'size') (queryParam 'size')}}\n    {\n      \"id\": \"{{faker 'string.uuid'}}\",\n      \"date\": \"{{faker 'date.anytime'}}\",\n      \"name\": \"{{faker 'word.words'}}\",\n      \"description\": \"{{faker 'word.words'}}\",\n      \"amount\": \"{{faker 'number.float' min=-1000 max=1000}}\",\n      \"category\": {\n        \"id\": \"{{faker 'string.uuid'}}\",\n        \"name\": \"{{faker 'word.noun'}}\"\n      },\n      \"type\": \"{{oneOf (array 'income' 'expense')}}\"\n    }\n    {{/repeat}}\n  ],\n  \"total\": 99\n}"
     },
     {
       "uuid": "1b1f8e76-8b25-4c94-9ddc-cd8dcac9a8a6",

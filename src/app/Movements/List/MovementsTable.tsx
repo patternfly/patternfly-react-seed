@@ -1,49 +1,49 @@
 import { Category } from '@app/model/Category';
-import { Expense } from '@app/model/Expense';
-import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
+import { Movement } from '@app/model/Movement';
+import { MovementsQuery } from '@app/model/query/MovementsQuery';
 import { Button, Label, Pagination, PaginationVariant, Timestamp, Tooltip } from '@patternfly/react-core';
 import { Table, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
 import { MutationStatus, QueryStatus } from '@tanstack/react-query';
 import React from 'react';
 import { ChangeCategoryModal } from '../ChangeCategoryModal';
-import { ExpensesTableFilter } from './ExpensesTableFilter';
-import { ExpensesTableSkeleton } from './ExpensesTableSkeleton';
+import { MovementsTableFilter } from './MovementsTableFilter';
+import { MovementsTableSkeleton } from './MovementsTableSkeleton';
 
-type ExpensesTableProps = {
-  expenses?: Expense[];
+type MovementsTableProps = {
+  movements?: Movement[];
   categories?: Category[];
   total?: number;
   queryStatus: QueryStatus;
   patchStatus: MutationStatus;
-  expensesQuery: ExpensesQuery;
-  queryChangeCallback?: (query: ExpensesQuery) => void;
-  patchExpenses: (expenses: Expense[]) => void;
+  movementsQuery: MovementsQuery;
+  queryChangeCallback?: (query: MovementsQuery) => void;
+  patchMovements: (movements: Movement[]) => void;
 };
 
-const ExpensesTable = ({
-  expenses,
+const MovementsTable = ({
+  movements,
   categories,
   total,
   queryStatus,
   patchStatus,
-  expensesQuery,
+  movementsQuery,
   queryChangeCallback,
-  patchExpenses,
-}: ExpensesTableProps) => {
+  patchMovements,
+}: MovementsTableProps) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState<number>();
   const [activeSortDirection, setActiveSortDirection] = React.useState<'asc' | 'desc'>();
-  const [queryState, setQueryState] = React.useState<ExpensesQuery>(expensesQuery);
+  const [queryState, setQueryState] = React.useState<MovementsQuery>(movementsQuery);
 
-  const [selectedExpenses, setSelectedExpenses] = React.useState<Expense[]>([]);
+  const [selectedMovements, setSelectedMovements] = React.useState<Movement[]>([]);
   const [shifting, setShifting] = React.useState(false);
   const [recentSelectedRowIndex, setRecentSelectedRowIndex] = React.useState<number | null>(null);
-  const isAnyRowSelected = selectedExpenses.length > 0;
-  const areAllRowsSelected = selectedExpenses.length === expenses?.length;
+  const isAnyRowSelected = selectedMovements.length > 0;
+  const areAllRowsSelected = selectedMovements.length === movements?.length;
 
   const [isChangeCategoryModalOpen, setIsChangeCategoryModalOpen] = React.useState(false);
 
   React.useEffect(() => {
-    if (queryChangeCallback && JSON.stringify(expensesQuery) !== JSON.stringify(queryState)) {
+    if (queryChangeCallback && JSON.stringify(movementsQuery) !== JSON.stringify(queryState)) {
       queryChangeCallback(queryState);
     }
     // avoid reaction on pagination
@@ -51,8 +51,8 @@ const ExpensesTable = ({
   }, [queryState, queryChangeCallback]);
 
   React.useEffect(() => {
-    setQueryState(expensesQuery);
-  }, [expensesQuery, setQueryState]);
+    setQueryState(movementsQuery);
+  }, [movementsQuery, setQueryState]);
 
   React.useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -88,50 +88,49 @@ const ExpensesTable = ({
     columnIndex,
   });
 
-  const isRowSelected = (expense: Expense) => selectedExpenses.find((e) => e.id === expense.id) !== undefined;
+  const isRowSelected = (movement: Movement) => selectedMovements.find((e) => e.id === movement.id) !== undefined;
 
-  const setRowSelected = (expense: Expense, isSelecting = true) =>
-    setSelectedExpenses((prevSelected) => {
-      const otherSelectedRows: Expense[] = prevSelected.filter((r) => r.id !== expense.id);
-      return isSelecting ? [...otherSelectedRows, expense] : otherSelectedRows;
+  const setRowSelected = (movement: Movement, isSelecting = true) =>
+    setSelectedMovements((prevSelected) => {
+      const otherSelectedRows: Movement[] = prevSelected.filter((r) => r.id !== movement.id);
+      return isSelecting ? [...otherSelectedRows, movement] : otherSelectedRows;
     });
 
-  const onSelectRepo = (expense: Expense, rowIndex: number, isSelecting: boolean) => {
+  const onSelectRepo = (movement: Movement, rowIndex: number, isSelecting: boolean) => {
     // If the user is shift + selecting the checkboxes, then all intermediate checkboxes should be selected
-    if (expenses && shifting && recentSelectedRowIndex !== null) {
+    if (movements && shifting && recentSelectedRowIndex !== null) {
       const numberSelected = rowIndex - recentSelectedRowIndex;
       const intermediateIndexes =
         numberSelected > 0
           ? Array.from(new Array(numberSelected + 1), (_x, i) => i + recentSelectedRowIndex)
           : Array.from(new Array(Math.abs(numberSelected) + 1), (_x, i) => i + rowIndex);
-      intermediateIndexes.forEach((index) => setRowSelected(expenses[index], isSelecting));
+      intermediateIndexes.forEach((index) => setRowSelected(movements[index], isSelecting));
     } else {
-      setRowSelected(expense, isSelecting);
+      setRowSelected(movement, isSelecting);
     }
     setRecentSelectedRowIndex(rowIndex);
   };
 
-  const selectAllRepos = (isSelecting = true) => setSelectedExpenses(isSelecting && expenses ? expenses : []);
+  const selectAllRepos = (isSelecting = true) => setSelectedMovements(isSelecting && movements ? movements : []);
 
   return (
     <>
-      <ExpensesTableFilter
+      <MovementsTableFilter
         query={queryState}
         queryChangeCallback={(query) => setQueryState({ ...queryState, ...query })}
         disabled={![queryStatus, patchStatus].includes('success')}
         categories={categories}
       />
-      <p>patchStatus {patchStatus}</p>
       {(() => {
         switch (true) {
           case [patchStatus, queryStatus].includes('pending'):
-            return <ExpensesTableSkeleton />;
+            return <MovementsTableSkeleton />;
           case [patchStatus, queryStatus].includes('error'):
             return <p>Error</p>;
           default:
             return (
               <>
-                <Table aria-label="Sortable table for expenses">
+                <Table aria-label="Sortable table for movements">
                   <Thead>
                     <Tr>
                       <Th
@@ -158,34 +157,34 @@ const ExpensesTable = ({
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {expenses?.map((expense, rowIndex) => (
+                    {movements?.map((movement, rowIndex) => (
                       <Tr key={rowIndex}>
                         <Td
                           select={{
                             rowIndex,
-                            onSelect: (_event, isSelecting) => onSelectRepo(expense, rowIndex, isSelecting),
-                            isSelected: isRowSelected(expense),
+                            onSelect: (_event, isSelecting) => onSelectRepo(movement, rowIndex, isSelecting),
+                            isSelected: isRowSelected(movement),
                           }}
                         />
                         <Td>
-                          <Tooltip aria="none" aria-live="polite" content={expense.date}>
-                            <Timestamp dateFormat="short" date={new Date(expense.date)} />
+                          <Tooltip aria="none" aria-live="polite" content={movement.date}>
+                            <Timestamp dateFormat="short" date={new Date(movement.date)} />
                           </Tooltip>
                         </Td>
                         <Td>
-                          <Tooltip aria="none" aria-live="polite" content={expense.description}>
-                            <span>{expense.name}</span>
+                          <Tooltip aria="none" aria-live="polite" content={movement.description}>
+                            <span>{movement.name}</span>
                           </Tooltip>
                         </Td>
                         <Td>
-                          <span style={{ color: expense.amount < 0 ? 'red' : 'green', fontWeight: 'bold' }}>
+                          <span style={{ color: movement.amount < 0 ? 'red' : 'green', fontWeight: 'bold' }}>
                             {new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(
-                              expense.amount,
+                              movement.amount,
                             )}
                           </span>
                         </Td>
                         <Td>
-                          <Label>{expense.category.name.toUpperCase()}</Label>
+                          <Label>{movement.category.name.toUpperCase()}</Label>
                         </Td>
                         <Td></Td>
                       </Tr>
@@ -212,10 +211,10 @@ const ExpensesTable = ({
       })()}
       {isChangeCategoryModalOpen ? (
         <ChangeCategoryModal
-          numberOfSelectedExpenses={selectedExpenses.length}
+          numberOfSelectedMovements={selectedMovements.length}
           categories={categories}
           onSubmitCallback={(category: Category) =>
-            patchExpenses(selectedExpenses?.map((expense) => ({ ...expense, category }) as Expense) ?? [])
+            patchMovements(selectedMovements?.map((movement) => ({ ...movement, category }) as Movement) ?? [])
           }
           onCloseCallback={() => setIsChangeCategoryModalOpen(false)}
         />
@@ -224,4 +223,4 @@ const ExpensesTable = ({
   );
 };
 
-export { ExpensesTable };
+export { MovementsTable };

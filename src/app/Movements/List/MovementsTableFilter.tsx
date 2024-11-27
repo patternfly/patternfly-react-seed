@@ -1,5 +1,5 @@
 import { Category } from '@app/model/Category';
-import { ExpensesQuery } from '@app/model/query/ExpensesQuery';
+import { MovementsQuery } from '@app/model/query/MovementsQuery';
 import {
   Badge,
   Button,
@@ -24,14 +24,14 @@ type DatePickerType = {
   date?: Date;
 };
 
-type ExpensesTableFilterProps = {
+type MovementsTableFilterProps = {
   disabled: boolean;
-  query: ExpensesQuery;
-  queryChangeCallback: (query: ExpensesQuery) => void;
+  query: MovementsQuery;
+  queryChangeCallback: (query: MovementsQuery) => void;
   categories?: Category[];
 };
 
-const ExpensesTableFilter = ({ disabled, queryChangeCallback, query, categories }: ExpensesTableFilterProps) => {
+const MovementsTableFilter = ({ disabled, queryChangeCallback, query, categories }: MovementsTableFilterProps) => {
   const [startDate, setStartDate] = React.useState<DatePickerType>({ value: query.from });
   const [endDate, setEndDate] = React.useState<DatePickerType>({ value: query.to });
   const [name, setName] = React.useState<string | undefined>(query.name ?? '');
@@ -50,7 +50,7 @@ const ExpensesTableFilter = ({ disabled, queryChangeCallback, query, categories 
     setIsCategoriesSelectOpen(false);
   };
 
-  const onChangeQuery = useDebouncedCallback((query: ExpensesQuery) => {
+  const onChangeQuery = useDebouncedCallback((query: MovementsQuery) => {
     queryChangeCallback(query);
   }, 350);
 
@@ -99,7 +99,7 @@ const ExpensesTableFilter = ({ disabled, queryChangeCallback, query, categories 
             value={name ?? undefined}
             placeholder="Concepto"
             onChange={(_event, name) => setName(name)}
-            aria-label="expense name to filter"
+            aria-label="movement name to filter"
             isDisabled={disabled}
           />
         </ToolbarItem>
@@ -167,4 +167,4 @@ const ExpensesTableFilter = ({ disabled, queryChangeCallback, query, categories 
   );
 };
 
-export { ExpensesTableFilter };
+export { MovementsTableFilter };

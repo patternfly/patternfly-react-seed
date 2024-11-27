@@ -29,12 +29,12 @@ const routes: AppRouteConfig[] = [
       {
         label: 'Introducir Gasto',
         title: 'Gastos | Añadir Gasto',
-        path: '/expenses/add',
+        path: '/movements/add',
       },
       {
         label: 'Listar',
         title: 'Gastos | Listado',
-        path: '/expenses',
+        path: '/movements',
       },
     ],
   },

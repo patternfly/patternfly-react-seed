@@ -1,5 +1,5 @@
 import { Category } from '@app/model/Category';
-import { Expense } from '@app/model/Expense';
+import { Movement } from '@app/model/Movement';
 import {
   Badge,
   Button,
@@ -15,13 +15,13 @@ import {
 import React from 'react';
 
 type ChangeCategoryModalProps = {
-  numberOfSelectedExpenses: number;
+  numberOfSelectedMovements: number;
   categories?: Category[];
   onSubmitCallback: (category: Category) => void;
   onCloseCallback: () => void;
 };
 const ChangeCategoryModal = ({
-  numberOfSelectedExpenses,
+  numberOfSelectedMovements,
   categories,
   onSubmitCallback,
   onCloseCallback,
@@ -39,7 +39,7 @@ const ChangeCategoryModal = ({
       <ModalHeader title="Cambiar Categoría" labelId="modal-with-dropdown" />
       <ModalBody id="modal-box-body-with-dropdown">
         <p>
-          Cambia la categoría de múltiples conceptos <Badge isRead>{numberOfSelectedExpenses}</Badge>
+          Cambia la categoría de múltiples conceptos <Badge isRead>{numberOfSelectedMovements}</Badge>
         </p>
         <br />
         <FormGroup label="Categoría" fieldId="category" isRequired>
