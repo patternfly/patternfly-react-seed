@@ -1,4 +1,6 @@
 import { Category } from '@app/model/Category';
+import { Movement } from '@app/model/Movement';
+import { MovementTypes } from '@app/model/MovementTypes';
 import { MovementsQuery } from '@app/model/query/MovementsQuery';
 import {
   Badge,
@@ -40,6 +42,9 @@ const MovementsTableFilter = ({ disabled, queryChangeCallback, query, categories
   const [isCategoriesSelectOpen, setIsCategoriesSelectOpen] = React.useState(false);
   const [selectedCategories, setSelectedCategories] = React.useState<Category[]>([]);
 
+  const [isTypesSelectOpen, setIsTypesSelectOpen] = React.useState(false);
+  const [selectedTypes, setSelectedTypes] = React.useState<Movement['type'][]>([]);
+
   // TODO: use formik
   const clearValues = () => {
     setStartDate({});
@@ -48,6 +53,8 @@ const MovementsTableFilter = ({ disabled, queryChangeCallback, query, categories
     setAmount('');
     setSelectedCategories([]);
     setIsCategoriesSelectOpen(false);
+    setSelectedTypes([]);
+    setIsTypesSelectOpen(false);
   };
 
   const onChangeQuery = useDebouncedCallback((query: MovementsQuery) => {
@@ -63,13 +70,14 @@ const MovementsTableFilter = ({ disabled, queryChangeCallback, query, categories
         from: startDate.value,
         to: endDate.value,
         categories: selectedCategories.length ? selectedCategories.map((e) => e.id) : undefined,
+        types: selectedTypes.length ? selectedTypes : undefined,
       };
       if (JSON.stringify(newQuery) !== JSON.stringify(query)) {
         onChangeQuery(newQuery);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [startDate, endDate, name, amount, selectedCategories, onChangeQuery],
+    [startDate, endDate, name, amount, selectedCategories, selectedTypes, onChangeQuery],
   );
 
   return (
@@ -154,6 +162,47 @@ const MovementsTableFilter = ({ disabled, queryChangeCallback, query, categories
                   isSelected={selectedCategories.includes(category)}
                 >
                   {category.name}
+                </SelectOption>
+              ))}
+            </SelectList>
+          </Select>
+        </ToolbarItem>
+        <ToolbarItem>
+          <Select
+            role="menu"
+            id="type-select"
+            isOpen={isTypesSelectOpen}
+            selected={selectedTypes}
+            onSelect={(_e, type) => {
+              if (selectedTypes.includes(type as Movement['type'])) {
+                setSelectedTypes(selectedTypes.filter((t) => t !== (type as Movement['type'])));
+              } else {
+                setSelectedTypes([...selectedTypes, type as Movement['type']]);
+              }
+            }}
+            onOpenChange={(nextOpen: boolean) => setIsTypesSelectOpen(nextOpen)}
+            toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
+              <MenuToggle
+                ref={toggleRef}
+                onClick={() => setIsTypesSelectOpen(!isTypesSelectOpen)}
+                isExpanded={isTypesSelectOpen}
+                style={{ width: '190px' }}
+                isDisabled={disabled}
+              >
+                Tipos {selectedTypes.length > 0 && <Badge isRead>{selectedTypes.length}</Badge>}
+              </MenuToggle>
+            )}
+          >
+            <SelectList>
+              {MovementTypes.map((type) => (
+                <SelectOption
+                  isDisabled={disabled}
+                  hasCheckbox
+                  key={type}
+                  value={type}
+                  isSelected={selectedTypes.includes(type)}
+                >
+                  {type}
                 </SelectOption>
               ))}
             </SelectList>

@@ -1,5 +1,6 @@
 import { Category } from '@app/model/Category';
 import { Movement } from '@app/model/Movement';
+import { MovementTypes } from '@app/model/MovementTypes';
 import {
   Badge,
   Button,
@@ -14,19 +15,20 @@ import {
 } from '@patternfly/react-core';
 import React from 'react';
 
-type ChangeCategoryModalProps = {
+type BulkMovementChangeModalProps = {
   numberOfSelectedMovements: number;
   categories?: Category[];
-  onSubmitCallback: (category: Category) => void;
+  onSubmitCallback: ({ category, type }: Partial<Pick<Movement, 'category' | 'type'>>) => void;
   onCloseCallback: () => void;
 };
-const ChangeCategoryModal = ({
+const BulkMovementChangeModal = ({
   numberOfSelectedMovements,
   categories,
   onSubmitCallback,
   onCloseCallback,
-}: ChangeCategoryModalProps) => {
-  const [selectedCategoryId, setSelectedCategoryId] = React.useState<string>();
+}: BulkMovementChangeModalProps) => {
+  const [selectedCategoryId, setSelectedCategoryId] = React.useState<string>(categories?.[0]?.id ?? '');
+  const [selectedType, setSelectedType] = React.useState<Movement['type']>(MovementTypes[0]);
   return (
     <Modal
       isOpen
@@ -39,18 +41,31 @@ const ChangeCategoryModal = ({
       <ModalHeader title="Cambiar Categoría" labelId="modal-with-dropdown" />
       <ModalBody id="modal-box-body-with-dropdown">
         <p>
-          Cambia la categoría de múltiples conceptos <Badge isRead>{numberOfSelectedMovements}</Badge>
+          Cambia la categoría y/o el tipo de múltiples movimientos <Badge isRead>{numberOfSelectedMovements}</Badge>
         </p>
         <br />
-        <FormGroup label="Categoría" fieldId="category" isRequired>
+        <FormGroup label="Categoría" fieldId="category">
           <FormSelect
             value={selectedCategoryId}
             onChange={(_e, value) => setSelectedCategoryId(categories?.find((c) => c.id === value)?.id)}
-            aria-label="FormSelect Input"
-            ouiaId="BasicFormSelect"
+            aria-label="Category FormSelect Input"
+            ouiaId="CategoryFormSelect"
           >
             {categories?.map((category, index) => (
               <FormSelectOption key={index} value={category.id} label={category.name} />
+            ))}
+          </FormSelect>
+        </FormGroup>
+        <br />
+        <FormGroup label="Typo" fieldId="tipo">
+          <FormSelect
+            value={selectedType}
+            onChange={(_e, value) => setSelectedType(value as Movement['type'])}
+            aria-label="Type FormSelect Input"
+            ouiaId="TypeFormSelect"
+          >
+            {MovementTypes.map((category, index) => (
+              <FormSelectOption key={index} value={category} label={category} />
             ))}
           </FormSelect>
         </FormGroup>
@@ -61,9 +76,7 @@ const ChangeCategoryModal = ({
           variant="primary"
           onClick={() => {
             const selectedCategory = categories?.find((category) => category.id === selectedCategoryId);
-            if (selectedCategory) {
-              onSubmitCallback(selectedCategory);
-            }
+            onSubmitCallback({ category: selectedCategory, type: selectedType });
             onCloseCallback();
           }}
         >
@@ -77,4 +90,4 @@ const ChangeCategoryModal = ({
   );
 };
 
-export { ChangeCategoryModal };
+export { BulkMovementChangeModal };

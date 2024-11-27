@@ -1,11 +1,12 @@
 import { Category } from '@app/model/Category';
 import { Movement } from '@app/model/Movement';
 import { MovementsQuery } from '@app/model/query/MovementsQuery';
-import { Button, Label, Pagination, PaginationVariant, Timestamp, Tooltip } from '@patternfly/react-core';
+import { Button, Icon, Label, Pagination, PaginationVariant, Timestamp, Tooltip } from '@patternfly/react-core';
+import { MinusCircleIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { Table, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
 import { MutationStatus, QueryStatus } from '@tanstack/react-query';
 import React from 'react';
-import { ChangeCategoryModal } from '../ChangeCategoryModal';
+import { BulkMovementChangeModal } from '../BulkMovementChangeModal';
 import { MovementsTableFilter } from './MovementsTableFilter';
 import { MovementsTableSkeleton } from './MovementsTableSkeleton';
 
@@ -40,7 +41,7 @@ const MovementsTable = ({
   const isAnyRowSelected = selectedMovements.length > 0;
   const areAllRowsSelected = selectedMovements.length === movements?.length;
 
-  const [isChangeCategoryModalOpen, setIsChangeCategoryModalOpen] = React.useState(false);
+  const [isBulkMovementModalOpen, setIsBulkMovementModalOpen] = React.useState(false);
 
   React.useEffect(() => {
     if (queryChangeCallback && JSON.stringify(movementsQuery) !== JSON.stringify(queryState)) {
@@ -149,9 +150,9 @@ const MovementsTable = ({
                           variant="primary"
                           size="sm"
                           isDisabled={!isAnyRowSelected}
-                          onClick={() => setIsChangeCategoryModalOpen(true)}
+                          onClick={() => setIsBulkMovementModalOpen(true)}
                         >
-                          Cambiar Categoría
+                          Editar Selección
                         </Button>
                       </Th>
                     </Tr>
@@ -172,9 +173,25 @@ const MovementsTable = ({
                           </Tooltip>
                         </Td>
                         <Td>
-                          <Tooltip aria="none" aria-live="polite" content={movement.description}>
-                            <span>{movement.name}</span>
-                          </Tooltip>
+                          <>
+                            <Tooltip
+                              aria="none"
+                              aria-live="polite"
+                              content={movement.type === 'income' ? 'Ingreso' : 'Gasto'}
+                            >
+                              <Icon
+                                size="xl"
+                                iconSize="md"
+                                isInline
+                                status={movement.type === 'income' ? 'success' : 'danger'}
+                              >
+                                {movement.type === 'income' ? <PlusCircleIcon /> : <MinusCircleIcon />}
+                              </Icon>
+                            </Tooltip>
+                            <Tooltip aria="none" aria-live="polite" content={movement.description}>
+                              <span>{movement.name}</span>
+                            </Tooltip>
+                          </>
                         </Td>
                         <Td>
                           <span style={{ color: movement.amount < 0 ? 'red' : 'green', fontWeight: 'bold' }}>
@@ -209,14 +226,19 @@ const MovementsTable = ({
             );
         }
       })()}
-      {isChangeCategoryModalOpen ? (
-        <ChangeCategoryModal
+      {isBulkMovementModalOpen ? (
+        <BulkMovementChangeModal
           numberOfSelectedMovements={selectedMovements.length}
           categories={categories}
-          onSubmitCallback={(category: Category) =>
-            patchMovements(selectedMovements?.map((movement) => ({ ...movement, category }) as Movement) ?? [])
+          onSubmitCallback={({ category, type }: Partial<Pick<Movement, 'category' | 'type'>>) =>
+            patchMovements(
+              selectedMovements?.map(
+                (movement) =>
+                  ({ ...movement, category: category ?? movement.category, type: type ?? movement.type }) as Movement,
+              ) ?? [],
+            )
           }
-          onCloseCallback={() => setIsChangeCategoryModalOpen(false)}
+          onCloseCallback={() => setIsBulkMovementModalOpen(false)}
         />
       ) : null}
     </>
