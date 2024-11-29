@@ -1,11 +1,23 @@
 import { Category } from '@app/model/Category';
 import { Movement } from '@app/model/Movement';
 import { MovementsQuery } from '@app/model/query/MovementsQuery';
-import { Button, Icon, Label, Pagination, PaginationVariant, Timestamp, Tooltip } from '@patternfly/react-core';
+import {
+  Button,
+  Icon,
+  MenuToggle,
+  MenuToggleElement,
+  Pagination,
+  PaginationVariant,
+  Select,
+  SelectList,
+  SelectOption,
+  Timestamp,
+  Tooltip,
+} from '@patternfly/react-core';
 import { MinusCircleIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { Table, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
 import { MutationStatus, QueryStatus } from '@tanstack/react-query';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { BulkMovementChangeModal } from '../modals/BulkMovementChangeModal';
 import { CreateEditMovementModal } from '../modals/CreateEditMovementModal';
 import { MovementsTableSkeleton } from './MovementsTableSkeleton';
@@ -47,6 +59,10 @@ const MovementsTable = ({
   const [isBulkMovementModalOpen, setIsBulkMovementModalOpen] = React.useState(false);
   const [isCreateMovementModalOpen, setIsCreateMovementModalOpen] = React.useState(false);
 
+  const [openedCategories, setOpenedCategories] = React.useState<{ [id: string]: boolean }>();
+
+  const isUpdateDisabled = useMemo(() => ![queryStatus, patchStatus].includes('success'), [patchStatus, queryStatus]);
+
   React.useEffect(() => {
     if (queryChangeCallback && JSON.stringify(movementsQuery) !== JSON.stringify(queryState)) {
       queryChangeCallback(queryState);
@@ -79,6 +95,12 @@ const MovementsTable = ({
       document.removeEventListener('keyup', onKeyUp);
     };
   }, []);
+
+  React.useEffect(
+    () =>
+      setOpenedCategories(movements ? movements.reduce((acc, movement) => ({ ...acc, [movement.id]: false }), {}) : {}),
+    [movements],
+  );
 
   const getSortParams = (columnIndex: number, order_by: string): ThProps['sort'] => ({
     sortBy: {
@@ -123,7 +145,7 @@ const MovementsTable = ({
       <MovementsTableToolbar
         query={queryState}
         queryChangeCallback={(query) => setQueryState({ ...queryState, ...query })}
-        disabled={![queryStatus, patchStatus].includes('success')}
+        disabled={isUpdateDisabled}
         categories={categories}
         createMovementCallback={() => setIsCreateMovementModalOpen(true)}
       />
@@ -206,7 +228,56 @@ const MovementsTable = ({
                           </span>
                         </Td>
                         <Td>
-                          <Label>{movement.category.name.toUpperCase()}</Label>
+                          <Select
+                            role="menu"
+                            id="edit-categories-select"
+                            isOpen={openedCategories?.[movement.id]}
+                            selected={movement.category}
+                            onSelect={(_e, categoryId) => {
+                              setOpenedCategories({ ...openedCategories, [movement.id]: false });
+                              patchMovements([
+                                {
+                                  ...movement,
+                                  category: categories?.find((c) => c.id === categoryId) ?? movement.category,
+                                },
+                              ]);
+                            }}
+                            onOpenChange={(nextOpen: boolean) =>
+                              setOpenedCategories({ ...openedCategories, [movement.id]: nextOpen })
+                            }
+                            toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
+                              <MenuToggle
+                                variant="plainText"
+                                ref={toggleRef}
+                                onClick={() =>
+                                  setOpenedCategories({
+                                    ...openedCategories,
+                                    [movement.id]:
+                                      openedCategories?.[movement.id] === undefined
+                                        ? true
+                                        : !openedCategories?.[movement.id],
+                                  })
+                                }
+                                isExpanded={openedCategories?.[movement.id]}
+                                style={{ width: '190px' }}
+                                isDisabled={isUpdateDisabled}
+                              >
+                                {movement.category.name.toUpperCase()}
+                              </MenuToggle>
+                            )}
+                          >
+                            <SelectList>
+                              {categories?.map((category) => (
+                                <SelectOption
+                                  isDisabled={isUpdateDisabled || category.id === movement.category.id}
+                                  key={category.id}
+                                  value={category.id}
+                                >
+                                  {category.name}
+                                </SelectOption>
+                              ))}
+                            </SelectList>
+                          </Select>
                         </Td>
                         <Td></Td>
                       </Tr>

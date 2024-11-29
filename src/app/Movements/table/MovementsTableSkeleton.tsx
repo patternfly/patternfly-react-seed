@@ -7,10 +7,12 @@ type MovementsTableSkeletonProps = {
   size?: number;
 };
 const MovementsTableSkeleton = ({ size }: MovementsTableSkeletonProps) => (
-  <Table aria-label="Cluster with issues table skeleton" variant={TableVariant.compact}>
+  <Table aria-label="Skeletong Sortable table for movements">
     <Thead>
       <Tr>
-        <Th></Th>
+        <Th width={10}>
+          <Skeleton />
+        </Th>
         <Th>Fecha</Th>
         <Th>Concepto</Th>
         <Th>Importe</Th>
@@ -21,12 +23,14 @@ const MovementsTableSkeleton = ({ size }: MovementsTableSkeletonProps) => (
     <Tbody>
       {Array.from(Array(size ?? 10).keys()).map((i) => (
         <Tr key={i}>
-          <Td dataLabel="select"></Td>
+          <Td width={10} dataLabel="select">
+            <Skeleton />
+          </Td>
           <Td dataLabel="name">
             <Skeleton screenreaderText={`loading date ${i}...`} />
           </Td>
           <Td textCenter>
-            <Skeleton screenreaderText={`loading description ${i}...`} />
+            <Skeleton screenreaderText={`loading name ${i}...`} />
           </Td>
           <Td>
             <Skeleton screenreaderText={`loading amount ${i}...`} />

@@ -18,7 +18,7 @@ const Dashboard: React.FunctionComponent = () => {
   });
   const [categoriesQuery] = React.useState<Pagination & Sorting>({
     page: 1,
-    size: 100,
+    size: 15,
     direction: 'asc',
   });
 
