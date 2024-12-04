@@ -7,7 +7,7 @@ type MovementsTableSkeletonProps = {
   size?: number;
 };
 const MovementsTableSkeleton = ({ size }: MovementsTableSkeletonProps) => (
-  <Table aria-label="Skeletong Sortable table for movements">
+  <Table aria-label="Skeletong Sortable table for movements" variant={TableVariant.compact}>
     <Thead>
       <Tr>
         <Th width={10}>

@@ -4,6 +4,7 @@ import { MovementsQuery } from '@app/model/query/MovementsQuery';
 import { Pagination } from '@app/model/query/Pagination';
 import { Sorting } from '@app/model/query/Sorting';
 import { useFetchCategories } from '@app/queries/categories/useFetchCategories';
+import { useDeleteMovement } from '@app/queries/movements/useDeleteMovement';
 import { useFetchMovements } from '@app/queries/movements/useFetchMovements';
 import { usePatchMovements } from '@app/queries/movements/usePatchMovements';
 import { usePostMovement } from '@app/queries/movements/usePostMovement';
@@ -26,6 +27,7 @@ const Dashboard: React.FunctionComponent = () => {
   const fetchCategories = useFetchCategories('dashboard', categoriesQuery);
   const patchMovements = usePatchMovements('dashboard');
   const postMovement = usePostMovement('dashboard');
+  const deleteMovement = useDeleteMovement('dashboard');
 
   return (
     <PageSection hasBodyWrapper={false}>
@@ -40,8 +42,10 @@ const Dashboard: React.FunctionComponent = () => {
         patchStatus={patchMovements.status}
         movementsQuery={movementsQuery}
         queryChangeCallback={setMovementsQuery}
+        refetchMovementsCallback={fetchMovements.refetch}
         patchMovements={(movements: Movement[]) => patchMovements.mutate(movements)}
         postMovement={(movement: Partial<Movement>) => postMovement.mutate(movement)}
+        deleteMovement={(id: string) => deleteMovement.mutate(id)}
       />
     </PageSection>
   );

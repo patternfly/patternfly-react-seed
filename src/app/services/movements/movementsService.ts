@@ -20,6 +20,10 @@ const getMovements = (queryParams: MovementsQuery) => {
 
 const postMovement = (movement: Partial<Movement>) => apiRequest.post<Movement>('/movements', movement);
 
+const deleteMovement = (id: string) => apiRequest.delete(`/movements/${id}`);
+
 const patchMovements = (movements: Movement[]) => apiRequest.patch<{ status: number }>('/movements', movements);
 
-export { getMovements, postMovement, patchMovements };
+const bulkMovements = (movements: Movement[]) => apiRequest.post<MovementList>('/movements/bulk', movements);
+
+export { getMovements, postMovement, deleteMovement, patchMovements, bulkMovements };

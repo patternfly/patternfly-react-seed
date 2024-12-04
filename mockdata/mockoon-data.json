@@ -69,6 +69,37 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "c76c0c96-ebfc-42dd-8d90-4926917fa7b3",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "movements/bulk",
+      "responses": [
+        {
+          "uuid": "429cc572-8fb8-4034-9f99-2d1d81fba9ea",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "o5a7",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -79,6 +110,10 @@
     {
       "type": "route",
       "uuid": "e66d2071-ea13-415b-b7a1-3159a05b96a2"
+    },
+    {
+      "type": "route",
+      "uuid": "c76c0c96-ebfc-42dd-8d90-4926917fa7b3"
     }
   ],
   "proxyMode": false,

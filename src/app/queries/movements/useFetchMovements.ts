@@ -9,7 +9,7 @@ export const refetchMovements = (baseKey: string) => {
 };
 
 export const useFetchMovements = (baseKey: string, query: MovementsQuery) => {
-  const { data, error, dataUpdatedAt, status } = useQuery({
+  const { data, error, dataUpdatedAt, status, refetch } = useQuery({
     queryKey: movementsKeys.paginate(baseKey, query),
     queryFn: () => getMovements(query),
     retry: false,
@@ -20,5 +20,6 @@ export const useFetchMovements = (baseKey: string, query: MovementsQuery) => {
     error,
     dataUpdatedAt,
     status,
+    refetch,
   };
 };

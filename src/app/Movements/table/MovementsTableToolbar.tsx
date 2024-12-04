@@ -17,7 +17,7 @@ import {
   ToolbarGroup,
   ToolbarItem,
 } from '@patternfly/react-core';
-import { TimesIcon } from '@patternfly/react-icons';
+import { RedoIcon, TimesIcon } from '@patternfly/react-icons';
 import React from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -31,6 +31,7 @@ type MovementsTableToolbarProps = {
   query: MovementsQuery;
   queryChangeCallback: (query: MovementsQuery) => void;
   createMovementCallback: () => void;
+  refetchMovementsCallback: () => void;
   categories?: Category[];
 };
 
@@ -38,6 +39,7 @@ const MovementsTableToolbar = ({
   disabled,
   queryChangeCallback,
   createMovementCallback,
+  refetchMovementsCallback,
   query,
   categories,
 }: MovementsTableToolbarProps) => {
@@ -223,6 +225,9 @@ const MovementsTableToolbar = ({
             <Button variant="primary" onClick={createMovementCallback}>
               Crear Movimiento
             </Button>
+          </ToolbarItem>
+          <ToolbarItem>
+            <Button variant="plain" onClick={refetchMovementsCallback} icon={<RedoIcon />} />
           </ToolbarItem>
         </ToolbarGroup>
       </ToolbarContent>

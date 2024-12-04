@@ -14,8 +14,8 @@ import {
   Timestamp,
   Tooltip,
 } from '@patternfly/react-core';
-import { MinusCircleIcon, PlusCircleIcon } from '@patternfly/react-icons';
-import { Table, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
+import { MinusCircleIcon, PlusCircleIcon, TrashIcon } from '@patternfly/react-icons';
+import { Table, TableVariant, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
 import { MutationStatus, QueryStatus } from '@tanstack/react-query';
 import React, { useMemo } from 'react';
 import { BulkMovementChangeModal } from '../modals/BulkMovementChangeModal';
@@ -31,8 +31,10 @@ type MovementsTableProps = {
   patchStatus: MutationStatus;
   movementsQuery: MovementsQuery;
   queryChangeCallback?: (query: MovementsQuery) => void;
+  refetchMovementsCallback?: () => void;
   patchMovements: (movements: Movement[]) => void;
   postMovement: (movement: Partial<Movement>) => void;
+  deleteMovement: (id: string) => void;
 };
 
 const MovementsTable = ({
@@ -43,8 +45,10 @@ const MovementsTable = ({
   patchStatus,
   movementsQuery,
   queryChangeCallback,
+  refetchMovementsCallback,
   patchMovements,
   postMovement,
+  deleteMovement,
 }: MovementsTableProps) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState<number>();
   const [activeSortDirection, setActiveSortDirection] = React.useState<'asc' | 'desc'>();
@@ -148,6 +152,7 @@ const MovementsTable = ({
         disabled={isUpdateDisabled}
         categories={categories}
         createMovementCallback={() => setIsCreateMovementModalOpen(true)}
+        refetchMovementsCallback={refetchMovementsCallback}
       />
       {(() => {
         switch (true) {
@@ -158,7 +163,7 @@ const MovementsTable = ({
           default:
             return (
               <>
-                <Table aria-label="Sortable table for movements">
+                <Table aria-label="Sortable table for movements" variant={TableVariant.compact}>
                   <Thead>
                     <Tr>
                       <Th
@@ -279,7 +284,11 @@ const MovementsTable = ({
                             </SelectList>
                           </Select>
                         </Td>
-                        <Td></Td>
+                        <Td>
+                          <Tooltip content="Eliminar movimiento">
+                            <Button variant="plain" onClick={() => deleteMovement(movement.id)} icon={<TrashIcon />} />
+                          </Tooltip>
+                        </Td>
                       </Tr>
                     ))}
                   </Tbody>
