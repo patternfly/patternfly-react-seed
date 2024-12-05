@@ -16,8 +16,9 @@ import {
   ToolbarContent,
   ToolbarGroup,
   ToolbarItem,
+  Tooltip,
 } from '@patternfly/react-core';
-import { RedoIcon, TimesIcon } from '@patternfly/react-icons';
+import { PlusIcon, RedoIcon, TimesIcon, UploadIcon } from '@patternfly/react-icons';
 import React from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -32,6 +33,7 @@ type MovementsTableToolbarProps = {
   queryChangeCallback: (query: MovementsQuery) => void;
   createMovementCallback: () => void;
   refetchMovementsCallback: () => void;
+  bulkLoadCallback: () => void;
   categories?: Category[];
 };
 
@@ -40,6 +42,7 @@ const MovementsTableToolbar = ({
   queryChangeCallback,
   createMovementCallback,
   refetchMovementsCallback,
+  bulkLoadCallback,
   query,
   categories,
 }: MovementsTableToolbarProps) => {
@@ -217,17 +220,26 @@ const MovementsTableToolbar = ({
             </Select>
           </ToolbarItem>
           <ToolbarItem>
-            <Button icon={<TimesIcon />} onClick={clearValues} />
+            <Tooltip content="Limpiar filtro">
+              <Button icon={<TimesIcon />} onClick={clearValues} size="sm" />
+            </Tooltip>
           </ToolbarItem>
         </ToolbarGroup>
         <ToolbarGroup variant="action-group">
           <ToolbarItem>
-            <Button variant="primary" onClick={createMovementCallback}>
-              Crear Movimiento
-            </Button>
+            <Tooltip content="Carga masiva">
+              <Button variant="primary" onClick={bulkLoadCallback} icon={<UploadIcon />} size="sm" />
+            </Tooltip>
           </ToolbarItem>
           <ToolbarItem>
-            <Button variant="plain" onClick={refetchMovementsCallback} icon={<RedoIcon />} />
+            <Tooltip content="Crear movimiento">
+              <Button variant="primary" onClick={createMovementCallback} icon={<PlusIcon />} size="sm" />
+            </Tooltip>
+          </ToolbarItem>
+          <ToolbarItem>
+            <Tooltip content="Recargar movimientos">
+              <Button variant="primary" onClick={refetchMovementsCallback} icon={<RedoIcon />} size="sm" />
+            </Tooltip>
           </ToolbarItem>
         </ToolbarGroup>
       </ToolbarContent>

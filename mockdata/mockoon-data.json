@@ -71,17 +71,17 @@
       "streamingInterval": 0
     },
     {
-      "uuid": "c76c0c96-ebfc-42dd-8d90-4926917fa7b3",
-      "type": "crud",
+      "uuid": "daec5f16-e718-4bad-b4cf-410ed8fac93f",
+      "type": "http",
       "documentation": "",
-      "method": "",
-      "endpoint": "movements/bulk",
+      "method": "post",
+      "endpoint": "bulk/movements",
       "responses": [
         {
-          "uuid": "429cc572-8fb8-4034-9f99-2d1d81fba9ea",
+          "uuid": "f106c9db-e1a4-4e76-bac1-aaf0cf71b313",
           "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
+          "latency": 500,
+          "statusCode": 201,
           "label": "",
           "headers": [],
           "bodyType": "DATABUCKET",
@@ -113,7 +113,7 @@
     },
     {
       "type": "route",
-      "uuid": "c76c0c96-ebfc-42dd-8d90-4926917fa7b3"
+      "uuid": "daec5f16-e718-4bad-b4cf-410ed8fac93f"
     }
   ],
   "proxyMode": false,

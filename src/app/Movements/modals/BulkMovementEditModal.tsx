@@ -15,18 +15,18 @@ import {
 } from '@patternfly/react-core';
 import React from 'react';
 
-type BulkMovementChangeModalProps = {
+type BulkMovementEditModalProps = {
   numberOfSelectedMovements: number;
   categories?: Category[];
   onSubmitCallback: ({ category, type }: Partial<Pick<Movement, 'category' | 'type'>>) => void;
   onCloseCallback: () => void;
 };
-const BulkMovementChangeModal = ({
+const BulkMovementEditModal = ({
   numberOfSelectedMovements,
   categories,
   onSubmitCallback,
   onCloseCallback,
-}: BulkMovementChangeModalProps) => {
+}: BulkMovementEditModalProps) => {
   const [selectedCategoryId, setSelectedCategoryId] = React.useState<string | undefined>(categories?.[0]?.id ?? '');
   const [selectedType, setSelectedType] = React.useState<Movement['type']>(MovementTypes[0]);
   return (
@@ -90,4 +90,4 @@ const BulkMovementChangeModal = ({
   );
 };
 
-export { BulkMovementChangeModal };
+export { BulkMovementEditModal };

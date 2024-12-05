@@ -4,6 +4,7 @@ import { MovementsQuery } from '@app/model/query/MovementsQuery';
 import { Pagination } from '@app/model/query/Pagination';
 import { Sorting } from '@app/model/query/Sorting';
 import { useFetchCategories } from '@app/queries/categories/useFetchCategories';
+import { useBulkMovement } from '@app/queries/movements/useBulkMovement';
 import { useDeleteMovement } from '@app/queries/movements/useDeleteMovement';
 import { useFetchMovements } from '@app/queries/movements/useFetchMovements';
 import { usePatchMovements } from '@app/queries/movements/usePatchMovements';
@@ -26,6 +27,7 @@ const Dashboard: React.FunctionComponent = () => {
   const fetchMovements = useFetchMovements('dashboard', movementsQuery);
   const fetchCategories = useFetchCategories('dashboard', categoriesQuery);
   const patchMovements = usePatchMovements('dashboard');
+  const bulkMovements = useBulkMovement('dashboard');
   const postMovement = usePostMovement('dashboard');
   const deleteMovement = useDeleteMovement('dashboard');
 
@@ -40,12 +42,14 @@ const Dashboard: React.FunctionComponent = () => {
         total={fetchMovements.data?.total}
         queryStatus={fetchMovements.status}
         patchStatus={patchMovements.status}
+        bulkMovementsStatus={bulkMovements.status}
         movementsQuery={movementsQuery}
         queryChangeCallback={setMovementsQuery}
         refetchMovementsCallback={fetchMovements.refetch}
         patchMovements={(movements: Movement[]) => patchMovements.mutate(movements)}
         postMovement={(movement: Partial<Movement>) => postMovement.mutate(movement)}
         deleteMovement={(id: string) => deleteMovement.mutate(id)}
+        bulkMovements={(movements: Movement[]) => bulkMovements.mutate(movements)}
       />
     </PageSection>
   );

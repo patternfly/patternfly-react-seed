@@ -24,6 +24,6 @@ const deleteMovement = (id: string) => apiRequest.delete(`/movements/${id}`);
 
 const patchMovements = (movements: Movement[]) => apiRequest.patch<{ status: number }>('/movements', movements);
 
-const bulkMovements = (movements: Movement[]) => apiRequest.post<MovementList>('/movements/bulk', movements);
+const bulkMovements = (movements: Movement[]) => apiRequest.post<MovementList>('/bulk/movements', movements);
 
 export { getMovements, postMovement, deleteMovement, patchMovements, bulkMovements };

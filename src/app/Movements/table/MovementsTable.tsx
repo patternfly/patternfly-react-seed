@@ -14,14 +14,15 @@ import {
   Timestamp,
   Tooltip,
 } from '@patternfly/react-core';
-import { MinusCircleIcon, PlusCircleIcon, TrashIcon } from '@patternfly/react-icons';
+import { MinusCircleIcon, PencilAltIcon, PlusCircleIcon, TrashIcon } from '@patternfly/react-icons';
 import { Table, TableVariant, Tbody, Td, Th, ThProps, Thead, Tr } from '@patternfly/react-table';
 import { MutationStatus, QueryStatus } from '@tanstack/react-query';
 import React, { useMemo } from 'react';
-import { BulkMovementChangeModal } from '../modals/BulkMovementChangeModal';
+import { BulkMovementEditModal } from '../modals/BulkMovementEditModal';
 import { CreateEditMovementModal } from '../modals/CreateEditMovementModal';
 import { MovementsTableSkeleton } from './MovementsTableSkeleton';
 import { MovementsTableToolbar } from './MovementsTableToolbar';
+import { BulkLoadMovementModal } from '../modals/BulkLoadMovementModal';
 
 type MovementsTableProps = {
   movements?: Movement[];
@@ -29,12 +30,14 @@ type MovementsTableProps = {
   total?: number;
   queryStatus: QueryStatus;
   patchStatus: MutationStatus;
+  bulkMovementsStatus: MutationStatus;
   movementsQuery: MovementsQuery;
   queryChangeCallback?: (query: MovementsQuery) => void;
-  refetchMovementsCallback?: () => void;
+  refetchMovementsCallback: () => void;
   patchMovements: (movements: Movement[]) => void;
   postMovement: (movement: Partial<Movement>) => void;
   deleteMovement: (id: string) => void;
+  bulkMovements: (movements: Movement[]) => void;
 };
 
 const MovementsTable = ({
@@ -43,12 +46,14 @@ const MovementsTable = ({
   total,
   queryStatus,
   patchStatus,
+  bulkMovementsStatus,
   movementsQuery,
   queryChangeCallback,
   refetchMovementsCallback,
   patchMovements,
   postMovement,
   deleteMovement,
+  bulkMovements,
 }: MovementsTableProps) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState<number>();
   const [activeSortDirection, setActiveSortDirection] = React.useState<'asc' | 'desc'>();
@@ -60,7 +65,8 @@ const MovementsTable = ({
   const isAnyRowSelected = selectedMovements.length > 0;
   const areAllRowsSelected = selectedMovements.length === movements?.length;
 
-  const [isBulkMovementModalOpen, setIsBulkMovementModalOpen] = React.useState(false);
+  const [isBulkLoadModalOpen, setIsBulkLoadModalOpen] = React.useState(false);
+  const [isBulkMovementEditModalOpen, setIsBulkMovementModalOpen] = React.useState(false);
   const [isCreateMovementModalOpen, setIsCreateMovementModalOpen] = React.useState(false);
 
   const [openedCategories, setOpenedCategories] = React.useState<{ [id: string]: boolean }>();
@@ -153,6 +159,7 @@ const MovementsTable = ({
         categories={categories}
         createMovementCallback={() => setIsCreateMovementModalOpen(true)}
         refetchMovementsCallback={refetchMovementsCallback}
+        bulkLoadCallback={() => setIsBulkLoadModalOpen(true)}
       />
       {(() => {
         switch (true) {
@@ -177,15 +184,16 @@ const MovementsTable = ({
                       <Th sort={getSortParams(1, 'name')}>Concepto</Th>
                       <Th sort={getSortParams(2, 'amount')}>Importe</Th>
                       <Th sort={getSortParams(3, 'category')}>Categoría</Th>
-                      <Th>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          isDisabled={!isAnyRowSelected}
-                          onClick={() => setIsBulkMovementModalOpen(true)}
-                        >
-                          Editar Selección
-                        </Button>
+                      <Th className="pf-v6-u-text-align-end">
+                        <Tooltip content="Editar movimiento/s">
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            isDisabled={!isAnyRowSelected}
+                            onClick={() => setIsBulkMovementModalOpen(true)}
+                            icon={<PencilAltIcon />}
+                          />
+                        </Tooltip>
                       </Th>
                     </Tr>
                   </Thead>
@@ -311,8 +319,15 @@ const MovementsTable = ({
             );
         }
       })()}
-      {isBulkMovementModalOpen ? (
-        <BulkMovementChangeModal
+      {isBulkLoadModalOpen ? (
+        <BulkLoadMovementModal
+          onSubmitCallback={bulkMovements}
+          onCloseCallback={() => setIsBulkLoadModalOpen(false)}
+          status={bulkMovementsStatus}
+        />
+      ) : null}
+      {isBulkMovementEditModalOpen ? (
+        <BulkMovementEditModal
           numberOfSelectedMovements={selectedMovements.length}
           categories={categories}
           onSubmitCallback={({ category, type }: Partial<Pick<Movement, 'category' | 'type'>>) =>
