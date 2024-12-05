@@ -189,6 +189,7 @@ exports[`App tests should render default App component 1`] = `
               <a
                 aria-current="page"
                 class="pf-v6-c-nav__link pf-m-current active"
+                data-discover="true"
                 href="/"
               >
                 Dashboard
@@ -202,6 +203,7 @@ exports[`App tests should render default App component 1`] = `
             >
               <a
                 class="pf-v6-c-nav__link"
+                data-discover="true"
                 href="/support"
               >
                 Support
@@ -258,6 +260,7 @@ exports[`App tests should render default App component 1`] = `
                   >
                     <a
                       class="pf-v6-c-nav__link"
+                      data-discover="true"
                       href="/settings/general"
                     >
                       General
@@ -271,6 +274,7 @@ exports[`App tests should render default App component 1`] = `
                   >
                     <a
                       class="pf-v6-c-nav__link"
+                      data-discover="true"
                       href="/settings/profile"
                     >
                       Profile

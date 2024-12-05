@@ -23,12 +23,12 @@ let Support: React.FunctionComponent<ISupportProps> = () => (
       <EmptyStateBody>
         <Content>
           <Content component="p">
-            This represents an the empty state pattern in Patternfly 4. Hopefully it&apos;s simple enough to use but
+            This represents an the empty state pattern in Patternfly. Hopefully it&apos;s simple enough to use but
             flexible enough to meet a variety of needs.
           </Content>
           <Content component={ContentVariants.small}>
             This text has overridden a css component variable to demonstrate how to apply customizations using
-            PatternFly&apos;s global variable API.
+            PatternFly&apos;s CSS tokens.
           </Content>
         </Content>
       </EmptyStateBody>
