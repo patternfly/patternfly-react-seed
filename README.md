@@ -4,7 +4,7 @@ Patternfly Seed is an open source build scaffolding utility for web apps. The pr
 
 Out of the box you'll get an app layout with chrome (header/sidebar), routing, build pipeline, test suite, and some code quality tools. Basically, all the essentials.
 
-<img width="1058" alt="Out of box dashboard view of patternfly seed" src="https://user-images.githubusercontent.com/5942899/103803761-03a0a500-501f-11eb-870a-345d7d035e6b.png">
+<img width="1058" alt="Out of box dashboard view of patternfly seed" src="https://github.com/user-attachments/assets/0227b366-67f1-4df8-8d92-e8e95d6e08b3" />
 
 ## Quick-start
 
@@ -98,5 +98,6 @@ This project uses [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack)
 ENV_1=http://1.myendpoint.com
 ENV_2=http://2.myendpoint.com
 ```
+
 
 With that in place, you can use the values in your code like `console.log(process.env.ENV_1);`
