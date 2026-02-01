@@ -1,36 +1,40 @@
+import { TextEncoder, TextDecoder } from 'util';
 import '@testing-library/jest-dom';
-import { vi } from 'vitest';
+
+// Polyfill for jsdom (react-router etc. may use these)
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder as typeof global.TextDecoder;
 
 // Mock PatternFly Chatbot MessageBar to avoid monaco-editor dependency
-vi.mock('@patternfly/chatbot/dist/dynamic/MessageBar', () => ({
-  MessageBar: vi.fn(() => null),
+jest.mock('@patternfly/chatbot/dist/dynamic/MessageBar', () => ({
+  MessageBar: jest.fn(() => null),
 }));
 
 // Mock CSS imports
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: vi.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query: string) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: vi.fn(), // deprecated
-    removeListener: vi.fn(), // deprecated
-    addEventListener: vi.fn(),
-    removeEventListener: vi.fn(),
-    dispatchEvent: vi.fn(),
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
   })),
 });
 
 // Mock ResizeObserver
 global.ResizeObserver = class ResizeObserver {
-  observe = vi.fn();
-  unobserve = vi.fn();
-  disconnect = vi.fn();
+  observe = jest.fn();
+  unobserve = jest.fn();
+  disconnect = jest.fn();
 };
 
 // Mock IntersectionObserver
 global.IntersectionObserver = class IntersectionObserver {
-  observe = vi.fn();
-  unobserve = vi.fn();
-  disconnect = vi.fn();
+  observe = jest.fn();
+  unobserve = jest.fn();
+  disconnect = jest.fn();
 } as any;
