@@ -1,4 +1,4 @@
-import { TextEncoder, TextDecoder } from 'util';
+import { TextDecoder, TextEncoder } from 'util';
 import '@testing-library/jest-dom';
 
 // Polyfill for jsdom (react-router etc. may use these)
