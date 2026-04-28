@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "prepare": "husky",
     "prebuild": "npm run type-check && npm run clean",
     "build": "webpack --config webpack.prod.js",
     "start": "sirv dist --cors --single --host --port 8080",
@@ -24,6 +25,8 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
@@ -40,6 +43,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "html-webpack-plugin": "^5.6.3",
+    "husky": "^9.1.7",
     "imagemin": "^9.0.0",
     "jsdom": "^25.0.1",
     "mini-css-extract-plugin": "^2.9.2",

@@ -1,11 +1,87 @@
+# Dependencies
 **/node_modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Build outputs
 dist
-yarn-error.log
-yarn.lock
-stats.json
+dist/
+build
+build/
+*.tsbuildinfo
+*.buildinfo
+
+# TypeScript
+*.tsbuildinfo
+*.d.ts.map
+
+# CSS & Style outputs
+*.css.map
+*.sass.cache
+*.scss.cache
+.postcssrc
+
+# Test coverage
 coverage
+coverage/
+.nyc_output
+*.lcov
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Package manager files
+yarn.lock
+package-lock.json
+.pnpm-lock.yaml
+
+# Build & bundler artifacts
+stats.json
 storybook-static
+.webpack/
+.vite/
+.cache/
+
+# IDE & Editor files
 .DS_Store
 .idea
-.env
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
 .history
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Misc
+.agentready
+.temp
+.tmp
+*.tmp
