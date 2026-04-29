@@ -71,7 +71,7 @@
     "@patternfly/react-core": "^6.4.0",
     "@patternfly/react-icons": "^6.4.0",
     "@patternfly/react-styles": "^6.4.0",
-    "react": "^18",
+    "react": "^18.3.1",
     "react-dom": "^18",
     "sirv-cli": "^3.0.0"
   },
