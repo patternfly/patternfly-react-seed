@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
-  Button,
   Masthead,
   MastheadBrand,
   MastheadLogo,
@@ -14,6 +13,7 @@ import {
   Page,
   PageSidebar,
   PageSidebarBody,
+  PageToggleButton,
   SkipToContent,
 } from '@patternfly/react-core';
 import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
@@ -24,20 +24,16 @@ interface IAppLayout {
 }
 
 const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const masthead = (
     <Masthead>
       <MastheadMain>
         <MastheadToggle>
-          <Button
-            icon={<BarsIcon />}
-            variant="plain"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            aria-label="Global navigation"
-          />
+          <PageToggleButton variant="plain" aria-label="Global navigation">
+            <BarsIcon />
+          </PageToggleButton>
         </MastheadToggle>
-        <MastheadBrand data-codemods>
-          <MastheadLogo data-codemods>
+        <MastheadBrand>
+          <MastheadLogo>
             <svg height="40px" viewBox="0 0 679 158">
               <title>PatternFly logo</title>
               <defs>
@@ -143,7 +139,8 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     <Page
       mainContainerId={pageId}
       masthead={masthead}
-      sidebar={sidebarOpen && Sidebar}
+      isManagedSidebar
+      sidebar={Sidebar}
       skipToContent={PageSkipToContent}
     >
       {children}

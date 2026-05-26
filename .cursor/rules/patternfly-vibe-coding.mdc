@@ -31,7 +31,7 @@ When creating new prototypes or pages:
 - Low-fidelity prototypes focus on functionality and flow over visual polish
 
 ## Example Prompt
-> "When generating PatternFly code, use the guidelines and examples from all README and markdown files in this repository, especially those referenced in documentation/README.md. Follow the documented best practices for styling, accessibility, and component usage."
+> "When generating PatternFly code, use the guidelines and examples from all README and markdown files in this repository, especially those referenced in ai-documentation/README.md. Follow the documented best practices for styling, accessibility, and component usage."
 
 ## Enforcement
 If code is generated or edited without following these documentation sources, request changes and point to the relevant section in the docs.
