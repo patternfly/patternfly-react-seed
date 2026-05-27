@@ -9,7 +9,6 @@ import {
   Compass,
   CompassHeader,
   CompassMessageBar,
-  CompassPanel,
   Dropdown,
   DropdownItem,
   DropdownList,
@@ -18,6 +17,7 @@ import {
   MastheadLogo,
   MenuToggle,
   MenuToggleElement,
+  Panel,
   Tab,
   TabContent,
   TabTitleText,
@@ -31,7 +31,6 @@ import CubeIcon from '@patternfly/react-icons/dist/esm/icons/cube-icon';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 import MoonIcon from '@patternfly/react-icons/dist/esm/icons/moon-icon';
 import SunIcon from '@patternfly/react-icons/dist/esm/icons/sun-icon';
-import pfBackground from '../bgimages/pf-background.svg';
 import avatarSvg from '../bgimages/avatar.svg';
 
 interface IAppLayout {
@@ -88,7 +87,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   const navContent = (
     <>
-      <CompassPanel isPill hasNoPadding>
+      <Panel isPill >
         <Tabs
           activeKey={activeTab}
           isNav
@@ -106,9 +105,9 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
           <Tab eventKey={1} title={<TabTitleText>Support</TabTitleText>} />
           <Tab eventKey={2} title={<TabTitleText>Settings</TabTitleText>} />
         </Tabs>
-      </CompassPanel>
+      </Panel>
       {activeTab === 2 && (
-        <CompassPanel isPill hasNoPadding>
+        <Panel isPill >
           <TabContent id="subtabs" ref={subTabsRef}>
             <Tabs
               activeKey={activeSubtab}
@@ -122,7 +121,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
               <Tab eventKey={1} title={<TabTitleText>Profile</TabTitleText>} />
             </Tabs>
           </TabContent>
-        </CompassPanel>
+        </Panel>
       )}
     </>
   );
@@ -161,7 +160,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   );
 
   const sidebarContent = (
-    <CompassPanel isPill>
+    <Panel isPill>
       <ActionList isIconList isVertical>
         <ActionListGroup>
           <ActionListItem>
@@ -189,7 +188,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
           </ActionListItem>
         </ActionListGroup>
       </ActionList>
-    </CompassPanel>
+    </Panel>
   );
 
   const headerContent = (
@@ -256,7 +255,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   const footerContent = (
     <CompassMessageBar>
-      <CompassPanel isPill hasNoPadding hasNoBorder>
+      <Panel isPill  hasNoBorder>
         <MessageBar
           isCompact
           onSendMessage={handleSendMessage}
@@ -265,7 +264,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
           hasAiIndicator
           isThinking={isThinking}
         />
-      </CompassPanel>
+      </Panel>
     </CompassMessageBar>
   );
 
@@ -276,8 +275,6 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
       main={children}
       sidebarEnd={sidebarContent}
       footer={footerContent}
-      backgroundSrcDark={pfBackground}
-      backgroundSrcLight={pfBackground}
     />
   );
 };

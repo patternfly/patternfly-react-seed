@@ -5,7 +5,6 @@ import {
   CardBody,
   CardTitle,
   CompassContent,
-  CompassPanel,
   DescriptionList,
   DescriptionListDescription,
   DescriptionListGroup,
@@ -15,6 +14,7 @@ import {
   Grid,
   GridItem,
   Label,
+  Panel,
   Progress,
   ProgressSize,
   ProgressVariant,
@@ -32,7 +32,7 @@ const Dashboard: React.FunctionComponent = () => (
       <Grid hasGutter>
         {/* Status Cards */}
         <GridItem lg={3} md={6} sm={12}>
-          <CompassPanel>
+          <Panel>
             <Card isPlain isFullHeight>
               <CardTitle>
                 <Flex alignItems={{ default: 'alignItemsCenter' }}>
@@ -49,10 +49,10 @@ const Dashboard: React.FunctionComponent = () => (
                 <Label color="green">Operational</Label>
               </CardBody>
             </Card>
-          </CompassPanel>
+          </Panel>
         </GridItem>
         <GridItem lg={3} md={6} sm={12}>
-          <CompassPanel>
+          <Panel>
             <Card isPlain isFullHeight>
               <CardTitle>Active Users</CardTitle>
               <CardBody>
@@ -62,10 +62,10 @@ const Dashboard: React.FunctionComponent = () => (
                 <Badge>+12% this week</Badge>
               </CardBody>
             </Card>
-          </CompassPanel>
+          </Panel>
         </GridItem>
         <GridItem lg={3} md={6} sm={12}>
-          <CompassPanel>
+          <Panel>
             <Card isPlain isFullHeight>
               <CardTitle>
                 <Flex alignItems={{ default: 'alignItemsCenter' }}>
@@ -82,10 +82,10 @@ const Dashboard: React.FunctionComponent = () => (
                 <Label color="orange">Needs attention</Label>
               </CardBody>
             </Card>
-          </CompassPanel>
+          </Panel>
         </GridItem>
         <GridItem lg={3} md={6} sm={12}>
-          <CompassPanel>
+          <Panel>
             <Card isPlain isFullHeight>
               <CardTitle>
                 <Flex alignItems={{ default: 'alignItemsCenter' }}>
@@ -102,12 +102,12 @@ const Dashboard: React.FunctionComponent = () => (
                 <Label color="blue">In progress</Label>
               </CardBody>
             </Card>
-          </CompassPanel>
+          </Panel>
         </GridItem>
 
         {/* Resource Utilization */}
         <GridItem span={6}>
-          <CompassPanel>
+          <Panel>
             <Card isPlain isFullHeight>
               <CardTitle>Resource Utilization</CardTitle>
               <CardBody>
@@ -129,12 +129,12 @@ const Dashboard: React.FunctionComponent = () => (
                 </div>
               </CardBody>
             </Card>
-          </CompassPanel>
+          </Panel>
         </GridItem>
 
         {/* System Information */}
         <GridItem span={6}>
-          <CompassPanel>
+          <Panel>
             <Card isPlain isFullHeight>
               <CardTitle>System Information</CardTitle>
               <CardBody>
@@ -162,7 +162,7 @@ const Dashboard: React.FunctionComponent = () => (
                 </DescriptionList>
               </CardBody>
             </Card>
-          </CompassPanel>
+          </Panel>
         </GridItem>
       </Grid>
     </CompassContent>

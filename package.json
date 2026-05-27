@@ -72,13 +72,13 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "@patternfly/chatbot": "^6.5.0-prerelease.19",
-    "@patternfly/patternfly": "6.5.0-prerelease.27",
-    "@patternfly/react-core": "6.5.0-prerelease.14",
+    "@patternfly/chatbot": "6.5.0",
+    "@patternfly/patternfly": "6.5.2",
+    "@patternfly/react-core": "6.5.1",
     "@patternfly/react-data-view": "6.4.0",
-    "@patternfly/react-icons": "6.5.0-prerelease.6",
-    "@patternfly/react-styles": "6.5.0-prerelease.6",
-    "@patternfly/react-table": "6.5.0-prerelease.14",
+    "@patternfly/react-icons": "6.5.1",
+    "@patternfly/react-styles": "6.5.1",
+    "@patternfly/react-table": "6.5.1",
     "react": "^18",
     "react-dom": "^18",
     "sirv-cli": "^3.0.1"
