@@ -8,7 +8,6 @@ export default {
     parser: tseslint.parser,
     parserOptions: {
       project: './tsconfig.json',
-      tsconfigRootDir: '.',
       ecmaFeatures: { jsx: true },
     },
   },
