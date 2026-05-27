@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CompassContent, CompassPanel, Form, FormGroup, Switch, Title } from '@patternfly/react-core';
+import { CompassContent, Form, FormGroup, Panel, Switch, Title } from '@patternfly/react-core';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { useTheme } from '@app/utils/ThemeContext';
 
@@ -10,7 +10,7 @@ const GeneralSettings: React.FunctionComponent = () => {
   return (
     <>
       <CompassContent>
-        <CompassPanel>
+        <Panel>
           <Title headingLevel="h1">General Settings</Title>
           <Form>
           <FormGroup label="Theme" fieldId="theme-toggle">
@@ -23,7 +23,7 @@ const GeneralSettings: React.FunctionComponent = () => {
             />
           </FormGroup>
           </Form>
-        </CompassPanel>
+        </Panel>
       </CompassContent>
     </>
   );

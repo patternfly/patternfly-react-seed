@@ -3,7 +3,6 @@ import { CubesIcon } from '@patternfly/react-icons';
 import {
   Button,
   CompassContent,
-  CompassPanel,
   Content,
   ContentVariants,
   EmptyState,
@@ -11,6 +10,7 @@ import {
   EmptyStateBody,
   EmptyStateFooter,
   EmptyStateVariant,
+  Panel,
   Title,
 } from '@patternfly/react-core';
 
@@ -21,7 +21,7 @@ export interface ISupportProps {
 const Support: React.FunctionComponent<ISupportProps> = () => (
   <>
     <CompassContent>
-      <CompassPanel>
+      <Panel>
         <Title headingLevel="h1">Support</Title>
         <EmptyState variant={EmptyStateVariant.full} titleText="Empty State (Stub Support Module)" icon={CubesIcon}>
         <EmptyStateBody>
@@ -48,7 +48,7 @@ const Support: React.FunctionComponent<ISupportProps> = () => (
           </EmptyStateActions>
         </EmptyStateFooter>
         </EmptyState>
-      </CompassPanel>
+      </Panel>
     </CompassContent>
   </>
 );
