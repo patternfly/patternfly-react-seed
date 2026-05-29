@@ -17,7 +17,6 @@ import {
   SkipToContent,
 } from '@patternfly/react-core';
 import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
-import { BarsIcon } from '@patternfly/react-icons';
 
 interface IAppLayout {
   children: React.ReactNode;
@@ -28,9 +27,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     <Masthead>
       <MastheadMain>
         <MastheadToggle>
-          <PageToggleButton variant="plain" aria-label="Global navigation">
-            <BarsIcon />
-          </PageToggleButton>
+          <PageToggleButton variant="plain" isHamburgerButton aria-label="Global navigation"/>
         </MastheadToggle>
         <MastheadBrand>
           <MastheadLogo>
