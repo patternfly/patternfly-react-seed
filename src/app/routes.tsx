@@ -6,6 +6,16 @@ import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
 import { NotFound } from '@app/NotFound/NotFound';
 
+const RhdsDemo = React.lazy(() =>
+  import('@app/RhdsDemo/RhdsDemo').then(({ RhdsDemo: Page }) => ({ default: Page })),
+);
+
+const RhdsDemoRoute = (
+  <React.Suspense fallback={null}>
+    <RhdsDemo />
+  </React.Suspense>
+);
+
 export interface IAppRoute {
   label?: string; // Excluding the label will exclude the route from the nav sidebar in AppLayout
   /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -38,6 +48,13 @@ const routes: AppRouteConfig[] = [
     label: 'Support',
     path: '/support',
     title: 'PatternFly Seed | Support Page',
+  },
+  {
+    element: RhdsDemoRoute,
+    exact: true,
+    label: 'RHDS',
+    path: '/rhds',
+    title: 'PatternFly Seed | RHDS Demo',
   },
   {
     label: 'Settings',

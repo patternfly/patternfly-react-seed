@@ -124,6 +124,9 @@ module.exports = (env) => {
     ],
     resolve: {
       extensions: ['.js', '.ts', '.tsx', '.jsx'],
+      alias: {
+        '@rhds/icons': path.resolve(__dirname, 'node_modules/@rhds/icons'),
+      },
       plugins: [
         new TsconfigPathsPlugin({
           configFile: path.resolve(__dirname, './tsconfig.json'),
